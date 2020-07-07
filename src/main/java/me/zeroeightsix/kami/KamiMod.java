@@ -55,7 +55,7 @@ public class                                                   KamiMod {
     // major = e.g. big client architecture improvement milestone
     // minor = new module / feature
     // patch = bugfix or refactor
-    public static final String MODVER = "1.2";
+    public static final String MODVER = "1.1";
 
     public static final String NAME_UNICODE = "#freemanatee";
 
