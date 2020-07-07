@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@Module.Info(name = "AutoReplenish", category = Module.Category.COMBAT, description = "Refills your Hotbar")
+@Module.Info(name = "Hotbar Replenish", category = Module.Category.COMBAT, description = "Refills your Hotbar")
 public class AutoReplenish extends Module {
 
     private Setting<Integer> threshold = register(Settings.integerBuilder("Threshold").withMinimum(1).withValue(32).withMaximum(63).build());

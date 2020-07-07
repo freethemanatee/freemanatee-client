@@ -17,7 +17,7 @@ import net.minecraft.util.math.Vec3d;
 /**
  * Created by hub on 5 August 2019.
  */
-@Module.Info(name = "HopperNuker", category = Module.Category.ECME)
+@Module.Info(name = "Hopper Nuker", category = Module.Category.ECME)
 public class HopperNuker extends Module {
 
     private Setting<Double> range = register(Settings.d("Range", 5.5d));

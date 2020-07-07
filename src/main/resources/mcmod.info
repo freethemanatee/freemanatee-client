@@ -3,12 +3,12 @@
     "modid": "manatee client",
     "name": "free him",
     "description": "#freemanatee",
-    "version": "1.1",
+    "version": "1.2",
     "mcversion": "1.12.2",
     "logoFile": "logo.png",
     "url": "https://github.com/zeroeightysix/KAMI",
     "updateUrl": "",
-    "authorList": ["zopac, b11, terik"],
+    "authorList": ["zopac, b11"],
     "screenshots": [],
     "dependencies": []
   }

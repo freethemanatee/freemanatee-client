@@ -8,7 +8,6 @@ import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.event.events.RenderEvent;
-import me.zeroeightsix.kami.gui.kami.component.Chat;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.module.ModuleManager;
 import me.zeroeightsix.kami.module.modules.chat.AutoGG;
@@ -44,7 +43,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Module.Info(name = "AutoCrystal", category = Module.Category.COMBAT)
-public class TerikAura extends Module {
+public class autocrystal extends Module {
     private Setting<Boolean> place;
     private Setting<Boolean> raytrace;
     private Setting<Boolean> autoSwitch;
@@ -87,7 +86,7 @@ public class TerikAura extends Module {
     @EventHandler
     private Listener<PacketEvent.Send> packetListener;
 
-    public TerikAura() {
+    public autocrystal() {
 
         this.place = this.register(Settings.b("Place", true));
         this.raytrace = this.register(Settings.b("RayTrace", false));
@@ -116,21 +115,21 @@ public class TerikAura extends Module {
         final Packet[] packet = new Packet[1];
         this.packetListener = new Listener<PacketEvent.Send>(event -> {
             packet[0] = event.getPacket();
-            if (packet[0] instanceof CPacketPlayer && TerikAura.isSpoofingAngles) {
-                ((CPacketPlayer) packet[0]).yaw = (float) TerikAura.yaw;
-                ((CPacketPlayer) packet[0]).pitch = (float) TerikAura.pitch;
+            if (packet[0] instanceof CPacketPlayer && autocrystal.isSpoofingAngles) {
+                ((CPacketPlayer) packet[0]).yaw = (float) autocrystal.yaw;
+                ((CPacketPlayer) packet[0]).pitch = (float) autocrystal.pitch;
             }
         }, (Predicate<PacketEvent.Send>[]) new Predicate[0]);
     }
 
     @Override
     public void onUpdate() {
-        final EntityEnderCrystal crystal = (EntityEnderCrystal) TerikAura.mc.world.loadedEntityList.stream().filter(entity -> entity instanceof EntityEnderCrystal).map(entity -> entity).min(Comparator.comparing(c -> TerikAura.mc.player.getDistance(c))).orElse(null);
-        if (crystal != null && TerikAura.mc.player.getDistance((Entity) crystal) <= this.breakRange.getValue()) {
+        final EntityEnderCrystal crystal = (EntityEnderCrystal) autocrystal.mc.world.loadedEntityList.stream().filter(entity -> entity instanceof EntityEnderCrystal).map(entity -> entity).min(Comparator.comparing(c -> autocrystal.mc.player.getDistance(c))).orElse(null);
+        if (crystal != null && autocrystal.mc.player.getDistance((Entity) crystal) <= this.breakRange.getValue()) {
             if (System.nanoTime() / 1000000L - this.breakSystemTime >= 420 - this.attackSpeed.getValue() * 20) {
-                this.lookAtPacket(crystal.posX, crystal.posY, crystal.posZ, (EntityPlayer) TerikAura.mc.player);
-                TerikAura.mc.playerController.attackEntity((EntityPlayer) TerikAura.mc.player, (Entity) crystal);
-                TerikAura.mc.player.swingArm(EnumHand.MAIN_HAND);
+                this.lookAtPacket(crystal.posX, crystal.posY, crystal.posZ, (EntityPlayer) autocrystal.mc.player);
+                autocrystal.mc.playerController.attackEntity((EntityPlayer) autocrystal.mc.player, (Entity) crystal);
+                autocrystal.mc.player.swingArm(EnumHand.MAIN_HAND);
                 this.breakSystemTime = System.nanoTime() / 1000000L;
             }
             if (this.multiPlace.getValue()) {
@@ -144,10 +143,10 @@ public class TerikAura extends Module {
         } else {
             resetRotation();
         }
-        int crystalSlot = (TerikAura.mc.player.getHeldItemMainhand().getItem() == Items.END_CRYSTAL) ? TerikAura.mc.player.inventory.currentItem : -1;
+        int crystalSlot = (autocrystal.mc.player.getHeldItemMainhand().getItem() == Items.END_CRYSTAL) ? autocrystal.mc.player.inventory.currentItem : -1;
         if (crystalSlot == -1) {
             for (int l = 0; l < 9; ++l) {
-                if (TerikAura.mc.player.inventory.getStackInSlot(l).getItem() == Items.END_CRYSTAL) {
+                if (autocrystal.mc.player.inventory.getStackInSlot(l).getItem() == Items.END_CRYSTAL) {
                     crystalSlot = l;
                     break;
                 }
@@ -165,19 +164,19 @@ public class TerikAura extends Module {
         BlockPos finalPos = null;
         final List<BlockPos> blocks = this.findCrystalBlocks();
         final List<Entity> entities = new ArrayList<Entity>();
-        entities.addAll((Collection<? extends Entity>) TerikAura.mc.world.playerEntities.stream().filter(entityPlayer -> !Friends.isFriend(entityPlayer.getName())).collect(Collectors.toList()));
+        entities.addAll((Collection<? extends Entity>) autocrystal.mc.world.playerEntities.stream().filter(entityPlayer -> !Friends.isFriend(entityPlayer.getName())).collect(Collectors.toList()));
         double damage = 0.5;
         for (final Entity entity2 : entities) {
-            if (entity2 != TerikAura.mc.player) {
+            if (entity2 != autocrystal.mc.player) {
                 if (((EntityLivingBase) entity2).getHealth() <= 0.0f) {
                     continue;
 
                 }
-                if (TerikAura.mc.player.getDistanceSq(entity2) > this.enemyRange.getValue() * this.enemyRange.getValue()) {
+                if (autocrystal.mc.player.getDistanceSq(entity2) > this.enemyRange.getValue() * this.enemyRange.getValue()) {
                     continue;
                 }
                 for (final BlockPos blockPos : blocks) {
-                    if (!canBlockBeSeen(blockPos) && TerikAura.mc.player.getDistanceSq(blockPos) > 25.0 && this.raytrace.getValue()) {
+                    if (!canBlockBeSeen(blockPos) && autocrystal.mc.player.getDistanceSq(blockPos) > 25.0 && this.raytrace.getValue()) {
                         continue;
                     }
                     final double b = entity2.getDistanceSq(blockPos);
@@ -191,9 +190,9 @@ public class TerikAura extends Module {
                     if (d <= damage) {
                         continue;
                     }
-                    final double self = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, (Entity) TerikAura.mc.player);
+                    final double self = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, (Entity) autocrystal.mc.player);
                     if (this.antiSui.getValue()) {
-                        if (TerikAura.mc.player.getHealth() + TerikAura.mc.player.getAbsorptionAmount() - self <= 7.0) {
+                        if (autocrystal.mc.player.getHealth() + autocrystal.mc.player.getAbsorptionAmount() - self <= 7.0) {
                             continue;
                         }
                         if (self > d) {
@@ -222,16 +221,16 @@ public class TerikAura extends Module {
         this.renderEnt = ent;
 
         if (this.place.getValue()) {
-            if (!offhand && TerikAura.mc.player.inventory.currentItem != crystalSlot) {
+            if (!offhand && autocrystal.mc.player.inventory.currentItem != crystalSlot) {
                 if (this.autoSwitch.getValue()) {
-                    TerikAura.mc.player.inventory.currentItem = crystalSlot;
+                    autocrystal.mc.player.inventory.currentItem = crystalSlot;
                     resetRotation();
                     this.switchCooldown = true;
                 }
                 return;
             }
-            this.lookAtPacket(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5, (EntityPlayer) TerikAura.mc.player);
-            final RayTraceResult result = TerikAura.mc.world.rayTraceBlocks(new Vec3d(TerikAura.mc.player.posX, TerikAura.mc.player.posY + TerikAura.mc.player.getEyeHeight(), TerikAura.mc.player.posZ), new Vec3d(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5));
+            this.lookAtPacket(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5, (EntityPlayer) autocrystal.mc.player);
+            final RayTraceResult result = autocrystal.mc.world.rayTraceBlocks(new Vec3d(autocrystal.mc.player.posX, autocrystal.mc.player.posY + autocrystal.mc.player.getEyeHeight(), autocrystal.mc.player.posZ), new Vec3d(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5));
             EnumFacing f;
             if (result == null || result.sideHit == null) {
                 f = EnumFacing.UP;
@@ -243,21 +242,21 @@ public class TerikAura extends Module {
                 return;
             }
             if (System.nanoTime() / 1000000L - this.placeSystemTime >= this.placeDelay.getValue() * 2) {
-                TerikAura.mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(finalPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
+                autocrystal.mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(finalPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
                 ++this.placements;
                 this.antiStuckSystemTime = System.nanoTime() / 1000000L;
                 this.placeSystemTime = System.nanoTime() / 1000000L;
             }
         }
-        if (TerikAura.isSpoofingAngles) {
-            if (TerikAura.togglePitch) {
-                final EntityPlayerSP player = TerikAura.mc.player;
+        if (autocrystal.isSpoofingAngles) {
+            if (autocrystal.togglePitch) {
+                final EntityPlayerSP player = autocrystal.mc.player;
                 player.rotationPitch += (float) 4.0E-4;
-                TerikAura.togglePitch = false;
+                autocrystal.togglePitch = false;
             } else {
-                final EntityPlayerSP player2 = TerikAura.mc.player;
+                final EntityPlayerSP player2 = autocrystal.mc.player;
                 player2.rotationPitch -= (float) 4.0E-4;
-                TerikAura.togglePitch = true;
+                autocrystal.togglePitch = true;
             }
         }
     }
@@ -302,16 +301,16 @@ public class TerikAura extends Module {
     private boolean canPlaceCrystal(final BlockPos blockPos) {
         final BlockPos boost = blockPos.add(0, 1, 0);
         final BlockPos boost2 = blockPos.add(0, 2, 0);
-        return (TerikAura.mc.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK || TerikAura.mc.world.getBlockState(blockPos).getBlock() == Blocks.OBSIDIAN) && TerikAura.mc.world.getBlockState(boost).getBlock() == Blocks.AIR && TerikAura.mc.world.getBlockState(boost2).getBlock() == Blocks.AIR && TerikAura.mc.world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB(boost)).isEmpty() && TerikAura.mc.world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB(boost2)).isEmpty();
+        return (autocrystal.mc.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK || autocrystal.mc.world.getBlockState(blockPos).getBlock() == Blocks.OBSIDIAN) && autocrystal.mc.world.getBlockState(boost).getBlock() == Blocks.AIR && autocrystal.mc.world.getBlockState(boost2).getBlock() == Blocks.AIR && autocrystal.mc.world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB(boost)).isEmpty() && autocrystal.mc.world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB(boost2)).isEmpty();
     }
 
     public static BlockPos getPlayerPos() {
-        return new BlockPos(Math.floor(TerikAura.mc.player.posX), Math.floor(TerikAura.mc.player.posY), Math.floor(TerikAura.mc.player.posZ));
+        return new BlockPos(Math.floor(autocrystal.mc.player.posX), Math.floor(autocrystal.mc.player.posY), Math.floor(autocrystal.mc.player.posZ));
     }
 
     private List<BlockPos> findCrystalBlocks() {
         NonNullList positions = NonNullList.create();
-        positions.addAll((Collection)this.getSphere(TerikAura.getPlayerPos(), this.placeRange.getValue().floatValue(), this.placeRange.getValue(), false, true, 0).stream().filter(this::canPlaceCrystal).collect(Collectors.toList()));
+        positions.addAll((Collection)this.getSphere(autocrystal.getPlayerPos(), this.placeRange.getValue().floatValue(), this.placeRange.getValue(), false, true, 0).stream().filter(this::canPlaceCrystal).collect(Collectors.toList()));
         return (List<BlockPos>)positions;
     }
 
@@ -343,7 +342,7 @@ public class TerikAura extends Module {
         final float damage = (float)(int)((v * v + v) / 2.0 * 7.0 * doubleExplosionSize + 1.0);
         double finald = 1.0;
         if (entity instanceof EntityLivingBase) {
-            finald = getBlastReduction((EntityLivingBase)entity, getDamageMultiplied(damage), new Explosion((World)TerikAura.mc.world, (Entity)null, posX, posY, posZ, 6.0f, false, true));
+            finald = getBlastReduction((EntityLivingBase)entity, getDamageMultiplied(damage), new Explosion((World) autocrystal.mc.world, (Entity)null, posX, posY, posZ, 6.0f, false, true));
         }
         return (float)finald;
     }
@@ -366,7 +365,7 @@ public class TerikAura extends Module {
     }
 
     private static float getDamageMultiplied(final float damage) {
-        final int diff = TerikAura.mc.world.getDifficulty().getId();
+        final int diff = autocrystal.mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
 
@@ -375,33 +374,33 @@ public class TerikAura extends Module {
     }
 
     public static boolean canBlockBeSeen(final BlockPos blockPos) {
-        return TerikAura.mc.world.rayTraceBlocks(new Vec3d(TerikAura.mc.player.posX, TerikAura.mc.player.posY + TerikAura.mc.player.getEyeHeight(), TerikAura.mc.player.posZ), new Vec3d((double)blockPos.getX(), (double)blockPos.getY(), (double)blockPos.getZ()), false, true, false) == null;
+        return autocrystal.mc.world.rayTraceBlocks(new Vec3d(autocrystal.mc.player.posX, autocrystal.mc.player.posY + autocrystal.mc.player.getEyeHeight(), autocrystal.mc.player.posZ), new Vec3d((double)blockPos.getX(), (double)blockPos.getY(), (double)blockPos.getZ()), false, true, false) == null;
     }
 
     private static void setYawAndPitch(final float yaw1, final float pitch1) {
-        TerikAura.yaw = yaw1;
-        TerikAura.pitch = pitch1;
-        TerikAura.isSpoofingAngles = true;
+        autocrystal.yaw = yaw1;
+        autocrystal.pitch = pitch1;
+        autocrystal.isSpoofingAngles = true;
     }
 
     private static void resetRotation() {
-        if (TerikAura.isSpoofingAngles) {
-            TerikAura.yaw = TerikAura.mc.player.rotationYaw;
-            TerikAura.pitch = TerikAura.mc.player.rotationPitch;
-            TerikAura.isSpoofingAngles = false;
+        if (autocrystal.isSpoofingAngles) {
+            autocrystal.yaw = autocrystal.mc.player.rotationYaw;
+            autocrystal.pitch = autocrystal.mc.player.rotationPitch;
+            autocrystal.isSpoofingAngles = false;
         }
     }
 
     @Override
     protected void onEnable() {
 
-        if (this.alert.getValue() && TerikAura.mc.world != null) {
+        if (this.alert.getValue() && autocrystal.mc.world != null) {
             Command.sendChatMessage(ChatFormatting.RED.toString() + "" + ChatFormatting.WHITE.toString() + "\u00A7a manatee is free");
         }
     }
 
     public void onDisable() {
-        if (this.alert.getValue() && TerikAura.mc.world != null) {
+        if (this.alert.getValue() && autocrystal.mc.world != null) {
             Command.sendChatMessage(ChatFormatting.RED.toString() + "" + ChatFormatting.WHITE.toString() + " \u00A7c manatee is no longer free" + ChatFormatting.RED.toString() + " ");
         }
         this.render = null;
@@ -409,6 +408,6 @@ public class TerikAura extends Module {
     }
 
     static {
-        TerikAura.togglePitch = false;
+        autocrystal.togglePitch = false;
     }
 }

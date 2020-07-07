@@ -10,15 +10,15 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemShulkerBox;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
-import com.mojang.realmsclient.gui.ChatFormatting;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-// kami i mean no?
+/**
+ * Created by 086 on 24/12/2017.
+ */
 @Mixin(GuiScreen.class)
 public class MixinGuiScreen {
 
@@ -76,8 +76,7 @@ public class MixinGuiScreen {
                   ItemStack itemStack = nonnulllist.get(i);
 
                   itemRender.renderItemAndEffectIntoGUI(itemStack, iX, iY);
-                  if (is32k(itemStack)) itemRender.renderItemOverlayIntoGUI(this.fontRenderer, itemStack, iX, iY, ChatFormatting.RED + "32k" + ChatFormatting.RESET);
-                  else itemRender.renderItemOverlayIntoGUI(this.fontRenderer, itemStack, iX, iY, null);
+                  itemRender.renderItemOverlayIntoGUI(this.fontRenderer, itemStack, iX, iY, null);
                }
                RenderHelper.disableStandardItemLighting();
                this.itemRender.zLevel = 0.0F;
@@ -120,16 +119,4 @@ public class MixinGuiScreen {
       GlStateManager.enableTexture2D();
    }
 
-   private boolean is32k(ItemStack stack) {
-      if (stack.getItem() instanceof net.minecraft.item.ItemSword) {
-         NBTTagList enchants = stack.getEnchantmentTagList();
-         if (enchants != null)
-            for (int i = 0; i < enchants.tagCount(); i++) {
-               if (enchants.getCompoundTagAt(i).getShort("lvl") >= Short.MAX_VALUE)
-                  return true;
-            }
-      }
-      return false;
-   }
 }
-

@@ -51,7 +51,7 @@ public class TotemPopCounter extends Module {
         for(EntityPlayer player : mc.world.playerEntities) {
             if(player.getHealth() <= 0) {
                 if(popList.containsKey(player.getName())) {
-                    Command.sendChatMessage(colourchoice() + player.getName() + " died after popping " + popList.get(player.getName()) + " totems Ezzzzz");
+                    Command.sendChatMessage(colourchoice() + player.getName() + " died after popping " + popList.get(player.getName()) + " totems!");
                     popList.remove(player.getName(), popList.get(player.getName()));
                 }
             }

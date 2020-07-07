@@ -55,14 +55,14 @@ public class                                                   KamiMod {
     // major = e.g. big client architecture improvement milestone
     // minor = new module / feature
     // patch = bugfix or refactor
-    public static final String MODVER = "1.1";
+    public static final String MODVER = "1.2";
 
     public static final String NAME_UNICODE = "#freemanatee";
 
     public static final Logger LOGGER = LogManager.getLogger("freemanatee");
     public static final EventBus EVENT_BUS = new EventManager();
 
-    private static final String CONFIG_NAME_DEFAULT = "manatee_Config.json";
+    private static final String CONFIG_NAME_DEFAULT = "Manatee_Config.json";
 
     @Mod.Instance
     private static KamiMod INSTANCE;
@@ -86,7 +86,7 @@ public class                                                   KamiMod {
 
     // whatever this is, we should clean it up lmao
     public static String getConfigName() {
-        Path config = Paths.get("manatee_LastConfig.txt");
+        Path config = Paths.get("Manatee_LastConfig.txt");
         String kamiConfigName = CONFIG_NAME_DEFAULT;
         try (BufferedReader reader = Files.newBufferedReader(config)) {
             kamiConfigName = reader.readLine();

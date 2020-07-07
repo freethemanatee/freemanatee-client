@@ -1,4 +1,4 @@
-package me.zeroeightsix.kami.module.modules.player;
+package me.zeroeightsix.kami.module.modules.hidden;
 
 import me.zeroeightsix.kami.module.Module;
 

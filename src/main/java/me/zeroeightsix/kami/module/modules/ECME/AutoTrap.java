@@ -40,7 +40,7 @@ import static me.zeroeightsix.kami.util.BlockInteractionHelper.faceVectorPacketI
  * Created 6 August 2019 by hub
  * Updated 28 November 2019 by hub
  */
-@Module.Info(name = "AutoTrap", category = Module.Category.ECME)
+@Module.Info(name = "Auto Trap", category = Module.Category.ECME)
 public class AutoTrap extends Module {
 
     private Setting<Double> range = register(Settings.doubleBuilder("Range").withMinimum(3.5).withValue(4.5).withMaximum(32.0).build());

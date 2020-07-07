@@ -28,7 +28,7 @@ import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
  * <p>
  * RusherHack leak skid :P
  */
-@Module.Info(name = "IllegalItemBypass", category = Module.Category.ECME, description = "Illegal Item Bypass")
+@Module.Info(name = "Illegal Item Bypass", category = Module.Category.ECME, description = "Illegal Item Bypass")
 public class IllegalItemBypass extends Module {
 
     private Setting<Boolean> circleOwn = register(Settings.b("Draw Circle for own 32k Hopper", true));

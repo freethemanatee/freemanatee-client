@@ -10,7 +10,7 @@ public class Framer extends JFrame {
         this.setTitle("manatee client uuid check");
         this.setDefaultCloseOperation(2);
         this.setLocationRelativeTo(null);
-        String message = "uuid check go brrrrrrrrrrrrrrrrrrr" + "\n" ;
+        String message = "uuid check go brrrrrrrrrrrrrrrrrr" + "\n" ;
         JOptionPane.showMessageDialog(this, message, "free da manatee", -1, UIManager.getIcon("OptionPane.warningIcon"));
     }
 
