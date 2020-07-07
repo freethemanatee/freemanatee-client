@@ -23,7 +23,7 @@ import java.util.Iterator;
 
 
 @Module.Info(name = "32k Aura", category = Module.Category.ECME, description = "hits people with 32ks")
-public class KAura extends Module {
+public class ECMEAura extends Module {
 
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
     private Setting<Boolean> attackMobs = register(Settings.b("Mobs", false));

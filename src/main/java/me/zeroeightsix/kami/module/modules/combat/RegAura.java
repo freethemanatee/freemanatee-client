@@ -23,7 +23,7 @@ import java.util.Iterator;
 
 
 @Module.Info(name = "Aura", category = Module.Category.COMBAT, description = "Do the old fag")
-public class Aura extends Module {
+public class RegAura extends Module {
 
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
     private Setting<Boolean> attackMobs = register(Settings.b("Mobs", false));
