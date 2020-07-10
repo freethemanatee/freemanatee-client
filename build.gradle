@@ -1,6 +1,7 @@
+// forge's stuff 
+
 buildscript {
     repositories {
-        mavenCentral()
         jcenter()
         maven {
             name = 'forge'
@@ -56,7 +57,6 @@ repositories {
         url = "https://jitpack.io"
     }
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
@@ -73,12 +73,7 @@ dependencies {
     compile(group: 'org.reflections', name: 'reflections', version: '0.9.11') {
         exclude group: 'com.google.guava', module: 'guava'
     }
-    compile "club.minnced:java-discord-rpc:2.0.2"
-}
-
-task getDeps(type: Copy) {
-    from sourceSets.main.runtimeClasspath
-    into 'runtime/'
+    implementation 'org.jetbrains:annotations:15.0'
 }
 
 processResources {
@@ -111,7 +106,6 @@ shadowJar {
         include(dependency('org.yaml:snakeyaml'))
         include(dependency('org.reflections:reflections'))
         include(dependency('org.javassist:javassist'))
-        include(dependency('club.minnced:java-discord-rpc'))
     }
     exclude 'dummyThing'
     exclude 'LICENSE.txt'
@@ -124,6 +118,10 @@ mixin {
 }
 
 reobf {
+    jar {
+        mappingType = 'SEARGE'
+    }
+	
     shadowJar {
         mappingType = 'SEARGE'
         classpath = sourceSets.main.compileClasspath

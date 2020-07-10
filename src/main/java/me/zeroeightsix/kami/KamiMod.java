@@ -21,7 +21,9 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import me.zeroeightsix.kami.setting.SettingsRegister;
 import me.zeroeightsix.kami.setting.config.Configuration;
-import me.zeroeightsix.kami.util.*;
+import me.zeroeightsix.kami.util.Friends;
+import me.zeroeightsix.kami.util.LagCompensator;
+import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -43,35 +45,31 @@ import java.util.Optional;
 
 /**
  * Created by 086 on 7/11/2017.
- * Updated 1 December 2019 by hub
+ * i eat ass
  */
 @Mod(modid = KamiMod.MODID, name = KamiMod.MODNAME, version = KamiMod.MODVER)
-public class                                                   KamiMod {
+public class KamiMod {
 
-    public static final String MODID = "freemanatee";
-    public static final String MODNAME = "freemanatee";
+    public static final String MODID = "manatee";
+    public static final String MODNAME = "manatee";
+    public static final String MODVER = "1.3";
 
-    // Version Number -> major.minor.patch
-    // major = e.g. big client architecture improvement milestone
-    // minor = new module / feature
-    // patch = bugfix or refactor
-    public static final String MODVER = "1.2";
-
+    public static final String KAMI_HIRAGANA = "#freemanatee";
+    public static final String KAMI_KATAKANA = "#freemanatee";
     public static final String NAME_UNICODE = "#freemanatee";
+    public static final String KAMI_KANJI = "#freemanatee";
 
-    public static final Logger LOGGER = LogManager.getLogger("freemanatee");
+    private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanateeConfig.json";
+    public static final char colour = '\u00A7';
+    public static final Logger log = LogManager.getLogger("freemanatee");
+
     public static final EventBus EVENT_BUS = new EventManager();
-
-    private static final String CONFIG_NAME_DEFAULT = "Manatee_Config.json";
 
     @Mod.Instance
     private static KamiMod INSTANCE;
 
-    public GuiManager guiManager;
-    public KamiGUI kamiGUI;
+    public KamiGUI guiManager;
     public CommandManager commandManager;
-    public CapeManager capeManager;
-
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
         protected JsonObject doForward(JsonObject jsonObject) {
@@ -84,23 +82,55 @@ public class                                                   KamiMod {
         }
     }).buildAndRegister("");
 
-    // whatever this is, we should clean it up lmao
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        DiscordPresence.start();
+    }
+
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event) {
+        KamiMod.log.info("\n\nInitializing freemanatee client " + MODVER);
+
+        ModuleManager.initialize();
+
+        ModuleManager.getModules().stream().filter(module -> module.alwaysListening).forEach(EVENT_BUS::subscribe);
+        MinecraftForge.EVENT_BUS.register(new ForgeEventProcessor());
+        LagCompensator.INSTANCE = new LagCompensator();
+
+        Wrapper.init();
+
+        guiManager = new KamiGUI();
+        guiManager.initializeGUI();
+
+        commandManager = new CommandManager();
+
+        Friends.initFriends();
+        SettingsRegister.register("commandPrefix", Command.commandPrefix);
+        loadConfiguration();
+        KamiMod.log.info("Settings loaded");
+
+        ModuleManager.updateLookup(); // generate the lookup table after settings are loaded to make custom module names work
+
+        // After settings loaded, we want to let the enabled modules know they've been enabled (since the setting is done through reflection)
+        ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
+
+        KamiMod.log.info("KAMI Mod initialized!\n");
+    }
+
     public static String getConfigName() {
-        Path config = Paths.get("Manatee_LastConfig.txt");
-        String kamiConfigName = CONFIG_NAME_DEFAULT;
-        try (BufferedReader reader = Files.newBufferedReader(config)) {
+        Path config = Paths.get("ManateeLastConfig.txt");
+        String kamiConfigName = KAMI_CONFIG_NAME_DEFAULT;
+        try(BufferedReader reader = Files.newBufferedReader(config)) {
             kamiConfigName = reader.readLine();
-            if (!isFilenameValid(kamiConfigName)) {
-                kamiConfigName = CONFIG_NAME_DEFAULT;
-            }
+            if (!isFilenameValid(kamiConfigName)) kamiConfigName = KAMI_CONFIG_NAME_DEFAULT;
         } catch (NoSuchFileException e) {
-            try (BufferedWriter writer = Files.newBufferedWriter(config)) {
-                writer.write(CONFIG_NAME_DEFAULT);
+            try(BufferedWriter writer = Files.newBufferedWriter(config)) {
+                writer.write(KAMI_CONFIG_NAME_DEFAULT);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
         } catch (IOException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
         return kamiConfigName;
     }
@@ -113,31 +143,24 @@ public class                                                   KamiMod {
         }
     }
 
-    private static void loadConfigurationUnsafe() throws IOException {
+    public static void loadConfigurationUnsafe() throws IOException {
         String kamiConfigName = getConfigName();
         Path kamiConfig = Paths.get(kamiConfigName);
-        if (!Files.exists(kamiConfig)) {
-            return;
-        }
+        if (!Files.exists(kamiConfig)) return;
         Configuration.loadConfiguration(kamiConfig);
 
         JsonObject gui = KamiMod.INSTANCE.guiStateSetting.getValue();
         for (Map.Entry<String, JsonElement> entry : gui.entrySet()) {
-            Optional<Component> optional = KamiMod.INSTANCE.kamiGUI.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
+            Optional<Component> optional = KamiMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
             if (optional.isPresent()) {
                 JsonObject object = entry.getValue().getAsJsonObject();
                 Frame frame = (Frame) optional.get();
                 frame.setX(object.get("x").getAsInt());
                 frame.setY(object.get("y").getAsInt());
                 Docking docking = Docking.values()[object.get("docking").getAsInt()];
-                if (docking.isLeft()) {
-                    ContainerHelper.setAlignment(frame, AlignedComponent.Alignment.LEFT);
-                } else if (docking.isRight()) {
-                    ContainerHelper.setAlignment(frame, AlignedComponent.Alignment.RIGHT);
-                } else if
-                (docking.isCenterVertical()) {
-                    ContainerHelper.setAlignment(frame, AlignedComponent.Alignment.CENTER);
-                }
+                if (docking.isLeft()) ContainerHelper.setAlignment(frame, AlignedComponent.Alignment.LEFT);
+                else if (docking.isRight()) ContainerHelper.setAlignment(frame, AlignedComponent.Alignment.RIGHT);
+                else if (docking.isCenterVertical()) ContainerHelper.setAlignment(frame, AlignedComponent.Alignment.CENTER);
                 frame.setDocking(docking);
                 frame.setMinimized(object.get("minimized").getAsBoolean());
                 frame.setPinned(object.get("pinned").getAsBoolean());
@@ -145,20 +168,20 @@ public class                                                   KamiMod {
                 System.err.println("Found GUI config entry for " + entry.getKey() + ", but found no frame with that name");
             }
         }
-        KamiMod.getInstance().getKamiGUI().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
+        KamiMod.getInstance().getGuiManager().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
     }
 
     public static void saveConfiguration() {
         try {
             saveConfigurationUnsafe();
-        } catch (IOException e) {
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void saveConfigurationUnsafe() throws IOException {
         JsonObject object = new JsonObject();
-        KamiMod.INSTANCE.kamiGUI.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
+        KamiMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
             JsonObject frameObject = new JsonObject();
             frameObject.add("x", new JsonPrimitive(frame.getX()));
             frameObject.add("y", new JsonPrimitive(frame.getY()));
@@ -170,9 +193,8 @@ public class                                                   KamiMod {
         KamiMod.INSTANCE.guiStateSetting.setValue(object);
 
         Path outputFile = Paths.get(getConfigName());
-        if (!Files.exists(outputFile)) {
+        if (!Files.exists(outputFile))
             Files.createFile(outputFile);
-        }
         Configuration.saveConfiguration(outputFile);
         ModuleManager.getModules().forEach(Module::destroy);
     }
@@ -191,65 +213,11 @@ public class                                                   KamiMod {
         return INSTANCE;
     }
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-    }
-
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
-
-        KamiMod.LOGGER.info("\n\nInitializing freemanatee " + MODVER);
-
-        ReflectionHelper.init();
-
-        ModuleManager.initialize();
-
-        ModuleManager.getModules().stream().filter(module -> module.alwaysListening).forEach(EVENT_BUS::subscribe);
-        MinecraftForge.EVENT_BUS.register(new ForgeEventProcessor());
-        LagCompensator.INSTANCE = new LagCompensator();
-
-        Wrapper.init();
-
-        guiManager = new GuiManager();
-
-        kamiGUI = new KamiGUI();
-        kamiGUI.initializeGUI();
-
-        commandManager = new CommandManager();
-
-        capeManager = new CapeManager();
-        capeManager.initializeCapes();
-
-        Friends.initFriends();
-        SettingsRegister.register("commandPrefix", Command.commandPrefix);
-        loadConfiguration();
-        KamiMod.LOGGER.info("Settings loaded");
-
-        ModuleManager.updateLookup(); // generate the lookup table after settings are loaded to make custom module names work
-
-        // Hard override to disable certain modules
-        if (ModuleManager.getModuleByName("FakePlayer").isEnabled()) {
-            ModuleManager.getModuleByName("FakePlayer").disable();
-        }
-
-        // After settings loaded, we want to let the enabled modules know they've been enabled (since the setting is done through reflection)
-        ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
-
-        // Hard override to enable certain modules
-        if (ModuleManager.getModuleByName("GUI").isDisabled()) {
-            ModuleManager.getModuleByName("GUI").enable();
-        }
-
-        KamiMod.LOGGER.info(MODNAME + " initialized!\n");
-
-    }
-
-    public KamiGUI getKamiGUI() {
-        return kamiGUI;
+    public KamiGUI getGuiManager() {
+        return guiManager;
     }
 
     public CommandManager getCommandManager() {
         return commandManager;
     }
-
 }

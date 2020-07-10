@@ -1,12 +1,5 @@
-## man a tea
-free him
+LOOKING FOR THE CLIENT TO UPDATE? TOO BAD NOW PRIVATE FOR YAKUZA ONLY UNLESS LEAKED THEN KEK. 
 
+Nutgod.cc skid intended for use on Endcrystal.me
 
-## Thank you
-[086](https://github.com/zeroeightysix) for [KAMI](https://github.com/zeroeightysix/KAMI)
-
-[ZeroMemes](https://github.com/ZeroMemes) for [Alpine](https://github.com/ZeroMemes/Alpine)
-
-[ronmamo](https://github.com/ronmamo/) for [Reflections](https://github.com/ronmamo/reflections)
-
-The [minecraft forge team](https://github.com/MinecraftForge) for [forge](https://files.minecraftforge.net/)
+Yakuza on top
