@@ -50,18 +50,18 @@ import java.util.Optional;
 @Mod(modid = KamiMod.MODID, name = KamiMod.MODNAME, version = KamiMod.MODVER)
 public class KamiMod {
 
-    public static final String MODID = "kami";
-    public static final String MODNAME = "KAMI";
-    public static final String MODVER = "b4";
+    public static final String MODID = "manatee";
+    public static final String MODNAME = "manatee";
+    public static final String MODVER = "1.3";
 
-    public static final String KAMI_HIRAGANA = "\u028f\u1d00\u1d0b\u0262\u1d0f\u1d05\u1d9c\u1d9c";
-    public static final String KAMI_KATAKANA = "\u028f\u1d00\u1d0b\u0262\u1d0f\u1d05\u1d9c\u1d9c";
-    public static final String NAME_UNICODE = "YakGod";
-    public static final String KAMI_KANJI = "YakGod";
+    public static final String KAMI_HIRAGANA = "#freemanatee";
+    public static final String KAMI_KATAKANA = "#freemanatee";
+    public static final String NAME_UNICODE = "#freemanatee";
+    public static final String KAMI_KANJI = "#freemanatee";
 
-    private static final String KAMI_CONFIG_NAME_DEFAULT = "YakGodConfig.json";
+    private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanateeConfig.json";
     public static final char colour = '\u00A7';
-    public static final Logger log = LogManager.getLogger("KAMI");
+    public static final Logger log = LogManager.getLogger("freemanatee");
 
     public static final EventBus EVENT_BUS = new EventManager();
 
@@ -89,7 +89,7 @@ public class KamiMod {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        KamiMod.log.info("\n\nInitializing KAMI " + MODVER);
+        KamiMod.log.info("\n\nInitializing freemanatee client " + MODVER);
 
         ModuleManager.initialize();
 
@@ -118,7 +118,7 @@ public class KamiMod {
     }
 
     public static String getConfigName() {
-        Path config = Paths.get("YakGodLastConfig.txt");
+        Path config = Paths.get("ManateeLastConfig.txt");
         String kamiConfigName = KAMI_CONFIG_NAME_DEFAULT;
         try(BufferedReader reader = Files.newBufferedReader(config)) {
             kamiConfigName = reader.readLine();
