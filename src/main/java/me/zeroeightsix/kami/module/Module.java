@@ -95,6 +95,7 @@ public class Module {
         PLAYER("Player", false),
         MOVEMENT("Movement", false),
         CHAT("Chat", false),
+        CLIENT("Chat", true),
         HIDDEN("Hidden", true);
         boolean hidden;
         String name;

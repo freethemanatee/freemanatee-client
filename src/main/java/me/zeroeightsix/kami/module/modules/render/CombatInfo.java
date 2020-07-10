@@ -48,11 +48,9 @@ public class CombatInfo extends Module {
         {
             if(this.arial.getValue() == false) {
                 mc.fontRenderer.drawStringWithShadow("CA: " + this.getCaura(), x.getValue(), y.getValue(), color);
-                mc.fontRenderer.drawStringWithShadow("32k Aura: " + this.get32K(), x.getValue(), y.getValue() -10f, color);
                 mc.fontRenderer.drawStringWithShadow("KA: " + this.getKA(), x.getValue(), y.getValue() -20f, color);
             } else if(this.arial.getValue() == true) {
                 this.cFontRenderer.drawStringWithShadow("CA: " + this.getCaura(), this.x.getValue().floatValue(), (yCount) - (float) this.cFontRenderer.getHeight(), color);
-                this.cFontRenderer.drawStringWithShadow("32k Aura: " + this.get32K(), this.x.getValue().floatValue(), (yCount - 10.0f) - (float) this.cFontRenderer.getHeight(), color);
                 this.cFontRenderer.drawStringWithShadow("KA: " + this.getKA(), this.x.getValue().floatValue(), (yCount - 20.0f) - (float) this.cFontRenderer.getHeight(), color);
             }
 
