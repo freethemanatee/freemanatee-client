@@ -19,7 +19,7 @@ public abstract class Command {
 
 	protected SyntaxChunk[] syntaxChunks;
 
-	public static Setting<String> commandPrefix = Settings.s("commandPrefix", ".");
+	public static Setting<String> commandPrefix = Settings.s("commandPrefix", "-");
 
 	public Command(String label, SyntaxChunk[] syntaxChunks) {
 		this.label = label;
@@ -28,7 +28,7 @@ public abstract class Command {
 	}
 
 	public static void sendChatMessage(String message){
-		sendRawChatMessage("\u00A79[YakGod.CC] " + message);	}
+		sendRawChatMessage("freemanatee > " + message);	}
 
 	public static void sendStringChatMessage(String[] messages) {
 		sendChatMessage("");
