@@ -18,20 +18,12 @@ public class OffHandGap extends Module {
 
     private Setting<Boolean> soft = register(Settings.b("Soft", false));
     private Setting<Boolean> totemdisable = register(Settings.b("TotemOnDisable", true));
-    private Setting<Boolean> offhandcaDisable = register(Settings.b("OffhandCADisable", false));
 
 
     @Override
     public void onEnable() {
         if (totemdisable.getValue()) {
             ModuleManager.getModuleByName("AutoTotem").disable();
-        } else {
-            return;
-        }
-        if (offhandcaDisable.getValue()) {
-            ModuleManager.getModuleByName("AutoOffhandCrystal").disable();
-        } else {
-            return;
         }
     }
 
@@ -40,15 +32,8 @@ public class OffHandGap extends Module {
     public void onDisable() {
         if (totemdisable.getValue()) {
             ModuleManager.getModuleByName("AutoTotem").enable();
-        } else {
-            return;
         }
-            if (offhandcaDisable.getValue()) {
-                ModuleManager.getModuleByName("AutoOffhandCrystal").enable();
-            } else {
-                return;
-            }
-        }
+    }
 
 
     @Override

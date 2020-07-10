@@ -24,6 +24,7 @@ import me.zeroeightsix.kami.setting.config.Configuration;
 import me.zeroeightsix.kami.util.Friends;
 import me.zeroeightsix.kami.util.LagCompensator;
 import me.zeroeightsix.kami.util.Wrapper;
+import me.zeroeightsix.kami.util.CapeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -52,7 +53,7 @@ public class KamiMod {
 
     public static final String MODID = "manatee";
     public static final String MODNAME = "manatee";
-    public static final String MODVER = "1.3";
+    public static final String MODVER = "1.3-beta";
 
     public static final String KAMI_HIRAGANA = "#freemanatee";
     public static final String KAMI_KATAKANA = "#freemanatee";
@@ -70,6 +71,8 @@ public class KamiMod {
 
     public KamiGUI guiManager;
     public CommandManager commandManager;
+    public CapeManager capeManager;
+
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
         protected JsonObject doForward(JsonObject jsonObject) {

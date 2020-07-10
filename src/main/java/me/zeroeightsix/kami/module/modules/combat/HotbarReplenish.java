@@ -21,7 +21,7 @@ import java.util.Map;
  */
 
 
-@Module.Info(name = "HotbarReplenish", description = "Replenishes on items if you're low", category = Module.Category.COMBAT)
+@Module.Info(name = "Hotbar Replenish", description = "Replenishes on items if you're low", category = Module.Category.COMBAT)
 public class HotbarReplenish extends Module {
 
     private Setting<Integer> threshold = register(Settings.integerBuilder("Threshold").withMinimum(1).withValue(32).withMaximum(63).build());

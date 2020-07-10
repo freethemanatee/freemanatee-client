@@ -16,7 +16,7 @@ public class ArmorWarning extends Module {
 
     public void onRender() {
         if (this.shouldMend(0) || this.shouldMend(1) || this.shouldMend(2) || this.shouldMend(3)) {
-            String text = "Armor is below " + this.threshold.getValue() + "% !";
+            String text = "Armor is below " + this.threshold.getValue() + "%!";
             int divider = getScale();
             this.ff.drawStringWithShadow(text, (double)((float)mc.displayWidth / (float)divider / 2.0F - (float)(this.ff.getStringWidth(text) / 2)), (double)((float)mc.displayHeight / (float)divider / 2.0F - 16.0F), 15748422);
         }

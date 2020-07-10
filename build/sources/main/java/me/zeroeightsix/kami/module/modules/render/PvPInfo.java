@@ -13,7 +13,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-@Module.Info(name="PvPInfo", category=Module.Category.RENDER)
+@Module.Info(name="PvP Info", category=Module.Category.RENDER)
 public class PvPInfo
         extends Module {
     private Setting<Float> x = this.register(Settings.f("InfoX", 0.0f));

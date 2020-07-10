@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 
 import static me.zeroeightsix.kami.util.EntityUtil.calculateLookAt;
 
-@Module.Info(name = "HoleFiller", category = Module.Category.COMBAT)
+@Module.Info(name = "Hole Filler", category = Module.Category.COMBAT)
 public class HoleFiller extends Module {
 
     private static BlockPos PlayerPos;

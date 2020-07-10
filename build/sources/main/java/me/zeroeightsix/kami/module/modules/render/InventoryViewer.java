@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
  * Created by hub on 22 October 2019.
  * This is a skid of inventoryhud by ms_rinna.
  */
-@Module.Info(name = "InventoryViewer", category = Module.Category.RENDER, description = "View Inventory")
+@Module.Info(name = "Inventory Viewer", category = Module.Category.RENDER, description = "View Inventory")
 public class InventoryViewer extends Module {
 
     private static final ResourceLocation box = new ResourceLocation("textures/gui/container/shulker_box.png");
