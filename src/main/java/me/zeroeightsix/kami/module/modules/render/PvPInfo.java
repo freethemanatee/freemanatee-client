@@ -56,8 +56,8 @@ public class PvPInfo
 
     private String getKA() {
         String x = "OFF";
-        if (ModuleManager.getModuleByName("RegAura") == null) return x;
-        return Boolean.toString(ModuleManager.getModuleByName("RegAura").isEnabled()).toUpperCase();
+        if (ModuleManager.getModuleByName("Aura") == null) return x;
+        return Boolean.toString(ModuleManager.getModuleByName("Aura").isEnabled()).toUpperCase();
     }
 }
 
