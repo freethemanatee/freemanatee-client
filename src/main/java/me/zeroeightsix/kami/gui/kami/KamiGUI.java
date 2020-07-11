@@ -236,7 +236,7 @@ public class KamiGUI
         frame.setMinimumWidth(75);
         frame.setHeight(20);
         frames.add(frame);
-        Label watermark = new Label((ChatFormatting.WHITE)+("YakGod.cc"));
+        Label watermark = new Label((ChatFormatting.WHITE)+("Freemanatee"));
         watermark.setX((frame.getWidth() / 2));
         watermark.setShadow(true);
         frame.addChild(watermark);

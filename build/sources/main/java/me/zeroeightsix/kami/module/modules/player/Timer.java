@@ -4,7 +4,7 @@ import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 
-@Module.Info(name = "Timer", category = Module.Category.EXPLOITS)
+@Module.Info(name = "Timer", category = Module.Category.PLAYER)
 public class Timer extends Module{
     private Setting<Float> speed = register(Settings.f("Speed", 4.2f));
 
