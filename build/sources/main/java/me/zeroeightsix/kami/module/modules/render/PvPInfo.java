@@ -50,8 +50,8 @@ public class PvPInfo
 
     private String getCaura() {
         String x = "OFF";
-        if (ModuleManager.getModuleByName("NutGodCA") == null) return x;
-        return Boolean.toString(ModuleManager.getModuleByName("NutGodCA").isEnabled()).toUpperCase();
+        if (ModuleManager.getModuleByName("autocrystal") == null) return x;
+        return Boolean.toString(ModuleManager.getModuleByName("autocrystal").isEnabled()).toUpperCase();
     }
 
     private String getKA() {

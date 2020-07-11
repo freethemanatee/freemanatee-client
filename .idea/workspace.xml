@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/NoRender" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/Anti32kTotem" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -29,62 +29,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/Framer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/gui/font/CfontRender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/gui/kami/KamiGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/gui/kami/KamiGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/Module$BindConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/Module$BindConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/Module$Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/Module$Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/Module.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/AutoFeetPlace$Mode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/AutoFeetPlace$Offsets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/AutoFeetPlace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/SelfTrap$Cage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/SelfTrap$Offsets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/SelfTrap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/exploits/Fastbreak.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/exploits/Fastbreak.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/misc/MiddleClickFriend.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/movement/StashFinder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/player/Fastplace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/NoRender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/world/Timer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/world/Timer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/PvPInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/PvPInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-beta-1.3-release.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-beta-1.3-release.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-beta-1.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-beta-1.3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/Framer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/font/CFont.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/font/CFont.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/font/CFontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/font/CFontRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/font/CfontRender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/AutoFeetPlace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/SelfTrap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/exploits/Fastbreak.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/exploits/Fastbreak.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/misc/MiddleClickFriend.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/movement/StashFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/player/Fastplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/NoRender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/world/Timer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsJar/input9075970697727928072.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsShadowJar/input8038313569770633248.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-default2943031363560401890.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-extraLines1635500448473875334.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-default7726887166839062357.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-extraLines6286289989175104223.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/Framer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/font/CFont.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/font/CFont.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/font/CFontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/font/CFontRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/font/CfontRender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoFeetPlace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/SelfTrap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/Fastbreak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/Fastbreak.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/MiddleClickFriend.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/StashFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/Fastplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/NoRender.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/world/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsJar/input7719319972224219697.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsShadowJar/input635831165270656632.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-default5716127072201711379.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-extraLines7819675937923539872.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-default8851969484736419176.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-extraLines3535846645571046408.srg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,10 +243,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594367863016">
+    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594442949392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594367863016" />
+    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594442949392" />
     <state x="711" y="414" width="500" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1594352853790">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
