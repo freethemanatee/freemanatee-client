@@ -51,9 +51,9 @@ import java.util.Optional;
 @Mod(modid = KamiMod.MODID, name = KamiMod.MODNAME, version = KamiMod.MODVER)
 public class KamiMod {
 
-    public static final String MODID = "manatee";
-    public static final String MODNAME = "manatee";
-    public static final String MODVER = "1.3-beta";
+    public static final String MODID = "#freemanatee";
+    public static final String MODNAME = "#freemanatee";
+    public static final String MODVER = "1.3";
 
     public static final String KAMI_HIRAGANA = "#freemanatee";
     public static final String KAMI_KATAKANA = "#freemanatee";
