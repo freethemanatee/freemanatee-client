@@ -219,7 +219,7 @@ public class DispenserMeta extends Module {
             mc.playerController.windowClick(mc.player.openContainer.windowId, 0, mc.player.inventory.currentItem, ClickType.SWAP, mc.player);
 
             if (autoEnableHitAura.getValue()) {
-                ModuleManager.getModuleByName("Aura").enable();
+                ModuleManager.getModuleByName("ppaura").enable();
             }
 
             this.disable();
