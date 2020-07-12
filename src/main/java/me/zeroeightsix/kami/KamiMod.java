@@ -60,7 +60,7 @@ public class KamiMod {
     public static final String NAME_UNICODE = "#freemanatee";
     public static final String KAMI_KANJI = "#freemanatee";
 
-    private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanateeConfig.json";
+    private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanateeconfig.json";
     public static final char colour = '\u00A7';
     public static final Logger log = LogManager.getLogger("freemanatee");
 
@@ -121,7 +121,7 @@ public class KamiMod {
     }
 
     public static String getConfigName() {
-        Path config = Paths.get("ManateeLastConfig.txt");
+        Path config = Paths.get("freemanateelastconfig.txt");
         String kamiConfigName = KAMI_CONFIG_NAME_DEFAULT;
         try(BufferedReader reader = Files.newBufferedReader(config)) {
             kamiConfigName = reader.readLine();

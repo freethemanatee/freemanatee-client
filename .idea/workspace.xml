@@ -28,28 +28,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/Annoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/Annoyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoGG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoGG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/CleanChat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/Excuses.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/GreenText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/GreenText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/VisualRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/VisualRange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/PortalChat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/SkinFlicker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/ElytraFlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/ElytraFlight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/Flight.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/IceSpeed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/AntiFog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ArmorWarning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ArmorWarning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/Capes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/Capes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/TotemPopCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/TotemPopCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
