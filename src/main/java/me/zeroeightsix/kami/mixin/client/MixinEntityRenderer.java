@@ -3,6 +3,7 @@ package me.zeroeightsix.kami.mixin.client;
 import com.google.common.base.Predicate;
 import me.zeroeightsix.kami.module.ModuleManager;
 import me.zeroeightsix.kami.module.modules.misc.NoEntityTrace;
+import me.zeroeightsix.kami.module.modules.render.AntiFog;
 import me.zeroeightsix.kami.module.modules.render.Brightness;
 import me.zeroeightsix.kami.module.modules.render.NoHurtCam;
 import net.minecraft.block.state.IBlockState;
@@ -34,6 +35,20 @@ import java.util.List;
 public class MixinEntityRenderer {
 
     private boolean nightVision = false;
+
+    @Redirect(method = "orientCamera", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/WorldClient;rayTraceBlocks(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;"))
+    public RayTraceResult rayTraceBlocks(WorldClient world, Vec3d start, Vec3d end) {
+        if (ModuleManager.isModuleEnabled("CameraClip"))
+            return null;
+        else
+            return world.rayTraceBlocks(start, end);
+    }
+
+    @Inject(method = "setupFog", at = @At(value = "HEAD"), cancellable = true)
+    public void setupFog(int startCoords, float partialTicks, CallbackInfo callbackInfo) {
+        if (AntiFog.enabled() && AntiFog.mode.getValue() == AntiFog.VisionMode.NOFOG)
+            callbackInfo.cancel();
+    }
 
     @Redirect(method = "setupFog", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/ActiveRenderInfo;getBlockStateAtEntityViewpoint(Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;F)Lnet/minecraft/block/state/IBlockState;"))
     public IBlockState getBlockStateAtEntityViewpoint(World worldIn, Entity entityIn, float p_186703_2_) {
