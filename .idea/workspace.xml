@@ -20,6 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -28,35 +32,23 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/KamiMod.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/KamiMod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/gui/kami/theme/kami/KamiActiveModulesUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/gui/kami/theme/kami/KamiActiveModulesUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/chat/VisualRange.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/chat/VisualRange.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/hidden/Capes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/misc/NoEntityTrace.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/misc/NoEntityTrace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/player/Fastbreak.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/VisualRange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/freemanatee-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/freemanatee-client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4-release.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4-release.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/minecraft/textures/cape.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/minecraft/textures/cape.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/minecraft/textures/cape_og.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/minecraft/textures/cape_og.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/mcmod.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiActiveModulesUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiActiveModulesUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/chat/VisualRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/chat/VisualRange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/hidden/Capes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/misc/NoEntityTrace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/player/Fastbreak.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/VisualRange.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-refmap.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileJava-refmap.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/mixins.kami.refmap.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/mixins.kami.refmap.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/Capes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/Capes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape_og.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape_og.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/deobfMcMCP/deobfed.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/deobfMcMCP/transformed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsJar/input2232317816827529248.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsShadowJar/input4484137850960055140.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-default3989396957053343499.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-extraLines3574363207920635840.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-default9080492501417257315.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-extraLines9110704963509363877.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +109,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.startup.tasks" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
@@ -228,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.freemanatee [clean]" />
         <item itemvalue="Gradle.freemanatee [assemble]" />
         <item itemvalue="Gradle.freemanatee [classes]" />
         <item itemvalue="Gradle.freemanatee [jar]" />
         <item itemvalue="Gradle.freemanatee [build]" />
-        <item itemvalue="Gradle.freemanatee [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -262,10 +255,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594471564115">
+    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1594717488654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594471564115" />
+    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594717488654" />
     <state x="711" y="414" width="500" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1594352853790">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -278,22 +271,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar/0.0.1920.1040@0.0.1920.1040" timestamp="1594364563833" />
-    <state width="1543" height="170" key="GridCell.Tab.0.bottom" timestamp="1594355655617">
+    <state width="1528" height="160" key="GridCell.Tab.0.bottom" timestamp="1594717841302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1543" height="170" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594355655617" />
-    <state width="1543" height="170" key="GridCell.Tab.0.center" timestamp="1594355655617">
+    <state width="1528" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
+    <state width="1528" height="160" key="GridCell.Tab.0.center" timestamp="1594717841302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1543" height="170" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594355655617" />
-    <state width="1543" height="170" key="GridCell.Tab.0.left" timestamp="1594355655617">
+    <state width="1528" height="160" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
+    <state width="1528" height="160" key="GridCell.Tab.0.left" timestamp="1594717841302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1543" height="170" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594355655617" />
-    <state width="1543" height="170" key="GridCell.Tab.0.right" timestamp="1594355655617">
+    <state width="1528" height="160" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
+    <state width="1528" height="160" key="GridCell.Tab.0.right" timestamp="1594717841302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1543" height="170" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594355655617" />
+    <state width="1528" height="160" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1594364714493">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -306,9 +299,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="702" y="333" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593965342214" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594471022420">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594718067041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594471022420" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594718067041" />
   </component>
 </project>
