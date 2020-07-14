@@ -53,7 +53,7 @@ public class KamiMod {
 
     public static final String MODID = "#freemanatee";
     public static final String MODNAME = "#freemanatee";
-    public static final String MODVER = "1.4";
+    public static final String MODVER = "1.5";
 
     public static final String KAMI_HIRAGANA = "#freemanatee";
     public static final String KAMI_KATAKANA = "#freemanatee";
