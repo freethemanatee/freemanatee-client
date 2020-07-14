@@ -107,6 +107,9 @@ public class KamiMod {
 
         commandManager = new CommandManager();
 
+        capeManager = new CapeManager();
+        capeManager.initializeCapes();
+
         Friends.initFriends();
         SettingsRegister.register("commandPrefix", Command.commandPrefix);
         loadConfiguration();

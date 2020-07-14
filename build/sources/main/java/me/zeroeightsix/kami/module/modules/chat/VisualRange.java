@@ -38,7 +38,7 @@ public class VisualRange extends Module {
         if (peoplenearbynew.size() > 0) {
             for (String name : peoplenearbynew) {
                 if (!peopleinarea.contains(name)) {
-                    Command.sendChatMessage(name + "  just entered visual range");
+                    Command.sendChatMessage(name + "  just entered visual range!");
                     peopleinarea.add(name);
                 }
             }
@@ -48,7 +48,7 @@ public class VisualRange extends Module {
             for (String name : peopleinarea) {
                 if (!peoplenearbynew.contains(name)) {
                     peopletoremove.add(name);
-                    Command.sendChatMessage(name + " just left visual range nigga");
+                    Command.sendChatMessage(name + " just left visual range!");
 
                 }
 
