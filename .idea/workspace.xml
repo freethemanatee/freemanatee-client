@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/ShulkerNuker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -32,23 +29,42 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/freemanatee-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/freemanatee-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4-release.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4-release.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/deobfMcMCP/deobfed.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/deobfMcMCP/transformed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsJar/input2232317816827529248.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsShadowJar/input4484137850960055140.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-default3989396957053343499.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-extraLines3574363207920635840.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-default9080492501417257315.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-extraLines9110704963509363877.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/KamiMod.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/KamiMod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/command/commands/HelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/command/commands/HelpCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/ECME/DispenserMeta.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/ECME/DispenserMeta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/AutoTotem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/AutoTotem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/TestCA$delayMode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/TestCA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/autocrystal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/combat/autocrystal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/FovSlider.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/FovSlider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/PvPInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zeroeightsix/kami/module/modules/render/PvPInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4-release.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/ECME/DispenserMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/ECME/DispenserMeta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/TestCA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/FovSlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/FovSlider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsJar/input141313580962371657.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsShadowJar/input2239364624353044682.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-default7253658463831097338.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-extraLines8953525443515861298.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-default2604350478671800727.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-extraLines445740888430795977.srg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/DispenserMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/DispenserMeta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/ppaura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/ppaura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/autocrystal2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/Capes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/Capes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +127,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.startup.tasks" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/YakGod.cc-master" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
@@ -259,6 +276,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594717488654" />
+    <state x="898" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1594806768370">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="898" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594806768370" />
     <state x="711" y="414" width="500" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1594352853790">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -271,26 +292,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar/0.0.1920.1040@0.0.1920.1040" timestamp="1594364563833" />
-    <state width="1528" height="160" key="GridCell.Tab.0.bottom" timestamp="1594717841302">
+    <state x="873" y="288" key="FileChooserDialogImpl" timestamp="1594806439379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1528" height="160" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
-    <state width="1528" height="160" key="GridCell.Tab.0.center" timestamp="1594717841302">
+    <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594806439379" />
+    <state width="871" height="174" key="GridCell.Tab.0.bottom" timestamp="1594813198403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1528" height="160" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
-    <state width="1528" height="160" key="GridCell.Tab.0.left" timestamp="1594717841302">
+    <state width="871" height="174" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594813198403" />
+    <state width="871" height="174" key="GridCell.Tab.0.center" timestamp="1594813198403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1528" height="160" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
-    <state width="1528" height="160" key="GridCell.Tab.0.right" timestamp="1594717841302">
+    <state width="871" height="174" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594813198403" />
+    <state width="871" height="174" key="GridCell.Tab.0.left" timestamp="1594813198403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1528" height="160" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594717841302" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1594364714493">
+    <state width="871" height="174" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594813198403" />
+    <state width="871" height="174" key="GridCell.Tab.0.right" timestamp="1594813198403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594364714493" />
+    <state width="871" height="174" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594813198403" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1594718728303">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594718728303" />
     <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1594352798392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -299,9 +324,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="702" y="333" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593965342214" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594718067041">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594806505209">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594718067041" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594806505209" />
   </component>
 </project>

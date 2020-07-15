@@ -43,6 +43,7 @@ public class PvPInfo
         }
         {
             this.cFontRenderer.drawStringWithShadow("CA: " + this.getCaura(), this.x.getValue().floatValue(), (yCount += 10.0f) - (float) this.cFontRenderer.getHeight() - 1.0f, color);
+            this.cFontRenderer.drawStringWithShadow("CA2: " + this.getCaura2(), this.x.getValue().floatValue(), (yCount += 10.0f) - (float) this.cFontRenderer.getHeight() - 1.0f, color);
             this.cFontRenderer.drawStringWithShadow("KA: " + this.getKA(), this.x.getValue().floatValue(), (yCount += 10.0f) - (float) this.cFontRenderer.getHeight() - 1.0f, color);
             return;
         }
@@ -54,10 +55,16 @@ public class PvPInfo
         return Boolean.toString(ModuleManager.getModuleByName("autocrystal").isEnabled()).toUpperCase();
     }
 
+    private String getCaura2() {
+        String x = "OFF";
+        if (ModuleManager.getModuleByName("autocrystal2") == null) return x;
+        return Boolean.toString(ModuleManager.getModuleByName("autocrystal2").isEnabled()).toUpperCase();
+    }
+
     private String getKA() {
         String x = "OFF";
-        if (ModuleManager.getModuleByName("Aura") == null) return x;
-        return Boolean.toString(ModuleManager.getModuleByName("Aura").isEnabled()).toUpperCase();
+        if (ModuleManager.getModuleByName("regaura") == null) return x;
+        return Boolean.toString(ModuleManager.getModuleByName("aura").isEnabled()).toUpperCase();
     }
 }
 

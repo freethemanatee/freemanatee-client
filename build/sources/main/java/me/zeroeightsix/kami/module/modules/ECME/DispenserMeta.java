@@ -26,11 +26,7 @@ import java.text.DecimalFormat;
 
 import static me.zeroeightsix.kami.util.BlockInteractionHelper.faceVectorPacketInstant;
 
-/**
- * Created by hub on 10 December 2019
- * Updated by hub on 13 December 2019
- */
-@Module.Info(name = "Dispenser Auto32k", category = Module.Category.ECME, description = "Do not use with any AntiGhostBlock Mod!")
+@Module.Info(name = "Dispenser Auto32k", category = Module.Category.ECME, description = "dispenser do funny")
 public class DispenserMeta extends Module {
 
     private static final DecimalFormat df = new DecimalFormat("#.#");

@@ -41,8 +41,8 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
-@Module.Info(name = "Test CA", description = "new ca", category = Module.Category.COMBAT)
-public class TestCA extends Module {
+@Module.Info(name = "CrystalAura2", description = "new ca", category = Module.Category.COMBAT)
+public class autocrystal2 extends Module {
 
     private Setting<Integer> tickPlaceDelay;
     private Setting<Integer> msPlaceDelay;
@@ -73,7 +73,6 @@ public class TestCA extends Module {
     private Setting<Boolean> enemyPriority; // prioritize targets on enemy list
     private Setting<Boolean> chatAlert;
     private Setting<Boolean> autoSwitch;
-    private Setting<Boolean> autoOffhand; // enable offhand crystal with toggle
     private Setting<Boolean> antiWeakness;
     private Setting<Boolean> raytrace;
     private Setting<Boolean> place;
@@ -101,34 +100,33 @@ public class TestCA extends Module {
     @EventHandler
     private Listener<PacketEvent.Send> packetListener;
     //re
-    public TestCA() {
+    public autocrystal2() {
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
-        this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
         this.antiSuicide = this.register(Settings.b("Anti Suicide", true));
         this.antiStuck = this.register(Settings.b("Anti Stuck", true));
         this.raytrace = this.register(Settings.b("Raytrace", false));
         this.autoSwitch = this.register(Settings.b("Auto Switch", true));
         this.selfProtect = this.register(Settings.b("Self Protect", false));
-        this.rainbow = this.register(Settings.b("Rainbow", false));
-        Setting<Boolean> rgb = register(Settings.b("RGB", true));
+        this.rainbow = this.register(Settings.b("Rainbow", true));
+        Setting<Boolean> rgb = register(Settings.b("Colors", false));
         this.red = this.register((Setting<Integer>) Settings.integerBuilder("Red").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.green = this.register((Setting<Integer>) Settings.integerBuilder("Green").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.blue = this.register((Setting<Integer>) Settings.integerBuilder("Blue").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.antiWeaknessOffhand = this.register(Settings.b("Anti Weakness Offhand", false));
         this.renderBreakTarget = this.register(Settings.b("Render Break Target", true));
-        this.onlyBreakOwnCrystals = this.register(Settings.b("Only Break Own Crystals", false));
+        this.onlyBreakOwnCrystals = this.register(Settings.b("Only Break Own Crystals", true));
 
         this.msBreakDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Break Delay").withMinimum(0).withMaximum(300).withValue(10).build());
         this.msPlaceDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Place Delay").withMinimum(0).withMaximum(300).withValue(10).build());
-        this.placeRange = this.register((Setting<Double>) Settings.doubleBuilder("Place Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
-        this.breakRange = this.register((Setting<Double>) Settings.doubleBuilder("Break Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
+        this.placeRange = this.register((Setting<Double>) Settings.doubleBuilder("Place Range").withMinimum(0.0).withMaximum(8.0).withValue(5.5).build());
+        this.breakRange = this.register((Setting<Double>) Settings.doubleBuilder("Break Range").withMinimum(0.0).withMaximum(8.0).withValue(5.5).build());
         this.breakThroughWallsRange = this.register((Setting<Double>) Settings.doubleBuilder("Through Walls Break Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
         this.enemyRange = this.register((Setting<Integer>) Settings.integerBuilder("Enemy Range").withMinimum(0).withMaximum(36).withValue(10).build());
-        this.minDamage = this.register((Setting<Integer>) Settings.integerBuilder("Min Damage").withMinimum(0).withMaximum(36).withValue(4).build());
-        this.ignoreMinDamageThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Ignore Min Damage").withMinimum(0).withMaximum(36).withValue(8).build());
-        this.selfProtectThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Max Self Damage").withMinimum(0).withMaximum(16).withValue(8).build());
+        this.minDamage = this.register((Setting<Integer>) Settings.integerBuilder("Min Damage").withMinimum(0).withMaximum(36).withValue(7).build());
+        this.ignoreMinDamageThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Ignore Min Damage").withMinimum(0).withMaximum(36).withValue(10).build());
+        this.selfProtectThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Max Self Damage").withMinimum(0).withMaximum(16).withValue(7).build());
         this.breakYOffset = this.register((Setting<Double>) Settings.doubleBuilder("Break Y Offset").withMinimum(0.0).withMaximum(0.5).withValue(0.0).build());
         this.breakSystemTime = -1L;
         final Packet[] packet = new Packet[1];
@@ -148,24 +146,16 @@ public class TestCA extends Module {
         if (mc.world == null)
             return;
 
-        if (this.autoOffhand.getValue()) {
-            ModuleManager.getModuleByName("AutoOffhandCrystal").enable();
-        }
-
         if (this.chatAlert.getValue()) {
-            Command.sendChatMessage("\u00A7aMegyn AutoCrystal ON");
+            Command.sendChatMessage("\u00A7amanatee is free");
         }
 
     }
 
     public void onDisable() {
 
-        if (autoOffhand.getValue()) {
-            ModuleManager.getModuleByName("AutoOffhandCrystal").disable();
-        }
-
         if (chatAlert.getValue()) {
-            Command.sendChatMessage("\u00A7aMegyn AutoCrystal" + ChatFormatting.RED.toString() + " OFF");
+            Command.sendChatMessage("\u00A7cmanatee is no longer free" + ChatFormatting.RED.toString() + " ");
         }
 
         resetRotation();

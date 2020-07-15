@@ -73,7 +73,6 @@ public class autocrystal2 extends Module {
     private Setting<Boolean> enemyPriority; // prioritize targets on enemy list
     private Setting<Boolean> chatAlert;
     private Setting<Boolean> autoSwitch;
-    private Setting<Boolean> autoOffhand; // enable offhand crystal with toggle
     private Setting<Boolean> antiWeakness;
     private Setting<Boolean> raytrace;
     private Setting<Boolean> place;
@@ -104,15 +103,14 @@ public class autocrystal2 extends Module {
     public autocrystal2() {
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
-        this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
         this.antiSuicide = this.register(Settings.b("Anti Suicide", true));
         this.antiStuck = this.register(Settings.b("Anti Stuck", true));
         this.raytrace = this.register(Settings.b("Raytrace", false));
         this.autoSwitch = this.register(Settings.b("Auto Switch", true));
         this.selfProtect = this.register(Settings.b("Self Protect", false));
-        this.rainbow = this.register(Settings.b("Rainbow", false));
-        Setting<Boolean> rgb = register(Settings.b("Colors", true));
+        this.rainbow = this.register(Settings.b("Rainbow", true));
+        Setting<Boolean> rgb = register(Settings.b("Colors", false));
         this.red = this.register((Setting<Integer>) Settings.integerBuilder("Red").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.green = this.register((Setting<Integer>) Settings.integerBuilder("Green").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.blue = this.register((Setting<Integer>) Settings.integerBuilder("Blue").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
@@ -148,10 +146,6 @@ public class autocrystal2 extends Module {
         if (mc.world == null)
             return;
 
-        if (this.autoOffhand.getValue()) {
-            ModuleManager.getModuleByName("AutoOffhandCrystal").enable();
-        }
-
         if (this.chatAlert.getValue()) {
             Command.sendChatMessage("\u00A7amanatee is free");
         }
@@ -160,12 +154,8 @@ public class autocrystal2 extends Module {
 
     public void onDisable() {
 
-        if (autoOffhand.getValue()) {
-            ModuleManager.getModuleByName("AutoOffhandCrystal").disable();
-        }
-
         if (chatAlert.getValue()) {
-            Command.sendChatMessage("\u00A7amanatee is no longer free" + ChatFormatting.RED.toString() + "");
+            Command.sendChatMessage("\u00A7cmanatee is no longer free" + ChatFormatting.RED.toString() + " ");
         }
 
         resetRotation();

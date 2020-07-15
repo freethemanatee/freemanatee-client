@@ -6,7 +6,7 @@ import me.zeroeightsix.kami.setting.Settings;
 
 @Module.Info(name = "Custom FOV", description = "custom fov thing", category = Module.Category.RENDER)
 public class FovSlider extends Module {
-    private Setting<Integer> fov = register(Settings.integerBuilder("Fov").withMinimum(0).withValue(140).withMaximum(180).build());
+    private Setting<Integer> fov = register(Settings.integerBuilder("Fov").withMinimum(0).withValue(135).withMaximum(180).build());
 
     public float old_fov;
     public float new_fov;

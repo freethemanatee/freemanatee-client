@@ -2,6 +2,9 @@
 
 package me.zeroeightsix.kami.module.modules.combat;
 
+import me.zeroeightsix.kami.module.ModuleManager;
+import me.zeroeightsix.kami.setting.Setting;
+import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.item.ItemStack;
 import net.minecraft.init.Items;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,12 +12,28 @@ import net.minecraft.inventory.ClickType;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import me.zeroeightsix.kami.module.Module;
 
+
 @Module.Info(name = "Offhand CA", category = Module.Category.COMBAT)
 public class OffhandCrystal extends Module
 {
     int crystals;
     boolean moving;
     boolean returnI;
+
+    private Setting<Boolean> totemdisable = register(Settings.b("AutototemOnDisable", true));
+
+    @Override
+    public void onEnable() {
+
+        if (mc.world == null)
+            return;
+
+        if (this.totemdisable.getValue()) {
+            ModuleManager.getModuleByName("autototem").disable();
+        }
+
+
+    }
 
     public OffhandCrystal() {
         this.moving = false;
@@ -90,6 +109,11 @@ public class OffhandCrystal extends Module
     }
 
     public void onDisable() {
+
+        if (totemdisable.getValue()) {
+            ModuleManager.getModuleByName("autototem").enable();
+        }
+
         if (OffhandCrystal.mc.currentScreen instanceof GuiContainer) {
             return;
         }

@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-@Module.Info(name = "AutoCrystal", category = Module.Category.COMBAT)
+@Module.Info(name = "CrystalAura", category = Module.Category.COMBAT)
 public class autocrystal extends Module {
     private Setting<Boolean> place;
     private Setting<Boolean> raytrace;
