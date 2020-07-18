@@ -4,13 +4,11 @@ import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
-import me.zeroeightsix.kami.module.modules.combat.TotemPopCounter;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
-import net.minecraft.network.play.client.CPacketChatMessage;
 import net.minecraft.network.play.server.SPacketChat;
 import me.zeroeightsix.kami.event.events.PacketEvent;
-import net.minecraftforge.client.event.ClientChatReceivedEvent;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

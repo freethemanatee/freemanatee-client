@@ -1,7 +1,7 @@
 package me.zeroeightsix.kami.module.modules.render;
 
-import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.Module;
+import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.util.ColourUtils;
 import me.zeroeightsix.kami.util.GeometryMasks;
 import me.zeroeightsix.kami.util.KamiTessellator;

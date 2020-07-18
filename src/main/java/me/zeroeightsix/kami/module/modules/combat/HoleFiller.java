@@ -29,21 +29,19 @@ import java.util.stream.Collectors;
 
 import static me.zeroeightsix.kami.util.EntityUtil.calculateLookAt;
 
-@Module.Info(name = "Hole Filler", category = Module.Category.COMBAT)
+@Module.Info(name = "HoleFiller", category = Module.Category.COMBAT)
 public class HoleFiller extends Module {
 
     private static BlockPos PlayerPos;
-    private Setting<Double> range = register(Settings.d("Range", 4.5));
+    private Setting<Double> range = register(Settings.d("Range", 5));
     private Setting<Boolean> smart =  register(Settings.b("Smart", false));
-    private Setting<Integer> smartRange = register(Settings.i("Smart Range", 4));
-    private Setting<Boolean> announceUsage = register(Settings.b("Announce Usage", false));
+    private Setting<Integer> smartRange = register(Settings.i("Smart Range", 5));
+    private Setting<Boolean> announceUsage = register(Settings.b("Announce Usage", true));
     private BlockPos render;
     private Entity renderEnt;
     private EntityPlayer closestTarget;
     private long systemTime = -1;
     private static boolean togglePitch = false;
-    // we need this cooldown to not place from old hotbar slot, before we have
-    // switched to crystals
     private boolean switchCooldown = false;
     private boolean isAttacking = false;
     private boolean caOn;
@@ -53,11 +51,11 @@ public class HoleFiller extends Module {
     @Override
     public void onEnable() {
 
-        if (ModuleManager.getModuleByName("NutgodCA").isEnabled())
+        if (ModuleManager.getModuleByName("AutoCrystal").isEnabled())
             caOn = true;
 
         if (announceUsage.getValue()) {
-            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + "!");
+            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " ");
         }
     }
 
@@ -96,7 +94,7 @@ public class HoleFiller extends Module {
         render = q;
         if (q != null && mc.player.onGround) {
             if (caOn)
-                ModuleManager.getModuleByName("NutgodCA").disable();
+                ModuleManager.getModuleByName("AutoCrystal").disable();
             int oldSlot = mc.player.inventory.currentItem;
             if (mc.player.inventory.currentItem != obsidianSlot)
                 mc.player.inventory.currentItem = obsidianSlot;
@@ -106,7 +104,7 @@ public class HoleFiller extends Module {
             mc.player.inventory.currentItem = oldSlot;
             resetRotation();
             if (caOn)
-                ModuleManager.getModuleByName("NutgodCA").enable();
+                ModuleManager.getModuleByName("AutoCrystal").enable();
         }
     }
 
@@ -252,14 +250,10 @@ public class HoleFiller extends Module {
         return circleblocks;
     }
 
-    // Better Rotation Spoofing System:
-
     private static boolean isSpoofingAngles;
     private static double yaw;
     private static double pitch;
 
-    // this modifies packets being sent so no extra ones are made. NCP used to flag
-    // with "too many packets"
     private static void setYawAndPitch(float yaw1, float pitch1) {
         yaw = yaw1;
         pitch = pitch1;
@@ -292,7 +286,7 @@ public class HoleFiller extends Module {
         resetRotation();
 
         if (announceUsage.getValue()) {
-            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.RED.toString() + "Disabled" + ChatFormatting.RESET.toString() + "!");
+            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.RED.toString() + "Disabled" + ChatFormatting.RESET.toString() + " ");
         }
     }
 }

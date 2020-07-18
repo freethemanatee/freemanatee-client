@@ -1,10 +1,11 @@
 package me.zeroeightsix.kami.module.modules.render;
 
-import io.netty.util.internal.ConcurrentSet;
-import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.Module;
+import me.zeroeightsix.kami.module.modules.hidden.NutGodCA;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import io.netty.util.internal.ConcurrentSet;
+import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.util.BlockInteractionHelper;
 import me.zeroeightsix.kami.util.GeometryMasks;
 import me.zeroeightsix.kami.util.KamiTessellator;
@@ -14,8 +15,6 @@ import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
 import java.util.List;
-
-import static me.zeroeightsix.kami.module.modules.combat.autocrystal.getPlayerPos;
 
 /**
  * Created 28 November 2019 by hub
@@ -55,7 +54,7 @@ public class VoidESP extends Module {
             voidHoles.clear();
         }
 
-        List<BlockPos> blockPosList = BlockInteractionHelper.getCircle(getPlayerPos(), 0, range.getValue(), false);
+        List<BlockPos> blockPosList = BlockInteractionHelper.getCircle(NutGodCA.getPlayerPos(), 0, range.getValue(), false);
 
         for (BlockPos pos : blockPosList) {
 

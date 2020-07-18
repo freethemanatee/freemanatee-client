@@ -1,61 +1,63 @@
+
+
 package me.zeroeightsix.kami.module.modules.render;
 
-import me.zeroeightsix.kami.module.Module;
-import me.zeroeightsix.kami.setting.Setting;
-import me.zeroeightsix.kami.setting.Settings;
-import me.zeroeightsix.kami.util.ColourHolder;
 import net.minecraft.client.Minecraft;
+import me.zeroeightsix.kami.util.ColourHolder;
+import net.minecraft.item.ItemStack;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
+import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.setting.Setting;
 import net.minecraft.client.renderer.RenderItem;
-import net.minecraft.item.ItemStack;
+import me.zeroeightsix.kami.module.Module;
 
-/**
- * Created by 086 on 24/01/2018.
- */
-@Module.Info(name = "ArmorHUD", category = Module.Category.RENDER)
-public class ArmorHUD extends Module {
+@Module.Info(name = "ArmorHUD", description = "Removes rain from your world", category = Module.Category.RENDER)
+public class ArmorHUD extends Module
+{
+    private static RenderItem itemRender;
+    private Setting<Boolean> damage;
 
-    private static RenderItem itemRender = Minecraft.getMinecraft()
-            .getRenderItem();
-
-    private Setting<Boolean> damage = register(Settings.b("Damage", false));
+    public ArmorHUD() {
+        this.damage = this.register(Settings.b("Damage", true));
+    }
 
     @Override
     public void onRender() {
         GlStateManager.enableTexture2D();
-
-        ScaledResolution resolution = new ScaledResolution(mc);
-        int i = resolution.getScaledWidth() / 2;
+        final ScaledResolution resolution = new ScaledResolution(ArmorHUD.mc);
+        final int i = resolution.getScaledWidth() / 2;
         int iteration = 0;
-        int y = resolution.getScaledHeight() - 55 - (mc.player.isInWater() ? 10 : 0);
-        for (ItemStack is : mc.player.inventory.armorInventory) {
-            iteration++;
-            if (is.isEmpty()) continue;
-            int x = i - 90 + (9 - iteration) * 20 + 2;
+        final int y = resolution.getScaledHeight() - 55 - (ArmorHUD.mc.player.isInWater() ? 10 : 0);
+        for (final ItemStack is : ArmorHUD.mc.player.inventory.armorInventory) {
+            ++iteration;
+            if (is.isEmpty()) {
+                continue;
+            }
+            final int x = i - 90 + (9 - iteration) * 20 + 2;
             GlStateManager.enableDepth();
-
-            itemRender.zLevel = 200F;
-            itemRender.renderItemAndEffectIntoGUI(is, x, y);
-            itemRender.renderItemOverlayIntoGUI(mc.fontRenderer, is, x, y, "");
-            itemRender.zLevel = 0F;
-
+            ArmorHUD.itemRender.zLevel = 200.0f;
+            ArmorHUD.itemRender.renderItemAndEffectIntoGUI(is, x, y);
+            ArmorHUD.itemRender.renderItemOverlayIntoGUI(ArmorHUD.mc.fontRenderer, is, x, y, "");
+            ArmorHUD.itemRender.zLevel = 0.0f;
             GlStateManager.enableTexture2D();
             GlStateManager.disableLighting();
             GlStateManager.disableDepth();
-
-            String s = is.getCount() > 1 ? is.getCount() + "" : "";
-            mc.fontRenderer.drawStringWithShadow(s, x + 19 - 2 - mc.fontRenderer.getStringWidth(s), y + 9, 0xffffff);
-
-            if (damage.getValue()) {
-                float green = ((float) is.getMaxDamage() - (float) is.getItemDamage()) / (float) is.getMaxDamage();
-                float red = 1 - green;
-                int dmg = 100 - (int) (red * 100);
-                mc.fontRenderer.drawStringWithShadow(dmg + "", x + 8 - mc.fontRenderer.getStringWidth(dmg + "") / 2, y - 11, ColourHolder.toHex((int) (red * 255), (int) (green * 255), 0));
+            final String s = (is.getCount() > 1) ? (is.getCount() + "") : "";
+            ArmorHUD.mc.fontRenderer.drawStringWithShadow(s, (float)(x + 19 - 2 - ArmorHUD.mc.fontRenderer.getStringWidth(s)), (float)(y + 9), 16777215);
+            if (!this.damage.getValue()) {
+                continue;
             }
+            final float green = (is.getMaxDamage() - (float)is.getItemDamage()) / is.getMaxDamage();
+            final float red = 1.0f - green;
+            final int dmg = 100 - (int)(red * 100.0f);
+            ArmorHUD.mc.fontRenderer.drawStringWithShadow(dmg + "", (float)(x + 8 - ArmorHUD.mc.fontRenderer.getStringWidth(dmg + "") / 2), (float)(y - 11), ColourHolder.toHex((int)(red * 255.0f), (int)(green * 255.0f), 0));
         }
-
         GlStateManager.enableDepth();
         GlStateManager.disableLighting();
+    }
+
+    static {
+        ArmorHUD.itemRender = Minecraft.getMinecraft().getRenderItem();
     }
 }

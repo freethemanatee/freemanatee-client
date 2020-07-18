@@ -22,17 +22,11 @@ import java.awt.*;
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
 
-/**
- * Created 26 October 2019 by hub
- * Updated 27 October 2019 by hub
- * <p>
- * RusherHack leak skid :P
- */
 @Module.Info(name = "Illegal Item Bypass", category = Module.Category.ECME, description = "Illegal Item Bypass")
 public class IllegalItemBypass extends Module {
 
-    private Setting<Boolean> circleOwn = register(Settings.b("Draw Circle for own 32k Hopper", true));
-    private Setting<Boolean> circleOthers = register(Settings.b("Draw Circle for other Hoppers", true));
+    private Setting<Boolean> circleOwn = register(Settings.b("Draw Circle for own 32k Hopper", false));
+    private Setting<Boolean> circleOthers = register(Settings.b("Draw Circle for other Hoppers", false));
     private Setting<Integer> circleMaxRange = register(Settings.i("Circle max Range", 64));
 
     private BlockPos ownHopper = null;

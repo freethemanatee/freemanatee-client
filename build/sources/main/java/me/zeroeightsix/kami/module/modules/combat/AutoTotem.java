@@ -1,6 +1,5 @@
 package me.zeroeightsix.kami.module.modules.combat;
 
-import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -12,7 +11,7 @@ import net.minecraft.item.ItemStack;
 /**
  * Created by 086 on 22/01/2018.
  */
-@Module.Info(name = "AutoTotem2", category = Module.Category.COMBAT)
+@Module.Info(name = "AutoTotemDev", category = Module.Category.COMBAT)
 public class AutoTotem extends Module {
 
     int totems;
@@ -96,7 +95,7 @@ public class AutoTotem extends Module {
         soft.setValue(false);
     }
     public static double health() {
-        return me.zeroeightsix.kami.module.modules.combat.AutoTotem.INSTANCE.health.getValue();
+        return AutoTotem.INSTANCE.health.getValue();
 
     }
     @Override

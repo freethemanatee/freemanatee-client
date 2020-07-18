@@ -2,7 +2,6 @@ package me.zeroeightsix.kami.module.modules.chat;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
-import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -163,18 +162,18 @@ public class AutoGG extends Module {
         StringBuilder message = new StringBuilder();
 
         if (toxicMode.getValue()) {
-            message.append("you died to a fucking manatee how do you feel?");
+            message.append("you died to a fucking manatee how do you feel? ");
         } else {
             message.append("good fight ");
         }
 
         message.append(name);
-        message.append("!");
+        message.append(" !");
 
         if (clientName.getValue()) {
-            message.append("good fight ");
+            message.append(" gf");
             message.append(name);
-            message.append(" free the manatee!");
+            message.append(" free the manatee");
         }
 
         String messageSanitized = message.toString().replaceAll(ChatTextUtils.SECTIONSIGN, "");

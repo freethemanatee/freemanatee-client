@@ -2,25 +2,25 @@
 
 package me.zeroeightsix.kami.module.modules.combat;
 
-import me.zeroeightsix.kami.module.ModuleManager;
+import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.module.ModuleManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.init.Items;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import me.zeroeightsix.kami.module.Module;
 
 
-@Module.Info(name = "Offhand CA", category = Module.Category.COMBAT)
+@Module.Info(name = "AutoOffhandCrystal", category = Module.Category.COMBAT)
 public class OffhandCrystal extends Module
 {
     int crystals;
     boolean moving;
     boolean returnI;
 
-    private Setting<Boolean> totemdisable = register(Settings.b("AutototemOnDisable", true));
+    private Setting<Boolean> totemdisable = register(Settings.b("AutoTotemOnDisable", true));
 
     @Override
     public void onEnable() {
@@ -108,6 +108,7 @@ public class OffhandCrystal extends Module
         }
     }
 
+    @Override
     public void onDisable() {
 
         if (totemdisable.getValue()) {

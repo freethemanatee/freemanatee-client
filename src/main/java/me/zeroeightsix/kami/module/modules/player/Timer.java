@@ -1,4 +1,4 @@
-package me.zeroeightsix.kami.module.modules.world;
+package me.zeroeightsix.kami.module.modules.player;
 
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;

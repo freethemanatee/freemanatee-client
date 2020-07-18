@@ -1,12 +1,12 @@
 package me.zeroeightsix.kami.module.modules.player;
 
+import me.zeroeightsix.kami.module.Module;
+import me.zeroeightsix.kami.setting.Setting;
+import me.zeroeightsix.kami.setting.Settings;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.event.events.PlayerMoveEvent;
-import me.zeroeightsix.kami.module.Module;
-import me.zeroeightsix.kami.setting.Setting;
-import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -66,7 +66,7 @@ public class Freecam extends Module {
             clonedPlayer = null;
             posX = posY = posZ = 0.D;
             pitch = yaw = 0.f;
-            mc.player.capabilities.isFlying = false; //getModManager().getMod("ElytraFlight").isEnabled();
+            mc.player.capabilities.isFlying = false; //getModManager().getMod("ECMEElytraFly").isEnabled();
             mc.player.capabilities.setFlySpeed(0.05f);
             mc.player.noClip = false;
             mc.player.motionX = mc.player.motionY = mc.player.motionZ = 0.f;

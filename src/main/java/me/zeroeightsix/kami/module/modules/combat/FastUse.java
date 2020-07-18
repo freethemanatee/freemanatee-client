@@ -17,8 +17,8 @@ public class FastUse extends Module {
 
     private Setting<Boolean> blocks = this.register(Settings.b("Blocks", false));
     private Setting<Boolean> exp = this.register(Settings.b("Exp Bottles", true));
-    private Setting<Boolean> crystal = this.register(Settings.b("Crystals", true));
-    private Setting<Boolean> bow = this.register(Settings.b("BowSpam", true));
+    private Setting<Boolean> crystal = this.register(Settings.b("Crystals", false));
+    private Setting<Boolean> bow = this.register(Settings.b("BowSpam", false));
     private Setting<Boolean> other = this.register(Settings.b("Other", false));
 
     @Override

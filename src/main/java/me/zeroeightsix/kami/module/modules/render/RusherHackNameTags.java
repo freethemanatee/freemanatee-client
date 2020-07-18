@@ -1,12 +1,11 @@
 package me.zeroeightsix.kami.module.modules.render;
 
+import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.gui.font.CFontRenderer;
-import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import me.zeroeightsix.kami.util.Friends;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -29,7 +28,13 @@ import java.awt.*;
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
 
-
+/**
+ * @author cats
+ * @since 19 Mar 2020
+ * <p>
+ *     this is a mess of pasted john code :(. I can't be bothered to piece together my own actual nametag code because I do not like nametags
+ * </p>
+ */
 @Module.Info(name = "Nametags", category = Module.Category.RENDER)
 public class RusherHackNameTags extends Module {
     CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 18), true, false);

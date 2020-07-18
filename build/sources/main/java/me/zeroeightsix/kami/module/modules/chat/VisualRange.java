@@ -1,68 +1,96 @@
 package me.zeroeightsix.kami.module.modules.chat;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
+import me.zeroeightsix.kami.setting.Setting;
+import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.util.Friends;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.play.client.CPacketChatMessage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-
+/**
+ * Created on 26 October 2019 by hub
+ * Updated 23 November 2019 by hub
+ */
 @Module.Info(name = "VisualRange", description = "Reports Players in VisualRange", category = Module.Category.CHAT)
 public class VisualRange extends Module {
 
-    private List<String> peopleinarea;
-    private List<String> peoplenearbynew;
-    private List<String> peopletoremove;
+    private Setting<Boolean> publicChat = register(Settings.b("PublicChat", false));
+    private Setting<Boolean> leaving = register(Settings.b("Leaving", true));
 
-    @Override
-    public void onEnable() {
-        peopleinarea = new ArrayList<>();
-        peopletoremove = new ArrayList<>();
-    }
+    private List<String> knownPlayers;
 
     @Override
     public void onUpdate() {
-        if (mc.world == null | mc.player == null) return;
 
-        peoplenearbynew = new ArrayList<>();
-        List<EntityPlayer> playerEntities = mc.world.playerEntities;
-
-        for (Entity e : playerEntities) {
-            if (e.getName().equals(mc.player.getName())) continue;
-            peoplenearbynew.add(e.getName());
+        if (mc.player == null) {
+            return;
         }
 
-        if (peoplenearbynew.size() > 0) {
-            for (String name : peoplenearbynew) {
-                if (!peopleinarea.contains(name)) {
-                    Command.sendChatMessage(name + "  just entered visual range!");
-                    peopleinarea.add(name);
+        List<String> tickPlayerList = new ArrayList<>();
+
+        for (Entity entity : mc.world.getLoadedEntityList()) {
+            if (entity instanceof EntityPlayer) {
+                tickPlayerList.add(entity.getName());
+            }
+        }
+
+        if (tickPlayerList.size() > 0) {
+            for (String playerName : tickPlayerList) {
+                if (playerName.equals(mc.player.getName())) {
+                    continue;
+                }
+                if (!knownPlayers.contains(playerName)) {
+                    knownPlayers.add(playerName);
+                    if (publicChat.getValue()) {
+                        mc.player.connection.sendPacket(new CPacketChatMessage(playerName + " entered visual range "));
+
+                    } else {
+                        if (Friends.isFriend(playerName)) {
+                            sendNotification("[VisualRange] " + ChatFormatting.AQUA.toString() + playerName + ChatFormatting.RESET.toString() + " entered visual range ");
+                        } else {
+                            sendNotification("[VisualRange] " + ChatFormatting.RED.toString() + playerName + ChatFormatting.RESET.toString() + " entered visual range ");
+                        }
+                    }
+                    return;
                 }
             }
         }
 
-        if (peopleinarea.size() > 0) {
-            for (String name : peopleinarea) {
-                if (!peoplenearbynew.contains(name)) {
-                    peopletoremove.add(name);
-                    Command.sendChatMessage(name + " just left visual range!");
-
+        if (knownPlayers.size() > 0) {
+            for (String playerName : knownPlayers) {
+                if (!tickPlayerList.contains(playerName)) {
+                    knownPlayers.remove(playerName);
+                    if (leaving.getValue()) {
+                        if (publicChat.getValue()) {
+                            mc.player.connection.sendPacket(new CPacketChatMessage(playerName + " just left visual range "));
+                        } else {
+                            if (Friends.isFriend(playerName)) {
+                                sendNotification("[VisualRange] " + ChatFormatting.AQUA.toString() + playerName + ChatFormatting.RESET.toString() + " just left visual range ");
+                            } else {
+                                sendNotification("[VisualRange] " + ChatFormatting.RED.toString() + playerName + ChatFormatting.RESET.toString() + " just left visual range ");
+                            }
+                        }
+                    }
+                    return;
                 }
-
             }
-
-            if (peopletoremove.size() > 0) {
-                for (String name : peopletoremove) {
-                    peopleinarea.remove(name);
-                }
-                peopletoremove.clear();
-            }
-
         }
 
+    }
+
+    private void sendNotification(String s) {
+        Command.sendChatMessage(s);
+    }
+
+    @Override
+    public void onEnable() {
+        this.knownPlayers = new ArrayList<>();
     }
 
 }

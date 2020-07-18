@@ -1,5 +1,7 @@
 package me.zeroeightsix.kami.module.modules.ECME;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -17,14 +19,32 @@ import net.minecraft.util.math.Vec3d;
 /**
  * Created by hub on 5 August 2019.
  */
-@Module.Info(name = "Hopper Nuker", category = Module.Category.ECME)
+@Module.Info(name = "HopperNuker", category = Module.Category.ECME)
 public class HopperNuker extends Module {
 
-    private Setting<Double> range = register(Settings.d("Range", 5.5d));
-    private Setting<Boolean> pickswitch = register(Settings.b("Auto Switch", false));
+    private Setting<Double> range = register(Settings.d("Range", 6d));
+    private Setting<Boolean> pickswitch = register(Settings.b("Auto Switch", true));
+    private Setting<Boolean> Announce = register(Settings.b("Announce Usage", true));
 
     private int oldSlot = -1;
     private boolean isMining = false;
+
+
+    @Override
+    public void onEnable() {
+
+        if (Announce.getValue()) {
+            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " ");
+        }
+    }
+
+    @Override
+    public void onDisable() {
+
+        if (Announce.getValue()) {
+            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.RED.toString() + "Disabled" + ChatFormatting.RESET.toString() + " ");
+        }
+    }
 
     @Override
     public void onUpdate() {

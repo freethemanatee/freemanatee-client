@@ -1,9 +1,9 @@
-package  me.zeroeightsix.kami.module.modules.misc;
+package me.zeroeightsix.kami.module.modules.misc;
 
+import me.zeroeightsix.kami.module.Module;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.event.events.GuiScreenEvent;
-import me.zeroeightsix.kami.module.Module;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.util.math.MathHelper;

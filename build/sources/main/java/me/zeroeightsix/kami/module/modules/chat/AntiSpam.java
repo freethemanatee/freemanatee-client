@@ -21,12 +21,12 @@ public class AntiSpam extends Module {
 
     private Setting<Boolean> greenText = register(Settings.b("Green Text", true));
     private Setting<Boolean> discordLinks = register(Settings.b("Discord Links", true));
-    private Setting<Boolean> webLinks = register(Settings.b("Web Links", true));
+    private Setting<Boolean> webLinks = register(Settings.b("Websites", true));
     private Setting<Boolean> announcers = register(Settings.b("Announcers", true));
-    private Setting<Boolean> spammers = register(Settings.b("Announcers", true));
+    private Setting<Boolean> spammers = register(Settings.b("Spammers", true));
     private Setting<Boolean> insulters = register(Settings.b("Insulters", true));
     private Setting<Boolean> greeters = register(Settings.b("Greeters", true));
-    private Setting<Boolean> tradeChat = register(Settings.b("Trade Chat", true));
+    private Setting<Boolean> tradeChat = register(Settings.b("Shops", true));
     private Setting<Boolean> numberSuffix = register(Settings.b("Number Suffix", true));
     private Setting<Boolean> duplicates = register(Settings.b("Duplicates", true));
     private Setting<Integer> duplicatesTimeout = register(Settings.integerBuilder("Duplicates Timeout").withMinimum(1).withValue(10).withMaximum(600).build());

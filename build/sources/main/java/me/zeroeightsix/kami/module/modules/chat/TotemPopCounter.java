@@ -1,4 +1,4 @@
-package me.zeroeightsix.kami.module.modules.combat;
+package me.zeroeightsix.kami.module.modules.chat;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
@@ -9,23 +9,17 @@ import me.zeroeightsix.kami.event.events.TotemPopEvent;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
-import me.zeroeightsix.kami.util.EntityUtil;
-import me.zeroeightsix.kami.util.PlayerInfo;
-import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.play.server.SPacketEntityStatus;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import java.util.HashMap;
-import java.util.Map;
 
 @Module.Info(name = "TotemPopCounter", description = "Counts the times your enemy pops", category = Module.Category.CHAT)
 public class TotemPopCounter extends Module {
 
     private HashMap<String, Integer> popList = new HashMap();
-    private Setting<colour> mode = register(Settings.e("Colour", colour.DARK_PURPLE));
+    private Setting<colour> mode = register(Settings.e("Colour", colour.DARK_AQUA));
 
     @EventHandler
     public Listener<TotemPopEvent> totemPopEvent = new Listener<>(event -> {

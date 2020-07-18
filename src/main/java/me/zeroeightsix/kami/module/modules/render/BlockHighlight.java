@@ -1,73 +1,76 @@
+// 
+// Decompiled by Procyon v0.5.36
+// 
+
 package me.zeroeightsix.kami.module.modules.render;
 
-import me.zeroeightsix.kami.module.*;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.world.GameType;
+import net.minecraftforge.client.event.DrawBlockHighlightEvent;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.block.state.IBlockState;
+import me.zeroeightsix.kami.util.KamiTessellator;
+import net.minecraft.world.World;
+import net.minecraft.entity.Entity;
+import me.zeroeightsix.kami.util.MathUtil;
+import net.minecraft.block.material.Material;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.client.Minecraft;
+import me.zeroeightsix.kami.event.events.RenderEvent;
+import net.minecraftforge.common.MinecraftForge;
+import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.setting.Setting;
+import net.minecraft.util.math.BlockPos;
 import me.zeroeightsix.kami.module.Module;
-import me.zeroeightsix.kami.setting.*;
-import net.minecraftforge.common.*;
-import me.zeroeightsix.kami.event.events.*;
-import net.minecraft.client.*;
-import net.minecraft.block.material.*;
-import net.minecraft.entity.*;
-import me.zeroeightsix.kami.util.*;
-import net.minecraft.block.state.*;
-import net.minecraft.util.math.*;
-import net.minecraftforge.client.event.*;
-import net.minecraft.world.*;
-import net.minecraftforge.fml.common.eventhandler.*;
-import org.lwjgl.opengl.GL11;
 
-import java.awt.Color;
+@Module.Info(name = "Block Highlight", category = Module.Category.RENDER)
+public class BlockHighlight extends Module
+{
+    private static BlockPos position;
+    private Setting<Integer> red;
+    private Setting<Integer> green;
+    private Setting<Integer> blue;
+    private Setting<Integer> alpha;
+    private Setting<Float> width;
 
-@Module.Info(name = "BlockHighlight", description = "Happy Halloween <3", category = Module.Category.RENDER)
-public class BlockHighlight extends Module {
-    private Setting<Boolean> boundingbox = register(Settings.b("Bouding Box", true));
-    private Setting<Boolean> box = register(Settings.b("Full Block Highlight", true));
-    private Setting<Double> width = register(Settings.d("Width", 1.0));
-    private Setting<Integer> alpha = register(
-            Settings.integerBuilder("Alpha").withMinimum(1).withMaximum(255).withValue(28));
-    private Setting<Integer> Red = register(
-            Settings.integerBuilder("Red").withMinimum(1).withMaximum(255).withValue(255));
-    private Setting<Integer> Green = register(
-            Settings.integerBuilder("Green").withMinimum(1).withMaximum(255).withValue(255));
-    private Setting<Integer> Blue = register(
-            Settings.integerBuilder("Blue").withMinimum(1).withMaximum(255).withValue(255));
-    private Setting<Integer> alpha2 = register(
-            Settings.integerBuilder("Bounding Box Alpha").withMinimum(1).withMaximum(255).withValue(255));
-    private Setting<Boolean> rainbow = register(Settings.b("Rainbow", true));
+    public BlockHighlight() {
+        this.red = this.register((Setting<Integer>)Settings.integerBuilder("Red").withRange(0, 255).withValue(255).build());
+        this.green = this.register((Setting<Integer>)Settings.integerBuilder("Green").withRange(0, 255).withValue(0).build());
+        this.blue = this.register((Setting<Integer>)Settings.integerBuilder("Blue").withRange(0, 255).withValue(0).build());
+        this.alpha = this.register((Setting<Integer>)Settings.integerBuilder("Transparency").withRange(0, 255).withValue(70).build());
+        this.width = this.register((Setting<Float>)Settings.floatBuilder("Thickness").withRange(1.0f, 10.0f).withValue(1.0f).build());
+    }
 
-    public void onWorldRender(RenderEvent event) {
-        final float[] hue = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
-        int rgb = Color.HSBtoRGB(hue[0], 1, 1);
-        int r = (rgb >> 16) & 0xFF;
-        int g = (rgb >> 8) & 0xFF;
-        int b = rgb & 0xFF;
+    @Override
+    protected void onEnable() {
+        MinecraftForge.EVENT_BUS.register((Object)this);
+    }
+
+    @Override
+    protected void onDisable() {
+        MinecraftForge.EVENT_BUS.unregister((Object)this);
+        BlockHighlight.position = null;
+    }
+
+    @Override
+    public void onWorldRender(final RenderEvent event) {
         final Minecraft mc = Minecraft.getMinecraft();
         final RayTraceResult ray = mc.objectMouseOver;
         if (ray.typeOfHit == RayTraceResult.Type.BLOCK) {
-
             final BlockPos blockpos = ray.getBlockPos();
             final IBlockState iblockstate = mc.world.getBlockState(blockpos);
-
             if (iblockstate.getMaterial() != Material.AIR && mc.world.getWorldBorder().contains(blockpos)) {
-                if (box.getValue()) {
-                    KamiTessellator.prepare(GL11.GL_QUADS);
-                    if (rainbow.getValue()) {
-                        KamiTessellator.drawBox(blockpos, r, g, b, alpha.getValue(), GeometryMasks.Quad.ALL);
-                    } else {
-                        KamiTessellator.drawBox(blockpos, this.Red.getValue(), this.Green.getValue(), this.Blue.getValue(), alpha.getValue(), GeometryMasks.Quad.ALL);
-                    }
-                    KamiTessellator.release();
-                }
-                if (boundingbox.getValue()) {
-                    KamiTessellator.prepare(GL11.GL_QUADS);
-                    if (rainbow.getValue()) {
-                        KamiTessellator.drawBoundingBoxBlockPos(blockpos, width.getValue().floatValue(), r, g, b, alpha2.getValue());
-                    } else {
-                        KamiTessellator.drawBoundingBoxBlockPos(blockpos, width.getValue().floatValue(), this.Red.getValue(), this.Green.getValue(), this.Blue.getValue(), alpha2.getValue());
-                    }
-                    KamiTessellator.release();
-                }
+                final Vec3d interp = MathUtil.interpolateEntity((Entity)mc.player, mc.getRenderPartialTicks());
+                KamiTessellator.drawBoundingBox(iblockstate.getSelectedBoundingBox((World)mc.world, blockpos).grow(0.0020000000949949026).offset(-interp.x, -interp.y, -interp.z), this.width.getValue(), (int)this.red.getValue(), (int)this.green.getValue(), (int)this.blue.getValue(), (int)this.alpha.getValue());
             }
         }
+    }
+
+    @SubscribeEvent
+    public void onDrawBlockHighlight(final DrawBlockHighlightEvent event) {
+        if (BlockHighlight.mc.player == null || BlockHighlight.mc.world == null || (!BlockHighlight.mc.playerController.getCurrentGameType().equals((Object)GameType.SURVIVAL) && !BlockHighlight.mc.playerController.getCurrentGameType().equals((Object)GameType.CREATIVE))) {
+            return;
+        }
+        event.setCanceled(true);
     }
 }

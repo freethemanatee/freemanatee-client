@@ -1,3 +1,3 @@
-FREE THE MOTHER FUCKING MANATEE
+free the mother fucking manatee
 
 # N O W

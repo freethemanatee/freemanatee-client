@@ -24,7 +24,6 @@ import me.zeroeightsix.kami.setting.config.Configuration;
 import me.zeroeightsix.kami.util.Friends;
 import me.zeroeightsix.kami.util.LagCompensator;
 import me.zeroeightsix.kami.util.Wrapper;
-import me.zeroeightsix.kami.util.CapeManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -53,16 +52,16 @@ public class KamiMod {
 
     public static final String MODID = "#freemanatee";
     public static final String MODNAME = "#freemanatee";
-    public static final String MODVER = "1.5";
+    public static final String MODVER = "1.7.1";
 
     public static final String KAMI_HIRAGANA = "#freemanatee";
     public static final String KAMI_KATAKANA = "#freemanatee";
     public static final String NAME_UNICODE = "#freemanatee";
     public static final String KAMI_KANJI = "#freemanatee";
 
-    private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanateeconfig.json";
+    private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanatee.json";
     public static final char colour = '\u00A7';
-    public static final Logger log = LogManager.getLogger("freemanatee");
+    public static final Logger log = LogManager.getLogger("#freemanatee");
 
     public static final EventBus EVENT_BUS = new EventManager();
 
@@ -71,8 +70,6 @@ public class KamiMod {
 
     public KamiGUI guiManager;
     public CommandManager commandManager;
-    public CapeManager capeManager;
-
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
         protected JsonObject doForward(JsonObject jsonObject) {
@@ -92,7 +89,7 @@ public class KamiMod {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        KamiMod.log.info("\n\nInitializing freemanatee client " + MODVER);
+        KamiMod.log.info("\n\nInitializing #freemanatee " + MODVER);
 
         ModuleManager.initialize();
 
@@ -107,9 +104,6 @@ public class KamiMod {
 
         commandManager = new CommandManager();
 
-        capeManager = new CapeManager();
-        capeManager.initializeCapes();
-
         Friends.initFriends();
         SettingsRegister.register("commandPrefix", Command.commandPrefix);
         loadConfiguration();
@@ -120,11 +114,11 @@ public class KamiMod {
         // After settings loaded, we want to let the enabled modules know they've been enabled (since the setting is done through reflection)
         ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
 
-        KamiMod.log.info("KAMI Mod initialized!\n");
+        KamiMod.log.info("#freemanatee Mod initialized!\n");
     }
 
     public static String getConfigName() {
-        Path config = Paths.get("freemanateelastconfig.txt");
+        Path config = Paths.get("#freemanateelastconfig.txt");
         String kamiConfigName = KAMI_CONFIG_NAME_DEFAULT;
         try(BufferedReader reader = Files.newBufferedReader(config)) {
             kamiConfigName = reader.readLine();

@@ -12,7 +12,7 @@ public class DiscordPresence {
     private static final String APP_ID = "684623822263287991";
     private static final DiscordRPC rpc = DiscordRPC.INSTANCE;
     private static final String DEFAULT_DETAILS = "Main Menu";
-    private static final String DEFAULT_STATE = "manatee";
+    private static final String DEFAULT_STATE = "YakGod.cc";
     static String lastChat;
     private static DiscordRichPresence presence = new DiscordRichPresence();
     private static boolean hasStarted = false;
@@ -33,13 +33,13 @@ public class DiscordPresence {
         DiscordPresence.presence.startTimestamp = System.currentTimeMillis() / 1000L;
         DiscordPresence.presence.details = DEFAULT_DETAILS;
         DiscordPresence.presence.state = DEFAULT_STATE;
-        DiscordPresence.presence.largeImageKey = "da manatee";
+        DiscordPresence.presence.largeImageKey = "yakgod";
         DiscordPresence.rpc.Discord_UpdatePresence(DiscordPresence.presence);
         new Thread(() -> {
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     DiscordPresence.rpc.Discord_RunCallbacks();
-                    details = "free the manatee";
+                    details = ">not having YakGod.cc";
                     state = "";
                     if (mc.isIntegratedServerRunning()) {
                         details = mc.player.getName();

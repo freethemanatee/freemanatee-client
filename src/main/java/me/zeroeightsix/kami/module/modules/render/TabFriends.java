@@ -10,7 +10,7 @@ import net.minecraft.scoreboard.ScorePlayerTeam;
  * Created by 086 on 8/04/2018.
  * Updated 28 November 2019 by hub
  */
-@Module.Info(name = "TabFriends", description = "Shows Friens in Tab Green", category = Module.Category.RENDER)
+@Module.Info(name = "TabFriends", description = "Shows Friends in tab", category = Module.Category.RENDER)
 public class TabFriends extends Module {
 
     public static TabFriends INSTANCE;

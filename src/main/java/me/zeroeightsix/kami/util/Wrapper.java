@@ -1,14 +1,11 @@
 package me.zeroeightsix.kami.util;
 
-import me.zeroeightsix.kami.gui.font.CFontRenderer;
 import me.zeroeightsix.kami.gui.kami.KamiGUI;
 import me.zeroeightsix.kami.gui.rgui.render.font.FontRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
-
-import java.awt.*;
 
 /**
  * Created by 086 on 11/11/2017.

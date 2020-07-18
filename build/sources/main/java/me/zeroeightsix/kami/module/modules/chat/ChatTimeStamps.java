@@ -19,16 +19,17 @@ import java.util.Date;
 @Module.Info(name = "ChatTimeStamps", category = Module.Category.CHAT)
 public class ChatTimeStamps extends Module {
 
-    private Setting<Boolean> deco = register(Settings.b("Deco", true));
+    private Setting<Boolean> bracket = register(Settings.b("Bracket", true));
 
     @EventHandler
     public Listener<ClientChatReceivedEvent> listener = new Listener<>(event -> {
 
-        TextComponentString newTextComponentString = new TextComponentString(ChatFormatting.GRAY + (deco.getValue() ? "<" : "") + new SimpleDateFormat("k:mm").format(new Date()) + (deco.getValue() ? ">" : "") + ChatFormatting.RESET + " ");
+        TextComponentString newTextComponentString = new TextComponentString(ChatFormatting.GRAY + (bracket.getValue() ? "<" : "") + new SimpleDateFormat("k:mm").format(new Date()) + (bracket.getValue() ? ">" : "") + ChatFormatting.RESET + " ");
         newTextComponentString.appendSibling(event.getMessage());
 
         event.setMessage(newTextComponentString);
 
-    });
+
+        });
 
 }

@@ -31,7 +31,7 @@ public class ppaura extends Module {
     private Setting<Double> hitRange = register(Settings.d("Hit Range", 5.5d));
     private Setting<Boolean> ignoreWalls = register(Settings.b("Ignore Walls", true));
     private Setting<WaitMode> waitMode = register(Settings.e("Mode", WaitMode.STATIC));
-    private Setting<Integer> waitTick = register(Settings.integerBuilder("Tick Delay").withMinimum(0).withValue(0).withVisibility(o -> waitMode.getValue().equals(WaitMode.STATIC)).build());
+    private Setting<Integer> waitTick = register(Settings.integerBuilder("Tick Delay").withMinimum(-10000).withValue(-10000).withVisibility(o -> waitMode.getValue().equals(WaitMode.STATIC)).build());
     private Setting<Boolean> switchTo32k = register(Settings.b("32k Switch", true));
     private Setting<Boolean> onlyUse32k = register(Settings.b("32k Only", true));
 

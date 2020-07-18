@@ -1,8 +1,8 @@
 package me.zeroeightsix.kami.module.modules.hidden;
 
 import me.zeroeightsix.kami.command.Command;
-import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.Module;
+import me.zeroeightsix.kami.event.events.RenderEvent;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

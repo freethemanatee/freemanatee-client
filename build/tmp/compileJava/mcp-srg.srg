@@ -15,5 +15,4 @@ FD: me/zeroeightsix/kami/mixin/client/MixinMinecraft/soundHandler me/zeroeightsi
 FD: me/zeroeightsix/kami/mixin/client/MixinRenderGlobal/mc me/zeroeightsix/kami/mixin/client/MixinRenderGlobal/field_72777_q
 FD: me/zeroeightsix/kami/mixin/client/MixinRenderGlobal/renderContainer me/zeroeightsix/kami/mixin/client/MixinRenderGlobal/field_174996_N
 FD: me/zeroeightsix/kami/mixin/client/MixinStateImplementation/block me/zeroeightsix/kami/mixin/client/MixinStateImplementation/field_177239_a
-MD: me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer/getPlayerInfo ()Lnet/minecraft/client/network/NetworkPlayerInfo; me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer/func_175155_b ()Lnet/minecraft/client/network/NetworkPlayerInfo;
 MD: me/zeroeightsix/kami/mixin/client/MixinGuiChat/initGui ()V me/zeroeightsix/kami/mixin/client/MixinGuiChat/func_73866_w_ ()V
