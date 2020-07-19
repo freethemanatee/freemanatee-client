@@ -20,58 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/AutoTrap2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoWeb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/SelfWeb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/SkinFlicker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/TabFriends.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/gradle.log" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/gradle.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(YakGod.cc)-binpatched.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(YakGod.cc)-binpatched.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-binpatched.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-binpatched.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decomp.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decomp.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decompFixed.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decompFixed.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-patched.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-patched.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-srgBin.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-srgBin.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(freemanatee-client)-binpatched.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(freemanatee-client)-binpatched.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(YakGod.cc).jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(YakGod.cc).jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(bruh).jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(bruh).jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh)-sources.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh)-sources.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh).jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh).jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiPlayerTabOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiPlayerTabOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinRenderPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinRenderPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoGG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoEZ.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/CrystalAura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/CrystalAura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/NutGodCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/NutGodCA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ExtraTab.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/RusherHackNameTags.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,22 +270,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595136591782" />
-    <state width="1676" height="199" key="GridCell.Tab.0.bottom" timestamp="1595154520044">
+    <state width="1675" height="199" key="GridCell.Tab.0.bottom" timestamp="1595155665193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
-    <state width="1676" height="199" key="GridCell.Tab.0.center" timestamp="1595154520044">
+    <state width="1675" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595155665193" />
+    <state width="1675" height="199" key="GridCell.Tab.0.center" timestamp="1595155665193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="199" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
-    <state width="1676" height="199" key="GridCell.Tab.0.left" timestamp="1595154520044">
+    <state width="1675" height="199" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595155665193" />
+    <state width="1675" height="199" key="GridCell.Tab.0.left" timestamp="1595155665193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="199" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
-    <state width="1676" height="199" key="GridCell.Tab.0.right" timestamp="1595154520044">
+    <state width="1675" height="199" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595155665193" />
+    <state width="1675" height="199" key="GridCell.Tab.0.right" timestamp="1595155665193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="199" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
+    <state width="1675" height="199" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595155665193" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1594718728303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
