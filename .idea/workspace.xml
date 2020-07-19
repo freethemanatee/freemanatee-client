@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HoleTP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/MultiTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/AutoTrap2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoWeb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/SelfWeb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/SkinFlicker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/TabFriends.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -32,20 +34,43 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/gradle.log" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/gradle.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(YakGod.cc)-binpatched.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(YakGod.cc)-binpatched.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-binpatched.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-binpatched.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decomp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decomp.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decompFixed.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-decompFixed.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-patched.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-patched.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-srgBin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(bruh)-srgBin.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(freemanatee-client)-binpatched.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(freemanatee-client)-binpatched.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(YakGod.cc).jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(YakGod.cc).jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(bruh).jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(bruh).jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh)-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh)-sources.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh).jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.0.2531-PROJECT(bruh).jar.md5" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/HelpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiPlayerTabOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiPlayerTabOverlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/HopperNuker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/HopperNuker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/CrystalAura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HotbarReplenish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HotbarReplenish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ESP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ESP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinRenderPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinRenderPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoGG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoEZ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/CrystalAura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/CrystalAura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/NutGodCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/NutGodCA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ExtraTab.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/TabFriends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ExtraTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/RusherHackNameTags.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +111,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="freemanatee-client" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build setup" type="c8890929:TasksNode$1" />
+                <item name="forgegradle" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -111,11 +136,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1eGjY7J8gvqSVB6h3gRgwTN9Vfb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -133,27 +162,8 @@
       <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zeroeightsix\kami\module\modules\exploits" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.freemanatee [clean]">
-    <configuration name="freemanatee [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="assemble" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="freemanatee [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.freemanatee-client [clean]">
+    <configuration name="freemanatee-client [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -172,7 +182,26 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="freemanatee [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="freemanatee-client [cleanCache]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="cleanCache" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="freemanatee-client [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -191,7 +220,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="freemanatee-client [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="freemanatee-client [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -202,7 +231,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jar" />
+            <option value="init" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -210,7 +239,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="freemanatee-client [wrapper]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="freemanatee-client [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -221,7 +250,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="wrapper" />
+            <option value="testClasses" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -231,11 +260,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.freemanatee-client [jar]" />
-        <item itemvalue="Gradle.freemanatee-client [wrapper]" />
-        <item itemvalue="Gradle.freemanatee [build]" />
-        <item itemvalue="Gradle.freemanatee [clean]" />
-        <item itemvalue="Gradle.freemanatee [assemble]" />
+        <item itemvalue="Gradle.freemanatee-client [build]" />
+        <item itemvalue="Gradle.freemanatee-client [clean]" />
+        <item itemvalue="Gradle.freemanatee-client [cleanCache]" />
+        <item itemvalue="Gradle.freemanatee-client [init]" />
+        <item itemvalue="Gradle.freemanatee-client [testClasses]" />
       </list>
     </recent_temporary>
   </component>
@@ -264,6 +293,9 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595028411034">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -277,10 +309,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="711" y="414" width="500" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1594973260544" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595140532522">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595150261721">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595140532522" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595150261721" />
     <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar" timestamp="1594364563833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -289,22 +321,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595136591782" />
-    <state width="1680" height="196" key="GridCell.Tab.0.bottom" timestamp="1595146194843">
+    <state width="1676" height="199" key="GridCell.Tab.0.bottom" timestamp="1595154520044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1680" height="196" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
-    <state width="1680" height="196" key="GridCell.Tab.0.center" timestamp="1595146194843">
+    <state width="1676" height="199" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
+    <state width="1676" height="199" key="GridCell.Tab.0.center" timestamp="1595154520044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1680" height="196" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
-    <state width="1680" height="196" key="GridCell.Tab.0.left" timestamp="1595146194843">
+    <state width="1676" height="199" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
+    <state width="1676" height="199" key="GridCell.Tab.0.left" timestamp="1595154520044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1680" height="196" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
-    <state width="1680" height="196" key="GridCell.Tab.0.right" timestamp="1595146194843">
+    <state width="1676" height="199" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
+    <state width="1676" height="199" key="GridCell.Tab.0.right" timestamp="1595154520044">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1680" height="196" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
+    <state width="1676" height="199" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595154520044" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1594718728303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -321,9 +353,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594984361531" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595146078630">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595147166199">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595146078630" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595147166199" />
   </component>
 </project>

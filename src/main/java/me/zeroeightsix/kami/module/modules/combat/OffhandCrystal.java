@@ -64,7 +64,7 @@ public class OffhandCrystal extends Module
             ++this.crystals;
         }
         else {
-            if (OffhandCrystal.mc.player.getHealth() + OffhandCrystal.mc.player.getAbsorptionAmount() <= AutoTotem.health()) {
+            if (OffhandCrystal.mc.player.getHealth() + OffhandCrystal.mc.player.getAbsorptionAmount() <= AutoTotem2.health()) {
                 return;
             }
             if (this.moving) {

@@ -11,7 +11,7 @@ import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.ModuleManager;
-import me.zeroeightsix.kami.module.modules.chat.AutoGG;
+import me.zeroeightsix.kami.module.modules.chat.AutoEZ;
 import me.zeroeightsix.kami.util.EntityUtil;
 import me.zeroeightsix.kami.util.Friends;
 import me.zeroeightsix.kami.util.KamiTessellator;
@@ -41,7 +41,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
-@Module.Info(name = "AutoCrystal", description = "new ca", category = Module.Category.COMBAT)
+@Module.Info(name = "AutoCrystal", category = Module.Category.COMBAT)
 public class CrystalAura extends Module {
 
     private Setting<Integer> tickPlaceDelay;
@@ -156,7 +156,7 @@ public class CrystalAura extends Module {
     public void onDisable() {
 
         if (chatAlert.getValue()) {
-            Command.sendChatMessage("\u00A7cmanatee is no longer free" + ChatFormatting.RED.toString() + " ");
+            Command.sendChatMessage("\u00A7cmanatee is no longer free");
         }
 
         resetRotation();
@@ -283,8 +283,8 @@ public class CrystalAura extends Module {
             resetRotation();
             return;
         }
-        if (lastTarget instanceof EntityPlayer && ModuleManager.getModuleByName("AutoGG").isEnabled()) {
-            final me.zeroeightsix.kami.module.modules.chat.AutoGG autogg = (AutoGG)ModuleManager.getModuleByName("AutoGG");
+        if (lastTarget instanceof EntityPlayer && ModuleManager.getModuleByName("AutoEZ").isEnabled()) {
+            final AutoEZ autogg = (AutoEZ)ModuleManager.getModuleByName("AutoEZ");
             autogg.addTargetedPlayer(lastTarget.getName());
         }
         this.render = finalPos;

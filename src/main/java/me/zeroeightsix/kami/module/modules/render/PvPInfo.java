@@ -88,8 +88,8 @@ public class PvPInfo extends Module {
 
     private String getCaura() {
         String x = "OFF";
-        if (ModuleManager.getModuleByName("CrystalAura") == null) return x;
-        return Boolean.toString(ModuleManager.getModuleByName("CrystalAura").isEnabled()).toUpperCase();
+        if (ModuleManager.getModuleByName("CrystalAuraO") == null) return x;
+        return Boolean.toString(ModuleManager.getModuleByName("CrystalAuraO").isEnabled()).toUpperCase();
     }
 
     private String getKA() {

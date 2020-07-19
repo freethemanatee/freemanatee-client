@@ -10,7 +10,7 @@ import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.module.ModuleManager;
-import me.zeroeightsix.kami.module.modules.chat.AutoGG;
+import me.zeroeightsix.kami.module.modules.chat.AutoEZ;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import me.zeroeightsix.kami.util.EntityUtil;
@@ -213,8 +213,8 @@ public class NutGodCA extends Module {
             resetRotation();
             return;
         }
-        if (lastTarget instanceof EntityPlayer && ModuleManager.getModuleByName("AutoGG").isEnabled()) {
-            final me.zeroeightsix.kami.module.modules.chat.AutoGG autogg = (AutoGG)ModuleManager.getModuleByName("AutoGG");
+        if (lastTarget instanceof EntityPlayer && ModuleManager.getModuleByName("AutoEZ").isEnabled()) {
+            final AutoEZ autogg = (AutoEZ)ModuleManager.getModuleByName("AutoEZ");
             autogg.addTargetedPlayer(lastTarget.getName());
         }
         this.render = finalPos;
