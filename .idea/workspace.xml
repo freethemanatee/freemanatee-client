@@ -20,6 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HoleTP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/MultiTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -28,7 +31,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiPlayerTabOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiPlayerTabOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/HopperNuker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/HopperNuker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/CrystalAura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HotbarReplenish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HotbarReplenish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ESP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ESP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/PvPInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/TabFriends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ExtraTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +120,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/freemanatee-client" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
@@ -154,25 +172,6 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="freemanatee [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="classes" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="freemanatee [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -185,6 +184,25 @@
         <option name="taskNames">
           <list>
             <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="freemanatee-client [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -213,11 +231,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.freemanatee-client [jar]" />
         <item itemvalue="Gradle.freemanatee-client [wrapper]" />
         <item itemvalue="Gradle.freemanatee [build]" />
         <item itemvalue="Gradle.freemanatee [clean]" />
         <item itemvalue="Gradle.freemanatee [assemble]" />
-        <item itemvalue="Gradle.freemanatee [classes]" />
       </list>
     </recent_temporary>
   </component>
@@ -259,34 +277,34 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="711" y="414" width="500" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1594973260544" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594977116101">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595140532522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594977116101" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595140532522" />
     <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar" timestamp="1594364563833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar/0.0.1920.1040@0.0.1920.1040" timestamp="1594364563833" />
-    <state x="873" y="288" key="FileChooserDialogImpl" timestamp="1595077332504">
+    <state x="873" y="288" key="FileChooserDialogImpl" timestamp="1595136591782">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595077332504" />
-    <state width="1367" height="196" key="GridCell.Tab.0.bottom" timestamp="1595078089890">
+    <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595136591782" />
+    <state width="1680" height="196" key="GridCell.Tab.0.bottom" timestamp="1595146194843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1367" height="196" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595078089890" />
-    <state width="1367" height="196" key="GridCell.Tab.0.center" timestamp="1595078089890">
+    <state width="1680" height="196" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
+    <state width="1680" height="196" key="GridCell.Tab.0.center" timestamp="1595146194843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1367" height="196" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595078089890" />
-    <state width="1367" height="196" key="GridCell.Tab.0.left" timestamp="1595078089890">
+    <state width="1680" height="196" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
+    <state width="1680" height="196" key="GridCell.Tab.0.left" timestamp="1595146194843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1367" height="196" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595078089890" />
-    <state width="1367" height="196" key="GridCell.Tab.0.right" timestamp="1595078089890">
+    <state width="1680" height="196" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
+    <state width="1680" height="196" key="GridCell.Tab.0.right" timestamp="1595146194843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1367" height="196" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595078089890" />
+    <state width="1680" height="196" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595146194843" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1594718728303">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -303,9 +321,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594984361531" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595077676995">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595146078630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595077676995" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595146078630" />
   </component>
 </project>

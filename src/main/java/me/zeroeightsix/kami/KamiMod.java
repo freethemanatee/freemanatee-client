@@ -52,7 +52,7 @@ public class KamiMod {
 
     public static final String MODID = "#freemanatee";
     public static final String MODNAME = "#freemanatee";
-    public static final String MODVER = "1.7.1";
+    public static final String MODVER = "1.7.2";
 
     public static final String KAMI_HIRAGANA = "#freemanatee";
     public static final String KAMI_KATAKANA = "#freemanatee";
@@ -101,8 +101,6 @@ public class KamiMod {
 
         guiManager = new KamiGUI();
         guiManager.initializeGUI();
-
-        commandManager = new CommandManager();
 
         Friends.initFriends();
         SettingsRegister.register("commandPrefix", Command.commandPrefix);

@@ -41,12 +41,13 @@ public class HelpCommand extends Command {
     public void call(String[] args) {
         if (args[0] == null) {
             Command.sendStringChatMessage(new String[]{
-                    "KAMI " + KamiMod.MODVER,
+                    "#freemanatee " + KamiMod.MODVER,
+                    "&7Press &r" + ModuleManager.getModuleByName("ClickGUI").getBindName() + "&7 to open GUI",
                     "commands&7 to view all available commands",
                     "bind <module> <key>&7 to bind mods",
-                    "&7Press &r" + ModuleManager.getModuleByName("ClickGUI").getBindName() + "&7 to open GUI",
                     "prefix <prefix>&r to change the command prefix.",
-                    "help <subjects:[subject]> &r for more help."
+                    "help <subjects:[subject]> &r for more help.",
+                    "free the mother fucking manatee"
             });
         }else{
             String subject = args[0];

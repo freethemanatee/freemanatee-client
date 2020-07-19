@@ -230,18 +230,18 @@ public class KamiGUI
         frame.addChild(information);
         information.setFontRenderer(fontRenderer);
         frames.add(frame);
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Watermark");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "manatee");
         frame.setCloseable(false);
         frame.setPinneable(true);
         frame.setMinimumWidth(75);
         frame.setHeight(20);
         frames.add(frame);
-        Label watermark = new Label((ChatFormatting.WHITE)+("YakGod.cc"));
+        Label watermark = new Label((ChatFormatting.AQUA)+("free him"));
         watermark.setX((frame.getWidth() / 2));
         watermark.setShadow(true);
         frame.addChild(watermark);
         frames.add(frame);
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Coords");
         frame.setCloseable(false);
         frame.setPinneable(true);
         Label coordsLabel = new Label("");
@@ -287,7 +287,7 @@ public class KamiGUI
         coordsLabel.setShadow(true);
         frame.setHeight(20);
         frames.add(frame);
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Text Radar");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Player Radar");
         Label list = new Label("");
         DecimalFormat dfHealth = new DecimalFormat("#.#");
         dfHealth.setRoundingMode(RoundingMode.CEILING);
@@ -410,7 +410,7 @@ public class KamiGUI
                     totemCount += itemStack.stackSize;
                 }
             }
-            totem.addLine((ChatFormatting.WHITE) + "Tots: " + (ChatFormatting.AQUA) + String.valueOf(totemCount));
+            totem.addLine((ChatFormatting.WHITE) + "Totems: " + (ChatFormatting.AQUA) + String.valueOf(totemCount));
         });
         frame.addChild(totem);
         totem.setFontRenderer(fontRenderer);
@@ -430,7 +430,7 @@ public class KamiGUI
                     crystalCount += itemStack.stackSize;
                 }
             }
-            crystals.addText((ChatFormatting.WHITE) + "Crys: " + (ChatFormatting.AQUA) + String.valueOf(crystalCount));
+            crystals.addText((ChatFormatting.WHITE) + "Crystals: " + (ChatFormatting.AQUA) + String.valueOf(crystalCount));
         });
         frame.addChild(crystals);
         crystals.setFontRenderer(fontRenderer);
@@ -450,7 +450,7 @@ public class KamiGUI
                     gappleCount += itemStack.stackSize;
                 }
             }
-            gapples.addText((ChatFormatting.WHITE) + "Gaps: " + (ChatFormatting.AQUA) + String.valueOf(gappleCount));
+            gapples.addText((ChatFormatting.WHITE) + "Gapples: " + (ChatFormatting.AQUA) + String.valueOf(gappleCount));
         });
         frame.addChild(gapples);
         gapples.setFontRenderer(fontRenderer);
@@ -470,7 +470,7 @@ public class KamiGUI
                     xpCount += itemStack.stackSize;
                 }
             }
-            xp.addText((ChatFormatting.WHITE) + "Exp: " + (ChatFormatting.AQUA) + String.valueOf(xpCount));
+            xp.addText((ChatFormatting.WHITE) + "EXP: " + (ChatFormatting.AQUA) + String.valueOf(xpCount));
         });
  frame.addChild(xp);
  xp.setFontRenderer(fontRenderer);

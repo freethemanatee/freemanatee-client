@@ -44,7 +44,7 @@ public class AutoLog extends Module
         }, (Predicate<LivingDamageEvent>[])new Predicate[0]);
         this.entityJoinWorldEventListener = new Listener<EntityJoinWorldEvent>(event -> {
             if (AutoLog.mc.player != null) {
-                if (event.getEntity() instanceof EntityEnderCrystal && AutoLog.mc.player.getHealth() - AutoCrystal.calculateDamage((EntityEnderCrystal)event.getEntity(), (Entity)AutoLog.mc.player) < this.health.getValue()) {
+                if (event.getEntity() instanceof EntityEnderCrystal && AutoLog.mc.player.getHealth() - CrystalAura.calculateDamage((EntityEnderCrystal)event.getEntity(), (Entity)AutoLog.mc.player) < this.health.getValue()) {
                     this.log();
                 }
             }

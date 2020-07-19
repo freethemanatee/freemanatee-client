@@ -11,12 +11,12 @@ import net.minecraft.scoreboard.ScorePlayerTeam;
  * Updated 28 November 2019 by hub
  */
 @Module.Info(name = "TabFriends", description = "Shows Friends in tab", category = Module.Category.RENDER)
-public class TabFriends extends Module {
+public class ExtraTab extends Module {
 
-    public static TabFriends INSTANCE;
+    public static ExtraTab INSTANCE;
 
-    public TabFriends() {
-        TabFriends.INSTANCE = this;
+    public ExtraTab() {
+        ExtraTab.INSTANCE = this;
     }
 
     public static String getPlayerName(NetworkPlayerInfo networkPlayerInfoIn) {

@@ -34,7 +34,7 @@ public class HopperNuker extends Module {
     public void onEnable() {
 
         if (Announce.getValue()) {
-            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " ");
+            Command.sendChatMessage("[HopperNuker] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " ");
         }
     }
 
@@ -42,7 +42,7 @@ public class HopperNuker extends Module {
     public void onDisable() {
 
         if (Announce.getValue()) {
-            Command.sendChatMessage("[HoleFiller] " + ChatFormatting.RED.toString() + "Disabled" + ChatFormatting.RESET.toString() + " ");
+            Command.sendChatMessage("[HopperNuker] " + ChatFormatting.RED.toString() + "Disabled" + ChatFormatting.RESET.toString() + " ");
         }
     }
 

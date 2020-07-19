@@ -42,7 +42,7 @@ import java.util.stream.Collectors;
 
 
 @Module.Info(name = "AutoCrystal", description = "new ca", category = Module.Category.COMBAT)
-public class AutoCrystal extends Module {
+public class CrystalAura extends Module {
 
     private Setting<Integer> tickPlaceDelay;
     private Setting<Integer> msPlaceDelay;
@@ -100,7 +100,7 @@ public class AutoCrystal extends Module {
     @EventHandler
     private Listener<PacketEvent.Send> packetListener;
     //re
-    public AutoCrystal() {
+    public CrystalAura() {
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
         this.chatAlert = this.register(Settings.b("Chat Alert", true));

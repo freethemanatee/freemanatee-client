@@ -20,7 +20,7 @@ import java.awt.*;
 @Module.Info(name = "ESP", description = "Draws Boxes around entities", category = Module.Category.RENDER)
 public class ESP extends Module {
 
-    private Setting<Boolean> players = register(Settings.b("Players", true));
+    private Setting<Boolean> players = register(Settings.b("Players", false));
     private Setting<Boolean> rainbow = register(Settings.b("Chroma", true));
     private Setting<Integer> a = this.register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(50).build());
     private Setting<Integer> r = this.register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0).build());
@@ -28,7 +28,7 @@ public class ESP extends Module {
     private Setting<Integer> b = this.register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(0).build());
     private Setting<Boolean> exp = register(Settings.b("Xp", true));
     private Setting<Boolean> items = register(Settings.b("Items", true));
-    private Setting<Boolean> epearls = register(Settings.b("Epearls", true));
+    private Setting<Boolean> epearls = register(Settings.b("Epearls", false));
 
     RenderItem itemRenderer = mc.getRenderItem();
 
