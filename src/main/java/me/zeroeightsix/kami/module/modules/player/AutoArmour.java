@@ -8,9 +8,6 @@ import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
-/**
- * Created by 086 on 24/01/2018.
- */
 @Module.Info(name = "AutoArmour", category = Module.Category.PLAYER)
 public class AutoArmour extends Module {
 

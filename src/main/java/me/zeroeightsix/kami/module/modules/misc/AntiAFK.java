@@ -8,10 +8,10 @@ import net.minecraft.util.EnumHand;
 
 import java.util.Random;
 
-/**
- * Created by 086 on 16/12/2017.
- */
-@Module.Info(name = "AntiAFK", category = Module.Category.MISC, description = "Moves in order not to get kicked. (May be invisible client-sided)")
+@Module.Info(
+        name = "AntiAFK",
+        category = Module.Category.MISC
+)
 public class AntiAFK extends Module {
 
     private Setting<Boolean> swing = register(Settings.b("Swing", true));

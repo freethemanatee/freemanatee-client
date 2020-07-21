@@ -23,8 +23,8 @@ import net.minecraft.network.play.client.CPacketChatMessage;
 import net.minecraft.network.play.server.SPacketBlockBreakAnim;
 import net.minecraft.util.math.BlockPos;
 
-@Module.Info(name = "ObsidianWarning", category = Module.Category.RENDER)
-public class ObsidianWarning extends Module {
+@Module.Info(name = "BreakingWarning", category = Module.Category.RENDER)
+public class BreakingWarning extends Module {
 
     private Setting<Integer> distanceToDetect = this.register(Settings.integerBuilder("Max Break Distance").withMinimum(1).withValue(2).withMaximum(5).build());
     private Setting<Boolean> announce = this.register(Settings.b("Announce in chat", false));

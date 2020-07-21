@@ -13,9 +13,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 
-/**
- * Created by 086 on 19/11/2017.
- */
 @Module.Info(category = Module.Category.PLAYER, description = "Prevents fall damage", name = "NoFall")
 public class NoFall extends Module {
 

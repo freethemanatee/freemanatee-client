@@ -10,11 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created 10 August 2019 by hub
- * Updated 8 December 2019 by hub
- */
-@Module.Info(name = "FakePlayer", category = Module.Category.MISC, description = "Spawns a fake Player")
+@Module.Info(
+        name = "FakePlayer",
+        category = Module.Category.MISC
+)
 public class FakePlayer extends Module {
 
     private Setting<SpawnMode> spawnMode = register(Settings.e("Spawn Mode", SpawnMode.SINGLE));
@@ -27,18 +26,18 @@ public class FakePlayer extends Module {
 
     private static final String[][] fakePlayerInfo =
             {
-                    {"66666666-6666-6666-6666-666666666600", "derp0", "-3", "0"},
-                    {"66666666-6666-6666-6666-666666666601", "derp1", "0", "-3"},
-                    {"66666666-6666-6666-6666-666666666602", "derp2", "3", "0"},
-                    {"66666666-6666-6666-6666-666666666603", "derp3", "0", "3"},
-                    {"66666666-6666-6666-6666-666666666604", "derp4", "-6", "0"},
-                    {"66666666-6666-6666-6666-666666666605", "derp5", "0", "-6"},
-                    {"66666666-6666-6666-6666-666666666606", "derp6", "6", "0"},
-                    {"66666666-6666-6666-6666-666666666607", "derp7", "0", "6"},
-                    {"66666666-6666-6666-6666-666666666608", "derp8", "-9", "0"},
-                    {"66666666-6666-6666-6666-666666666609", "derp9", "0", "-9"},
-                    {"66666666-6666-6666-6666-666666666610", "derp10", "9", "0"},
-                    {"66666666-6666-6666-6666-666666666611", "derp11", "0", "9"}
+                    {"4538d5ab-ff77-407c-9a1e-1b713ef99a0d", "zopac", "-3", "0"},
+                    {"51cd88e2-0ed1-44df-8ed6-f217b16b9c6a", "b11", "0", "-3"},
+                    {"8deac414-6c37-44fb-82bd-6873efc1b0cf", "_o_b_a_m_a_", "3", "0"},
+                    {"17d945f4-8a14-492d-ac1b-12598f6b65f5", "vs0", "0", "3"},
+                    {"2e1f1a33-6cc8-4b5e-9cd0-864baf03463a", "ybh", "-6", "0"},
+                    {"442b386f-d6f4-49e2-a38f-b0e5e49346f7", "jysu", "0", "-6"},
+                    {"78bd6a79-6582-4309-b0bf-3e19c7a781be", "freemanatee", "6", "0"},
+                    {"0f75a81d-70e5-43c5-b892-f33c524284f2", "popbob", "0", "6"},
+                    {"64a5c834-514b-4024-9aa4-515719f6e7fa", "iTristan", "-9", "0"},
+                    {"5da4bad8-cf32-4fd6-a665-d13f06bcef93", "L2H", "0", "-9"},
+                    {"71a65dd4-1bf7-4e32-96e8-87c1f05a8550", "popcornbob", "9", "0"},
+                    {"9800cc02-eaf5-4c32-a13b-d277fc4d5f72", "simplesurvival", "0", "9"}
             };
 
     @Override

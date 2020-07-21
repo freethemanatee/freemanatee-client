@@ -10,10 +10,10 @@ import net.minecraft.client.gui.GuiDisconnected;
 import net.minecraft.client.multiplayer.GuiConnecting;
 import net.minecraft.client.multiplayer.ServerData;
 
-/**
- * Created by 086 on 9/04/2018.
- */
-@Module.Info(name = "AutoReconnect", description = "Automatically reconnects after being disconnected", category = Module.Category.MISC, alwaysListening = true)
+@Module.Info(
+        name = "AutoReconnect",
+        category = Module.Category.MISC
+)
 public class AutoReconnect extends Module {
 
     private Setting<Integer> seconds = register(Settings.integerBuilder("Seconds").withValue(5).withMinimum(0).build());

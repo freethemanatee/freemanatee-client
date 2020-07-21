@@ -2,10 +2,10 @@ package me.zeroeightsix.kami.module.modules.movement;
 
 import me.zeroeightsix.kami.module.Module;
 
-/**
- * Created by 086 on 23/08/2017.
- */
-@Module.Info(name = "Sprint", description = "Automatically makes the player sprint", category = Module.Category.MOVEMENT)
+@Module.Info(
+        name = "Sprint",
+        category = Module.Category.MOVEMENT
+)
 public class Sprint extends Module {
 
     @Override

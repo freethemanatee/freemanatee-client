@@ -13,9 +13,6 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 
-/**
- * Created by 086 on 28/12/2017.
- */
 @Module.Info(name = "Trajectories", category = Module.Category.RENDER)
 public class Trajectories extends Module {
     ArrayList<Vec3d> positions = new ArrayList<>();

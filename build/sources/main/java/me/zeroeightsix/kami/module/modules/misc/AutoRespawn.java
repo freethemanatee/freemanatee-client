@@ -9,11 +9,10 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.client.gui.GuiGameOver;
 
-/**
- * Created by 086 on 9/04/2018.
- * Updated 16 November 2019 by hub
- */
-@Module.Info(name = "AutoRespawn", description = "Respawn utility", category = Module.Category.MISC)
+@Module.Info(
+        name = "AutoRespawn",
+        category = Module.Category.MISC
+)
 public class AutoRespawn extends Module {
 
     private Setting<Boolean> autoRespawn = register(Settings.b("Auto Respawn", true));

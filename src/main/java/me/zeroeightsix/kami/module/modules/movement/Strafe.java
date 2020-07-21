@@ -8,7 +8,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 
 
-@Module.Info(name = "Strafe", description = "Strafe", category = Module.Category.MOVEMENT)
+@Module.Info(
+        name = "Strafe",
+        category = Module.Category.MOVEMENT
+)
 public class Strafe extends Module {
 
     private Setting<Boolean> jump = register(Settings.b("AutoJump", false));

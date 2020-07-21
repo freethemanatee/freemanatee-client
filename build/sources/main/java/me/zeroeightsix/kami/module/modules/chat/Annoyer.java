@@ -34,10 +34,6 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-/**
- * Created by hub on 15 June 2019
- * Last Updated 17 June 2019 by hub
- */
 @Module.Info(name = "Annoyer", category = Module.Category.CHAT, description = "annoy niggas")
 public class Annoyer extends Module {
 

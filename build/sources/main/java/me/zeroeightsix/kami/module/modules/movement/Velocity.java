@@ -11,10 +11,10 @@ import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.network.play.server.SPacketEntityVelocity;
 import net.minecraft.network.play.server.SPacketExplosion;
 
-/**
- * Created by 086 on 16/11/2017.
- */
-@Module.Info(name = "Velocity", description = "Modify knockback impact", category = Module.Category.MOVEMENT)
+@Module.Info(
+        name = "Velocity",
+        category = Module.Category.MOVEMENT
+)
 public class Velocity extends Module {
 
     private Setting<Float> horizontal = register(Settings.f("Horizontal", 0));

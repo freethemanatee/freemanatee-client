@@ -8,9 +8,6 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.network.play.server.SPacketSoundEffect;
 
-/**
- * Created by 086 on 22/03/2018.
- */
 @Module.Info(name = "AutoFish", category = Module.Category.MISC, description = "Automatically catch fish")
 public class AutoFish extends Module {
 

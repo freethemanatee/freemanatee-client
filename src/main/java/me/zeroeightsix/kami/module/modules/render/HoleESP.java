@@ -1,4 +1,3 @@
-
 package me.zeroeightsix.kami.module.modules.render;
 
 import me.zeroeightsix.kami.module.Module;
@@ -25,8 +24,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
-// please send help this took so long -zopac
 
 @Module.Info(name="Hole Esp", category=Module.Category.RENDER)
 public class HoleESP

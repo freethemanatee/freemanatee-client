@@ -5,9 +5,6 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.util.math.MathHelper;
 
-/**
- * Created by 086 on 16/12/2017.
- */
 @Module.Info(name = "PitchLock", category = Module.Category.PLAYER)
 public class PitchLock extends Module {
     private Setting<Boolean> auto = register(Settings.b("Auto", true));

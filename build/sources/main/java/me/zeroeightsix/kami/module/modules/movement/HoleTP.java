@@ -2,7 +2,10 @@ package me.zeroeightsix.kami.module.modules.movement;
 
 import me.zeroeightsix.kami.module.Module;
 
-@Module.Info(name = "HoleTP", description = "slaps you into holes", category = Module.Category.MOVEMENT)
+@Module.Info(
+        name = "HoleTP",
+        category = Module.Category.MOVEMENT
+)
 public class HoleTP extends Module {
 
 

@@ -40,7 +40,6 @@ public class Auto32k extends Module {
     private Setting<Boolean> grabItem = register(Settings.b("Grab Item", true));
     private Setting<Boolean> autoEnableHitAura = register(Settings.b("Auto enable Hit Aura", true));
     private Setting<Boolean> HN = register(Settings.b("Disable Hopper Nuker", true));
-    private Setting<Boolean> HN2 = register(Settings.b("Enable Hopper Nuker", false));
     private Setting<Boolean> debugMessages = register(Settings.b("Debug Messages", true));
 
     private int stage;
@@ -226,10 +225,6 @@ public class Auto32k extends Module {
 
             if (autoEnableHitAura.getValue()) {
                 ModuleManager.getModuleByName("32k Aura").enable();
-            }
-
-            if (HN2.getValue()) {
-                ModuleManager.getModuleByName("HopperNuker").enable();
             }
 
             this.disable();

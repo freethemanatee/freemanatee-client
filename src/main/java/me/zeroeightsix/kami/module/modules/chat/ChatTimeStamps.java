@@ -12,10 +12,6 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by FINZ0 on 12 December 2019
- * Updated by hub on 14 December 2019
- */
 @Module.Info(name = "ChatTimeStamps", category = Module.Category.CHAT)
 public class ChatTimeStamps extends Module {
 

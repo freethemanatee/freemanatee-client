@@ -12,10 +12,6 @@ import java.util.*;
 import static me.zeroeightsix.kami.util.ChatTextUtils.generateRandomHexSuffix;
 import static me.zeroeightsix.kami.util.FileHelper.readTextFileAllLines;
 
-/**
- * Created by hub on 15 June 2019
- * Updated 23 November 2019 by hub
- */
 @Module.Info(name = "Spammer", category = Module.Category.CHAT, description = "SPAM")
 public class Spammer extends Module {
 

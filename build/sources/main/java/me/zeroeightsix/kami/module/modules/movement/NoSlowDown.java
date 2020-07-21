@@ -5,10 +5,10 @@ import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.module.Module;
 import net.minecraftforge.client.event.InputUpdateEvent;
 
-/**
- * Created by 086 on 15/12/2017.
- */
-@Module.Info(name = "NoSlowDown", category = Module.Category.MOVEMENT)
+@Module.Info(
+        name = "NoSlow",
+        category = Module.Category.MOVEMENT
+)
 public class NoSlowDown extends Module {
 
     @EventHandler

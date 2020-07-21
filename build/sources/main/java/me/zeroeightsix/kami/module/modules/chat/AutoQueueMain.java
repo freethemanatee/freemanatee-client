@@ -7,11 +7,6 @@ import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3i;
 
-
-/**
- * created by noil on 11/7/19 at 7:33 PM
- * Updated 16 November 2019 by hub
- */
 @Module.Info(name = "AutoQueueMain", category = Module.Category.CHAT, description = "Sends AutoQueueMain")
 public class AutoQueueMain extends Module {
 

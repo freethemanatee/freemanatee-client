@@ -3,11 +3,10 @@ package me.zeroeightsix.kami.module.modules.misc;
 import me.zeroeightsix.kami.module.Module;
 import net.minecraft.world.GameType;
 
-/**
- * Created by hub on 29 June 2019.
- * Updated 25 November 2019 by hub
- */
-@Module.Info(name = "FakeCreative", description = "Fake GMC", category = Module.Category.MISC)
+@Module.Info(
+        name = "FakeCreative",
+        category = Module.Category.MISC
+)
 public class FakeCreative extends Module {
 
     @Override

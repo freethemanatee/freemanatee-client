@@ -31,12 +31,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 
-@Module.Info(name = "AutoWither", category = Module.Category.MISC)
-
+@Module.Info(
+        name = "AutoWither",
+        category = Module.Category.MISC
+)
 public class AutoWither extends Module {
 
     private static boolean isSneaking;
-    private Setting<UseMode> useMode = this.register(Settings.e("UseMode", UseMode.SPAM));
+    private Setting<UseMode> useMode = this.register(Settings.e("UseMode", UseMode.SINGLE));
     private Setting<Float> placeRange = this.register(Settings.floatBuilder("PlaceRange").withMinimum(Float.valueOf(2.0f)).withValue(Float.valueOf(3.5f)).withMaximum(Float.valueOf(10.0f)).build());
     private Setting<Integer> delay = this.register(Settings.integerBuilder("Delay").withMinimum(12).withValue(20).withMaximum(100).withVisibility(v -> this.useMode.getValue().equals((Object)UseMode.SPAM)).build());
     private Setting<Boolean> rotate = this.register(Settings.b("Rotate", true));

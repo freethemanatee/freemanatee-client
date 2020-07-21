@@ -12,7 +12,7 @@ import me.zeroeightsix.kami.setting.Setting;
 import net.minecraft.client.renderer.RenderItem;
 import me.zeroeightsix.kami.module.Module;
 
-@Module.Info(name = "ArmorHUD", description = "Removes rain from your world", category = Module.Category.RENDER)
+@Module.Info(name = "ArmorHUD", description = "shows armor durability", category = Module.Category.RENDER)
 public class ArmorHUD extends Module
 {
     private static RenderItem itemRender;

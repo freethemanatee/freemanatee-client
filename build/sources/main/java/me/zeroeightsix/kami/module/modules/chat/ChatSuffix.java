@@ -8,9 +8,6 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.network.play.client.CPacketChatMessage;
 
-/**
- * Created by 086 on 8/04/2018.
- */
 @Module.Info(name = "Chat Suffix", category = Module.Category.CHAT, description = "Modifies your chat messages")
 public class ChatSuffix extends Module {
 

@@ -12,9 +12,6 @@ import net.minecraftforge.client.event.InputUpdateEvent;
 
 import static me.zeroeightsix.kami.util.EntityUtil.calculateLookAt;
 
-/**
- * Created by 086 on 16/12/2017.
- */
 @Module.Info(name = "AutoWalk", category = Module.Category.PLAYER)
 public class AutoWalk extends Module {
 

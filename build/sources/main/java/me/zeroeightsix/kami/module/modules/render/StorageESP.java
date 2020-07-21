@@ -17,9 +17,6 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 
-/**
- * Created by 086 on 10/12/2017.
- */
 @Module.Info(name = "StorageESP", description = "Draws nice little lines around storage items", category = Module.Category.RENDER)
 public class StorageESP extends Module {
 

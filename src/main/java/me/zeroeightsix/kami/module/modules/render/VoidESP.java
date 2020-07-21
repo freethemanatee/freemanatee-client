@@ -16,9 +16,6 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 import java.util.List;
 
-/**
- * Created 28 November 2019 by hub
- */
 @Module.Info(name = "VoidESP", category = Module.Category.RENDER, description = "Show void holes")
 public class VoidESP extends Module {
 

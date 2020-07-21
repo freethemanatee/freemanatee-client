@@ -14,9 +14,6 @@ import net.minecraft.network.play.client.CPacketInput;
 import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraftforge.client.event.PlayerSPPushOutOfBlocksEvent;
 
-/**
- * Created by 086 on 22/12/2017.
- */
 @Module.Info(name = "Freecam", category = Module.Category.PLAYER, description = "Leave your body and trascend into the realm of the gods")
 public class Freecam extends Module {
 

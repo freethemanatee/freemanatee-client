@@ -8,10 +8,10 @@ import net.minecraft.entity.player.EnumPlayerModelParts;
 
 @Module.Info(
         name = "SkinFlicker",
-        description = "Toggle the jacket layer rapidly for a cool skin effect",
         category = Module.Category.MISC
 )
 public class SkinFlicker extends Module {
+
     private Setting mode;
     private Setting slowness;
     private static final EnumPlayerModelParts[] PARTS_HORIZONTAL;

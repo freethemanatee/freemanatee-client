@@ -21,9 +21,12 @@ import java.util.List;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.module.Module;
 
-@Module.Info(name = "ECMEFlight", description = "dont use", category = Module.Category.MOVEMENT)
-public class ECMEFlight extends Module
-{
+@Module.Info(
+        name = "SeppukuFly",
+        category = Module.Category.MOVEMENT
+)
+public class SeppukuFly extends Module {
+
     public final Setting<Float> speed;
     public final Setting<Boolean> noKick;
     private int teleportId;
@@ -35,7 +38,7 @@ public class ECMEFlight extends Module
     @EventHandler
     public Listener<PacketEvent.Receive> receiveListener;
 
-    public ECMEFlight() {
+    public SeppukuFly() {
         this.speed = this.register((Setting<Float>)Settings.floatBuilder("Speed").withValue(0.25f).withMaximum(5.0f).withMinimum(0.0f).build());
         this.noKick = this.register(Settings.b("NoKick", true));
         this.packets = new ArrayList<CPacketPlayer>();
@@ -55,23 +58,23 @@ public class ECMEFlight extends Module
                 return;
             }
             else {
-                ECMEFlight.mc.player.setVelocity(0.0, 0.0, 0.0);
-                if (ECMEFlight.mc.world.getCollisionBoxes((Entity) ECMEFlight.mc.player, ECMEFlight.mc.player.getEntityBoundingBox().expand(-0.0625, 0.0, -0.0625)).isEmpty()) {
+                SeppukuFly.mc.player.setVelocity(0.0, 0.0, 0.0);
+                if (SeppukuFly.mc.world.getCollisionBoxes((Entity) SeppukuFly.mc.player, SeppukuFly.mc.player.getEntityBoundingBox().expand(-0.0625, 0.0, -0.0625)).isEmpty()) {
                     ySpeed[0] = 0.0;
-                    if (ECMEFlight.mc.gameSettings.keyBindJump.isKeyDown()) {
+                    if (SeppukuFly.mc.gameSettings.keyBindJump.isKeyDown()) {
                         if (this.noKick.getValue()) {
-                            ySpeed2[0] = ((ECMEFlight.mc.player.ticksExisted % 20 == 0) ? -0.03999999910593033 : 0.06199999898672104);
+                            ySpeed2[0] = ((SeppukuFly.mc.player.ticksExisted % 20 == 0) ? -0.03999999910593033 : 0.06199999898672104);
                         }
                         else {
                             ySpeed2[0] = 0.06199999898672104;
                         }
                     }
-                    else if (ECMEFlight.mc.gameSettings.keyBindSneak.isKeyDown()) {
+                    else if (SeppukuFly.mc.gameSettings.keyBindSneak.isKeyDown()) {
                         ySpeed2[0] = -0.062;
                     }
                     else {
-                        if (ECMEFlight.mc.world.getCollisionBoxes((Entity) ECMEFlight.mc.player, ECMEFlight.mc.player.getEntityBoundingBox().expand(-0.0625, -0.0625, -0.0625)).isEmpty()) {
-                            if (ECMEFlight.mc.player.ticksExisted % 4 == 0) {
+                        if (SeppukuFly.mc.world.getCollisionBoxes((Entity) SeppukuFly.mc.player, SeppukuFly.mc.player.getEntityBoundingBox().expand(-0.0625, -0.0625, -0.0625)).isEmpty()) {
+                            if (SeppukuFly.mc.player.ticksExisted % 4 == 0) {
                                 n[0] = (this.noKick.getValue() ? -0.04f : 0.0f);
                             }
                             else {
@@ -84,35 +87,35 @@ public class ECMEFlight extends Module
                         ySpeed2[0] = n[0];
                     }
                     directionalSpeed[0] = BlockInteractionHelper.directionSpeed(this.speed.getValue());
-                    if (ECMEFlight.mc.gameSettings.keyBindJump.isKeyDown() || ECMEFlight.mc.gameSettings.keyBindSneak.isKeyDown() || ECMEFlight.mc.gameSettings.keyBindForward.isKeyDown() || ECMEFlight.mc.gameSettings.keyBindBack.isKeyDown() || ECMEFlight.mc.gameSettings.keyBindRight.isKeyDown() || ECMEFlight.mc.gameSettings.keyBindLeft.isKeyDown()) {
+                    if (SeppukuFly.mc.gameSettings.keyBindJump.isKeyDown() || SeppukuFly.mc.gameSettings.keyBindSneak.isKeyDown() || SeppukuFly.mc.gameSettings.keyBindForward.isKeyDown() || SeppukuFly.mc.gameSettings.keyBindBack.isKeyDown() || SeppukuFly.mc.gameSettings.keyBindRight.isKeyDown() || SeppukuFly.mc.gameSettings.keyBindLeft.isKeyDown()) {
                         if (directionalSpeed[0][0] != 0.0 || ySpeed2[0] != 0.0 || directionalSpeed[0][1] != 0.0) {
-                            if (ECMEFlight.mc.player.movementInput.jump && (ECMEFlight.mc.player.moveStrafing != 0.0f || ECMEFlight.mc.player.moveForward != 0.0f)) {
-                                ECMEFlight.mc.player.setVelocity(0.0, 0.0, 0.0);
+                            if (SeppukuFly.mc.player.movementInput.jump && (SeppukuFly.mc.player.moveStrafing != 0.0f || SeppukuFly.mc.player.moveForward != 0.0f)) {
+                                SeppukuFly.mc.player.setVelocity(0.0, 0.0, 0.0);
                                 this.move(0.0, 0.0, 0.0);
                                 for (i[0] = 0; i[0] <= 3; ++i[0]) {
-                                    ECMEFlight.mc.player.setVelocity(0.0, ySpeed2[0] * i[0], 0.0);
+                                    SeppukuFly.mc.player.setVelocity(0.0, ySpeed2[0] * i[0], 0.0);
                                     this.move(0.0, ySpeed2[0] * i[0], 0.0);
                                 }
                             }
-                            else if (ECMEFlight.mc.player.movementInput.jump) {
-                                ECMEFlight.mc.player.setVelocity(0.0, 0.0, 0.0);
+                            else if (SeppukuFly.mc.player.movementInput.jump) {
+                                SeppukuFly.mc.player.setVelocity(0.0, 0.0, 0.0);
                                 this.move(0.0, 0.0, 0.0);
                                 for (j[0] = 0; j[0] <= 3; ++j[0]) {
-                                    ECMEFlight.mc.player.setVelocity(0.0, ySpeed2[0] * j[0], 0.0);
+                                    SeppukuFly.mc.player.setVelocity(0.0, ySpeed2[0] * j[0], 0.0);
                                     this.move(0.0, ySpeed2[0] * j[0], 0.0);
                                 }
                             }
                             else {
                                 for (k[0] = 0; k[0] <= 2; ++k[0]) {
-                                    ECMEFlight.mc.player.setVelocity(directionalSpeed[0][0] * k[0], ySpeed2[0] * k[0], directionalSpeed[0][1] * k[0]);
+                                    SeppukuFly.mc.player.setVelocity(directionalSpeed[0][0] * k[0], ySpeed2[0] * k[0], directionalSpeed[0][1] * k[0]);
                                     this.move(directionalSpeed[0][0] * k[0], ySpeed2[0] * k[0], directionalSpeed[0][1] * k[0]);
                                 }
                             }
                         }
                     }
-                    else if (this.noKick.getValue() && ECMEFlight.mc.world.getCollisionBoxes((Entity) ECMEFlight.mc.player, ECMEFlight.mc.player.getEntityBoundingBox().expand(-0.0625, -0.0625, -0.0625)).isEmpty()) {
-                        ECMEFlight.mc.player.setVelocity(0.0, (ECMEFlight.mc.player.ticksExisted % 2 == 0) ? 0.03999999910593033 : -0.03999999910593033, 0.0);
-                        this.move(0.0, (ECMEFlight.mc.player.ticksExisted % 2 == 0) ? 0.03999999910593033 : -0.03999999910593033, 0.0);
+                    else if (this.noKick.getValue() && SeppukuFly.mc.world.getCollisionBoxes((Entity) SeppukuFly.mc.player, SeppukuFly.mc.player.getEntityBoundingBox().expand(-0.0625, -0.0625, -0.0625)).isEmpty()) {
+                        SeppukuFly.mc.player.setVelocity(0.0, (SeppukuFly.mc.player.ticksExisted % 2 == 0) ? 0.03999999910593033 : -0.03999999910593033, 0.0);
+                        this.move(0.0, (SeppukuFly.mc.player.ticksExisted % 2 == 0) ? 0.03999999910593033 : -0.03999999910593033, 0.0);
                     }
                 }
                 return;
@@ -153,12 +156,12 @@ public class ECMEFlight extends Module
     }
 
     public void onEnable() {
-        if (ECMEFlight.mc.world != null) {
+        if (SeppukuFly.mc.world != null) {
             this.teleportId = 0;
             this.packets.clear();
-            final CPacketPlayer bounds = (CPacketPlayer)new CPacketPlayer.Position(ECMEFlight.mc.player.posX, 0.0, ECMEFlight.mc.player.posZ, ECMEFlight.mc.player.onGround);
+            final CPacketPlayer bounds = (CPacketPlayer)new CPacketPlayer.Position(SeppukuFly.mc.player.posX, 0.0, SeppukuFly.mc.player.posZ, SeppukuFly.mc.player.onGround);
             this.packets.add(bounds);
-            ECMEFlight.mc.player.connection.sendPacket((Packet)bounds);
+            SeppukuFly.mc.player.connection.sendPacket((Packet)bounds);
         }
     }
 

@@ -18,10 +18,6 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Created 15 November 2019 by hub
- * Updated 24 November 2019 by hub
- */
 @Module.Info(name = "AutoEZ", category = Module.Category.CHAT, description = "Announce killed Players")
 public class AutoEZ extends Module {
 

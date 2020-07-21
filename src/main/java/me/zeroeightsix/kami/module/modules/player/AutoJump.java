@@ -2,9 +2,6 @@ package me.zeroeightsix.kami.module.modules.player;
 
 import me.zeroeightsix.kami.module.Module;
 
-/**
- * Created by 086 on 24/12/2017.
- */
 @Module.Info(name = "AutoJump", category = Module.Category.PLAYER, description = "Automatically jumps if possible")
 public class AutoJump extends Module {
 

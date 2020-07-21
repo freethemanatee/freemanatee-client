@@ -25,9 +25,12 @@ import me.zeroeightsix.kami.setting.Setting;
 import net.minecraft.util.math.Vec3d;
 import me.zeroeightsix.kami.module.Module;
 
-@Module.Info(name = "AutoNomadHut", description = "best module and you cant deny it", category = Module.Category.MISC)
-public class AutoNomadHut extends Module
-{
+@Module.Info(
+        name = "AutoNomadHut",
+        category = Module.Category.MISC
+)
+public class AutoNomadHut extends Module {
+
     private final Vec3d[] surroundTargets;
     private final Vec3d[] surroundTargetsCritical;
     private Setting<Boolean> toggleable;

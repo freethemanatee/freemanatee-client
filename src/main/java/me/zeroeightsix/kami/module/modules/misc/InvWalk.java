@@ -11,8 +11,12 @@ import net.minecraftforge.client.settings.IKeyConflictContext;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import org.lwjgl.input.Keyboard;
 
-@Module.Info(name = "InvWalk", category = Module.Category.MISC, description = "Walks while in inventory")
+@Module.Info(
+        name = "InvWalk",
+        category = Module.Category.MISC
+)
 public class InvWalk extends Module {
+
     private static final KeyBinding[] MOVEMENT_KEYS = new KeyBinding[]{InvWalk.mc.gameSettings.keyBindForward, InvWalk.mc.gameSettings.keyBindRight, InvWalk.mc.gameSettings.keyBindBack, InvWalk.mc.gameSettings.keyBindLeft, InvWalk.mc.gameSettings.keyBindJump, InvWalk.mc.gameSettings.keyBindSprint};
 
 

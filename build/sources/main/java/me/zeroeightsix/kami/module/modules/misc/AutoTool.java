@@ -14,11 +14,10 @@ import net.minecraft.item.ItemTool;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
-/**
- * Created by 086 on 2/10/2018.
- * Updated 24 November 2019 by hub
- */
-@Module.Info(name = "AutoTool", description = "Automatically switch to the best tools when mining or attacking", category = Module.Category.MISC)
+@Module.Info(
+        name = "AutoTool",
+        category = Module.Category.MISC
+)
 public class AutoTool extends Module {
 
     @EventHandler

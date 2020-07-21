@@ -13,15 +13,11 @@ import net.minecraft.network.play.client.CPacketChatMessage;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created on 26 October 2019 by hub
- * Updated 23 November 2019 by hub
- */
 @Module.Info(name = "VisualRange", description = "Reports Players in VisualRange", category = Module.Category.CHAT)
 public class VisualRange extends Module {
 
     private Setting<Boolean> publicChat = register(Settings.b("PublicChat", false));
-    private Setting<Boolean> leaving = register(Settings.b("Leaving", true));
+    private Setting<Boolean> leaving = register(Settings.b("Leaving", false));
 
     private List<String> knownPlayers;
 

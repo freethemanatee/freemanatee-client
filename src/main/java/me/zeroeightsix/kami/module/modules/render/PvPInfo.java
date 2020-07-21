@@ -1,17 +1,3 @@
-/*
- * Decompiled with CFR <Could not determine version>.
- *
- * Could not load the following classes:
- *  net.minecraft.client.Minecraft
- *  net.minecraft.client.entity.EntityPlayerSP
- *  net.minecraft.client.gui.FontRenderer
- *  net.minecraft.client.multiplayer.ServerData
- *  net.minecraft.entity.player.InventoryPlayer
- *  net.minecraft.init.Items
- *  net.minecraft.item.Item
- *  net.minecraft.item.ItemStack
- *  net.minecraft.util.NonNullList
- */
 package me.zeroeightsix.kami.module.modules.render;
 
 import java.awt.Color;

@@ -10,10 +10,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-/**
- * Created by hub on 22 October 2019.
- * This is a skid of inventoryhud by ms_rinna.
- */
 @Module.Info(name = "Inventory Viewer", category = Module.Category.RENDER, description = "View Inventory")
 public class InventoryViewer extends Module {
 

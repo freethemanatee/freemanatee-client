@@ -12,10 +12,6 @@ import net.minecraft.network.play.server.SPacketChat;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
-/**
- * Created 19 November 2019 by hub
- * Updated 20 November 2019 by hub
- */
 @Module.Info(name = "AntiSpam", category = Module.Category.CHAT)
 public class AntiSpam extends Module {
 
