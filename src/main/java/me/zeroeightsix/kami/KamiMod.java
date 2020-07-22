@@ -44,10 +44,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * Created by 086 on 7/11/2017.
- * i eat ass
- */
 @Mod(modid = KamiMod.MODID, name = KamiMod.MODNAME, version = KamiMod.MODVER)
 public class KamiMod {
 

@@ -1,14 +1,3 @@
-/*
- * Decompiled with CFR 0.145.
- * 
- * Could not load the following classes:
- *  net.minecraft.client.Minecraft
- *  net.minecraft.client.entity.EntityPlayerSP
- *  net.minecraft.entity.Entity
- *  net.minecraft.util.MovementInput
- *  net.minecraft.util.math.MathHelper
- *  net.minecraft.util.math.Vec3d
- */
 package me.zeroeightsix.kami.util;
 
 import java.math.BigDecimal;
