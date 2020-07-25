@@ -21,9 +21,17 @@ import net.minecraft.util.math.Vec3d;
         category = Module.Category.COMBAT
 )
 public class SelfWeb extends Module {
+
     BlockPos feet;
+
+    private Setting<Boolean> triggerable = register(Settings.b("Triggerable", true));
+    private Setting<Integer> timeoutTicks = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(40).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
+    private Setting<Integer> tickDelay = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
     private Setting delay = this.register(Settings.integerBuilder("Delay").withRange(0, 10).withValue((int)3).build());
     int d;
+    private int totalTicksRunning = 0;
+    private int delayStep = 0;
+    private boolean firstRun;
     public static float yaw;
     public static float pitch;
     private Setting announceUsage = this.register(Settings.b("Announce Usage", true));
@@ -92,6 +100,23 @@ public class SelfWeb extends Module {
         if (!mc.player.isHandActive()) {
             this.trap(mc.player);
         }
+
+        if (triggerable.getValue() && totalTicksRunning >= timeoutTicks.getValue()) {
+            totalTicksRunning = 0;
+            this.disable();
+            return;
+        }
+
+        if (!firstRun) {
+            if (delayStep < tickDelay.getValue()) {
+                delayStep++;
+                return;
+            } else {
+                delayStep = 0;
+            }
+
+            totalTicksRunning++;
+        }
     }
 
     public static double roundToHalf(double d) {
@@ -108,6 +133,7 @@ public class SelfWeb extends Module {
 
             this.d = 0;
         }
+        firstRun = true;
     }
 
     private void trap(EntityPlayer player) {
@@ -146,8 +172,8 @@ public class SelfWeb extends Module {
 
                 this.d = 0;
             }
-        }
 
+        }
     }
 
     public void onDisable() {

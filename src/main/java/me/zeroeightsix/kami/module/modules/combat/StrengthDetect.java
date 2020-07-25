@@ -1,7 +1,3 @@
-//
-// Decompiled by Procyon v0.5.36
-//
-
 package me.zeroeightsix.kami.module.modules.combat;
 
 import me.zeroeightsix.kami.command.Command;

@@ -19,7 +19,7 @@ import java.util.HashMap;
 public class TotemPopCounter extends Module {
 
     private HashMap<String, Integer> popList = new HashMap();
-    private Setting<colour> mode = register(Settings.e("Colour", colour.DARK_AQUA));
+    private Setting<colour> mode = register(Settings.e("Colour", colour.GREEN));
 
     @EventHandler
     public Listener<TotemPopEvent> totemPopEvent = new Listener<>(event -> {

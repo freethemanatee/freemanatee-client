@@ -23,10 +23,10 @@ import net.minecraft.network.play.client.CPacketChatMessage;
 import net.minecraft.network.play.server.SPacketBlockBreakAnim;
 import net.minecraft.util.math.BlockPos;
 
-@Module.Info(name = "BreakingWarning", category = Module.Category.RENDER)
-public class BreakingWarning extends Module {
+@Module.Info(name = "CityWarning", category = Module.Category.RENDER)
+public class CityWarning extends Module {
 
-    private Setting<Integer> distanceToDetect = this.register(Settings.integerBuilder("Max Break Distance").withMinimum(1).withValue(2).withMaximum(5).build());
+    private Setting<Integer> distanceToDetect = this.register(Settings.integerBuilder("Max Break Distance").withMinimum(0).withValue(1).withMaximum(5).build());
     private Setting<Boolean> announce = this.register(Settings.b("Announce in chat", false));
     private Setting<Integer> chatDelay = this.register(Settings.integerBuilder("Chat Delay").withMinimum(14).withValue(18).withMaximum(25).withVisibility(o -> announce.getValue()).build());
 

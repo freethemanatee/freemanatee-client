@@ -6,100 +6,74 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created 23 November 2019 by hub
- * Updated 16 December 2019 by hub
- */
 public class CapeManager {
-
-    private static final String usersPastebin = "https://pastebin.com/raw/TrQrDGLj";
-    private static final String ogUsersPastebin = "https://pastebin.com/raw/kbKcMMSA";
-
+    private static final String users = "https://pastebin.com/raw/VWQai3Zb";
     private static HashMap<String, Boolean> capeUsers;
 
     public CapeManager() {
-        capeUsers = new HashMap<>();
-    }
-
-    public static boolean hasCape(final UUID uuid) {
-        return capeUsers.containsKey(sanitizeUuid(uuid));
-    }
-
-    public static boolean isOg(final UUID uuid) {
-        if (hasCape(uuid)) {
-            return capeUsers.get(sanitizeUuid(uuid));
-        }
-        return false;
-    }
-
-    private static String sanitizeUuid(UUID uuid) {
-        return sanitizeUuidString(uuid.toString());
-    }
-
-    private static String sanitizeUuidString(String uuidString) {
-        return uuidString.replaceAll("-", "").toLowerCase();
+        capeUsers = new HashMap();
     }
 
     public void initializeCapes() {
-
-        getFromPastebin(usersPastebin).forEach(uuid -> {
-            capeUsers.put(uuid, false);
-        });
-
-        getFromPastebin(ogUsersPastebin).forEach(uuid -> {
-            capeUsers.put(uuid, true);
-        });
-
+        this.getFromPastebin(users).forEach(uuid -> capeUsers.put((String)uuid, true));
     }
 
     private List<String> getFromPastebin(String urlString) {
-
         URL url;
-
+        BufferedReader bufferedReader;
         try {
             url = new URL(urlString);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
         }
-
-        BufferedReader bufferedReader;
-
+        catch (MalformedURLException e) {
+            e.printStackTrace();
+            return new ArrayList<String>();
+        }
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(url.openStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
         }
-
-        ArrayList<String> uuidList = new ArrayList<>();
-        String line;
-
-        while (true) {
+        catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<String>();
+        }
+        ArrayList<String> uuidList = new ArrayList<String>();
+        do {
+            String line;
             try {
-                if ((line = bufferedReader.readLine()) == null) {
+                line = bufferedReader.readLine();
+                if (line == null) {
                     break;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-                return new ArrayList<>();
             }
-            uuidList.add(sanitizeUuidString(line));
-        }
-
+            catch (IOException e) {
+                e.printStackTrace();
+                return new ArrayList<String>();
+            }
+            uuidList.add(line);
+        } while (true);
         try {
             bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
         }
-
+        catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<String>();
+        }
         return uuidList;
-
     }
 
+    public static boolean hasCape(UUID uuid) {
+        return capeUsers.containsKey(uuid.toString());
+    }
+
+    public static boolean isOg(UUID uuid) {
+        if (capeUsers.containsKey(uuid.toString())) {
+            return capeUsers.get(uuid.toString());
+        }
+        return false;
+    }
 }
+

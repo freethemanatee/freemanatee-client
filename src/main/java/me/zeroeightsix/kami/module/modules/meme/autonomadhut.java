@@ -1,4 +1,4 @@
-package me.zeroeightsix.kami.module.modules.MEME;
+package me.zeroeightsix.kami.module.modules.meme;
 
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.network.play.client.CPacketPlayer;
@@ -22,8 +22,8 @@ import me.zeroeightsix.kami.setting.Setting;
 import net.minecraft.util.math.Vec3d;
 import me.zeroeightsix.kami.module.Module;
 
-@Module.Info(name = "AutoNomadHut", category = Module.Category.MEMES)
-public class AutoNomadHut extends Module
+@Module.Info(name = "AutoNomadHut", category = Module.Category.MEME)
+public class autonomadhut extends Module
 {
     private final Vec3d[] surroundTargets;
     private Setting<Boolean> toggleable;
@@ -34,7 +34,7 @@ public class AutoNomadHut extends Module
     private int playerHotbarSlot;
     private int lastHotbarSlot;
 
-    public AutoNomadHut() {
+    public autonomadhut() {
         this.surroundTargets = new Vec3d[] { new Vec3d(0.0, 0.0, 0.0), new Vec3d(1.0, 0.0, 0.0), new Vec3d(0.0, 0.0, 1.0), new Vec3d(-1.0, 0.0, 0.0), new Vec3d(0.0, 0.0, -1.0), new Vec3d(1.0, 0.0, 1.0), new Vec3d(1.0, 0.0, -1.0), new Vec3d(-1.0, 0.0, 1.0), new Vec3d(-1.0, 0.0, -1.0), new Vec3d(2.0, 0.0, 0.0), new Vec3d(2.0, 0.0, 1.0), new Vec3d(2.0, 0.0, -1.0), new Vec3d(-2.0, 0.0, 0.0), new Vec3d(-2.0, 0.0, 1.0), new Vec3d(-2.0, 0.0, -1.0), new Vec3d(0.0, 0.0, 2.0), new Vec3d(1.0, 0.0, 2.0), new Vec3d(-1.0, 0.0, 2.0), new Vec3d(0.0, 0.0, -2.0), new Vec3d(-1.0, 0.0, -2.0), new Vec3d(1.0, 0.0, -2.0), new Vec3d(2.0, 1.0, -1.0), new Vec3d(2.0, 1.0, 1.0), new Vec3d(-2.0, 1.0, 0.0), new Vec3d(-2.0, 1.0, 1.0), new Vec3d(-2.0, 1.0, -1.0), new Vec3d(0.0, 1.0, 2.0), new Vec3d(1.0, 1.0, 2.0), new Vec3d(-1.0, 1.0, 2.0), new Vec3d(0.0, 1.0, -2.0), new Vec3d(1.0, 1.0, -2.0), new Vec3d(-1.0, 1.0, -2.0), new Vec3d(2.0, 2.0, -1.0), new Vec3d(2.0, 2.0, 1.0), new Vec3d(-2.0, 2.0, 1.0), new Vec3d(-2.0, 2.0, -1.0), new Vec3d(1.0, 2.0, 2.0), new Vec3d(-1.0, 2.0, 2.0), new Vec3d(1.0, 2.0, -2.0), new Vec3d(-1.0, 2.0, -2.0), new Vec3d(2.0, 3.0, 0.0), new Vec3d(2.0, 3.0, -1.0), new Vec3d(2.0, 3.0, 1.0), new Vec3d(-2.0, 3.0, 0.0), new Vec3d(-2.0, 3.0, 1.0), new Vec3d(-2.0, 3.0, -1.0), new Vec3d(0.0, 3.0, 2.0), new Vec3d(1.0, 3.0, 2.0), new Vec3d(-1.0, 3.0, 2.0), new Vec3d(0.0, 3.0, -2.0), new Vec3d(1.0, 3.0, -2.0), new Vec3d(-1.0, 3.0, -2.0), new Vec3d(0.0, 4.0, 0.0), new Vec3d(1.0, 4.0, 0.0), new Vec3d(-1.0, 4.0, 0.0), new Vec3d(0.0, 4.0, 1.0), new Vec3d(0.0, 4.0, -1.0), new Vec3d(1.0, 4.0, 1.0), new Vec3d(-1.0, 4.0, 1.0), new Vec3d(-1.0, 4.0, -1.0), new Vec3d(1.0, 4.0, -1.0), new Vec3d(2.0, 4.0, 0.0), new Vec3d(2.0, 4.0, 1.0), new Vec3d(2.0, 4.0, -1.0) };
         this.toggleable = this.register(Settings.b("Toggleable", true));
         this.spoofHotbar = this.register(Settings.b("Spoof Hotbar", false));
@@ -46,14 +46,14 @@ public class AutoNomadHut extends Module
 
     @Override
     public void onUpdate() {
-        if (this.isDisabled() || AutoNomadHut.mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
+        if (this.isDisabled() || autonomadhut.mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
             return;
         }
         if (this.offsetStep == 0) {
-            this.basePos = new BlockPos(AutoNomadHut.mc.player.getPositionVector()).down();
+            this.basePos = new BlockPos(autonomadhut.mc.player.getPositionVector()).down();
             this.playerHotbarSlot = Wrapper.getPlayer().inventory.currentItem;
             if (!this.spoofHotbar.getValue()) {
-                this.lastHotbarSlot = AutoNomadHut.mc.player.inventory.currentItem;
+                this.lastHotbarSlot = autonomadhut.mc.player.inventory.currentItem;
             }
         }
         for (int i = 0; i < this.blockPerTick.getValue(); ++i) {
@@ -69,7 +69,7 @@ public class AutoNomadHut extends Module
 
     @Override
     protected void onEnable() {
-        if (AutoNomadHut.mc.player == null) {
+        if (autonomadhut.mc.player == null) {
             this.disable();
             return;
         }
@@ -79,12 +79,12 @@ public class AutoNomadHut extends Module
 
     @Override
     protected void onDisable() {
-        if (AutoNomadHut.mc.player == null) {
+        if (autonomadhut.mc.player == null) {
             return;
         }
         if (this.lastHotbarSlot != this.playerHotbarSlot && this.playerHotbarSlot != -1) {
             if (this.spoofHotbar.getValue()) {
-                AutoNomadHut.mc.player.connection.sendPacket((Packet)new CPacketHeldItemChange(this.playerHotbarSlot));
+                autonomadhut.mc.player.connection.sendPacket((Packet)new CPacketHeldItemChange(this.playerHotbarSlot));
             }
             else {
                 Wrapper.getPlayer().inventory.currentItem = this.playerHotbarSlot;
@@ -98,7 +98,7 @@ public class AutoNomadHut extends Module
         this.offsetStep = 0;
         if (this.lastHotbarSlot != this.playerHotbarSlot && this.playerHotbarSlot != -1) {
             if (this.spoofHotbar.getValue()) {
-                AutoNomadHut.mc.player.connection.sendPacket((Packet)new CPacketHeldItemChange(this.playerHotbarSlot));
+                autonomadhut.mc.player.connection.sendPacket((Packet)new CPacketHeldItemChange(this.playerHotbarSlot));
             }
             else {
                 Wrapper.getPlayer().inventory.currentItem = this.playerHotbarSlot;
@@ -162,7 +162,7 @@ public class AutoNomadHut extends Module
                 }
                 if (this.lastHotbarSlot != obiSlot) {
                     if (this.spoofHotbar.getValue()) {
-                        AutoNomadHut.mc.player.connection.sendPacket((Packet)new CPacketHeldItemChange(obiSlot));
+                        autonomadhut.mc.player.connection.sendPacket((Packet)new CPacketHeldItemChange(obiSlot));
                     }
                     else {
                         Wrapper.getPlayer().inventory.currentItem = obiSlot;

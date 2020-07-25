@@ -27,7 +27,7 @@ public class ESP extends Module {
     private Setting<Integer> g = this.register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(255).build());
     private Setting<Integer> b = this.register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(0).build());
     private Setting<Boolean> exp = register(Settings.b("Xp", true));
-    private Setting<Boolean> items = register(Settings.b("Items", true));
+    private Setting<Boolean> items = register(Settings.b("Items", false));
     private Setting<Boolean> epearls = register(Settings.b("Epearls", false));
 
     RenderItem itemRenderer = mc.getRenderItem();

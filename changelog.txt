@@ -14,3 +14,4 @@ clean up some of the code
 add a slider to holetp
 get a unicode suffix
 make the chat commands look nicer so its not all just blue
+fix the fucking capes

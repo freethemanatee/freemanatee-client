@@ -31,9 +31,10 @@ import me.zeroeightsix.kami.gui.rgui.component.use.CheckButton;
 import me.zeroeightsix.kami.gui.rgui.component.use.Label;
 import me.zeroeightsix.kami.gui.rgui.render.theme.Theme;
 import me.zeroeightsix.kami.gui.rgui.util.ContainerHelper;
+import me.zeroeightsix.kami.module.ModuleManager;
 import me.zeroeightsix.kami.gui.rgui.util.Docking;
 import me.zeroeightsix.kami.module.Module;
-import me.zeroeightsix.kami.module.ModuleManager;
+import me.zeroeightsix.kami.util.OnlineFriends;
 import me.zeroeightsix.kami.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -61,6 +62,7 @@ public class KamiGUI
     public Theme theme = this.getTheme();
     public static ColourHolder primaryColour = new ColourHolder(29, 29, 29);
     private static final int DOCK_OFFSET = 0;
+    public ModuleManager manager = new ModuleManager();
 
     public KamiGUI() {
         super(new KamiTheme());
@@ -365,6 +367,27 @@ public class KamiGUI
             }
 
         });
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Friends");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+        Label friendLabel = new Label("");
+        friendLabel.setShadow(true);
+        friendLabel.addTickListener(() -> {
+            friendLabel.setText("");
+            if (OnlineFriends.getFriends().isEmpty()) {
+                friendLabel.addLine("");
+            } else {
+                friendLabel.addLine("Friend List");
+                for (Entity e : OnlineFriends.getFriends()) {
+                    friendLabel.addLine("\u00A76 " + e.getName());
+                }
+            }
+        });
+        frame.addChild(friendLabel);
+        friendLabel.setFontRenderer(fontRenderer);
+        frames.add(frame);
+
         frame.setCloseable(false);
         frame.setPinneable(true);
         frame.setMinimumWidth(75);
@@ -386,7 +409,7 @@ public class KamiGUI
                     totemCount += itemStack.stackSize;
                 }
             }
-            totem.addLine((ChatFormatting.WHITE) + "Totems: " + (ChatFormatting.AQUA) + String.valueOf(totemCount));
+            totem.addLine((ChatFormatting.BOLD.YELLOW) + "Totems: " + (ChatFormatting.AQUA) + String.valueOf(totemCount));
         });
         frame.addChild(totem);
         totem.setFontRenderer(fontRenderer);
@@ -406,7 +429,7 @@ public class KamiGUI
                     crystalCount += itemStack.stackSize;
                 }
             }
-            crystals.addText((ChatFormatting.WHITE) + "Crystals: " + (ChatFormatting.AQUA) + String.valueOf(crystalCount));
+            crystals.addText((ChatFormatting.BOLD.LIGHT_PURPLE) + "Crystals: " + (ChatFormatting.AQUA) + String.valueOf(crystalCount));
         });
         frame.addChild(crystals);
         crystals.setFontRenderer(fontRenderer);
@@ -426,7 +449,7 @@ public class KamiGUI
                     gappleCount += itemStack.stackSize;
                 }
             }
-            gapples.addText((ChatFormatting.WHITE) + "Gapples: " + (ChatFormatting.AQUA) + String.valueOf(gappleCount));
+            gapples.addText((ChatFormatting.BOLD.GOLD) + "Gapples: " + (ChatFormatting.BOLD.GOLD) + String.valueOf(gappleCount));
         });
         frame.addChild(gapples);
         gapples.setFontRenderer(fontRenderer);
@@ -446,11 +469,12 @@ public class KamiGUI
                     xpCount += itemStack.stackSize;
                 }
             }
-            xp.addText((ChatFormatting.WHITE) + "EXP: " + (ChatFormatting.AQUA) + String.valueOf(xpCount));
+            xp.addText((ChatFormatting.BOLD.YELLOW) + "EXP: " + (ChatFormatting.BOLD.YELLOW) + String.valueOf(xpCount));
         });
- frame.addChild(xp);
- xp.setFontRenderer(fontRenderer);
- frames.add(frame);
+        frame.addChild(xp);
+        xp.setFontRenderer(fontRenderer);
+        frames.add(frame);
+
  frame = new Frame(this.getTheme(), new Stretcherlayout(1), "Radar");
 // frame.setCloseable(false);
 // frame.setMinimizeable(true);

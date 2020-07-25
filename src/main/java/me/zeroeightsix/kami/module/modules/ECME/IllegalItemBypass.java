@@ -42,12 +42,10 @@ public class IllegalItemBypass extends Module {
             event.cancel();
         }
 
-        // TODO - find a better way of doing this (action on hopper placement), maybe there is an handy event?
         if (event.getPacket() instanceof CPacketPlayerTryUseItemOnBlock) {
             if (mc.player.getHeldItemMainhand().getItem() == Item.getItemFromBlock(Blocks.HOPPER)) {
                 BlockPos clickTarget = ((CPacketPlayerTryUseItemOnBlock) event.getPacket()).getPos();
                 if (!(mc.world.getBlockState(clickTarget).getBlock() == Blocks.HOPPER)) {
-                    // TODO - instead of just using y+1, there should be a raytrace here to check for manually placed hoppers that were placed against a blockside.
                     ownHopper = clickTarget.add(0, 1, 0);
                 }
             }

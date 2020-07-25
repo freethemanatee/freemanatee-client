@@ -4,7 +4,7 @@ import me.zeroeightsix.kami.module.Module;
 import net.minecraft.util.math.MathHelper;
 
 @Module.Info(
-        name = "BoostFlight",
+        name = "BoostElytraFly",
         category = Module.Category.MOVEMENT
 )
 public class BoostFlight extends Module {

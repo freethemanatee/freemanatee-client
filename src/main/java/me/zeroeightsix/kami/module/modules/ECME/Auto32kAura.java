@@ -23,15 +23,15 @@ import java.util.Iterator;
 
 
 @Module.Info(name = "32k Aura", category = Module.Category.ECME, description = "hits people with 32ks")
-public class ppaura extends Module {
+public class Auto32kAura extends Module {
 
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
     private Setting<Boolean> attackMobs = register(Settings.b("Mobs", false));
     private Setting<Boolean> attackAnimals = register(Settings.b("Animals", false));
-    private Setting<Double> hitRange = register(Settings.d("Hit Range", 17d));
+    private Setting<Double> hitRange = register(Settings.d("Hit Range", 7d));
     private Setting<Boolean> ignoreWalls = register(Settings.b("Ignore Walls", true));
     private Setting<WaitMode> waitMode = register(Settings.e("Mode", WaitMode.STATIC));
-    private Setting<Integer> waitTick = register(Settings.integerBuilder("Tick Delay").withMinimum(-10000).withValue(-10000).withVisibility(o -> waitMode.getValue().equals(WaitMode.STATIC)).build());
+    private Setting<Integer> waitTick = register(Settings.integerBuilder("Tick Delay").withMinimum(-2000).withValue(-2000).withVisibility(o -> waitMode.getValue().equals(WaitMode.STATIC)).build());
     private Setting<Boolean> switchTo32k = register(Settings.b("32k Switch", true));
     private Setting<Boolean> onlyUse32k = register(Settings.b("32k Only", true));
 

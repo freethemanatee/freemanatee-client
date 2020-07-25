@@ -48,13 +48,12 @@ import java.util.Optional;
 public class KamiMod {
 
     public static final String MODID = "#freemanatee";
+
     public static final String MODNAME = "#freemanatee";
+
     public static final String MODVER = "2.0";
 
-    public static final String KAMI_HIRAGANA = "#freemanatee";
-    public static final String KAMI_KATAKANA = "#freemanatee";
-    public static final String NAME_UNICODE = "#freemanatee";
-    public static final String KAMI_KANJI = "#freemanatee";
+    public static final String NAME_UNICODE = " \u0493\u0280\u1d07\u1d07\u1d0d\u1d00\u0274\u1d00\u1d1b\u1d07\u1d07";
 
     private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanatee.json";
     public static final char colour = '\u00A7';
@@ -68,7 +67,6 @@ public class KamiMod {
     public KamiGUI guiManager;
     public CommandManager commandManager;
     public CapeManager capeManager;
-
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
         protected JsonObject doForward(JsonObject jsonObject) {
@@ -103,8 +101,8 @@ public class KamiMod {
 
         commandManager = new CommandManager();
 
-        capeManager = new CapeManager();
-        capeManager.initializeCapes();
+        this.capeManager = new CapeManager();
+        this.capeManager.initializeCapes();
 
         Friends.initFriends();
         SettingsRegister.register("commandPrefix", Command.commandPrefix);

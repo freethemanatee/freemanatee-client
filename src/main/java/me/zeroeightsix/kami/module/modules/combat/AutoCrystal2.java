@@ -54,51 +54,32 @@ public class AutoCrystal2 extends Module {
 
     private Setting<Boolean> place = this.register(Settings.b("Place", true));
     private Setting<Boolean> explode = this.register(Settings.b("Explode", true));
-
     private Setting<Boolean> antiWeakness = this.register(Settings.b("Anti Weakness", false));
     private Setting<Boolean> offhand = this.register(Settings.b("Smart Offhand", false));
     private Setting<Integer> offhandHealth = this.register(Settings.integerBuilder("Offhand Min Health").withMinimum(0).withValue(10).withMaximum(20).withVisibility(o -> offhand.getValue()).build());
-
     private Setting<Integer> hitTickDelay = this.register(Settings.integerBuilder("Hit Delay").withMinimum(0).withValue(3).withMaximum(20).build());
     private Setting<Integer> placeTickDelay = this.register(Settings.integerBuilder("Place Delay").withMinimum(0).withValue(3).withMaximum(20).build());
     private Setting<Double> hitRange = this.register(Settings.doubleBuilder("Hit Range").withMinimum(0.0).withValue(5.0).build());
     private Setting<Double> placeRange = this.register(Settings.doubleBuilder("Place Range").withMinimum(0.0).withValue(5.0).build());
-
     private Setting<Double> minDamage = this.register(Settings.doubleBuilder("Min Damage").withMinimum(0.0).withValue(4.0).withMaximum(20.0).build());
     private Setting<Double> maxSelfDamage = this.register(Settings.doubleBuilder("Max Self Damage").withMinimum(0.0).withValue(4.0).withMaximum(20.0).build());
-
     private Setting<Boolean> rotate = this.register(Settings.b("Spoof Rotations", false));
-
     private Setting<Boolean> juan = this.register(Settings.b("juan mode", false));
-
+    private Setting<Boolean> zopac = this.register(Settings.b("zopac mode", false));
     private Setting<Boolean> manatee = this.register(Settings.b("manatee mode", false));
-
     private Setting<PlaceMode> placeMode = this.register(Settings.e("Place Mode", PlaceMode.PLACEFIRST));
-
     private Setting<Boolean> debug = this.register(Settings.b("dev mode", false));
-
     private BlockPos renderBlock;
-
     private boolean switchCooldown = false;
-
     private boolean isAttacking = false;
-
     private static boolean togglePitch = false;
-
     private static boolean isSpoofingAngles;
-
     private static double yaw;
-
     private static double pitch;
-
     private int oldSlot = -1;
-
     private int newSlot;
-
     private int hitDelayCounter;
-
     private int placeDelayCounter;
-
     EntityEnderCrystal crystal;
 
     @EventHandler
@@ -165,9 +146,19 @@ public class AutoCrystal2 extends Module {
                     continue;
                 }
                 if (testTarget.getDistanceSq(crystal) >= 169.0) continue;
-                if (testTarget.getHealth() < 11 && juan.getValue()) {
-                    minDam = 2;
+
+                if (testTarget.getHealth() > 12 && juan.getValue()) {
+                    minDam = 7;
                 }
+
+                if (testTarget.getHealth() > 16 && manatee.getValue()) {
+                    minDam = 12;
+                }
+
+                if (testTarget.getHealth() > 16 && zopac.getValue()) {
+                    minDam = 12;
+                }
+
                 double targetDamage = calculateDamage(crystal.posX, crystal.posY, crystal.posZ, (Entity) testTarget);
                 double selfDamage = calculateDamage(crystal.posX, crystal.posY, crystal.posZ, (Entity) mc.player);
                 float healthTarget = testTarget.getHealth() + testTarget.getAbsorptionAmount();
@@ -217,10 +208,15 @@ public class AutoCrystal2 extends Module {
                 double selfDamage = calculateDamage((double)blockPos.x + 0.5, blockPos.y + 1, (double)blockPos.z + 0.5, (Entity)mc.player);
                 float healthTarget = testTarget.getHealth() + testTarget.getAbsorptionAmount();
                 float healthSelf = mc.player.getHealth() + mc.player.getAbsorptionAmount();
-                if (testTarget.getHealth() < 11 && juan.getValue()) {
-                    minDam = 2;
+                if (testTarget.getHealth() < 12 && juan.getValue()) {
+                    minDam = 7;
                 }
-                if (testTarget.getHealth() < 16 && manatee.getValue()) {
+
+                if (testTarget.getHealth() < 11 && manatee.getValue()) {
+                    minDam = 1.5;
+                }
+
+                if (testTarget.getHealth() < 16 && zopac.getValue()) {
                     minDam = 4;
                 }
 

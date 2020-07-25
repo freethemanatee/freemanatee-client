@@ -1,7 +1,11 @@
 package me.zeroeightsix.kami.mixin.client;
 
+import com.mojang.authlib.GameProfile;
+import java.util.UUID;
+import javax.annotation.Nullable;
 import me.zeroeightsix.kami.module.ModuleManager;
 import me.zeroeightsix.kami.util.CapeManager;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.util.ResourceLocation;
@@ -11,39 +15,27 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import javax.annotation.Nullable;
-import java.util.UUID;
-
-@Mixin({AbstractClientPlayer.class})
+@Mixin(value={AbstractClientPlayer.class})
 public abstract class MixinAbstractClientPlayer {
-
     @Shadow
     @Nullable
     protected abstract NetworkPlayerInfo getPlayerInfo();
 
-    @Inject(method = ("getLocationCape"), at = {@At("HEAD")}, cancellable = true)
-    public void getLocationCape(final CallbackInfoReturnable<ResourceLocation> callbackInfoReturnable) {
-
+    @Inject(method={"getLocationCape"}, at={@At(value="HEAD")}, cancellable=true)
+    public void getLocationCape(CallbackInfoReturnable<ResourceLocation> callbackInfoReturnable) {
         if (ModuleManager.isModuleEnabled("Capes")) {
-
-            final NetworkPlayerInfo info = this.getPlayerInfo();
-
+            NetworkPlayerInfo info = this.getPlayerInfo();
             UUID uuid = null;
-
             if (info != null) {
                 uuid = this.getPlayerInfo().getGameProfile().getId();
             }
-
             if (uuid != null && CapeManager.hasCape(uuid)) {
                 if (CapeManager.isOg(uuid)) {
-                    callbackInfoReturnable.setReturnValue(new ResourceLocation("textures/cape_og.png"));
+                    callbackInfoReturnable.setReturnValue(new ResourceLocation("textures/cape.png"));
                 } else {
                     callbackInfoReturnable.setReturnValue(new ResourceLocation("textures/cape.png"));
                 }
             }
-
         }
-
     }
-
 }
