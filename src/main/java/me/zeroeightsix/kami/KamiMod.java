@@ -80,11 +80,6 @@ public class KamiMod {
     }).buildAndRegister("");
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        DiscordPresence.start();
-    }
-
-    @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         KamiMod.log.info("\n\nInitializing #freemanatee " + MODVER);
 
