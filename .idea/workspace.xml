@@ -19,52 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/PlayerSkin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/HotbarTotem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/meme/autokill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/meme/autonomadhut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/meme/manateeesp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/OnlineFriends.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/manatee.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/ForgeEventProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/ForgeEventProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/IllegalItemBypass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/IllegalItemBypass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/ppaura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/Auto32kAura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/MEME/AutoKill.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/MEME/AutoNomadHut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/ChatSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/ChatSuffix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/TotemPopCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/TotemPopCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoCrystal2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoCrystal2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/SelfWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/SelfWeb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/StrengthDetect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/StrengthDetect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/StashFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/StashFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/BoostFlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/BoostFlight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/HoleTP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/FastFall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/AntiFog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/AntiFog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/AntiWeather.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/BossStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/BossStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/BreakingWarning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/CityWarning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ESP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ESP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/CapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/CapeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ChatTextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ChatTextUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape_og.png" beforeDir="false" />
-    </list>
+    <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +96,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/bruh" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
@@ -313,10 +268,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar/0.0.1920.1040@0.0.1920.1040" timestamp="1594364563833" />
-    <state x="873" y="288" key="FileChooserDialogImpl" timestamp="1595579866131">
+    <state x="873" y="288" key="FileChooserDialogImpl" timestamp="1595641563316">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595579866131" />
+    <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595641563316" />
     <state width="1659" height="208" key="GridCell.Tab.0.bottom" timestamp="1595641430991">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
