@@ -25,6 +25,7 @@ import net.minecraft.util.math.Vec3d;
 )
 
 public class AutoWeb extends Module {
+
     BlockPos head;
     BlockPos feet;
     private Setting delay = this.register(Settings.integerBuilder("Delay").withRange(0, 10).withValue((int)3).build());

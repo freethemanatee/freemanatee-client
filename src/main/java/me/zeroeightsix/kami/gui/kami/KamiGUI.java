@@ -36,6 +36,7 @@ import me.zeroeightsix.kami.gui.rgui.util.Docking;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.util.OnlineFriends;
 import me.zeroeightsix.kami.util.*;
+import me.zeroeightsix.kami.util.ModuleMan;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -53,16 +54,19 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import net.minecraft.util.text.TextFormatting;
 
 public class KamiGUI
         extends GUI {
+
+    public ModuleMan manager = new ModuleMan();
     public static final RootFontRenderer fontRenderer = new RootFontRenderer(1.0f);
     public static CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 18), true, false);
     public Theme theme = this.getTheme();
     public static ColourHolder primaryColour = new ColourHolder(29, 29, 29);
     private static final int DOCK_OFFSET = 0;
-    public ModuleManager manager = new ModuleManager();
 
     public KamiGUI() {
         super(new KamiTheme());
@@ -81,29 +85,29 @@ public class KamiGUI
             Scrollpane scrollpane;
             if (module.getCategory().isHidden()) continue;
             Module.Category moduleCategory = module.getCategory();
-            if (!categoryScrollpaneHashMap.containsKey((Object)moduleCategory)) {
+            if (!categoryScrollpaneHashMap.containsKey((Object) moduleCategory)) {
                 Stretcherlayout stretcherlayout = new Stretcherlayout(1);
                 stretcherlayout.setComponentOffsetWidth(0);
                 scrollpane = new Scrollpane(this.getTheme(), stretcherlayout, 300, 260);
                 scrollpane.setMaximumHeight(180);
                 categoryScrollpaneHashMap.put(moduleCategory, new Pair<Scrollpane, SettingsPanel>(scrollpane, new SettingsPanel(this.getTheme(), null)));
             }
-            final Pair pair = (Pair)categoryScrollpaneHashMap.get((Object)moduleCategory);
-            scrollpane = (Scrollpane)pair.getKey();
+            final Pair pair = (Pair) categoryScrollpaneHashMap.get((Object) moduleCategory);
+            scrollpane = (Scrollpane) pair.getKey();
             final CheckButton checkButton = new CheckButton(module.getName());
             checkButton.setToggled(module.isEnabled());
             checkButton.addTickListener(() -> {
                 checkButton.setToggled(module.isEnabled());
                 checkButton.setName(module.getName());
             });
-            checkButton.addMouseListener(new MouseListener(){
+            checkButton.addMouseListener(new MouseListener() {
 
                 @Override
                 public void onMouseDown(MouseListener.MouseButtonEvent event) {
                     if (event.getButton() == 1) {
-                        ((SettingsPanel)pair.getValue()).setModule(module);
-                        ((SettingsPanel)pair.getValue()).setX(event.getX() + checkButton.getX());
-                        ((SettingsPanel)pair.getValue()).setY(event.getY() + checkButton.getY());
+                        ((SettingsPanel) pair.getValue()).setModule(module);
+                        ((SettingsPanel) pair.getValue()).setX(event.getX() + checkButton.getX());
+                        ((SettingsPanel) pair.getValue()).setY(event.getY() + checkButton.getY());
                     }
                 }
 
@@ -123,11 +127,11 @@ public class KamiGUI
                 public void onScroll(MouseListener.MouseScrollEvent event) {
                 }
             });
-            checkButton.addPoof(new CheckButton.CheckButtonPoof<CheckButton, CheckButton.CheckButtonPoof.CheckButtonPoofInfo>(){
+            checkButton.addPoof(new CheckButton.CheckButtonPoof<CheckButton, CheckButton.CheckButtonPoof.CheckButtonPoofInfo>() {
 
                 @Override
                 public void execute(CheckButton component, CheckButton.CheckButtonPoof.CheckButtonPoofInfo info) {
-                    if (info.getAction().equals((Object)CheckButton.CheckButtonPoof.CheckButtonPoofInfo.CheckButtonPoofInfoAction.TOGGLE)) {
+                    if (info.getAction().equals((Object) CheckButton.CheckButtonPoof.CheckButtonPoofInfo.CheckButtonPoofInfoAction.TOGGLE)) {
                         module.setEnabled(checkButton.isToggled());
                     }
                 }
@@ -139,10 +143,10 @@ public class KamiGUI
         for (Map.Entry entry : categoryScrollpaneHashMap.entrySet()) {
             Stretcherlayout stretcherlayout = new Stretcherlayout(1);
             stretcherlayout.COMPONENT_OFFSET_Y = 1;
-            Frame frame = new Frame(this.getTheme(), stretcherlayout, ((Module.Category)((Object)entry.getKey())).getName());
-            Scrollpane scrollpane = (Scrollpane)((Pair)entry.getValue()).getKey();
+            Frame frame = new Frame(this.getTheme(), stretcherlayout, ((Module.Category) ((Object) entry.getKey())).getName());
+            Scrollpane scrollpane = (Scrollpane) ((Pair) entry.getValue()).getKey();
             frame.addChild(scrollpane);
-            frame.addChild((Component)((Pair)entry.getValue()).getValue());
+            frame.addChild((Component) ((Pair) entry.getValue()).getValue());
             scrollpane.setOriginOffsetY(0);
             scrollpane.setOriginOffsetX(0);
             frame.setCloseable(false);
@@ -150,10 +154,10 @@ public class KamiGUI
             frame.setY(y);
             this.addChild(frame);
             nexty = Math.max(y + frame.getHeight() + 10, nexty);
-            if (!((float)(x += frame.getWidth() + 10) > (float)Wrapper.getMinecraft().displayWidth / 1.2f)) continue;
+            if (!((float) (x += frame.getWidth() + 10) > (float) Wrapper.getMinecraft().displayWidth / 1.2f)) continue;
             nexty = y = nexty;
         }
-        this.addMouseListener(new MouseListener(){
+        this.addMouseListener(new MouseListener() {
 
             private boolean isBetween(int min, int val, int max) {
                 return val <= max && val >= min;
@@ -167,7 +171,8 @@ public class KamiGUI
                     int[] real = GUI.calculateRealPosition(settingsPanel);
                     int pX = event.getX() - real[0];
                     int pY = event.getY() - real[1];
-                    if (this.isBetween(0, pX, settingsPanel.getWidth()) && this.isBetween(0, pY, settingsPanel.getHeight())) continue;
+                    if (this.isBetween(0, pX, settingsPanel.getWidth()) && this.isBetween(0, pY, settingsPanel.getHeight()))
+                        continue;
                     settingsPanel.setVisible(false);
                 }
             }
@@ -194,6 +199,7 @@ public class KamiGUI
         frame.addChild(new ActiveModules());
         frame.setPinneable(true);
         frames.add(frame);
+
         frame = new Frame(this.getTheme(), new Stretcherlayout(1), "Info");
         frame.setCloseable(false);
         frame.setPinneable(true);
@@ -204,28 +210,36 @@ public class KamiGUI
             information.addLine("\u00a7b" + Math.round(LagCompensator.INSTANCE.getTickRate()) + Command.SECTIONSIGN() + "3 tps");
             Wrapper.getMinecraft();
             information.addLine("\u00a7b" + Minecraft.debugFPS + Command.SECTIONSIGN() + "3 fps");
+            information.addLine("\u00A7b" + EntityUtil.getPing() + Command.SECTIONSIGN() + "3 ms");
         });
         frame.addChild(information);
         information.setFontRenderer(fontRenderer);
         frames.add(frame);
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "manatee");
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "PVP");
         frame.setCloseable(false);
         frame.setPinneable(true);
-        frame.setMinimumWidth(75);
-        frame.setHeight(20);
+        Label goodsLabel = new Label("");
+        goodsLabel.setShadow(true);
+        goodsLabel.addTickListener(() -> {
+            goodsLabel.setText("");
+            goodsLabel.addLine("Totems: " + manager.getTotems());
+            goodsLabel.addLine("Hole: " + manager.getHoleType());
+            goodsLabel.addLine("" + manager.isAura());
+            goodsLabel.addLine("" + manager.isTrap());
+            goodsLabel.addLine("" + manager.isSurround());
+            goodsLabel.addLine("" + manager.isFill());
+        });
+        frame.addChild(goodsLabel);
+        goodsLabel.setFontRenderer(fontRenderer);
         frames.add(frame);
-        Label watermark = new Label((ChatFormatting.AQUA)+("free him"));
-        watermark.setX((frame.getWidth() / 2));
-        watermark.setShadow(true);
-        frame.addChild(watermark);
-        frames.add(frame);
+
         frame = new Frame(getTheme(), new Stretcherlayout(1), "Coords");
         frame.setCloseable(false);
         frame.setPinneable(true);
         Label coordsLabel = new Label("");
         coordsLabel.addTickListener(new TickListener() {
             Minecraft mc = Minecraft.getMinecraft();
-
             @Override
             public void onTick() {
                 boolean inHell = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
@@ -263,6 +277,7 @@ public class KamiGUI
         frame.addChild(coordsLabel);
         coordsLabel.setFontRenderer(fontRenderer);
         coordsLabel.setShadow(true);
+
         frame.setHeight(20);
         frames.add(frame);
         frame = new Frame(getTheme(), new Stretcherlayout(1), "Player Radar");
@@ -315,7 +330,7 @@ public class KamiGUI
                 healthSB.append(hp);
                 healthSB.append(" ");
 
-{
+                {
                     PotionEffect effectStrength = entityPlayer.getActivePotionEffect(MobEffects.STRENGTH);
                     if (effectStrength != null && entityPlayer.isPotionActive(MobEffects.STRENGTH)) {
                         int duration = effectStrength.getDuration();
@@ -367,26 +382,6 @@ public class KamiGUI
             }
 
         });
-
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Friends");
-        frame.setCloseable(false);
-        frame.setPinneable(true);
-        Label friendLabel = new Label("");
-        friendLabel.setShadow(true);
-        friendLabel.addTickListener(() -> {
-            friendLabel.setText("");
-            if (OnlineFriends.getFriends().isEmpty()) {
-                friendLabel.addLine("");
-            } else {
-                friendLabel.addLine("Friend List");
-                for (Entity e : OnlineFriends.getFriends()) {
-                    friendLabel.addLine("\u00A76 " + e.getName());
-                }
-            }
-        });
-        frame.addChild(friendLabel);
-        friendLabel.setFontRenderer(fontRenderer);
-        frames.add(frame);
 
         frame.setCloseable(false);
         frame.setPinneable(true);
@@ -449,7 +444,7 @@ public class KamiGUI
                     gappleCount += itemStack.stackSize;
                 }
             }
-            gapples.addText((ChatFormatting.BOLD.GOLD) + "Gapples: " + (ChatFormatting.BOLD.GOLD) + String.valueOf(gappleCount));
+            gapples.addText((ChatFormatting.BOLD.GOLD) + "Gapples: " + (ChatFormatting.AQUA) + String.valueOf(gappleCount));
         });
         frame.addChild(gapples);
         gapples.setFontRenderer(fontRenderer);
@@ -469,13 +464,49 @@ public class KamiGUI
                     xpCount += itemStack.stackSize;
                 }
             }
-            xp.addText((ChatFormatting.BOLD.YELLOW) + "EXP: " + (ChatFormatting.BOLD.YELLOW) + String.valueOf(xpCount));
+            xp.addText((ChatFormatting.BOLD.YELLOW) + "EXP: " + (ChatFormatting.AQUA) + String.valueOf(xpCount));
         });
         frame.addChild(xp);
         xp.setFontRenderer(fontRenderer);
         frames.add(frame);
 
- frame = new Frame(this.getTheme(), new Stretcherlayout(1), "Radar");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Friends");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+        Label friend = new Label("");
+        friend.setShadow(true);
+        friend.addTickListener(() -> {
+            friend.setText("");
+            if (OnlineFriends.getFriends().isEmpty()) {
+                friend.addLine("");
+            } else {
+                friend.addLine("Friends");
+                for (Entity e : OnlineFriends.getFriends()) {
+                    friend.addLine("\u00a7b " + e.getName());
+                }
+            }
+        });
+        frame.addChild(friend);
+        friend.setFontRenderer(fontRenderer);
+        frames.add(frame);
+
+        frame.addChild(information);
+        information.setFontRenderer(fontRenderer);
+        frames.add(frame);
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "manatee");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+        frame.setMinimumWidth(75);
+        frame.setHeight(20);
+        frames.add(frame);
+        Label watermark = new Label((ChatFormatting.AQUA) + ("free him"));
+        watermark.setX((frame.getWidth() / 2));
+
+        frame.addChild(watermark);
+        watermark.setFontRenderer(fontRenderer);
+        frames.add(frame);
+
+        frame = new Frame(this.getTheme(), new Stretcherlayout(1), "Radar");
 // frame.setCloseable(false);
 // frame.setMinimizeable(true);
 // frame.setPinneable(true);
@@ -562,4 +593,3 @@ public class KamiGUI
     }
 
 }
-

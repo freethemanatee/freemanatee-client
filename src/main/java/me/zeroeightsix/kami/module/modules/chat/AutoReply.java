@@ -8,7 +8,7 @@ import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.module.Module;
 
-@Module.Info(name = "AutoReply", category = Module.Category.MISC, description = "automatically replies to messages")
+@Module.Info(name = "AutoReply", category = Module.Category.MISC)
 public class AutoReply extends Module
 {
     @EventHandler

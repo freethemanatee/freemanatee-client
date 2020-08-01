@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class MixinLoaderForge implements IFMLLoadingPlugin {
 
-    private static boolean isObfuscatedEnvironment = false;
+    private static boolean isObfuscatedEnvironment = true;
 
     public MixinLoaderForge() {
         KamiMod.log.info("KAMI mixins initialized");

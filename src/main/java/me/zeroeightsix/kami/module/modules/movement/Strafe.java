@@ -14,7 +14,7 @@ import net.minecraft.util.math.MathHelper;
 )
 public class Strafe extends Module {
 
-    private Setting<Boolean> jump = register(Settings.b("AutoJump", false));
+    private Setting<Boolean> jump = register(Settings.b("AutoJump", true));
 
     int waitCounter;
     int forward = 1;

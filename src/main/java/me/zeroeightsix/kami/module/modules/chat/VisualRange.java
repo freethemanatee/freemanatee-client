@@ -13,7 +13,7 @@ import net.minecraft.network.play.client.CPacketChatMessage;
 import java.util.ArrayList;
 import java.util.List;
 
-@Module.Info(name = "VisualRange", description = "Reports Players in VisualRange", category = Module.Category.CHAT)
+@Module.Info(name = "VisualRange", category = Module.Category.CHAT)
 public class VisualRange extends Module {
 
     private Setting<Boolean> publicChat = register(Settings.b("PublicChat", false));

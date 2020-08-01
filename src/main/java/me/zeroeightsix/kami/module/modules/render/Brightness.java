@@ -12,7 +12,7 @@ import java.util.function.Function;
  * @see MixinEntityRenderer
  */
 
-@Module.Info(name = "Brightness", description = "Makes everything brighter!", category = Module.Category.RENDER)
+@Module.Info(name = "Brightness", category = Module.Category.RENDER)
 public class Brightness extends Module {
 
     private Setting<Boolean> transition = register(Settings.b("Transition", true));

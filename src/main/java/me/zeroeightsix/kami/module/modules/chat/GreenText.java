@@ -9,7 +9,7 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.network.play.client.CPacketChatMessage;
 
-@Module.Info(name = "GreenText", description = "do the green", category = Module.Category.CHAT)
+@Module.Info(name = "GreenText", category = Module.Category.CHAT)
 public class GreenText extends Module {
 
     private Setting<Boolean> space = register(Settings.b("Space", true));

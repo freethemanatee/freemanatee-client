@@ -199,13 +199,6 @@ public class EntityUtil {
         return mc.gameSettings.keyBindForward.isKeyDown();
     }
 
-    public static void getPlayerSpeed() {
-        DecimalFormat df = new DecimalFormat("#.#");
-
-        double deltaX = mc.player.posX - mc.player.prevPosX;
-        double deltaY = mc.player.posY - mc.player.prevPosY;
-    }
-
 
 
     public static int getPing() {

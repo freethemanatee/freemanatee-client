@@ -10,7 +10,10 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-@Module.Info(name = "Inventory Viewer", category = Module.Category.RENDER, description = "View Inventory")
+/**
+ * Created by hub on 22 October 2019.
+ */
+@Module.Info(name = "InventoryViewer", category = Module.Category.RENDER)
 public class InventoryViewer extends Module {
 
     private static final ResourceLocation box = new ResourceLocation("textures/gui/container/shulker_box.png");

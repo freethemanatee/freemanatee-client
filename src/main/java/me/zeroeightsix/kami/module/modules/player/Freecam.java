@@ -14,7 +14,7 @@ import net.minecraft.network.play.client.CPacketInput;
 import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraftforge.client.event.PlayerSPPushOutOfBlocksEvent;
 
-@Module.Info(name = "Freecam", category = Module.Category.PLAYER, description = "Leave your body and trascend into the realm of the gods")
+@Module.Info(name = "Freecam", category = Module.Category.PLAYER)
 public class Freecam extends Module {
 
     private Setting<Integer> speed = register(Settings.i("Speed", 5)); // /100 in practice

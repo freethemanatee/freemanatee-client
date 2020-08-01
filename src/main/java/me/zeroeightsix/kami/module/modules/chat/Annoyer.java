@@ -34,7 +34,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-@Module.Info(name = "Annoyer", category = Module.Category.CHAT, description = "annoy niggas")
+@Module.Info(name = "Annoyer", category = Module.Category.CHAT)
 public class Annoyer extends Module {
 
     private static boolean isFirstRun = true;

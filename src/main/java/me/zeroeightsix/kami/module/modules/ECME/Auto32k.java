@@ -31,10 +31,11 @@ import static me.zeroeightsix.kami.util.BlockInteractionHelper.faceVectorPacketI
  * Created by hub on 10 December 2019
  * Updated by hub on 13 December 2019
  */
-@Module.Info(name = "Auto32k", category = Module.Category.ECME, description = "dispenser go brr")
+@Module.Info(name = "Auto32k", category = Module.Category.ECME)
 public class Auto32k extends Module {
 
     private static final DecimalFormat df = new DecimalFormat("#.#");
+
 
     private Setting<Boolean> rotate = register(Settings.b("Rotate", true));
     private Setting<Boolean> grabItem = register(Settings.b("Grab Item", true));
@@ -251,7 +252,7 @@ public class Auto32k extends Module {
 
         mc.playerController.processRightClickBlock(mc.player, mc.world, neighbour, opposite, hitVec, EnumHand.MAIN_HAND);
         mc.player.swingArm(EnumHand.MAIN_HAND);
-
+        
 
         }
     }

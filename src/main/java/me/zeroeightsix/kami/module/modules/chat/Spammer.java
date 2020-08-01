@@ -12,7 +12,7 @@ import java.util.*;
 import static me.zeroeightsix.kami.util.ChatTextUtils.generateRandomHexSuffix;
 import static me.zeroeightsix.kami.util.FileHelper.readTextFileAllLines;
 
-@Module.Info(name = "Spammer", category = Module.Category.CHAT, description = "SPAM")
+@Module.Info(name = "Spammer", category = Module.Category.CHAT)
 public class Spammer extends Module {
 
     private static final String fileName = "freemanateespammer.txt";

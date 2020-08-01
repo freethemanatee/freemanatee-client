@@ -15,7 +15,7 @@ import net.minecraft.network.play.server.SPacketEntityStatus;
 
 import java.util.HashMap;
 
-@Module.Info(name = "TotemPopCounter", description = "Counts the times your enemy pops", category = Module.Category.CHAT)
+@Module.Info(name = "TotemPopCounter", category = Module.Category.CHAT)
 public class TotemPopCounter extends Module {
 
     private HashMap<String, Integer> popList = new HashMap();

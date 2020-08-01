@@ -6,7 +6,7 @@ import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
 import net.minecraft.network.play.server.SPacketPlayerPosLook;
 
-@Module.Info(name = "NoRotate", category = Module.Category.PLAYER)
+@Module.Info(name = "AntiForceLook", category = Module.Category.PLAYER)
 public class AntiForceLook extends Module {
 
     @EventHandler

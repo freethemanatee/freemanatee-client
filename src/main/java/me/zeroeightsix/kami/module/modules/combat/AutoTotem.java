@@ -16,8 +16,8 @@ import net.minecraft.item.ItemStack;
 @Module.Info(name = "AutoTotem", category = Module.Category.COMBAT)
 public class AutoTotem extends Module {
 
-    private Setting<Boolean> soft = this.register(Settings.b("Soft", false));
-    private Setting<Integer> healthSwitch = this.register(Settings.integerBuilder("Health Switch").withRange(1, 20).withValue(4).withVisibility(o -> soft.getValue()).build());
+    private Setting<Boolean> soft = this.register(Settings.b("Soft", true));
+    private Setting<Integer> healthSwitch = this.register(Settings.integerBuilder("Health Switch").withRange(1, 20).withValue(8).withVisibility(o -> soft.getValue()).build());
 
     @Override
     public void onUpdate() {

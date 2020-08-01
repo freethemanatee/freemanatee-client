@@ -8,7 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.network.play.server.SPacketSoundEffect;
 
-@Module.Info(name = "AutoFish", category = Module.Category.MISC, description = "Automatically catch fish")
+@Module.Info(name = "AutoFish", category = Module.Category.MISC)
 public class AutoFish extends Module {
 
     @EventHandler

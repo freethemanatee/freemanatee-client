@@ -1,7 +1,7 @@
 package me.zeroeightsix.kami.module.modules.render;
 
 import me.zeroeightsix.kami.module.Module;
-import me.zeroeightsix.kami.module.modules.hidden.NutGodCA;
+import me.zeroeightsix.kami.module.modules.combat.AutoCrystal;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import io.netty.util.internal.ConcurrentSet;
@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 import java.util.List;
 
-@Module.Info(name = "VoidESP", category = Module.Category.RENDER, description = "Show void holes")
+@Module.Info(name = "VoidESP", category = Module.Category.RENDER)
 public class VoidESP extends Module {
 
     private Setting<Integer> range = register(Settings.integerBuilder("Range").withMinimum(1).withValue(8).withMaximum(32).build());
@@ -51,7 +51,7 @@ public class VoidESP extends Module {
             voidHoles.clear();
         }
 
-        List<BlockPos> blockPosList = BlockInteractionHelper.getCircle(NutGodCA.getPlayerPos(), 0, range.getValue(), false);
+        List<BlockPos> blockPosList = BlockInteractionHelper.getCircle(AutoCrystal.getPlayerPos(), 0, range.getValue(), false);
 
         for (BlockPos pos : blockPosList) {
 

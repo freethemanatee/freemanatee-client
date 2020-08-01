@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.FoodStats;
 
-@Module.Info(name = "AutoEat", description = "Automatically eat when hungry", category = Module.Category.PLAYER)
+@Module.Info(name = "AutoEat", category = Module.Category.PLAYER)
 public class AutoEat extends Module {
 
     private int lastSlot = -1;

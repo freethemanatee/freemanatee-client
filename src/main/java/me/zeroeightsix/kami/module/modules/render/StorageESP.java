@@ -17,7 +17,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 
-@Module.Info(name = "StorageESP", description = "Draws nice little lines around storage items", category = Module.Category.RENDER)
+@Module.Info(name = "StorageESP", category = Module.Category.RENDER)
 public class StorageESP extends Module {
 
     private int getTileEntityColor(TileEntity tileEntity) {
@@ -26,19 +26,21 @@ public class StorageESP extends Module {
         else if(tileEntity instanceof TileEntityEnderChest)
             return ColourUtils.Colors.PURPLE;
         else if(tileEntity instanceof TileEntityFurnace)
-            return ColourUtils.Colors.GRAY;
+            return ColourUtils.Colors.RED;
         else if(tileEntity instanceof TileEntityHopper)
-            return ColourUtils.Colors.DARK_RED;
+            return ColourUtils.Colors.GRAY;
+        else if(tileEntity instanceof TileEntity)
+            return ColourUtils.Colors.GRAY;
         else
             return -1;
     }
 
     private int getEntityColor(Entity entity) {
         if(entity instanceof EntityMinecartChest)
-            return ColourUtils.Colors.ORANGE;
+            return ColourUtils.Colors.BLUE;
         else if(entity instanceof EntityItemFrame &&
                 ((EntityItemFrame) entity).getDisplayedItem().getItem() instanceof ItemShulkerBox)
-            return ColourUtils.Colors.YELLOW;
+            return ColourUtils.Colors.PURPLE;
         else
             return -1;
     }

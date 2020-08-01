@@ -1,76 +1,75 @@
 package me.zeroeightsix.kami.module.modules.render;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
-import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.event.events.PacketEvent;
+import me.zeroeightsix.kami.gui.rgui.render.font.FontRenderer;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
-import me.zeroeightsix.kami.util.Friends;
-import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.multiplayer.WorldClient;
+import me.zeroeightsix.kami.util.Wrapper;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemTool;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.client.CPacketChatMessage;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.network.play.server.SPacketBlockBreakAnim;
 import net.minecraft.util.math.BlockPos;
 
-@Module.Info(name = "CityWarning", category = Module.Category.RENDER)
+@Module.Info(name = "BreakingWarning", category = Module.Category.COMBAT)
 public class CityWarning extends Module {
 
-    private Setting<Integer> distanceToDetect = this.register(Settings.integerBuilder("Max Break Distance").withMinimum(0).withValue(1).withMaximum(5).build());
-    private Setting<Boolean> announce = this.register(Settings.b("Announce in chat", false));
-    private Setting<Integer> chatDelay = this.register(Settings.integerBuilder("Chat Delay").withMinimum(14).withValue(18).withMaximum(25).withVisibility(o -> announce.getValue()).build());
+    private Setting<Double> minRange = register(Settings.doubleBuilder("Min Range").withMinimum(0.0).withValue(1.5).withMaximum(10.0).build());
+    private Setting<Boolean> obsidianOnly = register(Settings.b("Obsidian Only", true));
+    private Setting<Boolean> pickaxeOnly = register(Settings.b("Pickaxe Only", true));
 
+    private Boolean warn = false;
+    private String playerName;
     private int delay;
 
-    private boolean pastDistance(EntityPlayer player, BlockPos pos, double dist) {
-        return player.getDistanceSqToCenter(pos) <= Math.pow(dist, 2.0);
-    }
-
     @EventHandler
-    public Listener<PacketEvent.Receive> packetReceiveListener = new Listener<PacketEvent.Receive>(event -> {
-        EntityPlayerSP player = mc.player;
-        WorldClient world = mc.world;
-        if (Objects.isNull((Object) player) || Objects.isNull((Object) world)) {
-            return;
-        }
+    private Listener<PacketEvent.Receive> receiveListener = new Listener<>(event -> {
         if (event.getPacket() instanceof SPacketBlockBreakAnim) {
             SPacketBlockBreakAnim packet = (SPacketBlockBreakAnim) event.getPacket();
+
+            int progress = packet.getProgress();
+            int breakerId = packet.getBreakerId();
+
             BlockPos pos = packet.getPosition();
-            if (this.pastDistance((EntityPlayer) player, pos, this.distanceToDetect.getValue())) {
-                sendChat();
+            Block block = mc.world.getBlockState(pos).getBlock();
+            EntityPlayer breaker = (EntityPlayer) mc.world.getEntityByID(breakerId);
+
+            if (breaker == null) return;
+
+            if (obsidianOnly.getValue() && !block.equals(Blocks.OBSIDIAN)) return;
+
+            if (pickaxeOnly.getValue()) {
+                if (breaker.itemStackMainHand.isEmpty() || !(breaker.itemStackMainHand.getItem() instanceof ItemPickaxe)) return;
+            }
+
+            if (pastDistance(mc.player, pos, minRange.getValue())) {
+                playerName = breaker.getName();
+
+                warn = true;
+                delay = 0;
+                if (progress == 255) warn = false;
             }
         }
-    }, new Predicate[0]);
+    });
 
-    public void sendChat() {
-        if (this.delay > this.chatDelay.getValue() && this.announce.getValue()) {
-            this.delay = 0;
-            mc.player.connection.sendPacket((Packet)new CPacketChatMessage("hey " + getPlayer() + " can you stop breaking that block"));
-        }
-        Command.sendChatMessage("yo dude someone is trying to break into your box, watch out");
-        this.delay++;
+    @Override
+    public void onRender() {
+        if (!warn) return;
+        if (delay++ > 100) warn = false;
+
+        String text = playerName + " is breaking blocks near you!";
+        FontRenderer renderer = Wrapper.getFontRenderer();
+
+        int divider = mc.gameSettings.guiScale;
+        if (divider == 0) divider = 3;
+        renderer.drawStringWithShadow(mc.displayWidth / divider / 2 - renderer.getStringWidth(text) / 2, mc.displayHeight / divider / 2 - 16, 240, 87, 70, text);
     }
 
-    public String getPlayer() {
-        List<EntityPlayer> entities = new ArrayList<EntityPlayer>();
-        entities.addAll(mc.world.playerEntities.stream().filter(entityPlayer -> !Friends.isFriend(entityPlayer.getName())).collect(Collectors.toList()));
-        for (EntityPlayer e : entities) {
-            if (e.isDead || e.getHealth() <= 0.0f) continue;
-            if (e.getName() == mc.player.getName()) continue;
-            if (e.getHeldItemMainhand().getItem() instanceof ItemTool) {
-                return e.getName();
-            }
-        }
-        return "";
+    private boolean pastDistance(EntityPlayer player, BlockPos pos, double dist) {
+        return player.getDistanceSqToCenter(pos) <= Math.pow(dist, 2);
     }
 }

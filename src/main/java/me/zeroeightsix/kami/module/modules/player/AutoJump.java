@@ -2,7 +2,7 @@ package me.zeroeightsix.kami.module.modules.player;
 
 import me.zeroeightsix.kami.module.Module;
 
-@Module.Info(name = "AutoJump", category = Module.Category.PLAYER, description = "Automatically jumps if possible")
+@Module.Info(name = "AutoJump", category = Module.Category.PLAYER)
 public class AutoJump extends Module {
 
     @Override

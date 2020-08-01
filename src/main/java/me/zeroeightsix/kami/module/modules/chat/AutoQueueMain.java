@@ -7,7 +7,7 @@ import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.Vec3i;
 
-@Module.Info(name = "AutoQueueMain", category = Module.Category.CHAT, description = "Sends AutoQueueMain")
+@Module.Info(name = "AutoQueueMain", category = Module.Category.CHAT)
 public class AutoQueueMain extends Module {
 
     private final Timer timer = new Timer();

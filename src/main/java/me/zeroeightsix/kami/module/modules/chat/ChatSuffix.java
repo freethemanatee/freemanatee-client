@@ -11,7 +11,11 @@ import net.minecraft.network.play.client.CPacketChatMessage;
 
 import java.util.Random;
 
-@Module.Info(name = "ChatSuffix", category = Module.Category.CHAT, description = "Custom Chat Suffix")
+/**
+ * @author 086
+ * @since 2018-8-4
+ */
+@Module.Info(name = "ChatSuffix", category = Module.Category.CHAT)
 public class ChatSuffix extends Module {
 
     private Setting<Boolean> ignoreCommands = register(Settings.b("IgnoreCommands", true));
@@ -116,45 +120,41 @@ public class ChatSuffix extends Module {
 
         private static final String[] pre =
                 {
-                        "nigga",
+                        "how",
                         "manatee",
+                        "lamp",
                         "free",
+                        "him",
+                        "popbob",
+                        "hack",
+                        "freehim",
+                        "kek",
                 };
 
         private static final String[] mid =
                 {
-                        "hak",
-                        "lamp",
+                        "manatee",
+                        "blue",
                         "client",
                         "clone",
                         "dead",
-                        "plus",
-                        "doored",
                         "elite",
-                        "fag",
-                        "fork",
                         "god",
+                        "lamp",
                         "green",
-                        "grid",
                         "grind",
-                        "manatee",
                         "hack",
-                        "hacks",
-                        "hax",
+                        "popbob",
                         "kek",
                         "krypt",
                         "lag",
                         "land",
                         "leak",
                         "life",
-                        "memed",
                         "mule",
-                        "net",
+                        "lamp",
                         "nut",
-                        "punch",
                         "rat",
-                        "skid",
-                        "top",
                 };
 
         private static final String[] domain =
@@ -164,18 +164,22 @@ public class ChatSuffix extends Module {
                         ".eu",
                         ".ez",
                         ".gay",
+                        ".xyz",
+                        ".manatee",
                         ".gg",
                         ".in",
                         ".ru",
-                        ".xyz",
+                        ".net",
                 };
 
         private static final String[] deco =
                 {
                         "\u262d", // hammer and sickle ☭
+                        "\u0fc9", // nut symbol ࿉
                         "\u2620", // skull ☠
                         "\u2623", // biohazard ☣
                         "\u2654", // brown ♔
+                        "\u2764", // heart
                         "\u267f", // wheelchair ♿
                         "\u262f", // yingyang ☯
                 };

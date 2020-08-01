@@ -71,7 +71,7 @@ public class Discord {
         presence.details = details;
         presence.state = state;
         presence.largeImageKey = "logo";
-        presence.largeImageText = "#freemanatee 2.0";
+        presence.largeImageText = "together we will free him";
         rpc.Discord_UpdatePresence(presence);
     }
 

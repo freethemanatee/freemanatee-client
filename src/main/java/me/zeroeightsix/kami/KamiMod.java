@@ -47,17 +47,18 @@ import java.util.Optional;
 @Mod(modid = KamiMod.MODID, name = KamiMod.MODNAME, version = KamiMod.MODVER)
 public class KamiMod {
 
-    public static final String MODID = "#freemanatee";
+    public static final String MODID = "freemanatee utility mod";
 
-    public static final String MODNAME = "#freemanatee";
+    public static final String MODNAME = "freemanatee utility mod";
 
-    public static final String MODVER = "2.0";
+    public static final String MODVER = "2.2";
 
     public static final String NAME_UNICODE = " \u0493\u0280\u1d07\u1d07\u1d0d\u1d00\u0274\u1d00\u1d1b\u1d07\u1d07";
 
+    public static final String colour = "\u00A79";
+
     private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanatee.json";
-    public static final char colour = '\u00A7';
-    public static final Logger log = LogManager.getLogger("#freemanatee");
+    public static final Logger log = LogManager.getLogger("freemanatee utility mod");
 
     public static final EventBus EVENT_BUS = new EventManager();
 
@@ -81,7 +82,7 @@ public class KamiMod {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        KamiMod.log.info("\n\nInitializing #freemanatee " + MODVER);
+        KamiMod.log.info("\n\nInitializing freemanatee utility mod " + MODVER);
 
         ModuleManager.initialize();
 
@@ -109,7 +110,7 @@ public class KamiMod {
         // After settings loaded, we want to let the enabled modules know they've been enabled (since the setting is done through reflection)
         ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
 
-        KamiMod.log.info("#freemanatee Mod initialized!\n");
+        KamiMod.log.info("freemanatee utility mod Mod initialized!\n");
     }
 
     public static String getConfigName() {

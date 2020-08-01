@@ -13,7 +13,7 @@ public class AutoArmour extends Module {
 
     @Override
     public void onUpdate() {
-        if (mc.player.ticksExisted % 2 == 0) return;
+        if (mc.player.ticksExisted % 4 == 0) return;
         // check screen
         if(mc.currentScreen instanceof GuiContainer
                 && !(mc.currentScreen instanceof InventoryEffectRenderer))
