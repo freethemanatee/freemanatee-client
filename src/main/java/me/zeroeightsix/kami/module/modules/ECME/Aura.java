@@ -21,7 +21,7 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.Iterator;
 
-@Module.Info(name = "32k Aura", category = Module.Category.COMBAT)
+@Module.Info(name = "32k Aura", category = Module.Category.ECME)
 public class Aura extends Module {
 
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));

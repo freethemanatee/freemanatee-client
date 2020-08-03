@@ -1,6 +1,5 @@
 package me.zeroeightsix.kami.module.modules.combat;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 import me.zeroeightsix.kami.command.Command;
@@ -11,14 +10,7 @@ import me.zeroeightsix.kami.setting.Settings;
 import net.minecraft.init.Items;
 
 import static me.zeroeightsix.kami.util.InfoCalculator.reverseNumber;
-import static me.zeroeightsix.kami.util.MessageSendHelper.sendWarningMessage;
 
-/**
- * Created 17 October 2019 by hub
- * Updated 21 November 2019 by hub
- * Updated by S-B99 on 07/04/20
- * Updated by zopac 07/31/20
- */
 @Module.Info(name = "AutoMend", category = Module.Category.COMBAT)
 public class AutoMend extends Module {
 

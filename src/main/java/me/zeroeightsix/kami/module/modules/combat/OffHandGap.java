@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockPos;
 public class OffHandGap extends Module {
 
     private Setting<Boolean> crystalCheck = this.register(Settings.b("CrystalCheck", false));
-    private Setting<Boolean> totemdisable = this.register(Settings.b("TotemDisable", true));
+    private Setting<Boolean> totemdisable = this.register(Settings.b("TotemDisable", false));
     private Setting<Integer> health = this.register(Settings.integerBuilder("Health Switch").withRange(1, 36).withValue(16));
     int gapples;
     public void onEnable() {

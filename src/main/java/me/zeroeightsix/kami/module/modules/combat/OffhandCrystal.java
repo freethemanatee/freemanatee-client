@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 
 @Module.Info(name = "OffhandCrystal", category = Module.Category.COMBAT)
 public class OffhandCrystal extends Module {
-    private Setting<Boolean> totemdisable = this.register(Settings.b("TotemDisable", true));
+    private Setting<Boolean> totemdisable = this.register(Settings.b("TotemDisable", false));
     private Setting<Integer> health = this.register(Settings.integerBuilder("Health Switch").withRange(1, 36).withValue(16));
     int crystals;
 

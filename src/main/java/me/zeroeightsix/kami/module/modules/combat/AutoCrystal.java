@@ -96,38 +96,60 @@ public class AutoCrystal extends Module {
     private BlockPos breakTarget;
     private BlockPos render;
     private Entity renderEnt;
+
     @EventHandler
     private Listener<PacketEvent.Send> packetListener;
-    //re
+
     public AutoCrystal() {
         this.place = this.register(Settings.b("Place", true));
+
         this.explode = this.register(Settings.b("Explode", true));
+
         this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
-        this.chatAlert = this.register(Settings.b("Chat Alert", false));
-        this.antiSuicide = this.register(Settings.b("Anti Suicide", true));
+
+        this.chatAlert = this.register(Settings.b("Chat Alert", true));
+
+        this.antiSuicide = this.register(Settings.b("Anti Suicide", false));
+
         this.antiStuck = this.register(Settings.b("Anti Stuck", true));
+
         this.raytrace = this.register(Settings.b("Raytrace", false));
+
         this.autoSwitch = this.register(Settings.b("Auto Switch", true));
+
         this.selfProtect = this.register(Settings.b("Self Protect", false));
+
         this.rainbow = this.register(Settings.b("Rainbow", false));
+
         Setting<Boolean> rgb = register(Settings.b("RGB", true));
-        this.red = this.register((Setting<Integer>) Settings.integerBuilder("Red").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
-        this.green = this.register((Setting<Integer>) Settings.integerBuilder("Green").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
-        this.blue = this.register((Setting<Integer>) Settings.integerBuilder("Blue").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
+        this.red = this.register((Setting<Integer>) Settings.integerBuilder("Red").withMinimum(0).withValue(3).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
+        this.green = this.register((Setting<Integer>) Settings.integerBuilder("Green").withMinimum(0).withValue(115).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
+        this.blue = this.register((Setting<Integer>) Settings.integerBuilder("Blue").withMinimum(0).withValue(252).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.antiWeaknessOffhand = this.register(Settings.b("Anti Weakness Offhand", false));
+
         this.renderBreakTarget = this.register(Settings.b("Render Break Target", true));
+
         this.onlyBreakOwnCrystals = this.register(Settings.b("Only Break Own Crystals", false));
 
-        this.msBreakDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Break Delay").withMinimum(0).withMaximum(300).withValue(10).build());
-        this.msPlaceDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Place Delay").withMinimum(0).withMaximum(300).withValue(10).build());
+        this.msBreakDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Break Delay").withMinimum(0).withMaximum(300).withValue(15).build());
+
+        this.msPlaceDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Place Delay").withMinimum(0).withMaximum(300).withValue(15).build());
+
         this.placeRange = this.register((Setting<Double>) Settings.doubleBuilder("Place Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
+
         this.breakRange = this.register((Setting<Double>) Settings.doubleBuilder("Break Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
+
         this.breakThroughWallsRange = this.register((Setting<Double>) Settings.doubleBuilder("Through Walls Break Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
+
         this.enemyRange = this.register((Setting<Integer>) Settings.integerBuilder("Enemy Range").withMinimum(0).withMaximum(36).withValue(10).build());
-        this.minDamage = this.register((Setting<Integer>) Settings.integerBuilder("Min Damage").withMinimum(0).withMaximum(36).withValue(4).build());
-        this.ignoreMinDamageThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Ignore Min Damage").withMinimum(0).withMaximum(36).withValue(8).build());
+
+        this.minDamage = this.register((Setting<Integer>) Settings.integerBuilder("Min Damage").withMinimum(0).withMaximum(36).withValue(6).build());
+
+        this.ignoreMinDamageThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Faceplace Health").withMinimum(0).withMaximum(36).withValue(10).build());
+
         this.selfProtectThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Max Self Damage").withMinimum(0).withMaximum(16).withValue(8).build());
-        this.breakYOffset = this.register((Setting<Double>) Settings.doubleBuilder("Break Y Offset").withMinimum(0.0).withMaximum(0.5).withValue(0.0).build());
+
+        this.breakYOffset = this.register((Setting<Double>) Settings.doubleBuilder("Break Y Offset").withMinimum(0.0).withMaximum(0.5).withValue(0.2).build());
         this.breakSystemTime = -1L;
         final Packet[] packet = new Packet[1];
         this.packetListener = new Listener<PacketEvent.Send>(event -> {

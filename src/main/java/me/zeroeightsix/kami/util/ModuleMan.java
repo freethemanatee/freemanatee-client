@@ -2,19 +2,16 @@ package me.zeroeightsix.kami.util;
 
 import me.zeroeightsix.kami.module.ModuleManager;
 import net.minecraft.client.Minecraft;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.init.Blocks;
 
 public class ModuleMan {
 
-    public Integer totems;
     private String holeType;
     private BlockPos pos;
 
     public ModuleMan() {
-        this.holeType = "\u00A74 0";
+        this.holeType = "\u00A74 None";
         getPlayerPos();
     }
 
@@ -30,7 +27,7 @@ public class ModuleMan {
     public String getHoleType() {
 
         if (getPlayerPos()) {
-            return "\u00A74 0";
+            return "\u00A74 None";
         }
 
         getPlayerPos();
@@ -71,21 +68,9 @@ public class ModuleMan {
             }
             return "\u00A74 CA";
         } catch (Exception e) {
-            return "lack of games: "+e;
+            return "i broke a thing: " + e;
         }
     }
-
-    public String isAura2() {
-        try {
-            if (ModuleManager.getModuleByName("AutoCrystal2").isEnabled()) {
-                return "\u00A7a CA2";
-            }
-            return "\u00A74 CA2";
-        } catch (Exception e) {
-            return "lack of games: "+e;
-        }
-    }
-
     public String isTrap() {
         try {
             if (ModuleManager.getModuleByName("AutoTrap").isEnabled()) {
@@ -93,7 +78,7 @@ public class ModuleMan {
             }
             return "\u00A74 AT";
         } catch (Exception e) {
-            return "lack of games: "+e;
+            return "i broke a thing: "+e;
         }
     }
 
@@ -104,7 +89,18 @@ public class ModuleMan {
             }
             return "\u00A74 SU";
         } catch (Exception e) {
-            return "lack of games: "+e;
+            return "i broke a thing: "+e;
+        }
+    }
+
+    public String isSelfTrap() {
+        try {
+            if (ModuleManager.getModuleByName("SelfTrap").isEnabled()) {
+                return "\u00A7a ST";
+            }
+            return "\u00A74 ST";
+        } catch (Exception e) {
+            return "i broke a thing: "+e;
         }
     }
 
@@ -115,34 +111,8 @@ public class ModuleMan {
             }
             return "\u00A74 HF";
         } catch (Exception e) {
-            return "lack of games: "+e;
+            return "i broke a thing: "+e;
         }
-    }
-
-    public int getTotemsInt() {
-        return offhand() +  Minecraft.getMinecraft().player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
-    }
-
-    public String getTotems() {
-        try {
-            totems = offhand() + Minecraft.getMinecraft().player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
-
-            if (totems > 1) {
-                return "\u00A7a "+totems;
-            } else {
-                return "\u00a7b "+totems;
-            }
-
-        } catch (Exception e) {
-            return "0";
-        }
-    }
-
-    public Integer offhand() {
-        if (Minecraft.getMinecraft().player.getHeldItemOffhand().getItem() == Items.TOTEM_OF_UNDYING) {
-            return 1;
-        }
-        return 0;
     }
 
 }

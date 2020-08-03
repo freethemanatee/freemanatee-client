@@ -3,10 +3,10 @@ package me.zeroeightsix.kami.module.modules.movement;
 import me.zeroeightsix.kami.module.Module;
 
 @Module.Info(
-        name = "ReverseStep",
+        name = "FastFall",
         category = Module.Category.MOVEMENT
 )
-public class ReverseStep extends Module {
+public class FastFall extends Module {
 
 
     public void onUpdate() {

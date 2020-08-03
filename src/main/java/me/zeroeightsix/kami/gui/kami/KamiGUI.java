@@ -1,9 +1,5 @@
-
 package me.zeroeightsix.kami.gui.kami;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
-import java.awt.*;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -14,15 +10,17 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.awt.Font;
+
 import javax.annotation.Nonnull;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.gui.font.CFontRenderer;
-import me.zeroeightsix.kami.gui.kami.component.ActiveModules;
-import me.zeroeightsix.kami.gui.kami.component.SettingsPanel;
-import me.zeroeightsix.kami.gui.kami.theme.kami.KamiTheme;
 import me.zeroeightsix.kami.gui.rgui.GUI;
-import me.zeroeightsix.kami.gui.rgui.component.Component;
 import me.zeroeightsix.kami.gui.rgui.component.container.use.Frame;
 import me.zeroeightsix.kami.gui.rgui.component.container.use.Scrollpane;
 import me.zeroeightsix.kami.gui.rgui.component.listen.MouseListener;
@@ -31,14 +29,23 @@ import me.zeroeightsix.kami.gui.rgui.component.use.CheckButton;
 import me.zeroeightsix.kami.gui.rgui.component.use.Label;
 import me.zeroeightsix.kami.gui.rgui.render.theme.Theme;
 import me.zeroeightsix.kami.gui.rgui.util.ContainerHelper;
-import me.zeroeightsix.kami.module.ModuleManager;
 import me.zeroeightsix.kami.gui.rgui.util.Docking;
+import me.zeroeightsix.kami.gui.kami.component.ActiveModules;
+import me.zeroeightsix.kami.gui.kami.component.Radar;
+import me.zeroeightsix.kami.gui.kami.component.SettingsPanel;
+import me.zeroeightsix.kami.gui.kami.theme.kami.KamiTheme;
 import me.zeroeightsix.kami.module.Module;
-import me.zeroeightsix.kami.util.OnlineFriends;
-import me.zeroeightsix.kami.util.*;
+import me.zeroeightsix.kami.module.ModuleManager;
+import me.zeroeightsix.kami.util.ColourHolder;
+import me.zeroeightsix.kami.util.LagCompensator;
 import me.zeroeightsix.kami.util.ModuleMan;
+import me.zeroeightsix.kami.util.OnlineFriends;
+import me.zeroeightsix.kami.util.Pair;
+import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityEnderPearl;
@@ -49,27 +56,20 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.entity.projectile.EntityWitherSkull;
-import net.minecraft.init.Items;
-import net.minecraft.init.MobEffects;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import net.minecraft.util.text.TextFormatting;
 
-public class KamiGUI
-        extends GUI {
+public class KamiGUI extends GUI {
 
     public ModuleMan manager = new ModuleMan();
-    public static final RootFontRenderer fontRenderer = new RootFontRenderer(1.0f);
-    public static CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 18), true, false);
-    public Theme theme = this.getTheme();
+    public static final RootFontRenderer fontRenderer = new RootFontRenderer(1);
+    public Theme theme;
+    public static CFontRenderer cFontRenderer;
+
     public static ColourHolder primaryColour = new ColourHolder(29, 29, 29);
-    private static final int DOCK_OFFSET = 0;
 
     public KamiGUI() {
         super(new KamiTheme());
+        theme = getTheme();
     }
 
     @Override
@@ -79,317 +79,223 @@ public class KamiGUI
 
     @Override
     public void initializeGUI() {
-        int y;
-        HashMap<Module.Category, Pair<Scrollpane, SettingsPanel>> categoryScrollpaneHashMap = new HashMap<Module.Category, Pair<Scrollpane, SettingsPanel>>();
-        for (final Module module : ModuleManager.getModules()) {
-            Scrollpane scrollpane;
+        HashMap<Module.Category, Pair<Scrollpane, SettingsPanel>> categoryScrollpaneHashMap = new HashMap<>();
+        for (Module module : ModuleManager.getModules()) {
             if (module.getCategory().isHidden()) continue;
             Module.Category moduleCategory = module.getCategory();
-            if (!categoryScrollpaneHashMap.containsKey((Object) moduleCategory)) {
+            if (!categoryScrollpaneHashMap.containsKey(moduleCategory)) {
                 Stretcherlayout stretcherlayout = new Stretcherlayout(1);
                 stretcherlayout.setComponentOffsetWidth(0);
-                scrollpane = new Scrollpane(this.getTheme(), stretcherlayout, 300, 260);
+                Scrollpane scrollpane = new Scrollpane(getTheme(), stretcherlayout, 300, 260);
                 scrollpane.setMaximumHeight(180);
-                categoryScrollpaneHashMap.put(moduleCategory, new Pair<Scrollpane, SettingsPanel>(scrollpane, new SettingsPanel(this.getTheme(), null)));
+                categoryScrollpaneHashMap.put(moduleCategory, new Pair<>(scrollpane, new SettingsPanel(getTheme(), null)));
             }
-            final Pair pair = (Pair) categoryScrollpaneHashMap.get((Object) moduleCategory);
-            scrollpane = (Scrollpane) pair.getKey();
-            final CheckButton checkButton = new CheckButton(module.getName());
+
+            Pair<Scrollpane, SettingsPanel> pair = categoryScrollpaneHashMap.get(moduleCategory);
+            Scrollpane scrollpane = pair.getKey();
+            CheckButton checkButton = new CheckButton(module.getName());
             checkButton.setToggled(module.isEnabled());
-            checkButton.addTickListener(() -> {
+
+            checkButton.addTickListener(() -> { // dear god
                 checkButton.setToggled(module.isEnabled());
                 checkButton.setName(module.getName());
             });
-            checkButton.addMouseListener(new MouseListener() {
 
+            checkButton.addMouseListener(new MouseListener() {
                 @Override
-                public void onMouseDown(MouseListener.MouseButtonEvent event) {
-                    if (event.getButton() == 1) {
-                        ((SettingsPanel) pair.getValue()).setModule(module);
-                        ((SettingsPanel) pair.getValue()).setX(event.getX() + checkButton.getX());
-                        ((SettingsPanel) pair.getValue()).setY(event.getY() + checkButton.getY());
+                public void onMouseDown(MouseButtonEvent event) {
+                    if (event.getButton() == 1) { // Right click
+                        pair.getValue().setModule(module);
+                        pair.getValue().setX(event.getX() + checkButton.getX());
+                        pair.getValue().setY(event.getY() + checkButton.getY());
                     }
                 }
 
                 @Override
-                public void onMouseRelease(MouseListener.MouseButtonEvent event) {
+                public void onMouseRelease(MouseButtonEvent event) {
+
                 }
 
                 @Override
-                public void onMouseDrag(MouseListener.MouseButtonEvent event) {
+                public void onMouseDrag(MouseButtonEvent event) {
+
                 }
 
                 @Override
-                public void onMouseMove(MouseListener.MouseMoveEvent event) {
+                public void onMouseMove(MouseMoveEvent event) {
+
                 }
 
                 @Override
-                public void onScroll(MouseListener.MouseScrollEvent event) {
+                public void onScroll(MouseScrollEvent event) {
+
                 }
             });
             checkButton.addPoof(new CheckButton.CheckButtonPoof<CheckButton, CheckButton.CheckButtonPoof.CheckButtonPoofInfo>() {
-
                 @Override
-                public void execute(CheckButton component, CheckButton.CheckButtonPoof.CheckButtonPoofInfo info) {
-                    if (info.getAction().equals((Object) CheckButton.CheckButtonPoof.CheckButtonPoofInfo.CheckButtonPoofInfoAction.TOGGLE)) {
+                public void execute(CheckButton component, CheckButtonPoofInfo info) {
+                    if (info.getAction().equals(CheckButton.CheckButtonPoof.CheckButtonPoofInfo.CheckButtonPoofInfoAction.TOGGLE)) {
                         module.setEnabled(checkButton.isToggled());
                     }
                 }
             });
             scrollpane.addChild(checkButton);
         }
+
         int x = 10;
-        int nexty = y = 10;
-        for (Map.Entry entry : categoryScrollpaneHashMap.entrySet()) {
+        int y = 10;
+        int nexty = y;
+        for (Map.Entry<Module.Category, Pair<Scrollpane, SettingsPanel>> entry : categoryScrollpaneHashMap.entrySet()) {
             Stretcherlayout stretcherlayout = new Stretcherlayout(1);
             stretcherlayout.COMPONENT_OFFSET_Y = 1;
-            Frame frame = new Frame(this.getTheme(), stretcherlayout, ((Module.Category) ((Object) entry.getKey())).getName());
-            Scrollpane scrollpane = (Scrollpane) ((Pair) entry.getValue()).getKey();
+            Frame frame = new Frame(getTheme(), stretcherlayout, entry.getKey().getName());
+            Scrollpane scrollpane = entry.getValue().getKey();
             frame.addChild(scrollpane);
-            frame.addChild((Component) ((Pair) entry.getValue()).getValue());
+            frame.addChild(entry.getValue().getValue());
             scrollpane.setOriginOffsetY(0);
             scrollpane.setOriginOffsetX(0);
             frame.setCloseable(false);
+
             frame.setX(x);
             frame.setY(y);
-            this.addChild(frame);
-            nexty = Math.max(y + frame.getHeight() + 10, nexty);
-            if (!((float) (x += frame.getWidth() + 10) > (float) Wrapper.getMinecraft().displayWidth / 1.2f)) continue;
-            nexty = y = nexty;
-        }
-        this.addMouseListener(new MouseListener() {
 
+            addChild(frame);
+
+            nexty = Math.max(y + frame.getHeight() + 50, nexty);
+            x += frame.getWidth() + 10;
+            if (x > Wrapper.getMinecraft().displayWidth / 1.2f) {
+                y = nexty;
+                nexty = y;
+            }
+        }
+
+        this.addMouseListener(new MouseListener() {
             private boolean isBetween(int min, int val, int max) {
-                return val <= max && val >= min;
+                return !(val > max || val < min);
             }
 
             @Override
-            public void onMouseDown(MouseListener.MouseButtonEvent event) {
+            public void onMouseDown(MouseButtonEvent event) {
                 List<SettingsPanel> panels = ContainerHelper.getAllChildren(SettingsPanel.class, KamiGUI.this);
                 for (SettingsPanel settingsPanel : panels) {
                     if (!settingsPanel.isVisible()) continue;
                     int[] real = GUI.calculateRealPosition(settingsPanel);
                     int pX = event.getX() - real[0];
                     int pY = event.getY() - real[1];
-                    if (this.isBetween(0, pX, settingsPanel.getWidth()) && this.isBetween(0, pY, settingsPanel.getHeight()))
-                        continue;
-                    settingsPanel.setVisible(false);
+                    if (!isBetween(0, pX, settingsPanel.getWidth()) || !isBetween(0, pY, settingsPanel.getHeight()))
+                        settingsPanel.setVisible(false);
                 }
             }
 
             @Override
-            public void onMouseRelease(MouseListener.MouseButtonEvent event) {
+            public void onMouseRelease(MouseButtonEvent event) {
+
             }
 
             @Override
-            public void onMouseDrag(MouseListener.MouseButtonEvent event) {
+            public void onMouseDrag(MouseButtonEvent event) {
+
             }
 
             @Override
-            public void onMouseMove(MouseListener.MouseMoveEvent event) {
+            public void onMouseMove(MouseMoveEvent event) {
+
             }
 
             @Override
-            public void onScroll(MouseListener.MouseScrollEvent event) {
+            public void onScroll(MouseScrollEvent event) {
+
             }
         });
-        ArrayList<Frame> frames = new ArrayList<Frame>();
-        Frame frame = new Frame(this.getTheme(), new Stretcherlayout(1), "Active modules");
+
+        ArrayList<Frame> frames = new ArrayList<>();
+
+        Frame frame = new Frame(getTheme(), new Stretcherlayout(1), "Active Modules");
         frame.setCloseable(false);
         frame.addChild(new ActiveModules());
         frame.setPinneable(true);
         frames.add(frame);
 
-        frame = new Frame(this.getTheme(), new Stretcherlayout(1), "Info");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Welcomer");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+        Label welcomer = new Label("");
+        welcomer.setShadow(true);
+        welcomer.addTickListener(() -> {
+            welcomer.setText("");
+            welcomer.addLine("\u00A73 Welcome " + "\u00A75" + Wrapper.getPlayer().getDisplayNameString());
+        });
+        frame.addChild(welcomer);
+        welcomer.setFontRenderer(fontRenderer);
+        frames.add(frame);
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Info");
         frame.setCloseable(false);
         frame.setPinneable(true);
         Label information = new Label("");
         information.setShadow(true);
         information.addTickListener(() -> {
             information.setText("");
-            information.addLine("\u00a7b" + Math.round(LagCompensator.INSTANCE.getTickRate()) + Command.SECTIONSIGN() + "3 tps");
-            Wrapper.getMinecraft();
-            information.addLine("\u00a7b" + Minecraft.debugFPS + Command.SECTIONSIGN() + "3 fps");
-            information.addLine("\u00A7b" + EntityUtil.getPing() + Command.SECTIONSIGN() + "3 ms");
+            information.addLine("\u00A7r\u00A73" + Math.round(LagCompensator.INSTANCE.getTickRate()) + Command.SECTIONSIGN() + "3 tps");
+            information.addLine("\u00A7r\u00A73" + Wrapper.getMinecraft().debugFPS + Command.SECTIONSIGN() + "3 fps");
+
         });
         frame.addChild(information);
         information.setFontRenderer(fontRenderer);
         frames.add(frame);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "PVP");
+        frames.add(frame);
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Hole");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+        Label hole = new Label("");
+        hole.setShadow(true);
+        hole.addTickListener(() -> {
+            hole.setText("");
+            hole.addLine(" " +manager.getHoleType());
+        });
+        frame.addChild(hole);
+        hole.setFontRenderer(fontRenderer);
+        frames.add(frame);
+
+        frames.add(frame);
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "PVP Info");
         frame.setCloseable(false);
         frame.setPinneable(true);
         Label goodsLabel = new Label("");
         goodsLabel.setShadow(true);
         goodsLabel.addTickListener(() -> {
             goodsLabel.setText("");
-            goodsLabel.addLine("Totems: " + manager.getTotems());
-            goodsLabel.addLine("Hole: " + manager.getHoleType());
-            goodsLabel.addLine("" + manager.isAura());
-            goodsLabel.addLine("" + manager.isTrap());
-            goodsLabel.addLine("" + manager.isSurround());
-            goodsLabel.addLine("" + manager.isFill());
+            goodsLabel.addLine(" " +manager.isAura());
+            goodsLabel.addLine(" " +manager.isTrap());
+            goodsLabel.addLine(" " +manager.isFill());
+            goodsLabel.addLine(" " +manager.isSelfTrap());
+            goodsLabel.addLine(" " +manager.isSurround());
         });
         frame.addChild(goodsLabel);
         goodsLabel.setFontRenderer(fontRenderer);
         frames.add(frame);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Coords");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Friend List");
         frame.setCloseable(false);
         frame.setPinneable(true);
-        Label coordsLabel = new Label("");
-        coordsLabel.addTickListener(new TickListener() {
-            Minecraft mc = Minecraft.getMinecraft();
-            @Override
-            public void onTick() {
-                boolean inHell = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
-
-                int posX = (int) mc.player.posX;
-                int posY = (int) mc.player.posY;
-                int posZ = (int) mc.player.posZ;
-
-                float f = !inHell ? 0.125f : 8;
-                int hposX = (int) (mc.player.posX * f);
-                int hposZ = (int) (mc.player.posZ * f);
-
-                coordsLabel.setText(String.format(" %sf%,d%s7, %sf%,d%s7, %sf%,d %s7(%sf%,d%s7, %sf%,d%s7, %sf%,d%s7)",
-                        Command.SECTIONSIGN(),
-                        posX,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        posY,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        posZ,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        hposX,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        posY,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        hposZ,
-                        Command.SECTIONSIGN()
-                ));
+        Label friendLabel = new Label("");
+        friendLabel.setShadow(true);
+        friendLabel.addTickListener(() -> {
+            friendLabel.setText("");
+            if (OnlineFriends.getFriends().isEmpty()) {
+                friendLabel.addLine("");
+            } else {
+                friendLabel.addLine("\u00A7l\u00A79 Friends");
+                for (Entity e : OnlineFriends.getFriends()) {
+                    friendLabel.addLine("\u00A76 " + e.getName());
+                }
             }
         });
-        frame.addChild(coordsLabel);
-        coordsLabel.setFontRenderer(fontRenderer);
-        coordsLabel.setShadow(true);
-
-        frame.setHeight(20);
+        frame.addChild(friendLabel);
+        friendLabel.setFontRenderer(fontRenderer);
         frames.add(frame);
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Player Radar");
-        Label list = new Label("");
-        DecimalFormat dfHealth = new DecimalFormat("#.#");
-        dfHealth.setRoundingMode(RoundingMode.CEILING);
-        StringBuilder healthSB = new StringBuilder();
-        StringBuilder potsSB = new StringBuilder();
-        list.addTickListener(() -> {
-            if (!list.isVisible()) {
-                return;
-            }
-            list.setText("");
 
-            Minecraft mc = Wrapper.getMinecraft();
-
-            if (mc.player == null) {
-                return;
-            }
-
-            List<EntityPlayer> entityList = mc.world.playerEntities;
-
-            Map<String, Integer> players = new HashMap<>();
-            int playerStep = 0;
-
-            for (Entity entity : entityList) {
-
-                {
-                }
-
-                if (entity.getName().equals(mc.player.getName())) {
-                    continue;
-                }
-
-                EntityPlayer entityPlayer = (EntityPlayer) entity;
-
-                String posString = (entityPlayer.posY > mc.player.posY ? ChatFormatting.DARK_GREEN.toString() + "+" : (entityPlayer.posY == mc.player.posY ? " " : ChatFormatting.WHITE.toString() + "-"));
-                float hpRaw = entityPlayer.getHealth() + ((EntityLivingBase) entityPlayer).getAbsorptionAmount();
-                String hp = dfHealth.format(hpRaw);
-
-                if (hpRaw >= 20) {
-                    healthSB.append(ChatFormatting.AQUA.toString());
-                } else if (hpRaw >= 10) {
-                    healthSB.append(ChatFormatting.YELLOW.toString());
-                } else if (hpRaw >= 5) {
-                    healthSB.append(ChatFormatting.GOLD.toString());
-                } else {
-                    healthSB.append(ChatFormatting.RED.toString());
-                }
-                healthSB.append(hp);
-                healthSB.append(" ");
-
-                {
-                    PotionEffect effectStrength = entityPlayer.getActivePotionEffect(MobEffects.STRENGTH);
-                    if (effectStrength != null && entityPlayer.isPotionActive(MobEffects.STRENGTH)) {
-                        int duration = effectStrength.getDuration();
-                        if (duration > 0) {
-                            potsSB.append(ChatFormatting.WHITE);
-                            potsSB.append(" S ");
-                            potsSB.append(ChatFormatting.GRAY);
-                            potsSB.append(Potion.getPotionDurationString(effectStrength, 1.0f));
-                        }
-                    }
-
-                    PotionEffect effectweakness = entityPlayer.getActivePotionEffect(MobEffects.WEAKNESS);
-                    if (effectweakness != null && entityPlayer.isPotionActive(MobEffects.WEAKNESS)) {
-                        int duration = effectweakness.getDuration();
-                        if (duration > 0) {
-                            potsSB.append(ChatFormatting.GOLD);
-                            potsSB.append(" W ");
-                            potsSB.append(ChatFormatting.GRAY);
-                            potsSB.append(Potion.getPotionDurationString(effectweakness, 1.0f));
-                        }
-                    }
-                }
-
-                String nameColor;
-                if (Friends.isFriend(entity.getName())) {
-                    nameColor = ChatFormatting.AQUA.toString();
-                } else {
-                    nameColor = ChatFormatting.WHITE.toString();
-                }
-
-                players.put(ChatFormatting.GRAY.toString() + posString + " " + healthSB.toString() + nameColor + entityPlayer.getName() + potsSB.toString(), (int) mc.player.getDistance(entityPlayer));
-
-                healthSB.setLength(0);
-                potsSB.setLength(0);
-
-                playerStep++;
-
-            }
-
-            if (players.isEmpty()) {
-                list.setText("");
-                return;
-            }
-
-            players = sortByValue(players);
-
-            for (Map.Entry<String, Integer> player : players.entrySet()) {
-                list.addLine(player.getKey() + " " + ChatFormatting.DARK_GRAY.toString() + player.getValue());
-            }
-
-        });
-
-        frame.setCloseable(false);
-        frame.setPinneable(true);
-        frame.setMinimumWidth(75);
-        list.setShadow(true);
-        frame.addChild(list);
-        list.setFontRenderer(fontRenderer);
-        frames.add(frame);
         frame = new Frame(getTheme(), new Stretcherlayout(1), "Totems");
         frame.setCloseable(false);
         frame.setPinneable(true);
@@ -397,14 +303,14 @@ public class KamiGUI
         totem.setShadow(true);
         totem.addTickListener(() -> {
             totem.setText("");
-            int totemCount = 0;
+            int crystalCount = 0;
             for (int i=0; i < 45; i++) {
                 ItemStack itemStack = Wrapper.getMinecraft().player.inventory.getStackInSlot(i);
-                if (itemStack.getItem() == Items.TOTEM_OF_UNDYING) {
-                    totemCount += itemStack.stackSize;
+                if (itemStack.getItem() == Items.END_CRYSTAL) {
+                    crystalCount += itemStack.stackSize;
                 }
             }
-            totem.addLine((ChatFormatting.BOLD.YELLOW) + "Totems: " + (ChatFormatting.AQUA) + String.valueOf(totemCount));
+            totem.addText((ChatFormatting.BOLD.DARK_BLUE) + "Totems: " + (ChatFormatting.AQUA) + String.valueOf(crystalCount));
         });
         frame.addChild(totem);
         totem.setFontRenderer(fontRenderer);
@@ -444,7 +350,7 @@ public class KamiGUI
                     gappleCount += itemStack.stackSize;
                 }
             }
-            gapples.addText((ChatFormatting.BOLD.GOLD) + "Gapples: " + (ChatFormatting.AQUA) + String.valueOf(gappleCount));
+            gapples.addText((ChatFormatting.BOLD.YELLOW) + "Gapples: " + (ChatFormatting.AQUA) + String.valueOf(gappleCount));
         });
         frame.addChild(gapples);
         gapples.setFontRenderer(fontRenderer);
@@ -464,78 +370,188 @@ public class KamiGUI
                     xpCount += itemStack.stackSize;
                 }
             }
-            xp.addText((ChatFormatting.BOLD.YELLOW) + "EXP: " + (ChatFormatting.AQUA) + String.valueOf(xpCount));
+            xp.addText((ChatFormatting.BOLD.DARK_GREEN) + "EXP: " + (ChatFormatting.AQUA) + String.valueOf(xpCount));
         });
         frame.addChild(xp);
         xp.setFontRenderer(fontRenderer);
         frames.add(frame);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Friends");
-        frame.setCloseable(false);
-        frame.setPinneable(true);
-        Label friend = new Label("");
-        friend.setShadow(true);
-        friend.addTickListener(() -> {
-            friend.setText("");
-            if (OnlineFriends.getFriends().isEmpty()) {
-                friend.addLine("");
-            } else {
-                friend.addLine("Friends");
-                for (Entity e : OnlineFriends.getFriends()) {
-                    friend.addLine("\u00a7b " + e.getName());
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Text Radar");
+        Label list = new Label("");
+        DecimalFormat dfHealth = new DecimalFormat("#.#");
+        dfHealth.setRoundingMode(RoundingMode.HALF_UP);
+        StringBuilder healthSB = new StringBuilder();
+        list.addTickListener(() -> {
+            if (!list.isVisible()) return;
+            list.setText("");
+
+            Minecraft mc = Wrapper.getMinecraft();
+
+            if (mc.player == null) return;
+            List<EntityPlayer> entityList = mc.world.playerEntities;
+
+            Map<String, Integer> players = new HashMap<>();
+            for (Entity e : entityList) {
+                if (e.getName().equals(mc.player.getName())) continue;
+                String posString = (e.posY > mc.player.posY ? ChatFormatting.DARK_GREEN + "+" : (e.posY == mc.player.posY ? " " : ChatFormatting.DARK_RED + "-"));
+                float hpRaw = ((EntityLivingBase) e).getHealth() + ((EntityLivingBase) e).getAbsorptionAmount();
+                String hp = dfHealth.format(hpRaw);
+                healthSB.append(Command.SECTIONSIGN());
+                if (hpRaw >= 20) {
+                    healthSB.append("a");
+                } else if (hpRaw >= 10) {
+                    healthSB.append("e");
+                } else if (hpRaw >= 5) {
+                    healthSB.append("6");
+                } else {
+                    healthSB.append("c");
                 }
+                healthSB.append(hp);
+                players.put(ChatFormatting.GRAY + posString + " " + healthSB.toString() + " " + ChatFormatting.GRAY + e.getName(), (int) mc.player.getDistance(e));
+                healthSB.setLength(0);
+            }
+
+            if (players.isEmpty()) {
+                list.setText("");
+                return;
+            }
+
+            players = sortByValue(players);
+
+            for (Map.Entry<String, Integer> player : players.entrySet()) {
+                list.addLine(Command.SECTIONSIGN() + "7" + player.getKey() + " " + Command.SECTIONSIGN() + "8" + player.getValue());
             }
         });
-        frame.addChild(friend);
-        friend.setFontRenderer(fontRenderer);
-        frames.add(frame);
-
-        frame.addChild(information);
-        information.setFontRenderer(fontRenderer);
-        frames.add(frame);
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "manatee");
         frame.setCloseable(false);
         frame.setPinneable(true);
         frame.setMinimumWidth(75);
+        list.setShadow(true);
+        frame.addChild(list);
+        list.setFontRenderer(fontRenderer);
+        frames.add(frame);
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Entities");
+        Label entityLabel = new Label("");
+        frame.setCloseable(false);
+        entityLabel.addTickListener(new TickListener() {
+            Minecraft mc = Wrapper.getMinecraft();
+
+            @Override
+            public void onTick() {
+                if (mc.player == null || !entityLabel.isVisible()) return;
+
+                final List<Entity> entityList = new ArrayList<>(mc.world.loadedEntityList);
+                if (entityList.size() <= 1) {
+                    entityLabel.setText("");
+                    return;
+                }
+                final Map<String, Integer> entityCounts = entityList.stream()
+                        .filter(Objects::nonNull)
+                        .filter(e -> !(e instanceof EntityPlayer))
+                        .collect(Collectors.groupingBy(KamiGUI::getEntityName,
+                                Collectors.reducing(0, ent -> {
+                                    if (ent instanceof EntityItem)
+                                        return ((EntityItem)ent).getItem().getCount();
+                                    return 1;
+                                }, Integer::sum)
+                        ));
+
+                entityLabel.setText("");
+                entityCounts.entrySet().stream()
+                        .sorted(Map.Entry.comparingByValue())
+                        .map(entry -> TextFormatting.GRAY + entry.getKey() + " " + TextFormatting.DARK_GRAY + "x" + entry.getValue())
+                        .forEach(entityLabel::addLine);
+
+                //entityLabel.getParent().setHeight(entityLabel.getLines().length * (entityLabel.getTheme().getFontRenderer().getFontHeight()+1) + 3);
+            }
+        });
+        frame.addChild(entityLabel);
+        frame.setPinneable(true);
+        entityLabel.setShadow(true);
+        entityLabel.setFontRenderer(fontRenderer);
+        // frames.add(frame);
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+        Label coordsLabel = new Label("");
+        coordsLabel.addTickListener(new TickListener() {
+            Minecraft mc = Minecraft.getMinecraft();
+
+            @Override
+            public void onTick() {
+                boolean inHell = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
+
+                int posX = (int) mc.player.posX;
+                int posY = (int) mc.player.posY;
+                int posZ = (int) mc.player.posZ;
+
+                float f = !inHell ? 0.125f : 8;
+                int hposX = (int) (mc.player.posX * f);
+                int hposZ = (int) (mc.player.posZ * f);
+
+                coordsLabel.setText(String.format(" %sf%,d%s7, %sf%,d%s7, %sf%,d %s7(%sf%,d%s7, %sf%,d%s7, %sf%,d%s7)",
+                        Command.SECTIONSIGN(),
+                        posX,
+                        Command.SECTIONSIGN(),
+                        Command.SECTIONSIGN(),
+                        posY,
+                        Command.SECTIONSIGN(),
+                        Command.SECTIONSIGN(),
+                        posZ,
+                        Command.SECTIONSIGN(),
+                        Command.SECTIONSIGN(),
+                        hposX,
+                        Command.SECTIONSIGN(),
+                        Command.SECTIONSIGN(),
+                        posY,
+                        Command.SECTIONSIGN(),
+                        Command.SECTIONSIGN(),
+                        hposZ,
+                        Command.SECTIONSIGN()
+                ));
+            }
+        });
+        frame.addChild(coordsLabel);
+        coordsLabel.setFontRenderer(fontRenderer);
+        coordsLabel.setShadow(true);
         frame.setHeight(20);
-        frames.add(frame);
-        Label watermark = new Label((ChatFormatting.AQUA) + ("free him"));
-        watermark.setX((frame.getWidth() / 2));
+        // frames.add(frame);
 
-        frame.addChild(watermark);
-        watermark.setFontRenderer(fontRenderer);
-        frames.add(frame);
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Radar");
+        frame.setCloseable(false);
+        frame.setMinimizeable(true);
+        frame.setPinneable(true);
+        frame.addChild(new Radar());
+        frame.setWidth(100);
+        frame.setHeight(100);
+        // frames.add(frame);
 
-        frame = new Frame(this.getTheme(), new Stretcherlayout(1), "Radar");
-// frame.setCloseable(false);
-// frame.setMinimizeable(true);
-// frame.setPinneable(true);
-// frame.addChild(new Radar());
-// frame.setWidth(100);
-// frame.setHeight(100);
-        //frames.add(frame);
         for (Frame frame1 : frames) {
             frame1.setX(x);
             frame1.setY(y);
+
             nexty = Math.max(y + frame1.getHeight() + 10, nexty);
             x += frame1.getWidth() + 10;
-            if ((float)(x * DisplayGuiScreen.getScale()) > (float)Wrapper.getMinecraft().displayWidth / 1.2f) {
-                nexty = y = nexty;
+            if (x * DisplayGuiScreen.getScale() > Wrapper.getMinecraft().displayWidth / 1.2f) {
+                y = nexty;
+                nexty = y;
                 x = 10;
             }
-            this.addChild(frame1);
+
+            addChild(frame1);
         }
     }
 
     private static String getEntityName(@Nonnull Entity entity) {
         if (entity instanceof EntityItem) {
-            return (Object)TextFormatting.DARK_AQUA + ((EntityItem)entity).getItem().getItem().getItemStackDisplayName(((EntityItem)entity).getItem());
+            return TextFormatting.DARK_AQUA + ((EntityItem) entity).getItem().getItem().getItemStackDisplayName(((EntityItem) entity).getItem());
         }
         if (entity instanceof EntityWitherSkull) {
-            return (Object)TextFormatting.DARK_GRAY + "Wither skull";
+            return TextFormatting.DARK_GRAY + "Wither skull";
         }
         if (entity instanceof EntityEnderCrystal) {
-            return (Object)TextFormatting.WHITE + "End crystal";
+            return TextFormatting.LIGHT_PURPLE + "End crystal";
         }
         if (entity instanceof EntityEnderPearl) {
             return "Thrown ender pearl";
@@ -552,14 +568,17 @@ public class KamiGUI
         if (entity instanceof EntitySnowball) {
             return "Thrown snowball";
         }
+
         return entity.getName();
     }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
-        LinkedList<Map.Entry<K, V>> list = new LinkedList<Map.Entry<K, V>>(map.entrySet());
-        Collections.sort(list, Comparator.comparing(o -> (Comparable)o.getValue()));
-        LinkedHashMap result = new LinkedHashMap();
-        for (Map.Entry entry : list) {
+        List<Map.Entry<K, V>> list =
+                new LinkedList<>(map.entrySet());
+        Collections.sort(list, Comparator.comparing(o -> (o.getValue())));
+
+        Map<K, V> result = new LinkedHashMap<K, V>();
+        for (Map.Entry<K, V> entry : list) {
             result.put(entry.getKey(), entry.getValue());
         }
         return result;
@@ -567,29 +586,29 @@ public class KamiGUI
 
     @Override
     public void destroyGUI() {
-        this.kill();
+        kill();
     }
+
+    private static final int DOCK_OFFSET = 0;
 
     public static void dock(Frame component) {
         Docking docking = component.getDocking();
-        if (docking.isTop()) {
-            component.setY(0);
-        }
-        if (docking.isBottom()) {
-            component.setY(Wrapper.getMinecraft().displayHeight / DisplayGuiScreen.getScale() - component.getHeight() - 0);
-        }
-        if (docking.isLeft()) {
-            component.setX(0);
-        }
-        if (docking.isRight()) {
-            component.setX(Wrapper.getMinecraft().displayWidth / DisplayGuiScreen.getScale() - component.getWidth() - 0);
-        }
-        if (docking.isCenterHorizontal()) {
-            component.setX(Wrapper.getMinecraft().displayWidth / (DisplayGuiScreen.getScale() * 2) - component.getWidth() / 2);
-        }
-        if (docking.isCenterVertical()) {
+        if (docking.isTop())
+            component.setY(DOCK_OFFSET);
+        if (docking.isBottom())
+            component.setY((Wrapper.getMinecraft().displayHeight / DisplayGuiScreen.getScale()) - component.getHeight() - DOCK_OFFSET);
+        if (docking.isLeft())
+            component.setX(DOCK_OFFSET);
+        if (docking.isRight())
+            component.setX((Wrapper.getMinecraft().displayWidth / DisplayGuiScreen.getScale()) - component.getWidth() - DOCK_OFFSET);
+        if (docking.isCenterHorizontal())
+            component.setX((Wrapper.getMinecraft().displayWidth / (DisplayGuiScreen.getScale() * 2) - component.getWidth() / 2));
+        if (docking.isCenterVertical())
             component.setY(Wrapper.getMinecraft().displayHeight / (DisplayGuiScreen.getScale() * 2) - component.getHeight() / 2);
-        }
+
     }
 
+    static {
+        KamiGUI.cFontRenderer = new CFontRenderer(new Font("comic sans", 0, 18), true, false);
+    }
 }

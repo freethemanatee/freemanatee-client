@@ -19,15 +19,20 @@ public class AutoTotem extends Module {
     private Setting<Boolean> soft = this.register(Settings.b("Soft", true));
     private Setting<Integer> healthSwitch = this.register(Settings.integerBuilder("Health Switch").withRange(1, 20).withValue(8).withVisibility(o -> soft.getValue()).build());
 
+    int totem;
+
     @Override
     public void onUpdate() {
+
+        totem = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
+
         if (mc.player == null) return;
         if (mc.currentScreen instanceof GuiContainer) return;
         if (this.soft.getValue()) {
-            if (mc.player.getHealth() + mc.player.getAbsorptionAmount() <= (float)this.healthSwitch.getValue() && this.getOffhand().getItem() == Items.TOTEM_OF_UNDYING) {
+            if (mc.player.getHealth() + mc.player.getAbsorptionAmount() <= (float) this.healthSwitch.getValue() && this.getOffhand().getItem() == Items.TOTEM_OF_UNDYING) {
                 return;
             }
-            if (!this.getOffhand().isEmpty() && mc.player.getHealth() + mc.player.getAbsorptionAmount() >= (float)this.healthSwitch.getValue()) {
+            if (!this.getOffhand().isEmpty() && mc.player.getHealth() + mc.player.getAbsorptionAmount() >= (float) this.healthSwitch.getValue()) {
                 return;
             }
             this.findItem(Items.TOTEM_OF_UNDYING).ifPresent(slot -> {
@@ -48,7 +53,7 @@ public class AutoTotem extends Module {
     }
 
     private void invPickup(int slot) {
-        mc.playerController.windowClick(0, slot, 0, ClickType.PICKUP, (EntityPlayer)mc.player);
+        mc.playerController.windowClick(0, slot, 0, ClickType.PICKUP, (EntityPlayer) mc.player);
     }
 
     private OptionalInt findItem(Item ofType) {
@@ -62,4 +67,11 @@ public class AutoTotem extends Module {
     private ItemStack getOffhand() {
         return mc.player.getItemStackFromSlot(EntityEquipmentSlot.OFFHAND);
     }
+
+
+    @Override
+    public String getHudInfo() {
+        return "\u00A77[\u00A7f" + totem + "\u00A77]";
+    }
+
 }

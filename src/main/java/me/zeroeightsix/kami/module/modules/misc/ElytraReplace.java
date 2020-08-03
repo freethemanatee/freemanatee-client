@@ -1,4 +1,4 @@
-package me.zeroeightsix.kami.module.modules.movement;
+package me.zeroeightsix.kami.module.modules.misc;
 
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -8,8 +8,9 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
-@Module.Info(name = "ElytraReplace", category = Module.Category.MOVEMENT)
+@Module.Info(name = "ElytraReplace", category = Module.Category.MISC)
 public class ElytraReplace extends Module {
+
     private Setting<InventoryMode> inventoryMode = register(Settings.e("Inventory", InventoryMode.ON));
 
     private boolean currentlyMovingElytra = false;
@@ -18,7 +19,7 @@ public class ElytraReplace extends Module {
     private int elytraCount;
     private int chestplateCount;
 
-    private enum InventoryMode { ON, OFF }
+    private enum InventoryMode {ON, OFF}
 
     @Override
     public void onUpdate() {
@@ -84,51 +85,49 @@ public class ElytraReplace extends Module {
         }
 
 
-            int slot = -420;
+        int slot = -420;
 
-            if (elytraCount == 0) {
-                return;
-            }
+        if (elytraCount == 0) {
+            return;
+        }
 
-            if (mc.player.inventory.armorInventory.get(2).isEmpty()) {
-                for (int i = 0; i < 45; i++) {
-                    if (mc.player.inventory.getStackInSlot(i).getItem() == Items.ELYTRA) {
-                        slot = i;
+        if (mc.player.inventory.armorInventory.get(2).isEmpty()) {
+            for (int i = 0; i < 45; i++) {
+                if (mc.player.inventory.getStackInSlot(i).getItem() == Items.ELYTRA) {
+                    slot = i;
 
-                        break;
-                    }
+                    break;
                 }
-
-                mc.playerController.windowClick(0, slot < 9 ? slot + 36 : slot, 0, ClickType.PICKUP, mc.player);
-                currentlyMovingElytra = true;
-
-                return;
             }
 
-            if (!(mc.player.inventory.armorInventory.get(2).getItem() == Items.ELYTRA)) {
-                for (int i = 0; i < 45; i++) {
-                    if (mc.player.inventory.getStackInSlot(i).getItem() == Items.ELYTRA) {
-                        slot = i;
+            mc.playerController.windowClick(0, slot < 9 ? slot + 36 : slot, 0, ClickType.PICKUP, mc.player);
+            currentlyMovingElytra = true;
 
-                        break;
-                    }
+            return;
+        }
+
+        if (!(mc.player.inventory.armorInventory.get(2).getItem() == Items.ELYTRA)) {
+            for (int i = 0; i < 45; i++) {
+                if (mc.player.inventory.getStackInSlot(i).getItem() == Items.ELYTRA) {
+                    slot = i;
+
+                    break;
                 }
-
-                mc.playerController.windowClick(0, slot < 9 ? slot + 36 : slot, 0, ClickType.PICKUP, mc.player);
-                mc.playerController.windowClick(0, 6, 0, ClickType.PICKUP, mc.player);
-                mc.playerController.windowClick(0, slot < 9 ? slot + 36 : slot, 0, ClickType.PICKUP, mc.player);
             }
+
+            mc.playerController.windowClick(0, slot < 9 ? slot + 36 : slot, 0, ClickType.PICKUP, mc.player);
+            mc.playerController.windowClick(0, 6, 0, ClickType.PICKUP, mc.player);
+            mc.playerController.windowClick(0, slot < 9 ? slot + 36 : slot, 0, ClickType.PICKUP, mc.player);
+        }
         }
 
 
     @Override
     public String getHudInfo() {
-            return "\u00A77[\u00A7f" + elytraCount + "\u00A77]";
-        }
-
-
-    private boolean onGround() {
-        return mc.player.onGround;
+        return "\u00A77[\u00A7f" + elytraCount + "\u00A77]";
     }
 
+        private boolean onGround () {
+        return mc.player.onGround;
+    }
     }

@@ -7,7 +7,9 @@ import me.zeroeightsix.kami.module.Module;
         name = "DiscordRPC",
         category = Module.Category.MISC
 )
+
 public class DiscordRPC extends Module{
+
     @Override
     protected void onEnable() {
         Discord.start();

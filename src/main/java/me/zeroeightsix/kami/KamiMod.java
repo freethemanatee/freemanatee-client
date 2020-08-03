@@ -55,8 +55,6 @@ public class KamiMod {
 
     public static final String NAME_UNICODE = " \u0493\u0280\u1d07\u1d07\u1d0d\u1d00\u0274\u1d00\u1d1b\u1d07\u1d07";
 
-    public static final String colour = "\u00A79";
-
     private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanatee.json";
     public static final Logger log = LogManager.getLogger("freemanatee utility mod");
 

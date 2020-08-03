@@ -1,6 +1,5 @@
 package me.zeroeightsix.kami.module.modules.movement;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;

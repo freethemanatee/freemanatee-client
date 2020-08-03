@@ -15,7 +15,7 @@ import static me.zeroeightsix.kami.util.FileHelper.readTextFileAllLines;
 @Module.Info(name = "Spammer", category = Module.Category.CHAT)
 public class Spammer extends Module {
 
-    private static final String fileName = "freemanateespammer.txt";
+    private static final String fileName = "freemanatee-spammer.txt";
     private static final String defaultMessage = "free da manatee";
 
     private static List<String> spamMessages = new ArrayList();

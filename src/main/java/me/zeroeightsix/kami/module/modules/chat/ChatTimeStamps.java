@@ -26,6 +26,5 @@ public class ChatTimeStamps extends Module {
         event.setMessage(newTextComponentString);
 
 
-        });
-
+    });
 }

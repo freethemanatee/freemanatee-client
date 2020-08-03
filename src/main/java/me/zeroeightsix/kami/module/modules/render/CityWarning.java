@@ -15,7 +15,7 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.network.play.server.SPacketBlockBreakAnim;
 import net.minecraft.util.math.BlockPos;
 
-@Module.Info(name = "BreakingWarning", category = Module.Category.COMBAT)
+@Module.Info(name = "CityWarning", category = Module.Category.COMBAT)
 public class CityWarning extends Module {
 
     private Setting<Double> minRange = register(Settings.doubleBuilder("Min Range").withMinimum(0.0).withValue(1.5).withMaximum(10.0).build());

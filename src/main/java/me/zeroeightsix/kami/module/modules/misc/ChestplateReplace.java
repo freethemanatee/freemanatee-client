@@ -1,4 +1,4 @@
-package me.zeroeightsix.kami.module.modules.movement;
+package me.zeroeightsix.kami.module.modules.misc;
 
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -8,7 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
-@Module.Info(name = "ChestplateReplace", category = Module.Category.MOVEMENT)
+@Module.Info(name = "ChestplateReplace", category = Module.Category.MISC)
 public class ChestplateReplace extends Module {
 
     private Setting<InventoryMode> inventoryMode = register(Settings.e("Inventory", InventoryMode.ON));
@@ -70,7 +70,7 @@ public class ChestplateReplace extends Module {
             mc.playerController.windowClick(0, 6, 0, ClickType.PICKUP, mc.player);
             mc.playerController.windowClick(0, slot < 9 ? slot + 36 : slot, 0, ClickType.PICKUP, mc.player);
         }
-    }
+        }
 
 
     @Override

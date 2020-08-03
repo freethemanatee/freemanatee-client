@@ -16,7 +16,7 @@ import java.util.List;
 @Module.Info(name = "VisualRange", category = Module.Category.CHAT)
 public class VisualRange extends Module {
 
-    private Setting<Boolean> publicChat = register(Settings.b("PublicChat", false));
+    private Setting<Boolean> publicChat = register(Settings.b("Public Chat", false));
     private Setting<Boolean> leaving = register(Settings.b("Leaving", false));
 
     private List<String> knownPlayers;
