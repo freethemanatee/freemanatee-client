@@ -19,7 +19,384 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="" />
+    <list default="true" id="3a9c10ff-f095-4f6e-b71e-3ddf8163377d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/obf/config.jocfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/PlayerTravelEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/Radar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootChatUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/poof/use/AdditionPoof.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/theme/Theme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/ECME/HotbarTotem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/PacketMine.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/AutoSpawner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/DonkeyAlert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ElytraReplace.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ReverseStep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/Step.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/Strafe.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/Nametags.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ShulkerPreview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/MovementUtils.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/textures/cape_og.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileContent/annotation-processors.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.4.1/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/annotation-processors.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/gradle.log" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/gradle.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(freemanatee-client)-binpatched.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.0.2531-PROJECT(freemanatee-client)-binpatched.jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeBin-1.12.2-14.23.0.2531-PROJECT(freemanatee-client).jar.md5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcsWorkingDirs/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.buildship.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/club/minnced/discord/rpc/DiscordUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/club/minnced/discord/rpc/DiscordUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/Discord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/Discord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/KamiMod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/KamiMod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/BindCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/BindCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/CommandsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/CommandsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/ConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/ConfigCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/FriendCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/FriendCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/PeekCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/PeekCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/PrefixCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/PrefixCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/RenameModuleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/RenameModuleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/SetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/SetCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/SettingsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/SettingsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/commands/ToggleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/commands/ToggleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/ChunkBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/ChunkBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/SyntaxChunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/SyntaxChunk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/SyntaxParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/SyntaxParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/parsers/AbstractParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/parsers/AbstractParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/parsers/BlockParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/parsers/BlockParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/parsers/DependantParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/parsers/DependantParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/parsers/EnumParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/parsers/EnumParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/parsers/ModuleParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/parsers/ModuleParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/command/syntax/parsers/ValueParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/command/syntax/parsers/ValueParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/ForgeEventProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/ForgeEventProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/KamiEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/KamiEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/AddCollisionBoxToListEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/AddCollisionBoxToListEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/ChunkEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/ChunkEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/DisplaySizeChangedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/DisplaySizeChangedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/EntityConnectEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/EntityConnectEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/EntityEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/EntityEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/EventStageable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/EventStageable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/GuiScreenEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/GuiScreenEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/PacketEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/PacketEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/PlayerMoveEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/PlayerMoveEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/PlayerSkin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/PlayerSkin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/Rainbow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/Rainbow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/RenderEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/RenderEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/TotemPopEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/TotemPopEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/event/events/WorldCheckLightForEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/events/WorldCheckLightForEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/UIRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/UIRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/font/CFont.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/font/CFont.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/font/CFontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/font/CFontRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/DisplayGuiScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/DisplayGuiScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/KamiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/KamiGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/RenderHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/RenderHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/RootFontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/RootFontRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/RootLargeFontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/RootLargeFontRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/RootSmallFontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/RootSmallFontRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/Stretcherlayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/Stretcherlayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/ActiveModules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/ActiveModules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/BindButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/BindButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/ColorizedCheckButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/ColorizedCheckButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/EnumButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/EnumButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/Radar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/SettingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/SettingsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/TabGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/TabGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/component/UnboundSlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/component/UnboundSlider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiActiveModulesUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/KamiActiveModulesUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiEnumbuttonUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/KamiEnumbuttonUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiFrameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/KamiFrameUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiSettingsPanelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/KamiSettingsPanelUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiTheme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/KamiTheme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/KamiUnboundSliderUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/KamiUnboundSliderUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootButtonUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootButtonUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootChatUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootCheckButtonUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootCheckButtonUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootColorizedCheckButtonUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootColorizedCheckButtonUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootGroupboxUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootGroupboxUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootInputFieldUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootInputFieldUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootLabelUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootLabelUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootScrollpaneUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootScrollpaneUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/kami/RootSliderUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/kami/RootSliderUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/staticui/RadarUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/staticui/RadarUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/kami/theme/staticui/TabGuiUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/theme/staticui/TabGuiUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/mc/KamiGuiChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/mc/KamiGuiChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/AbstractComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/AbstractComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/AlignedComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/AlignedComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/container/AbstractContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/container/AbstractContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/container/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/container/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/container/OrganisedContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/container/OrganisedContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/container/use/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/container/use/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/container/use/Groupbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/container/use/Groupbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/container/use/Scrollpane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/container/use/Scrollpane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/listen/KeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/listen/KeyListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/listen/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/listen/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/listen/RenderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/listen/RenderListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/listen/TickListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/listen/TickListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/listen/UpdateListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/listen/UpdateListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/use/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/use/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/use/CheckButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/use/CheckButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/use/InputField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/use/InputField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/use/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/use/Label.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/component/use/Slider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/component/use/Slider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/layout/GridbagLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/layout/GridbagLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/layout/Layout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/layout/Layout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/layout/UselessLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/layout/UselessLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/poof/IPoof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/poof/IPoof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/poof/PoofInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/poof/PoofInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/poof/use/AdditionPoof.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/poof/use/FramePoof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/poof/use/FramePoof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/poof/use/Poof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/poof/use/Poof.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/AbstractComponentUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/AbstractComponentUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/ComponentUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/ComponentUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/font/FontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/font/FontRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/theme/AbstractTheme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/theme/AbstractTheme.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/theme/Theme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/util/Framebuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/util/Framebuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/util/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/util/Shader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/util/ShaderHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/util/ShaderHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/util/StreamReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/util/StreamReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/render/util/Uniform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/util/Uniform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/util/ContainerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/util/ContainerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/gui/rgui/util/Docking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/util/Docking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/MixinLoaderForge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/MixinLoaderForge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinAbstractClientPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinAbstractClientPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinBlockLiquid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinBlockLiquid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinBlockSoulSand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinBlockSoulSand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinC00Handshake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinC00Handshake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityLlama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinEntityLlama.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityPig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinEntityPig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityPlayerSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinEntityPlayerSP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinEntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinGuiChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiNewChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinGuiNewChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiPlayerTabOverlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinGuiPlayerTabOverlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinGuiScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinGuiScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinMinecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinMinecraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinModelBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinModelBoat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinNetHandlerPlayClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinNetHandlerPlayClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinNetworkManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinNetworkManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinPlayerControllerMP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinPlayerControllerMP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinRenderGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinRenderGlobal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinRenderLiving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinRenderLiving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinRenderPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinRenderPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/mixin/client/MixinStateImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinStateImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/ModuleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/ModuleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ClickGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/ClickGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/Aura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/ECME/Aura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/Auto32k.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/ECME/Auto32k.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/HopperNuker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/ECME/HopperNuker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/ECME/IllegalItemBypass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/ECME/IllegalItemBypass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/Annoyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/Announcer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AntiSpam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AntiSpam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoGG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoGG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoQueueMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoQueueMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/AutoReply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoReply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/ChatMutator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/ChatMutator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/ChatSuffix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/ChatSuffix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/ChatTimeStamps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/GreenText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/GreenText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/Spammer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/Spammer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/TotemPopCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/TotemPopCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/chat/VisualRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/VisualRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AntiChainPop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoMend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoMend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTotem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoTotem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/AutoWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/BedAura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/BedAura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/Criticals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/Criticals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/FastUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/FastUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HoleFiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/HoleFiller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/HotbarReplenish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/HotbarReplenish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/MultiTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/MultiTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffHandGap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/OffHandGap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/OffhandBed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/OffhandCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/OffhandCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/SelfTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/SelfTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/SelfWeb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/SelfWeb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/StrengthDetect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/StrengthDetect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/combat/Surround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/Surround.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/AutoDismountDupe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/AutoDismountDupe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/Blink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/Blink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/BuildHeight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/BuildHeight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/DonkeyDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/DonkeyDrop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/NoBreakAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/NoBreakAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/NoMiningTrace.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/NoSwing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/NoSwing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/PortalGodMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/PortalGodMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/exploits/StashFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/StashFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/AntiFog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/AntiFog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/BossStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/BossStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/CameraClip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/CameraClip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/NoEntityTrace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/NoEntityTrace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/Pathfind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/Pathfind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/hidden/TpsSync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/TpsSync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/meme/autokill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/kill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/meme/autonomadhut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/autonomadhut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/meme/manateequeueexploit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AntiAFK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AntiWeather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/AntiWeather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AutoArmour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoArmour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AutoNametag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/AutoNametag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AutoReconnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/AutoReconnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AutoRespawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/AutoRespawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AutoTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/AutoTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/AutoWither.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/ChestplateReplace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ChestplateReplace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/DiscordRPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/DiscordRPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/DonkeyFinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/ElytraReplace.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/FakeCreative.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/FakeCreative.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/FakePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/FakePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/InvWalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/InvWalk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/SkinFlicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/SkinFlicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/misc/XCarry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/XCarry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/BoostFlight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/ElytraFlight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/EntitySpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/EntitySpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/FastFall.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/NoSlowDown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/NoSlowDown.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/SafeWalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/SafeWalk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/SeppukuFly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/SeppukuFly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/Sprint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/Sprint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/Strafe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/movement/Velocity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/Velocity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/AntiForceLook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AntiForceLook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/AutoEat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoEat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/AutoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/AutoJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoJump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/AutoWalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoWalk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/Blink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/Blink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/Freecam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/PitchLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/PitchLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/PortalGodMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/PortalGodMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/Scaffold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/Scaffold.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/TpsSync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/TpsSync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/player/YawLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/YawLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/AntiDeathScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/AntiDeathScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ArmorWarning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorWarning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/BaseESP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/BlockHighlight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/BlockHighlight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/Brightness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/Brightness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/Capes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/Capes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/CityWarning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/CityWarning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ESP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ExtraTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ExtraTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/FovSlider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/FovSlider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/HoleESP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/HoleESP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/InventoryViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/InventoryViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/NameTags.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/NoHurtCam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/NoHurtCam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/NoRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/NoRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/ShulkerPreview.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/StorageESP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/StorageESP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/TabFriends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/TabFriends.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/Tracers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/Tracers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/module/modules/render/VoidESP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/VoidESP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/ISettingUnknown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/ISettingUnknown.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/Setting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/SettingsRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/SettingsRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/SettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/SettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/numerical/DoubleSettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/numerical/DoubleSettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/numerical/FloatSettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/numerical/FloatSettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/numerical/IntegerSettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/numerical/IntegerSettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/numerical/NumericalSettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/numerical/NumericalSettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/primitive/BooleanSettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/primitive/BooleanSettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/primitive/EnumSettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/primitive/EnumSettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/builder/primitive/StringSettingBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/builder/primitive/StringSettingBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/config/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/config/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/AbstractBoxedNumberConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/AbstractBoxedNumberConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/BooleanConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/BooleanConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/BoxedDoubleConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/BoxedDoubleConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/BoxedFloatConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/BoxedFloatConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/BoxedIntegerConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/BoxedIntegerConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/Convertable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/Convertable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/EnumConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/EnumConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/converter/StringConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/converter/StringConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/impl/BooleanSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/impl/BooleanSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/impl/EnumSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/impl/EnumSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/impl/StringSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/impl/StringSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/impl/numerical/DoubleSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/impl/numerical/DoubleSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/impl/numerical/FloatSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/impl/numerical/FloatSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/impl/numerical/IntegerSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/impl/numerical/IntegerSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/setting/impl/numerical/NumberSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/setting/impl/numerical/NumberSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/Bind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/Bind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/BlockInteractionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/BlockInteractionHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/BlockUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/CapeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/CapeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ChatTextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ChatTextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ClassFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ClassFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ColourConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ColourConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ColourHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ColourHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ColourTextFormatting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ColourTextFormatting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ColourUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ColourUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/Enemies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/Enemies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/EntityUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/EntityUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/FileHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/FileHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/Friends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/Friends.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/GeometryMasks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/GeometryMasks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/GuiFrameUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/GuiFrameUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/HueCycler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/HueCycler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/Immutables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/Immutables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/InfoCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/InfoCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/KamiTessellator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/KamiTessellator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/KamiTessellator2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/KamiTessellator2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/LagCompensator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/LagCompensator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/MathUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/MathUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/MathsUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/MathsUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/MessageSendHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/MessageSendHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ModuleMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ModuleMan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/OnlineFriends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/OnlineFriends.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/PlayerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/PlayerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/PlayerInfoHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/PlayerInfoHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/ReflectionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/ReflectionHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/TrajectoryCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/TrajectoryCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/TurokGL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/TurokGL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/WorldUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/WorldUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zeroeightsix/kami/util/Wrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/Wrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cape.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mixins.kami.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mixins.kami.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,11 +437,6 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="forgegradle" type="c8890929:TasksNode$1" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="freemanatee-client" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -76,66 +448,34 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1eGjY7J8gvqSVB6h3gRgwTN9Vfb" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1fyfS1QDUtHCmIh3ILgmm009E2u" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chest.java" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/manatee logger" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\resources" />
-      <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zeroeightsix\kami\module\modules\render" />
-      <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zeroeightsix\kami\module\modules\hidden" />
-      <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zeroeightsix\kami\module\modules\chat" />
-      <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zeroeightsix\kami\module\modules\player" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.zopac.freemanatee.module.modules.misc" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="me.zeroeightsix.kami.module.modules.combat" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zopac\freemanatee\module\modules\hidden" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.freemanatee-client [clean]">
-    <configuration name="freemanatee-client [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="assemble" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="freemanatee-client [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.client-master [build]">
+    <configuration name="client-master [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -154,26 +494,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="freemanatee-client [classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="classes" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="freemanatee-client [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="client-master [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -192,7 +513,7 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="freemanatee-client [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="client-master [setupDecompWorkspace]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -203,7 +524,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="jar" />
+            <option value="setupDecompWorkspace" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -213,11 +534,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.freemanatee-client [jar]" />
-        <item itemvalue="Gradle.freemanatee-client [assemble]" />
-        <item itemvalue="Gradle.freemanatee-client [classes]" />
-        <item itemvalue="Gradle.freemanatee-client [build]" />
-        <item itemvalue="Gradle.freemanatee-client [clean]" />
+        <item itemvalue="Gradle.client-master [build]" />
+        <item itemvalue="Gradle.client-master [clean]" />
+        <item itemvalue="Gradle.client-master [setupDecompWorkspace]" />
       </list>
     </recent_temporary>
   </component>
@@ -226,11 +545,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5c80ec11-dd42-4021-9e85-713f1e5446d5" name="Default Changelist" comment="" />
-      <created>1593954868137</created>
+      <changelist id="3a9c10ff-f095-4f6e-b71e-3ddf8163377d" name="Default Changelist" comment="" />
+      <created>1597195249005</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1593954868137</updated>
+      <updated>1597195249005</updated>
     </task>
     <servers />
   </component>
@@ -246,81 +565,42 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595028411034">
+    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597221337631">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="713" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595028411034" />
-    <state x="898" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1594806768370">
+    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1597221337631" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597206771660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="898" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594806768370" />
-    <state x="711" y="414" width="500" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596428496911">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597206771660" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1597290617323">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="711" y="414" width="500" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1596428496911" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1595334273483">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597290617323" />
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1597222644057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595334273483" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596239643311">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597222644057" />
+    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1597222644057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596239643311" />
-    <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar" timestamp="1594364563833">
+    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597222644057" />
+    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1597222644057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="669" y="139" key="#freemanatee-client-beta-1.3-release.jar/0.0.1920.1040@0.0.1920.1040" timestamp="1594364563833" />
-    <state x="873" y="288" key="FileChooserDialogImpl" timestamp="1596406577097">
+    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597222644057" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1597222644057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="873" y="288" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596406577097" />
-    <state width="1628" height="269" key="GridCell.Tab.0.bottom" timestamp="1596429872759">
+    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597222644057" />
+    <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597196170761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1628" height="269" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596429872759" />
-    <state width="1628" height="269" key="GridCell.Tab.0.center" timestamp="1596429872759">
+    <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1597196170761" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597201158626">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1628" height="269" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596429872759" />
-    <state width="1628" height="269" key="GridCell.Tab.0.left" timestamp="1596429872759">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1628" height="269" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596429872759" />
-    <state width="1628" height="269" key="GridCell.Tab.0.right" timestamp="1596429872759">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1628" height="269" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596429872759" />
-    <state x="632" y="240" key="RollbackChangesDialog" timestamp="1596062202925">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="632" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596062202925" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1596210193227">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596210193227" />
-    <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1594352798392">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="681" y="261" width="540" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1594352798392" />
-    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596019569129">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="565" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596019569129" />
-    <state x="702" y="333" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1593965342214">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="702" y="333" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593965342214" />
-    <state x="666" y="267" key="refactoring.ChangeSignatureDialog" timestamp="1594984361531">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="267" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594984361531" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596416291122">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596416291122" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597201158626" />
   </component>
 </project>

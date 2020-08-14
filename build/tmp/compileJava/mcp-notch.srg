@@ -1,0 +1,19 @@
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/protocolVersion me/zopac/freemanatee/mixin/client/MixinC00Handshake/a
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/ip me/zopac/freemanatee/mixin/client/MixinC00Handshake/b
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/port me/zopac/freemanatee/mixin/client/MixinC00Handshake/c
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/requestedState me/zopac/freemanatee/mixin/client/MixinC00Handshake/d
+FD: me/zopac/freemanatee/mixin/client/MixinGuiChat/inputField me/zopac/freemanatee/mixin/client/MixinGuiChat/a
+FD: me/zopac/freemanatee/mixin/client/MixinGuiChat/historyBuffer me/zopac/freemanatee/mixin/client/MixinGuiChat/g
+FD: me/zopac/freemanatee/mixin/client/MixinGuiChat/sentHistoryCursor me/zopac/freemanatee/mixin/client/MixinGuiChat/h
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/world me/zopac/freemanatee/mixin/client/MixinMinecraft/f
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/player me/zopac/freemanatee/mixin/client/MixinMinecraft/h
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/currentScreen me/zopac/freemanatee/mixin/client/MixinMinecraft/m
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/gameSettings me/zopac/freemanatee/mixin/client/MixinMinecraft/t
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/ingameGUI me/zopac/freemanatee/mixin/client/MixinMinecraft/q
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/skipRenderWorld me/zopac/freemanatee/mixin/client/MixinMinecraft/r
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/soundHandler me/zopac/freemanatee/mixin/client/MixinMinecraft/aL
+FD: me/zopac/freemanatee/mixin/client/MixinRenderGlobal/mc me/zopac/freemanatee/mixin/client/MixinRenderGlobal/h
+FD: me/zopac/freemanatee/mixin/client/MixinRenderGlobal/renderContainer me/zopac/freemanatee/mixin/client/MixinRenderGlobal/O
+FD: me/zopac/freemanatee/mixin/client/MixinStateImplementation/block me/zopac/freemanatee/mixin/client/MixinStateImplementation/a
+MD: me/zopac/freemanatee/mixin/client/MixinAbstractClientPlayer/getPlayerInfo ()Lnet/minecraft/client/network/NetworkPlayerInfo; me/zopac/freemanatee/mixin/client/MixinAbstractClientPlayer/b ()Lbsc;
+MD: me/zopac/freemanatee/mixin/client/MixinGuiChat/initGui ()V me/zopac/freemanatee/mixin/client/MixinGuiChat/b ()V

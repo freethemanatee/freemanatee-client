@@ -27,6 +27,11 @@
       <option name="url" value="http://maven-eclipse.github.io/maven" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="BintrayJCenter" />
+      <option name="name" value="BintrayJCenter" />
+      <option name="url" value="https://jcenter.bintray.com/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="minecraft" />
       <option name="name" value="minecraft" />
       <option name="url" value="https://libraries.minecraft.net/" />
@@ -50,6 +55,11 @@
       <option name="id" value="impactdevelopment-repo" />
       <option name="name" value="impactdevelopment-repo" />
       <option name="url" value="https://impactdevelopment.github.io/maven/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="forgelin-repo" />
+      <option name="name" value="forgelin-repo" />
+      <option name="url" value="http://maven.shadowfacts.net/" />
     </remote-repository>
   </component>
 </project>

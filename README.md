@@ -1,15 +1,19 @@
-free the mother fucking manatee
+# do free is manatee yes
 
-# N O W
+free
 
-thank you to
+credits
+-------------------------------
 
-086 (original kami)
 
-b11 (being epic)
+# dev team
 
-manatee (for being free)
+zopac, evan, b11 (not a dev but is the one who came up with the idea for this client)
 
-btw this client will never be sold anywhere (because thats illegal)
+# other cool people
 
-just a note for all the devs, if you see anyone selling this. tell me
+kami blue people for a few modules
+
+blockparole (modules from heph)
+
+sorry if i didnt put you here its 4 am i need sleep

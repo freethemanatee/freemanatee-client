@@ -1,0 +1,19 @@
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/protocolVersion me/zopac/freemanatee/mixin/client/MixinC00Handshake/field_149600_a
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/ip me/zopac/freemanatee/mixin/client/MixinC00Handshake/field_149598_b
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/port me/zopac/freemanatee/mixin/client/MixinC00Handshake/field_149599_c
+FD: me/zopac/freemanatee/mixin/client/MixinC00Handshake/requestedState me/zopac/freemanatee/mixin/client/MixinC00Handshake/field_149597_d
+FD: me/zopac/freemanatee/mixin/client/MixinGuiChat/inputField me/zopac/freemanatee/mixin/client/MixinGuiChat/field_146415_a
+FD: me/zopac/freemanatee/mixin/client/MixinGuiChat/historyBuffer me/zopac/freemanatee/mixin/client/MixinGuiChat/field_146410_g
+FD: me/zopac/freemanatee/mixin/client/MixinGuiChat/sentHistoryCursor me/zopac/freemanatee/mixin/client/MixinGuiChat/field_146416_h
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/world me/zopac/freemanatee/mixin/client/MixinMinecraft/field_71441_e
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/player me/zopac/freemanatee/mixin/client/MixinMinecraft/field_71439_g
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/currentScreen me/zopac/freemanatee/mixin/client/MixinMinecraft/field_71462_r
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/gameSettings me/zopac/freemanatee/mixin/client/MixinMinecraft/field_71474_y
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/ingameGUI me/zopac/freemanatee/mixin/client/MixinMinecraft/field_71456_v
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/skipRenderWorld me/zopac/freemanatee/mixin/client/MixinMinecraft/field_71454_w
+FD: me/zopac/freemanatee/mixin/client/MixinMinecraft/soundHandler me/zopac/freemanatee/mixin/client/MixinMinecraft/field_147127_av
+FD: me/zopac/freemanatee/mixin/client/MixinRenderGlobal/mc me/zopac/freemanatee/mixin/client/MixinRenderGlobal/field_72777_q
+FD: me/zopac/freemanatee/mixin/client/MixinRenderGlobal/renderContainer me/zopac/freemanatee/mixin/client/MixinRenderGlobal/field_174996_N
+FD: me/zopac/freemanatee/mixin/client/MixinStateImplementation/block me/zopac/freemanatee/mixin/client/MixinStateImplementation/field_177239_a
+MD: me/zopac/freemanatee/mixin/client/MixinAbstractClientPlayer/getPlayerInfo ()Lnet/minecraft/client/network/NetworkPlayerInfo; me/zopac/freemanatee/mixin/client/MixinAbstractClientPlayer/func_175155_b ()Lnet/minecraft/client/network/NetworkPlayerInfo;
+MD: me/zopac/freemanatee/mixin/client/MixinGuiChat/initGui ()V me/zopac/freemanatee/mixin/client/MixinGuiChat/func_73866_w_ ()V
