@@ -63,7 +63,7 @@ public class AutoCrystal extends Module {
     private Setting<Integer> alpha;
     private Setting<delayMode> delayMode;
     private Setting<Boolean> ignoreMinDamageOnBreak;
-    private Setting<Boolean> antiSuicide;
+    //private Setting<Boolean> antiSuicide;
     private Setting<Boolean> antiStuck;
     private Setting<Boolean> onlyBreakOwnCrystals;
     private Setting<Boolean> multiplace;
@@ -107,7 +107,7 @@ public class AutoCrystal extends Module {
         this.multiplace = this.register(Settings.b("MultiPlace", false));
         this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
-        this.antiSuicide = this.register(Settings.b("Anti Suicide", true));
+        //this.antiSuicide = this.register(Settings.b("Anti Suicide", true));
         this.antiStuck = this.register(Settings.b("Anti Stuck", true));
         this.raytrace = this.register(Settings.b("Raytrace", false));
         this.autoSwitch = this.register(Settings.b("Auto Switch", true));
@@ -271,6 +271,8 @@ public class AutoCrystal extends Module {
                         continue;
                     }
                     final double self = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, (Entity) mc.player);
+
+                    /* Removed do to redundancy
                     if (this.antiSuicide.getValue()) {
                         if (mc.player.getHealth() + mc.player.getAbsorptionAmount() - self <= 7.0) {
                             continue;
@@ -278,7 +280,8 @@ public class AutoCrystal extends Module {
                         if (self > d) {
                             continue;
                         }
-                    }
+
+                    }*/
                     damage = d;
                     finalPos = blockPos;
                     ent = entity2;
@@ -636,7 +639,8 @@ public class AutoCrystal extends Module {
                         continue;
                     }
                     final double self = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, (Entity) mc.player);
-                    if (this.antiSuicide.getValue()) {
+                   /* Removed do to redundancy
+                   if (this.antiSuicide.getValue()) {
                         if (mc.player.getHealth() - self <= 7.0) {
                             KamiMod.log.info("Crystal Will Not Kill The Player!");
                             continue;
@@ -645,7 +649,7 @@ public class AutoCrystal extends Module {
                             KamiMod.log.info("Self Damage Exceeds 0.5!");
                             continue;
                         }
-                    }
+                    } */
                     damage = d;
                     finalPos = blockPos;
                     ent = entity2;
