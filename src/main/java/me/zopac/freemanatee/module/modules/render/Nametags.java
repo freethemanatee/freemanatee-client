@@ -1,5 +1,8 @@
 package me.zopac.freemanatee.module.modules.render;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Comparator;
 import me.zopac.freemanatee.event.events.RenderEvent;
 import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.setting.Setting;
@@ -9,7 +12,11 @@ import me.zopac.freemanatee.util.EntityUtil;
 import me.zopac.freemanatee.util.Friends;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -23,42 +30,24 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextFormatting;
 import org.lwjgl.opengl.GL11;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+@Module.Info(name="Nametags", description="Draws descriptive nametags above entities", category=Module.Category.RENDER)
+public class Nametags
+        extends Module {
 
-import static org.lwjgl.opengl.GL11.*;
-
-@Module.Info(
-        name = "Nametags",
-        category = Module.Category.RENDER
-)
-
-public class Nametags extends Module {
-
-    private Setting<Boolean> players = register(Settings.b("Players", true));
-    private Setting<Boolean> animals = register(Settings.b("Animals", false));
-    private Setting<Boolean> mobs = register(Settings.b("Mobs", false));
-    private Setting<Double> range = register(Settings.d("Range", 200));
-    private Setting<Float> scale = register(Settings.floatBuilder("Scale").withMinimum(.5f).withMaximum(10f).withValue(2.5f).build());
-    private Setting<Boolean> health = register(Settings.b("Health", true));
-    private Setting<Boolean> armor = register(Settings.b("Armor", true));
+    private Setting<Double> range = this.register(Settings.d("Range", 200.0));
+    private Setting<Float> scale = this.register(Settings.floatBuilder("Scale").withMinimum(Float.valueOf(0.5f)).withMaximum(Float.valueOf(10.0f)).withValue(Float.valueOf(2.5f)).build());
+    private Setting<Boolean> health = this.register(Settings.b("Health", true));
+    private Setting<Boolean> armor = this.register(Settings.b("Armor", true));
 
     @Override
     public void onWorldRender(RenderEvent event) {
-        if (mc.getRenderManager().options == null) return;
-
+        if (Nametags.mc.getRenderManager().options == null) {
+            return;
+        }
         GlStateManager.enableTexture2D();
         GlStateManager.disableLighting();
         GlStateManager.disableDepth();
-        Minecraft.getMinecraft().world.loadedEntityList.stream()
-                .filter(EntityUtil::isLiving)
-                .filter(entity -> !EntityUtil.isFakeLocalPlayer(entity))
-                .filter(entity -> (entity instanceof EntityPlayer ? players.getValue() && mc.player != entity : (EntityUtil.isPassive(entity) ? animals.getValue() : mobs.getValue())))
-                .filter(entity -> mc.player.getDistance(entity) < range.getValue())
-                .sorted(Comparator.comparing(entity -> -mc.player.getDistance(entity)))
-                .forEach(this::drawNametag);
+        Minecraft.getMinecraft().world.loadedEntityList.stream().filter(EntityUtil::isLiving).filter(entity -> !EntityUtil.isFakeLocalPlayer(entity)).filter(entity -> entity instanceof EntityPlayer).filter(entity -> (double)Nametags.mc.player.getDistance(entity) < this.range.getValue()).sorted(Comparator.comparing(entity -> Float.valueOf(-Nametags.mc.player.getDistance(entity)))).forEach(this::drawNametag);
         GlStateManager.disableTexture2D();
         RenderHelper.disableStandardItemLighting();
         GlStateManager.enableLighting();
@@ -67,62 +56,56 @@ public class Nametags extends Module {
 
     private void drawNametag(Entity entityIn) {
         GlStateManager.pushMatrix();
-
         Vec3d interp = EntityUtil.getInterpolatedRenderPos(entityIn, mc.getRenderPartialTicks());
-        float yAdd = entityIn.height + 0.5F - (entityIn.isSneaking() ? 0.25F : 0.0F);
+        float yAdd = entityIn.height + 0.5f - (entityIn.isSneaking() ? 0.25f : 0.0f);
         double x = interp.x;
-        double y = interp.y + yAdd;
+        double y = interp.y + (double)yAdd;
         double z = interp.z;
-
-        float viewerYaw = mc.getRenderManager().playerViewY;
-        float viewerPitch = mc.getRenderManager().playerViewX;
-        boolean isThirdPersonFrontal = mc.getRenderManager().options.thirdPersonView == 2;
-        GlStateManager.translate(x, y, z);
-        GlStateManager.rotate(-viewerYaw, 0.0F, 1.0F, 0.0F);
-        GlStateManager.rotate((float) (isThirdPersonFrontal ? -1 : 1) * viewerPitch, 1.0F, 0.0F, 0.0F);
-
-        float f = mc.player.getDistance(entityIn);
-        float m = (f / 8f) * (float) (Math.pow(1.2589254f, this.scale.getValue()));
-        GlStateManager.scale(m, m, m);
-
-        FontRenderer fontRendererIn = mc.fontRenderer;
-        GlStateManager.scale(-0.025F, -0.025F, 0.025F);
-
-        String str = entityIn.getName() + (health.getValue() ? " " + getHealthColoured(entityIn, Math.round(((EntityLivingBase) entityIn).getHealth() + (entityIn instanceof EntityPlayer ? ((EntityPlayer) entityIn).getAbsorptionAmount() : 0))) : "");
+        float viewerYaw = Nametags.mc.getRenderManager().playerViewY;
+        float viewerPitch = Nametags.mc.getRenderManager().playerViewX;
+        boolean isThirdPersonFrontal = Nametags.mc.getRenderManager().options.thirdPersonView == 2;
+        GlStateManager.translate((double)x, (double)y, (double)z);
+        GlStateManager.rotate((float)(-viewerYaw), (float)0.0f, (float)1.0f, (float)0.0f);
+        GlStateManager.rotate((float)((float)(isThirdPersonFrontal ? -1 : 1) * viewerPitch), (float)1.0f, (float)0.0f, (float)0.0f);
+        float f = Nametags.mc.player.getDistance(entityIn);
+        float m = f / 8.0f * (float)Math.pow(1.258925437927246, this.scale.getValue().floatValue());
+        GlStateManager.scale((float)m, (float)m, (float)m);
+        FontRenderer fontRendererIn = Nametags.mc.fontRenderer;
+        GlStateManager.scale((float)-0.025f, (float)-0.025f, (float)0.025f);
+        String str = entityIn.getName() + (this.health.getValue() != false ? " " + this.getHealthColoured(entityIn, Math.round(((EntityLivingBase)entityIn).getHealth() + (entityIn instanceof EntityPlayer ? ((EntityPlayer)entityIn).getAbsorptionAmount() : 0.0f))) : "");
         int i = fontRendererIn.getStringWidth(str) / 2;
         GlStateManager.enableBlend();
-        GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+        GlStateManager.tryBlendFuncSeparate((GlStateManager.SourceFactor)GlStateManager.SourceFactor.SRC_ALPHA, (GlStateManager.DestFactor)GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, (GlStateManager.SourceFactor)GlStateManager.SourceFactor.ONE, (GlStateManager.DestFactor)GlStateManager.DestFactor.ZERO);
         GlStateManager.disableTexture2D();
         Tessellator tessellator = Tessellator.getInstance();
-
         BufferBuilder bufferbuilder = tessellator.getBuffer();
-
         GlStateManager.disableDepth();
-        glTranslatef(0, -20, 0);
-        bufferbuilder.begin(GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
-        bufferbuilder.pos(-i - 1, 8, 0.0D).color(0.0F, 0.0F, 0.0F, 0.5F).endVertex();
-        bufferbuilder.pos(-i - 1, 19, 0.0D).color(0.0F, 0.0F, 0.0F, 0.5F).endVertex();
-        bufferbuilder.pos(i + 1, 19, 0.0D).color(0.0F, 0.0F, 0.0F, 0.5F).endVertex();
-        bufferbuilder.pos(i + 1, 8, 0.0D).color(0.0F, 0.0F, 0.0F, 0.5F).endVertex();
+        GL11.glTranslatef((float)0.0f, (float)-20.0f, (float)0.0f);
+        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_COLOR);
+        bufferbuilder.pos((double)(-i - 1), 8.0, 0.0).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
+        bufferbuilder.pos((double)(-i - 1), 19.0, 0.0).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
+        bufferbuilder.pos((double)(i + 1), 19.0, 0.0).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
+        bufferbuilder.pos((double)(i + 1), 8.0, 0.0).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
         tessellator.draw();
-
-        bufferbuilder.begin(GL_LINE_LOOP, DefaultVertexFormats.POSITION_COLOR);
-        bufferbuilder.pos(-i - 1, 8, 0.0D).color(.1f, .1f, .1f, .1f).endVertex();
-        bufferbuilder.pos(-i - 1, 19, 0.0D).color(.1f, .1f, .1f, .1f).endVertex();
-        bufferbuilder.pos(i + 1, 19, 0.0D).color(.1f, .1f, .1f, .1f).endVertex();
-        bufferbuilder.pos(i + 1, 8, 0.0D).color(.1f, .1f, .1f, .1f).endVertex();
+        bufferbuilder.begin(2, DefaultVertexFormats.POSITION_COLOR);
+        bufferbuilder.pos((double)(-i - 1), 8.0, 0.0).color(0.1f, 0.1f, 0.1f, 0.1f).endVertex();
+        bufferbuilder.pos((double)(-i - 1), 19.0, 0.0).color(0.1f, 0.1f, 0.1f, 0.1f).endVertex();
+        bufferbuilder.pos((double)(i + 1), 19.0, 0.0).color(0.1f, 0.1f, 0.1f, 0.1f).endVertex();
+        bufferbuilder.pos((double)(i + 1), 8.0, 0.0).color(0.1f, 0.1f, 0.1f, 0.1f).endVertex();
         tessellator.draw();
-
         GlStateManager.enableTexture2D();
-
-        GlStateManager.glNormal3f(0.0F, 1.0F, 0.0F);
-        if (!entityIn.isSneaking()) fontRendererIn.drawString(str, -i, 10, entityIn instanceof EntityPlayer ? Friends.isFriend(entityIn.getName()) ? 0x00bfff : 0xffffff : 0xffffff);
-        else fontRendererIn.drawString(str, -i, 10, 0xffaa00);
-        if (entityIn instanceof EntityPlayer && armor.getValue()) renderArmor((EntityPlayer)entityIn, 0, -(fontRendererIn.FONT_HEIGHT + 1) - 20);
-        GlStateManager.glNormal3f(0.0F, 0.0F, 0.0F);
-        glTranslatef(0, 20, 0);
-
-        GlStateManager.scale(-40, -40, 40);
+        GlStateManager.glNormal3f((float)0.0f, (float)1.0f, (float)0.0f);
+        if (!entityIn.isSneaking()) {
+            fontRendererIn.drawString(str, -i, 10, entityIn instanceof EntityPlayer ? (Friends.isFriend(entityIn.getName()) ? 49151 : 0xFFFFFF) : 0xFFFFFF);
+        } else {
+            fontRendererIn.drawString(str, -i, 10, 0xFFAA00);
+        }
+        if (entityIn instanceof EntityPlayer && this.armor.getValue().booleanValue()) {
+            this.renderArmor((EntityPlayer)entityIn, 0, -(fontRendererIn.FONT_HEIGHT + 1) - 20);
+        }
+        GlStateManager.glNormal3f((float)0.0f, (float)0.0f, (float)0.0f);
+        GL11.glTranslatef((float)0.0f, (float)20.0f, (float)0.0f);
+        GlStateManager.scale((float)-40.0f, (float)-40.0f, (float)40.0f);
         GlStateManager.enableDepth();
         GlStateManager.popMatrix();
     }
@@ -136,109 +119,86 @@ public class Nametags extends Module {
         ItemStack helm = items.armorItemInSlot(3);
         ItemStack offHand = player.getHeldItemOffhand();
         ItemStack[] stuff = null;
-        if (inHand != null && offHand != null) {
-            stuff = new ItemStack[] { inHand, helm, body, leggings, boots, offHand };
-        }
-        else if (inHand != null && offHand == null) stuff = new ItemStack[] { inHand, helm, body, leggings, boots };
-        else if (inHand == null && offHand != null) stuff = new ItemStack[] { helm, body, leggings, boots, offHand };
-        else {
-            stuff = new ItemStack[] { helm, body, leggings, boots };
-        }
-        List<ItemStack> stacks = new ArrayList();
-        ItemStack[] array;
-        int length = (array = stuff).length;
-
-        for (int j = 0; j < length; j++)
-        {
+        stuff = inHand != null && offHand != null ? new ItemStack[]{inHand, helm, body, leggings, boots, offHand} : (inHand != null && offHand == null ? new ItemStack[]{inHand, helm, body, leggings, boots} : (inHand == null && offHand != null ? new ItemStack[]{helm, body, leggings, boots, offHand} : new ItemStack[]{helm, body, leggings, boots}));
+        ArrayList<ItemStack> stacks = new ArrayList<ItemStack>();
+        ItemStack[] array = stuff;
+        int length = stuff.length;
+        for (int j = 0; j < length; ++j) {
             ItemStack i = array[j];
-            if ((i != null) && (i.getItem() != null)) {
-                stacks.add(i);
-            }
+            if (i == null || i.getItem() == null) continue;
+            stacks.add(i);
         }
         int width = 16 * stacks.size() / 2;
         x -= width;
         GlStateManager.disableDepth();
-        for (ItemStack stack : stacks)
-        {
-            renderItem(stack, x, y);
+        for (ItemStack stack : stacks) {
+            this.renderItem(stack, x, y);
             x += 16;
         }
         GlStateManager.enableDepth();
     }
 
     private String getHealthColoured(Entity entity, int health) {
-        float max = ((EntityLivingBase) entity).getMaxHealth();
-        int result = Math.round((health / max) * 100);
+        float max = ((EntityLivingBase)entity).getMaxHealth();
+        int result = Math.round((float)health / max * 100.0f);
         if (result > 75) {
-            return TextFormatting.GREEN + "" + health;
-        } else if (result > 50) {
-            return TextFormatting.YELLOW + "" + health;
-        } else if (result > 25) {
-            return TextFormatting.RED + "" + health;
-        } else {
-            return TextFormatting.DARK_RED + "" + health;
+            return (Object)TextFormatting.GREEN + "" + health;
         }
+        if (result > 50) {
+            return (Object)TextFormatting.YELLOW + "" + health;
+        }
+        if (result > 25) {
+            return (Object)TextFormatting.RED + "" + health;
+        }
+        return (Object)TextFormatting.DARK_RED + "" + health;
     }
 
     public void renderItem(ItemStack stack, int x, int y) {
-        FontRenderer fontRenderer = mc.fontRenderer;
+        FontRenderer fontRenderer = Nametags.mc.fontRenderer;
         RenderItem renderItem = mc.getRenderItem();
-        EnchantEntry[] enchants = {
-
-                new EnchantEntry(Enchantments.PROTECTION, "Pr"),
-                new EnchantEntry(Enchantments.THORNS, "Th"),
-                new EnchantEntry(Enchantments.SHARPNESS, "Sh"),
-                new EnchantEntry(Enchantments.KNOCKBACK, "Kn"),
-                new EnchantEntry(Enchantments.UNBREAKING, "Un"),
-                new EnchantEntry(Enchantments.BLAST_PROTECTION, "Bl"),
-                new EnchantEntry(Enchantments.EFFICIENCY, "Ef"),
-                new EnchantEntry(Enchantments.SILK_TOUCH, "Si"),
-                new EnchantEntry(Enchantments.FORTUNE, "Fo"),
-                new EnchantEntry(Enchantments.FLAME, "Fl"),
-
-        };
-
+        EnchantEntry[] enchants = new EnchantEntry[]{new EnchantEntry(Enchantments.PROTECTION, "Pro"), new EnchantEntry(Enchantments.THORNS, "Thr"), new EnchantEntry(Enchantments.SHARPNESS, "Sha"), new EnchantEntry(Enchantments.FIRE_ASPECT, "Fia"), new EnchantEntry(Enchantments.KNOCKBACK, "Knb"), new EnchantEntry(Enchantments.UNBREAKING, "Unb"), new EnchantEntry(Enchantments.POWER, "Pow"), new EnchantEntry(Enchantments.FIRE_PROTECTION, "Fpr"), new EnchantEntry(Enchantments.FEATHER_FALLING, "Fea"), new EnchantEntry(Enchantments.BLAST_PROTECTION, "Bla"), new EnchantEntry(Enchantments.PROJECTILE_PROTECTION, "Ppr"), new EnchantEntry(Enchantments.RESPIRATION, "Res"), new EnchantEntry(Enchantments.AQUA_AFFINITY, "Aqu"), new EnchantEntry(Enchantments.DEPTH_STRIDER, "Dep"), new EnchantEntry(Enchantments.FROST_WALKER, "Fro"), new EnchantEntry(Enchantments.BINDING_CURSE, "Bin"), new EnchantEntry(Enchantments.SMITE, "Smi"), new EnchantEntry(Enchantments.BANE_OF_ARTHROPODS, "Ban"), new EnchantEntry(Enchantments.LOOTING, "Loo"), new EnchantEntry(Enchantments.SWEEPING, "Swe"), new EnchantEntry(Enchantments.EFFICIENCY, "Eff"), new EnchantEntry(Enchantments.SILK_TOUCH, "Sil"), new EnchantEntry(Enchantments.FORTUNE, "For"), new EnchantEntry(Enchantments.FLAME, "Fla"), new EnchantEntry(Enchantments.LUCK_OF_THE_SEA, "Luc"), new EnchantEntry(Enchantments.LURE, "Lur"), new EnchantEntry(Enchantments.MENDING, "Men"), new EnchantEntry(Enchantments.VANISHING_CURSE, "Van"), new EnchantEntry(Enchantments.PUNCH, "Pun")};
         GlStateManager.pushMatrix();
         GlStateManager.pushMatrix();
-        float scale1 = 0.3F;
-        GlStateManager.translate(x - 3, y + 8, 0.0F);
-        GlStateManager.scale(0.3F, 0.3F, 0.3F);
+        float scale1 = 0.3f;
+        GlStateManager.translate((float)(x - 3), (float)(y + 8), (float)0.0f);
+        GlStateManager.scale((float)0.3f, (float)0.3f, (float)0.3f);
         GlStateManager.popMatrix();
         RenderHelper.enableGUIStandardItemLighting();
-        renderItem.zLevel = -100.0F;
+        renderItem.zLevel = -100.0f;
         GlStateManager.disableDepth();
         renderItem.renderItemIntoGUI(stack, x, y);
         renderItem.renderItemOverlayIntoGUI(fontRenderer, stack, x, y, null);
         GlStateManager.enableDepth();
-        GlStateManager.scale(0.75F, 0.75F, 0.75F);
-        if (stack.isItemStackDamageable()) drawDamage(stack, x, y);
-        GlStateManager.scale(1.33F, 1.33F, 1.33F);
-        EnchantEntry[] array;
-        int length = (array = enchants).length; for (int i = 0; i < length; i++) {
+        GlStateManager.scale((float)0.75f, (float)0.75f, (float)0.75f);
+        if (stack.isItemStackDamageable()) {
+            this.drawDamage(stack, x, y);
+        }
+        GlStateManager.scale((float)1.33f, (float)1.33f, (float)1.33f);
+        EnchantEntry[] array = enchants;
+        int length = enchants.length;
+        for (int i = 0; i < length; ++i) {
             EnchantEntry enchant = array[i];
-            int level = EnchantmentHelper.getEnchantmentLevel(enchant.getEnchant(), stack);
+            int level = EnchantmentHelper.getEnchantmentLevel((Enchantment)enchant.getEnchant(), (ItemStack)stack);
             String levelDisplay = "" + level;
             if (level > 10) {
                 levelDisplay = "10+";
             }
-            if (level > 0) {
-                float scale2 = 0.32F;
-                GlStateManager.translate(x-1, y + 2, 0.0F);
-                GlStateManager.scale(0.42F, 0.42F, 0.42F);
-                GlStateManager.disableDepth();
-                GlStateManager.disableLighting();
-                GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-                fontRenderer.drawString("\u00a7f" + enchant.getName() + " " + levelDisplay,
-                        20 - fontRenderer.getStringWidth("\u00a7f" + enchant.getName() + " " + levelDisplay) / 2, 0, Color.WHITE.getRGB(), true);
-                GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-                GlStateManager.enableLighting();
-                GlStateManager.enableDepth();
-                GlStateManager.scale(2.42F, 2.42F, 2.42F);
-                GlStateManager.translate(-x+1, -y, 0.0F);
-                y += (int)((fontRenderer.FONT_HEIGHT + 3) * 0.28F);
-            }
+            if (level <= 0) continue;
+            float scale2 = 0.32f;
+            GlStateManager.translate((float)(x - 1), (float)(y + 2), (float)0.0f);
+            GlStateManager.scale((float)0.42f, (float)0.42f, (float)0.42f);
+            GlStateManager.disableDepth();
+            GlStateManager.disableLighting();
+            GL11.glColor4f((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
+            fontRenderer.drawString("\u00a7f" + enchant.getName() + " " + levelDisplay, (float)(20 - fontRenderer.getStringWidth("\u00a7f" + enchant.getName() + " " + levelDisplay) / 2), 0.0f, Color.WHITE.getRGB(), true);
+            GL11.glColor4f((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
+            GlStateManager.enableLighting();
+            GlStateManager.enableDepth();
+            GlStateManager.scale((float)2.42f, (float)2.42f, (float)2.42f);
+            GlStateManager.translate((float)(-x + 1), (float)(-y), (float)0.0f);
+            y += (int)((float)(fontRenderer.FONT_HEIGHT + 3) * 0.28f);
         }
-        renderItem.zLevel = 0.0F;
+        renderItem.zLevel = 0.0f;
         RenderHelper.disableStandardItemLighting();
         GlStateManager.enableAlpha();
         GlStateManager.disableBlend();
@@ -247,11 +207,11 @@ public class Nametags extends Module {
     }
 
     public void drawDamage(ItemStack itemstack, int x, int y) {
-        float green = ((float) itemstack.getMaxDamage() - (float) itemstack.getItemDamage()) / (float) itemstack.getMaxDamage();
-        float red = 1 - green;
-        int dmg = 100 - (int) (red * 100);
+        float green = ((float)itemstack.getMaxDamage() - (float)itemstack.getItemDamage()) / (float)itemstack.getMaxDamage();
+        float red = 1.0f - green;
+        int dmg = 100 - (int)(red * 100.0f);
         GlStateManager.disableDepth();
-        mc.fontRenderer.drawStringWithShadow(dmg + "", x + 8 - mc.fontRenderer.getStringWidth(dmg + "") / 2f, y-11, ColourHolder.toHex((int) (red * 255), (int) (green * 255), 0));
+        Nametags.mc.fontRenderer.drawStringWithShadow(dmg + "", (float)(x + 8) - (float)Nametags.mc.fontRenderer.getStringWidth(dmg + "") / 2.0f, (float)(y - 11), ColourHolder.toHex((int)(red * 255.0f), (int)(green * 255.0f), 0));
         GlStateManager.enableDepth();
     }
 
@@ -259,20 +219,18 @@ public class Nametags extends Module {
         private Enchantment enchant;
         private String name;
 
-        public EnchantEntry(Enchantment enchant, String name)
-        {
+        public EnchantEntry(Enchantment enchant, String name) {
             this.enchant = enchant;
             this.name = name;
         }
 
-        public Enchantment getEnchant()
-        {
+        public Enchantment getEnchant() {
             return this.enchant;
         }
 
-        public String getName()
-        {
+        public String getName() {
             return this.name;
         }
     }
 }
+

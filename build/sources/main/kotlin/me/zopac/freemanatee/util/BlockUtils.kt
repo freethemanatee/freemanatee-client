@@ -13,10 +13,6 @@ import net.minecraft.util.math.MathHelper
 import net.minecraft.util.math.Vec3d
 import kotlin.math.floor
 
-/**
- * Created by hub on 15 June 2019
- * Last Updated 12 January 2019 by hub
- */
 object BlockUtils {
     @JvmField
     val blackList = listOf(

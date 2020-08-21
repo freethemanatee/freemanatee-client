@@ -1,4 +1,4 @@
-package me.zeroeightsix.kami.gui.rgui.render.font;
+package me.zopac.freemanatee.gui.rgui.render.font;
 
 import java.awt.*;
 
