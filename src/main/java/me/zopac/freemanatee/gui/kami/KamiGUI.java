@@ -270,7 +270,7 @@ public class KamiGUI extends GUI {
         goodsLabel.addTickListener(() -> {
             goodsLabel.setText("");
             goodsLabel.addLine(" " + manager.isAura());
-            goodsLabel.addLine(" " + manager.isAura2());
+//            goodsLabel.addLine(" " + manager.isAura2());
             goodsLabel.addLine(" " + manager.isTrap());
             goodsLabel.addLine(" " + manager.isFill());
             goodsLabel.addLine(" " + manager.isSelfTrap());
