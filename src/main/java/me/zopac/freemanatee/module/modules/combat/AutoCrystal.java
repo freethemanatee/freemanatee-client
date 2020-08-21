@@ -102,15 +102,6 @@ public class AutoCrystal extends Module {
     @EventHandler
     private Listener<PacketEvent.Send> packetListener;
     public AutoCrystal() {
-
-        //Arrays
-        ArrayList<String> hand = new ArrayList<>();
-        hand.add("Main");
-        hand.add("Offhand");
-
-
-
-
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
         this.multiplace = this.register(Settings.b("MultiPlace", false));
@@ -201,7 +192,6 @@ public class AutoCrystal extends Module {
                             }
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                            valid = true;
                         }
                     } else if (calculateDamage(crystal, mc.player) <= selfProtectThreshold.getValue()) {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
@@ -215,7 +205,6 @@ public class AutoCrystal extends Module {
                             }
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                            valid = true;
                         }
                     }
                 }
@@ -233,7 +222,6 @@ public class AutoCrystal extends Module {
                             }
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                            valid = true;
                         }
                     } else if (!this.selfProtect.getValue()) {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
@@ -247,7 +235,6 @@ public class AutoCrystal extends Module {
                             }
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                            valid = true;
                         }
                     }
                 }
@@ -335,12 +322,12 @@ public class AutoCrystal extends Module {
         }
         this.render = finalPos;
         this.renderEnt = ent;
-        if ((this.place.getValue() & valid) == true) {
+        if (this.place.getValue()) {
             if (!offhand && mc.player.inventory.currentItem != crystalSlot) {
                 if (this.autoSwitch.getValue()) {
                     mc.player.inventory.currentItem = crystalSlot;
                     resetRotation();
-                    valid = false;
+
                     this.switchCooldown = true;
                 }
                 return;
