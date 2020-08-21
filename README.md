@@ -1,19 +1,13 @@
-# do free is manatee yes
+# Freemanatee Client
 
-free
-
-credits
+Credits
 -------------------------------
+* Opfern by Kami
+* Kami Blue by Bella/HyperSkrub
+* Hephaestus By blockparole
 
-
-# dev team
-
-zopac, evan, b11 (not a dev but is the one who came up with the idea for this client)
-
-# other cool people
-
-kami blue people for a few modules
-
-blockparole (modules from heph)
-
-sorry if i didnt put you here its 4 am i need sleep
+Changelog
+-------------------------------
+* Added MultiPlace option (non-functional)
+* Created .gitignore
+* Updated README and CREDITS

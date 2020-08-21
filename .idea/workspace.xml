@@ -20,47 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a9c10ff-f095-4f6e-b71e-3ddf8163377d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/annotation-processors.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/annotation-processors.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$BindConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$BindConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/ArmorHUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/ArmorHUD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$Mode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$receiveListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$receiveListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/freemanateeclient23jar-classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/freemanateeclient23jar-classes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3-release.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +119,7 @@
       <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zopac\freemanatee\module\modules\hidden" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.client-master [clean]">
+  <component name="RunManager" selected="Gradle.client-master [setupDecompWorkspace]">
     <configuration name="client-master [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -243,21 +223,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597894347541" />
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1597982934358">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1815" height="295" key="GridCell.Tab.0.bottom" timestamp="1598012874202">
+      <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
     <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1597982934358">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1815" height="295" key="GridCell.Tab.0.center" timestamp="1598012874202">
+      <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.center/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
     <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1597982934358">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1815" height="295" key="GridCell.Tab.0.left" timestamp="1598012874202">
+      <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.left/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
     <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1597982934358">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1815" height="295" key="GridCell.Tab.0.right" timestamp="1598012874202">
+      <screen x="0" y="0" width="1858" height="1080" />
     </state>
+    <state width="1815" height="295" key="GridCell.Tab.0.right/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
     <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597196170761">
       <screen x="0" y="0" width="1920" height="1040" />

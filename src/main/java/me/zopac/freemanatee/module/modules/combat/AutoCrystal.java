@@ -104,6 +104,7 @@ public class AutoCrystal extends Module {
     public AutoCrystal() {
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
+        this.multiplace = this.register(Settings.b("MultiPlace", false));
         this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
         this.antiSuicide = this.register(Settings.b("Anti Suicide", true));
