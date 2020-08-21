@@ -39,19 +39,25 @@ public class ArmorHUD extends Module {
             final float green = (is.getMaxDamage() - (float)is.getItemDamage()) / is.getMaxDamage();
             final float red = 1.0f - green;
             final int dmg = 100 - (int)(red * 100.0f);
+
             if (dmg >= 100) {
+
                 ArmorHUD.mc.fontRenderer.drawStringWithShadow(dmg + "", (float)(x + 8 - ArmorHUD.mc.fontRenderer.getStringWidth(dmg + "") / 2), (float)(y - 11), ColourHolder.toHex((int)(red * 255.0f), (int)(green * 255.0f), 0));
 
             } else {
                 ArmorHUD.mc.fontRenderer.drawStringWithShadow(dmg + "%", (float)(x + 8 - ArmorHUD.mc.fontRenderer.getStringWidth(dmg + "") / 2), (float)(y - 11), ColourHolder.toHex((int)(red * 255.0f), (int)(green * 255.0f), 0));
+
             }
-            // ArmorHUD.mc.fontRenderer.drawStringWithShadow(dmg + "", (float)(x + 8 - ArmorHUD.mc.fontRenderer.getStringWidth(dmg + "") / 2), (float)(y - 11), ColourHolder.toHex((int)(red * 255.0f), (int)(green * 255.0f), 0));
         }
+
         GlStateManager.enableDepth();
         GlStateManager.disableLighting();
+
     }
 
     static {
+
         ArmorHUD.itemRender = Minecraft.getMinecraft().getRenderItem();
+
     }
 }

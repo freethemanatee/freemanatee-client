@@ -72,16 +72,6 @@ public class ModuleMan {
         }
     }
 
-    public String isAura2() {
-        try {
-            if (ModuleManager.getModuleByName("AutoCrystal2").isEnabled()) {
-                return "\u00A7a CA2";
-            }
-            return "\u00A74 CA2";
-        } catch (Exception e) {
-            return "i broke a thing: " + e;
-        }
-    }
     public String isTrap() {
         try {
             if (ModuleManager.getModuleByName("AutoTrap").isEnabled()) {

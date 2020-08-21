@@ -23,6 +23,7 @@ import java.util.List;
  * Updated by TBM on 13/12/19
  */
 public class Module {
+
     private final String originalName = getAnnotation().name();
     private final Setting<String> name = register(Settings.s("Name", originalName));
     private final String description = getAnnotation().description();
@@ -77,7 +78,7 @@ public class Module {
     {
         COMBAT("Combat", false),
         MEME("Memes", false),
-        ECME("32k PVP", false),
+        dispenserpvp("32k PVP", false),
         EXPLOITS("Exploits ", false),
         RENDER("Render ", false),
         MISC("Misc ", false),

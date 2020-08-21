@@ -33,106 +33,34 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/chat/AntiKick$Timer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/chat/AntiKick.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/misc/AutoArmour.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/misc/ChestplateReplace$InventoryMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/misc/ChestplateReplace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/misc/ElytraReplace$InventoryMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/misc/ElytraReplace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/misc/ShulkerBP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/misc/XCarry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/player/Freecam.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/BaseESP$Triplet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/BaseESP.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/Nametags$EnchantEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/Nametags$EnchantEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/Nametags.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/Nametags.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/exploits/PacketMine$sendListener$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/exploits/PacketMine$sendListener$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/exploits/PacketMine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/util/BlockUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/util/BlockUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$BindConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$BindConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/ArmorHUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/ArmorHUD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$Mode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$receiveListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$receiveListener$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kotlin/freemanateeclient23jar-classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/freemanateeclient23jar-classes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3-release.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3-release.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3-release.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/gui/rgui/render/font/FontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/gui/rgui/render/font/FontRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/chat/AntiKick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/misc/AutoArmour.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/misc/ChestplateReplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/misc/ElytraReplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/misc/ShulkerBP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/misc/XCarry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/player/Freecam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/BaseESP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/Nametags.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/Nametags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/gui/rgui/render/font/FontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/gui/rgui/render/font/FontRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/chat/AntiKick.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/exploits/PacketMine.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/misc/AutoArmour.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/misc/ChestplateReplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/misc/ElytraReplace.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/misc/ShulkerBP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/misc/XCarry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/player/Freecam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/BaseESP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/Nametags.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/Nametags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/util/BlockUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/util/BlockUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsJar/input4870114065183227680.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/extractAnnotationsShadowJar/input8951505976358833948.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-default8516166103513759551.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfJar/reobf-extraLines2762464387695488115.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-default7348414611037582223.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/reobfShadowJar/reobf-extraLines7921445842122478323.srg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/font/FontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/rgui/render/font/FontRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/PacketMine.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/Nametags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/Nametags.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/BlockUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/BlockUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +139,7 @@
       <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zopac\freemanatee\module\modules\hidden" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.client-master [build]">
+  <component name="RunManager" selected="Gradle.client-master [clean]">
     <configuration name="client-master [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -303,10 +231,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597221337631">
+    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597982476387">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1597221337631" />
+    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1597982476387" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597206771660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -315,22 +243,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597894347541" />
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1597894603806">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1597982934358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597894603806" />
-    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1597894603806">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
+    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1597982934358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597894603806" />
-    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1597894603806">
+    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
+    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1597982934358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597894603806" />
-    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1597894603806">
+    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1597982934358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597894603806" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597196170761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

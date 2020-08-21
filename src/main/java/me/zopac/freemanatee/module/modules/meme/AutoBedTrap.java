@@ -29,7 +29,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 
-@Module.Info(name="AutoBedTrap", category=Module.Category.MISC)
+@Module.Info(name="AutoBedTrap", category=Module.Category.MEME)
 public class AutoBedTrap
         extends Module {
     private Setting<Integer> range = this.register(Settings.i("Range", 4));
