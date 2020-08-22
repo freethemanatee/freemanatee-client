@@ -78,6 +78,7 @@ public class AutoCrystal extends Module {
     private Setting<Boolean> raytrace;
     private Setting<Boolean> place;
     private Setting<Boolean> explode;
+    private Setting<Boolean> ecme;
     private Setting<Boolean> rainbow;
     private Setting<Boolean> antiWeaknessOffhand;
     private Setting<Double> breakYOffset;
@@ -104,6 +105,7 @@ public class AutoCrystal extends Module {
     public AutoCrystal() {
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
+        this.ecme = this.register(Settings.b("1.13 Mode", false));
         this.multiplace = this.register(Settings.b("MultiPlace", false));
         this.OffhandBreak = this.register(Settings.b("OffhandBreak", false));
         //this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
@@ -391,8 +393,17 @@ public class AutoCrystal extends Module {
     private boolean canPlaceCrystal(final BlockPos blockPos) {
         final BlockPos boost = blockPos.add(0, 1, 0);
         final BlockPos boost2 = blockPos.add(0, 2, 0);
-        return (mc.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK || mc.world.getBlockState(blockPos).getBlock() == Blocks.OBSIDIAN) && mc.world.getBlockState(boost).getBlock() == Blocks.AIR && mc.world.getBlockState(boost2).getBlock() == Blocks.AIR && mc.world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB(boost)).isEmpty() && mc.world.getEntitiesWithinAABB((Class)Entity.class, new AxisAlignedBB(boost2)).isEmpty();
+        if (this.ecme.getValue()) {
+            if (mc.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(boost2)).isEmpty())
+                return false;
+        }
+        return (mc.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK
+                || mc.world.getBlockState(blockPos).getBlock() == Blocks.OBSIDIAN)
+                && mc.world.getBlockState(boost).getBlock() == Blocks.AIR
+                && mc.world.getBlockState(boost2).getBlock() == Blocks.AIR
+                && mc.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(boost)).isEmpty();
     }
+
 
     public static BlockPos getPlayerPos() {
         return new BlockPos(Math.floor(mc.player.posX), Math.floor(mc.player.posY), Math.floor(mc.player.posZ));
