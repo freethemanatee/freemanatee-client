@@ -10,6 +10,7 @@ import me.zopac.freemanatee.event.events.RenderEvent;
 import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.module.ModuleManager;
 import me.zopac.freemanatee.module.modules.chat.AutoGG;
+import me.zopac.freemanatee.module.modules.movement.ChestplateReplace;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
 import me.zopac.freemanatee.util.EntityUtil;
@@ -44,74 +45,44 @@ import java.util.stream.Collectors;
 @Module.Info(name = "AutoCrystal", description = "bruh", category = Module.Category.COMBAT)
 public class AutoCrystal extends Module {
 
-    private Setting<Integer> tickPlaceDelay;
     private Setting<Integer> msPlaceDelay;
-    private Setting<Integer> tickBreakDelay;
     private Setting<Integer> msBreakDelay;
     private Setting<Double> placeRange;
     private Setting<Double> breakRange;
     private Setting<Integer> enemyRange;
     private Setting<Integer> minDamage;
-    private Setting<Double> placeThroughWallsRange;
     private Setting<Integer> ignoreMinDamageThreshold;
-    private Setting<Integer> friendProtectThreshold;
     private Setting<Integer> selfProtectThreshold;
     private Setting<Double> breakThroughWallsRange;
     private Setting<Integer> red;
     private Setting<Integer> green;
     private Setting<Integer> blue;
-    private Setting<Integer> alpha;
-    private Setting<delayMode> delayMode;
-    private Setting<Boolean> ignoreMinDamageOnBreak;
-    //private Setting<Boolean> antiSuicide;
-    private Setting<Boolean> antiStuck;
-    private Setting<Boolean> onlyBreakOwnCrystals;
-    private Setting<Boolean> multiplace;
-    private Setting<Boolean> friendProtect; // don't explode crystals that deal too much damage to friends
     private Setting<Boolean> selfProtect;
-    private Setting<Boolean> lockOn; // only target one player
-    private Setting<Boolean> enemyPriority; // prioritize targets on enemy list
     private Setting<Boolean> chatAlert;
     private Setting<Boolean> autoSwitch;
-    //private Setting<Boolean> autoOffhand; // enable offhand crystal with toggle
-    private Setting<Boolean> antiWeakness;
     private Setting<Boolean> raytrace;
     private Setting<Boolean> place;
     private Setting<Boolean> explode;
     private Setting<Boolean> ecme;
     private Setting<Boolean> rainbow;
-    private Setting<Boolean> antiWeaknessOffhand;
     private Setting<Double> breakYOffset;
-    private Setting<Boolean> renderBreakTarget;
-    private Setting<Boolean> OffhandBreak;
-    private boolean valid;
-    public static Logger logger;
+    private Setting<BreakMode> breakMode = register(Settings.e("Hand", BreakMode.Main));
+    public enum BreakMode {Main, Offhand, Both }
     private long breakSystemTime;
     private long placeSystemTime;
-    private long antiStuckSystemTime;
     private static double yaw;
     private static double pitch;
     private static boolean isSpoofingAngles;
     private boolean switchCooldown;
     private static boolean togglePitch;
-    private int placements;
-    private EntityPlayer playerTarget;
-    private EntityPlayer closestTarget;
-    private BlockPos breakTarget;
     private BlockPos render;
-    private Entity renderEnt;
     @EventHandler
     private Listener<PacketEvent.Send> packetListener;
     public AutoCrystal() {
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
         this.ecme = this.register(Settings.b("1.13 Mode", false));
-        // this.multiplace = this.register(Settings.b("MultiPlace", false));     fix this before making it a setting
-        this.OffhandBreak = this.register(Settings.b("OffhandBreak", false));
-        //this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
-        //this.antiSuicide = this.register(Settings.b("Anti Suicide", true));
-        //this.antiStuck = this.register(Settings.b("Anti Stuck", true));
         this.raytrace = this.register(Settings.b("Raytrace", false));
         this.autoSwitch = this.register(Settings.b("Auto Switch", true));
         this.selfProtect = this.register(Settings.b("Self Protect", false));
@@ -120,9 +91,6 @@ public class AutoCrystal extends Module {
         this.red = this.register((Setting<Integer>) Settings.integerBuilder("Red").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.green = this.register((Setting<Integer>) Settings.integerBuilder("Green").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
         this.blue = this.register((Setting<Integer>) Settings.integerBuilder("Blue").withValue(255).withMaximum(255).withVisibility(b -> rgb.getValue()).build());
-        this.antiWeaknessOffhand = this.register(Settings.b("Anti Weakness Offhand", false));
-        this.renderBreakTarget = this.register(Settings.b("Render Break Target", true));
-        this.onlyBreakOwnCrystals = this.register(Settings.b("Only Break Own Crystals", false));
         this.msBreakDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Break Delay").withMinimum(0).withMaximum(300).withValue(10).build());
         this.msPlaceDelay = this.register((Setting<Integer>) Settings.integerBuilder("MS Place Delay").withMinimum(0).withMaximum(300).withValue(10).build());
         this.placeRange = this.register((Setting<Double>) Settings.doubleBuilder("Place Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
@@ -205,12 +173,7 @@ public class AutoCrystal extends Module {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
                             this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
                             mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            }
+                            doBreak();
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
@@ -218,12 +181,7 @@ public class AutoCrystal extends Module {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
                             this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
                             mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            }
+                            doBreak();
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
@@ -231,7 +189,7 @@ public class AutoCrystal extends Module {
                 }
             }
 
-        } else if (crystal == null){
+        } else if (crystal == null) {
             resetRotation();
         }
         int crystalSlot = (mc.player.getHeldItemMainhand().getItem() == Items.END_CRYSTAL) ? mc.player.inventory.currentItem : -1;
@@ -303,61 +261,58 @@ public class AutoCrystal extends Module {
         }
         if (damage == 0.5) {
             this.render = null;
-            this.renderEnt = null;
+            //this.renderEnt = null;
             resetRotation();
             return;
         }
         if (lastTarget instanceof EntityPlayer && ModuleManager.getModuleByName("AutoGG").isEnabled()) {
-            final me.zopac.freemanatee.module.modules.chat.AutoGG autogg = (AutoGG)ModuleManager.getModuleByName("AutoGG");
+            final me.zopac.freemanatee.module.modules.chat.AutoGG autogg = (AutoGG) ModuleManager.getModuleByName("AutoGG");
             autogg.addTargetedPlayer(lastTarget.getName());
         }
         this.render = finalPos;
-        this.renderEnt = ent;
-        if (this.place.getValue()) {
-            if (!offhand && mc.player.inventory.currentItem != crystalSlot) {
-                if (this.autoSwitch.getValue()) {
-                    mc.player.inventory.currentItem = crystalSlot;
-                    resetRotation();
+        //this.renderEnt = ent;
+            if (this.place.getValue()) {
+                if (!offhand && mc.player.inventory.currentItem != crystalSlot) {
+                    if (this.autoSwitch.getValue()) {
+                        mc.player.inventory.currentItem = crystalSlot;
+                        resetRotation();
 
-                    this.switchCooldown = true;
+                        this.switchCooldown = true;
+                    }
+                    return;
                 }
-                return;
+                this.lookAtPacket(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5, (EntityPlayer) mc.player);
+                final RayTraceResult result = mc.world.rayTraceBlocks(new Vec3d(mc.player.posX, mc.player.posY + mc.player.getEyeHeight(), mc.player.posZ), new Vec3d(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5));
+                EnumFacing f;
+                if (result == null || result.sideHit == null) {
+                    f = EnumFacing.UP;
+                } else {
+                    f = result.sideHit;
+                }
+                if (this.switchCooldown) {
+                    this.switchCooldown = false;
+                    return;
+                }
+                if (System.nanoTime() / 1000000L - this.placeSystemTime >= this.msPlaceDelay.getValue()) {
+                    mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(finalPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
+                    this.placeSystemTime = System.nanoTime() / 1000000L;
+                    KamiMod.log.info("Crystal Placed!");
+                }
             }
-            this.lookAtPacket(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5, (EntityPlayer) mc.player);
-            final RayTraceResult result = mc.world.rayTraceBlocks(new Vec3d(mc.player.posX, mc.player.posY + mc.player.getEyeHeight(), mc.player.posZ), new Vec3d(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5));
-            EnumFacing f;
-            if (result == null || result.sideHit == null) {
-                f = EnumFacing.UP;
-            } else {
-                f = result.sideHit;
+            if (isSpoofingAngles) {
+                if (togglePitch) {
+                    final EntityPlayerSP player = mc.player;
+                    player.rotationPitch += (float) 4.0E-4;
+                    togglePitch = false;
+                } else {
+                    final EntityPlayerSP player2 = mc.player;
+                    player2.rotationPitch -= (float) 4.0E-4;
+                    togglePitch = true;
+                }
             }
-            if (this.switchCooldown) {
-                this.switchCooldown = false;
-                return;
-            }
-            if (System.nanoTime() / 1000000L - this.placeSystemTime >= this.msPlaceDelay.getValue()) {
-                mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(finalPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
-                ++this.placements;
-                this.antiStuckSystemTime = System.nanoTime() / 1000000L;
-                this.placeSystemTime = System.nanoTime() / 1000000L;
-                doBreak();
-                KamiMod.log.info("Crystal Placed!");
-            }
-        }
-        if (isSpoofingAngles) {
-            if (togglePitch) {
-                final EntityPlayerSP player = mc.player;
-                player.rotationPitch += (float) 4.0E-4;
-                togglePitch = false;
-            } else {
-                final EntityPlayerSP player2 = mc.player;
-                player2.rotationPitch -= (float) 4.0E-4;
-                togglePitch = true;
-            }
-        }
 
 
-    }
+        }
 
     @Override
     public void onWorldRender(final RenderEvent event) {
@@ -501,11 +456,15 @@ public class AutoCrystal extends Module {
     }
 
     private void doBreak() {
-        if (this.OffhandBreak.getValue()) {
+        if (breakMode.getValue().equals(BreakMode.Main)) {
+            mc.player.swingArm(EnumHand.MAIN_HAND);
+        }
+        if (breakMode.getValue().equals(BreakMode.Offhand)) {
             mc.player.swingArm(EnumHand.OFF_HAND);
         }
-        else {
+        if (breakMode.getValue().equals(BreakMode.Both)) {
             mc.player.swingArm(EnumHand.MAIN_HAND);
+            mc.player.swingArm(EnumHand.OFF_HAND);
         }
 
     }
