@@ -38,7 +38,7 @@ public class Nametags
     private Setting<Float> scale = this.register(Settings.floatBuilder("Scale").withMinimum(Float.valueOf(0.5f)).withMaximum(Float.valueOf(10.0f)).withValue(Float.valueOf(2.5f)).build());
     private Setting<Boolean> health = this.register(Settings.b("Health", true));
     private Setting<Boolean> armor = this.register(Settings.b("Armor", true));
-
+    private Setting<Boolean> EnchantText = this.register(Settings.b("Enchants", false));
     @Override
     public void onWorldRender(RenderEvent event) {
         if (Nametags.mc.getRenderManager().options == null) {
@@ -135,7 +135,6 @@ public class Nametags
             this.renderItem(stack, x, y);
             x += 16;
         }
-        GlStateManager.enableDepth();
     }
 
     private String getHealthColoured(Entity entity, int health) {
@@ -190,7 +189,9 @@ public class Nametags
             GlStateManager.disableDepth();
             GlStateManager.disableLighting();
             GL11.glColor4f((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
-            fontRenderer.drawString("\u00a7f" + enchant.getName() + " " + levelDisplay, (float)(20 - fontRenderer.getStringWidth("\u00a7f" + enchant.getName() + " " + levelDisplay) / 2), 0.0f, Color.WHITE.getRGB(), true);
+            if (this.EnchantText.getValue()) {
+                fontRenderer.drawString("\u00a7f" + enchant.getName() + " " + levelDisplay, (float) (20 - fontRenderer.getStringWidth("\u00a7f" + enchant.getName() + " " + levelDisplay) / 2), 0.0f, Color.WHITE.getRGB(), true);
+            }
             GL11.glColor4f((float)1.0f, (float)1.0f, (float)1.0f, (float)1.0f);
             GlStateManager.enableLighting();
             GlStateManager.enableDepth();
@@ -199,19 +200,19 @@ public class Nametags
             y += (int)((float)(fontRenderer.FONT_HEIGHT + 3) * 0.28f);
         }
         renderItem.zLevel = 0.0f;
-        RenderHelper.disableStandardItemLighting();
+        //RenderHelper.disableStandardItemLighting();
         GlStateManager.enableAlpha();
         GlStateManager.disableBlend();
         GlStateManager.disableLighting();
         GlStateManager.popMatrix();
     }
 
-    public void drawDamage(ItemStack itemstack, int x, int y) {
+   public void drawDamage(ItemStack itemstack, int x, int y) {
         float green = ((float)itemstack.getMaxDamage() - (float)itemstack.getItemDamage()) / (float)itemstack.getMaxDamage();
         float red = 1.0f - green;
         int dmg = 100 - (int)(red * 100.0f);
         GlStateManager.disableDepth();
-        Nametags.mc.fontRenderer.drawStringWithShadow(dmg + "", (float)(x + 8) - (float)Nametags.mc.fontRenderer.getStringWidth(dmg + "") / 2.0f, (float)(y - 11), ColourHolder.toHex((int)(red * 255.0f), (int)(green * 255.0f), 0));
+        //Nametags.mc.fontRenderer.drawStringWithShadow(dmg + "", (float)(x + 8) - (float)Nametags.mc.fontRenderer.getStringWidth(dmg + "") / 2.0f, (float)(y - 0), ColourHolder.toHex((int)(red * 255.0f), (int)(green * 255.0f), 0));
         GlStateManager.enableDepth();
     }
 

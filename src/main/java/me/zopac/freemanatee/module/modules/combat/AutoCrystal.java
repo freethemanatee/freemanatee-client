@@ -184,18 +184,14 @@ public class AutoCrystal extends Module {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
                             this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
                             this.breakSystemTime = System.nanoTime() / 1000000L;
+                            doBreak();
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
                     } else if (calculateDamage(crystal, mc.player) <= selfProtectThreshold.getValue()) {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
                             this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
                             mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            }
+                            doBreak();
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
@@ -342,6 +338,7 @@ public class AutoCrystal extends Module {
                 ++this.placements;
                 this.antiStuckSystemTime = System.nanoTime() / 1000000L;
                 this.placeSystemTime = System.nanoTime() / 1000000L;
+                doBreak();
                 KamiMod.log.info("Crystal Placed!");
             }
         }
@@ -490,251 +487,15 @@ public class AutoCrystal extends Module {
         }
     }
 
-    public boolean isObbyOrBedrock(BlockPos blockPos) {
-        if (mc.world.getBlockState(blockPos) == Blocks.OBSIDIAN || mc.world.getBlockState(blockPos) == Blocks.BEDROCK) {
-            return true;
-        } else {
-            return false;
+    private void doBreak() {
+        if (this.OffhandBreak.getValue()) {
+            mc.player.swingArm(EnumHand.OFF_HAND);
         }
+        else {
+            mc.player.swingArm(EnumHand.MAIN_HAND);
+        }
+
     }
-
-    public boolean getObbyAndBedrockInRange () {
-        NonNullList<BlockPos> positions = NonNullList.create();
-        positions.addAll(
-                getSphere(getPlayerPos(), placeRange.getValue().floatValue() + 2, placeRange.getValue().intValue() + 2, false, true, 0)
-                        .stream().filter(this::isObbyOrBedrock).collect(Collectors.toList())
-        );
-        if (!positions.isEmpty()) {
-            KamiMod.log.info("Obisidan or Bedrock Found!");
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /*public void breakCrystal(EntityEnderCrystal crystal) {
-        if (crystal != null && this.explode.getValue()) {
-            BlockPos breakTarget = new BlockPos(crystal.posX, crystal.posY + 1, crystal.posZ);
-            if (!canBlockBeSeen(breakTarget)) {
-                if (mc.player.getDistance((Entity) crystal) <= this.breakThroughWallsRange.getValue()) {
-                    if (!this.selfProtect.getValue()) {
-                        if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
-                            this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
-                            mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            }
-                            this.breakSystemTime = System.nanoTime() / 1000000L;
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                        }
-                    } else if (calculateDamage(crystal, mc.player) <= selfProtectThreshold.getValue()) {
-                        if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
-                            this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
-                            mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            }
-                            this.breakSystemTime = System.nanoTime() / 1000000L;
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                        }
-                    }
-                }
-            } else {
-                if (mc.player.getDistance((Entity) crystal) <= this.breakRange.getValue()) {
-                    if (this.selfProtect.getValue() && calculateDamage(crystal, mc.player) <= selfProtectThreshold.getValue()) {
-                        if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
-                            this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
-                            mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            }
-                            this.breakSystemTime = System.nanoTime() / 1000000L;
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                        }
-                    } else if (!this.selfProtect.getValue()) {
-                        if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
-                            this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
-                            mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            };
-                            this.breakSystemTime = System.nanoTime() / 1000000L;
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
-                        }
-                    }
-                }
-            }
-
-        } else if (crystal == null){
-            resetRotation();
-        }
-    }*/
-
-    /*public void placeCrystal(BlockPos blockPos) {
-        int crystalSlot = (mc.player.getHeldItemMainhand().getItem() == Items.END_CRYSTAL) ? mc.player.inventory.currentItem : -1;
-        if (crystalSlot == -1) {
-            for (int l = 0; l < 9; ++l) {
-                if (mc.player.inventory.getStackInSlot(l).getItem() == Items.END_CRYSTAL) {
-                    crystalSlot = l;
-                    break;
-                }
-            }
-        }
-        boolean offhand = false;
-        if (mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL) {
-            offhand = true;
-        } else if (crystalSlot == -1) {
-            return;
-        }
-        if (this.place.getValue()) {
-            if (!offhand && mc.player.inventory.currentItem != crystalSlot) {
-                if (this.autoSwitch.getValue()) {
-                    mc.player.inventory.currentItem = crystalSlot;
-                    resetRotation();
-                    this.switchCooldown = true;
-                }
-                return;
-            }
-            this.lookAtPacket(blockPos.x + 0.5, blockPos.y - 0.5, blockPos.z + 0.5, (EntityPlayer) mc.player);
-            final RayTraceResult result = mc.world.rayTraceBlocks(new Vec3d(mc.player.posX, mc.player.posY + mc.player.getEyeHeight(), mc.player.posZ), new Vec3d(blockPos.x + 0.5, blockPos.y - 0.5, blockPos.z + 0.5));
-            EnumFacing f;
-            if (result == null || result.sideHit == null) {
-                f = EnumFacing.UP;
-            } else {
-                f = result.sideHit;
-            }
-            if (this.switchCooldown) {
-                this.switchCooldown = false;
-                return;
-            }
-            if (System.nanoTime() / 1000000L - this.placeSystemTime >= this.msPlaceDelay.getValue()) {
-                mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(blockPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
-                ++this.placements;
-                this.antiStuckSystemTime = System.nanoTime() / 1000000L;
-                this.placeSystemTime = System.nanoTime() / 1000000L;
-                KamiMod.log.info("Crystal Placed!");
-            }
-        }
-        if (isSpoofingAngles) {
-            if (togglePitch) {
-                final EntityPlayerSP player = mc.player;
-                player.rotationPitch += (float) 4.0E-4;
-                togglePitch = false;
-            } else {
-                final EntityPlayerSP player2 = mc.player;
-                player2.rotationPitch -= (float) 4.0E-4;
-                togglePitch = true;
-            }
-        }
-    }*/
-
-    /*public BlockPos getPlaceTarget(List<Entity> entities, List<BlockPos> blocks) {
-        Entity ent = null;
-        BlockPos finalPos = null;
-        double damage = 0.5;
-        for (final Entity entity2 : entities) {
-            if (entity2 != mc.player) {
-                if (((EntityLivingBase) entity2).getHealth() <= 0.0f) {
-                    KamiMod.log.info("Target Alive!");
-                    continue;
-                }
-                if (mc.player.getDistanceSq(entity2) > this.enemyRange.getValue() * this.enemyRange.getValue()) {
-                    KamiMod.log.info("Target In Range!");
-                    continue;
-                }
-                for (final BlockPos blockPos : blocks) {
-                    if (!canBlockBeSeen(blockPos) && mc.player.getDistanceSq(blockPos) > 25.0 && this.raytrace.getValue()) {
-                        KamiMod.log.info("Raytrace Successful!");
-                        continue;
-                    }
-                    final double b = entity2.getDistanceSq(blockPos);
-                    if (b > 56.2) {
-                        KamiMod.log.info("Step 4 Complete!");
-                        continue;
-                    }
-                    final double d = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, entity2);
-                    if (d < this.minDamage.getValue() && ((EntityLivingBase) entity2).getHealth() > this.ignoreMinDamageThreshold.getValue()) {
-                        KamiMod.log.info("Crystal Will Deal More Than Min Damage!");
-                        continue;
-                    }
-                    if (d <= damage) {
-                        KamiMod.log.info("Crystal Will Deal More Than 0.5 Damage!");
-                        continue;
-                    }
-                    final double self = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, (Entity) mc.player);
-                    Removed do to redundancy
-                   if (this.antiSuicide.getValue()) {
-                        if (mc.player.getHealth() - self <= 7.0) {
-                            KamiMod.log.info("Crystal Will Not Kill The Player!");
-                            continue;
-                        }
-                        if (self > d) {
-                            KamiMod.log.info("Self Damage Exceeds 0.5!");
-                            continue;
-                        }
-                    }
-                    damage = d;
-                    finalPos = blockPos;
-                    ent = entity2;
-                }
-            }
-        }
-        if (finalPos == null) {
-            KamiMod.log.info("Place Target null! Will not place");
-            return finalPos;
-        }
-        KamiMod.log.info("Place Target Gotten!");
-        return finalPos;
-    }*/
-
-    /*+private void findClosestTarget() {
-
-        List<EntityPlayer> playerList = mc.world.playerEntities;
-
-        closestTarget = null;
-
-        for (EntityPlayer target : playerList) {
-
-            if (target == mc.player) {
-                continue;
-            }
-
-            if (Friends.isFriend(target.getName())) {
-                continue;
-            }
-
-            if (!EntityUtil.isLiving(target)) {
-                continue;
-            }
-
-            if ((target).getHealth() <= 0) {
-                continue;
-            }
-
-            if (closestTarget == null) {
-                closestTarget = target;
-                continue;
-            }
-
-            if (mc.player.getDistance(target) < mc.player.getDistance(closestTarget)) {
-                closestTarget = target;
-            }
-
-        }
-
-    }*/
 
     private enum delayMode {
         TICKS, MILLISECONDS
