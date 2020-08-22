@@ -77,7 +77,6 @@ public class Module {
     public enum Category
     {
         COMBAT("Combat", false),
-        MEME("Memes", false),
         dispenserpvp("32k PVP", false),
         EXPLOITS("Exploits ", false),
         RENDER("Render ", false),

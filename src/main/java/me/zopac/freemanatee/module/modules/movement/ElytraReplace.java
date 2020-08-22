@@ -8,7 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
-@Module.Info(name = "ElytraReplace", category = Module.Category.MISC)
+@Module.Info(name = "ElytraReplace", category = Module.Category.MOVEMENT)
 public class ElytraReplace extends Module {
 
     private Setting<InventoryMode> inventoryMode = register(Settings.e("Inventory", InventoryMode.ON));

@@ -8,7 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
-@Module.Info(name = "ChestplateReplace", category = Module.Category.MISC)
+@Module.Info(name = "ChestplateSwap", category = Module.Category.MOVEMENT)
 public class ChestplateReplace extends Module {
 
     private Setting<InventoryMode> inventoryMode = register(Settings.e("Inventory", InventoryMode.ON));

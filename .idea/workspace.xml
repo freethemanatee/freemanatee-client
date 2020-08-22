@@ -33,34 +33,32 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$BindConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$BindConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module$Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/Module.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/ArmorHUD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/zopac/freemanatee/module/modules/render/ArmorHUD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$Mode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$receiveListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/kotlin/main/me/zopac/freemanatee/module/modules/chat/AutoTPA$receiveListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kotlin/freemanateeclient23jar-classes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/kotlin/freemanateeclient23jar-classes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3-release.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/freemanatee-client-2.3.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/sources/main/kotlin/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/ForgeEventProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/event/ForgeEventProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/KamiGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/gui/kami/KamiGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/mixin/client/MixinEntityRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/chat/AutoTPA.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoBedBomb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/ArmorHUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/ModuleManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/ModuleManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/NoEntityTrace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/exploits/NoEntityTrace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/AntiFog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/BossStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/render/BossStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/CameraClip.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/Pathfind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/hidden/TpsSync.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/AutoBedTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/AutoBedTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/autonomadhut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/autonomadhut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/meme/kill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/kill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/HotbarReplenish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/misc/HotbarReplenish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ChestplateReplace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ChestplateReplace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ElytraReplace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ElytraReplace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/FastFall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/FastFall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/ReverseStep.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoFish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/movement/AutoJump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/AutoWalk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/Freecam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/Freecam.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/TpsSync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/TpsSync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/XCarry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/player/XCarry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/BlockUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/util/BlockUtils.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,8 +110,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -231,41 +229,41 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597982476387">
+    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1598013408807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1597982476387" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597206771660">
+    <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1598013408807" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598011869522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597206771660" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598011869522" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1597894347541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597894347541" />
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1597982934358">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1598019288610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1597982934358">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598019288610" />
+    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1598019288610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1597982934358">
+    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598019288610" />
+    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1598019288610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1597982934358">
+    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598019288610" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1598019288610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598019288610" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597196170761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1597196170761" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597201158626">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598011979886">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597201158626" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598011979886" />
   </component>
 </project>

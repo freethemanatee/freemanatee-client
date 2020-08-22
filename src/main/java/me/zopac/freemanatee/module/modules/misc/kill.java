@@ -1,10 +1,10 @@
-package me.zopac.freemanatee.module.modules.meme;
+package me.zopac.freemanatee.module.modules.misc;
 
 import me.zopac.freemanatee.module.Module;
 
 @Module.Info(
         name = "/kill",
-        category = Module.Category.MEME
+        category = Module.Category.MISC
 )
 
 public class kill extends Module {

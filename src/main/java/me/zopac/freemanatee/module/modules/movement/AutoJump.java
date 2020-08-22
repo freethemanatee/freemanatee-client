@@ -1,4 +1,4 @@
-package me.zopac.freemanatee.module.modules.player;
+package me.zopac.freemanatee.module.modules.movement;
 
 import me.zopac.freemanatee.module.Module;
 

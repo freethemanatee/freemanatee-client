@@ -1,4 +1,4 @@
-package me.zopac.freemanatee.module.modules.meme;
+package me.zopac.freemanatee.module.modules.misc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 
-@Module.Info(name="AutoBedTrap", category=Module.Category.MEME)
+@Module.Info(name="AutoBedTrap", category=Module.Category.MISC)
 public class AutoBedTrap
         extends Module {
     private Setting<Integer> range = this.register(Settings.i("Range", 4));
