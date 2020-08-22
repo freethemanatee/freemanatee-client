@@ -361,28 +361,30 @@ public class AutoCrystal extends Module {
 
     @Override
     public void onWorldRender(final RenderEvent event) {
-        if (this.render != null) {
-            final float[] hue = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
-            int rgb = Color.HSBtoRGB(hue[0], 1, 1);
-            int r = (rgb >> 16) & 0xFF;
-            int g = (rgb >> 8) & 0xFF;
-            int b = rgb & 0xFF;
-            if (rainbow.getValue()) {
-                KamiTessellator.prepare(7);
-                KamiTessellator.drawBox(this.render, r, g, b, 77, 63);
+        if (this.place.getValue()) {
+            if (this.render != null) {
+                final float[] hue = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
+                int rgb = Color.HSBtoRGB(hue[0], 1, 1);
+                int r = (rgb >> 16) & 0xFF;
+                int g = (rgb >> 8) & 0xFF;
+                int b = rgb & 0xFF;
+                if (rainbow.getValue()) {
+                    KamiTessellator.prepare(7);
+                    KamiTessellator.drawBox(this.render, r, g, b, 77, 63);
+                    KamiTessellator.release();
+                    KamiTessellator.prepare(7);
+                    KamiTessellator.drawBoundingBoxBlockPos(this.render, 1.00f, r, g, b, 255);
+                } else {
+                    KamiTessellator.prepare(7);
+                    KamiTessellator.drawBox(this.render, this.red.getValue(), this.green.getValue(), this.blue.getValue(), 77, 63);
+                    KamiTessellator.release();
+                    KamiTessellator.prepare(7);
+                    KamiTessellator.drawBoundingBoxBlockPos(this.render, 1.00f, this.red.getValue(), this.green.getValue(), this.blue.getValue(), 244);
+                }
                 KamiTessellator.release();
-                KamiTessellator.prepare(7);
-                KamiTessellator.drawBoundingBoxBlockPos(this.render, 1.00f,  r, g, b, 255);
-            } else {
-                KamiTessellator.prepare(7);
-                KamiTessellator.drawBox(this.render, this.red.getValue(), this.green.getValue(), this.blue.getValue(), 77, 63);
-                KamiTessellator.release();
-                KamiTessellator.prepare(7);
-                KamiTessellator.drawBoundingBoxBlockPos(this.render, 1.00f, this.red.getValue(), this.green.getValue(), this.blue.getValue(), 244);
             }
-            KamiTessellator.release();
-        }
 
+        }
     }
 
     private void lookAtPacket(final double px, final double py, final double pz, final EntityPlayer me) {
