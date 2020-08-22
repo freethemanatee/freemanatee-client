@@ -8,7 +8,7 @@ import me.zopac.freemanatee.event.events.PacketEvent;
 import me.zero.alpine.listener.Listener;
 import me.zopac.freemanatee.module.Module;
 
-@Module.Info(name = "AutoReply", category = Module.Category.MISC)
+@Module.Info(name = "AutoReply", category = Module.Category.CHAT)
 public class AutoReply extends Module
 {
     @EventHandler
