@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a9c10ff-f095-4f6e-b71e-3ddf8163377d" name="Default Changelist" comment="wadnuhoioahjdwsjiowadsjiodawsdjiwaoijoadwsdjiawos" />
+    <list default="true" id="3a9c10ff-f095-4f6e-b71e-3ddf8163377d" name="Default Changelist" comment="wadnuhoioahjdwsjiowadsjiodawsdjiwaoijoadwsdjiawos">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoTrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoTrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/FastUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/FastUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/HoleFiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/HoleFiller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/WebHoleFiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/WebHoleFiller.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +84,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/freemanateeclient/freemanatee-client.git" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1fyfS1QDUtHCmIh3ILgmm009E2u" />
   <component name="ProjectViewState">
@@ -218,41 +232,49 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597206771660" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1598061554623">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598061554623" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1597894347541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597894347541" />
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1598059476642">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1598062424372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
-    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1598059476642">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598062424372" />
+    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1598062424372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.center/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
-    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1598059476642">
+    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598062424372" />
+    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1598062424372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.left/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
-    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1598059476642">
+    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598062424372" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1598062424372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.right/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598062424372" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1598059189398">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598059189398" />
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598066704753">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598066704753" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597196170761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1597196170761" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597201158626">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598061249146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597201158626" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598061249146" />
   </component>
 </project>

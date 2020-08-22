@@ -47,6 +47,7 @@ public class AutoTrap extends Module {
     private Setting<Boolean> noGlitchBlocks = register(Settings.b("NoGlitchBlocks", true));
     private Setting<Boolean> activeInFreecam = register(Settings.b("ActiveInFreecam", true));
     private Setting<Boolean> announceUsage = register(Settings.b("AnnounceUsage", true));
+    private Setting<Boolean> trigger = register(Settings.b("Triggerable", true));
     private EntityPlayer closestTarget;
     private String lastTickTargetName;
     private int playerHotbarSlot = -1;
@@ -339,7 +340,7 @@ public class AutoTrap extends Module {
             }
 
         }
-
+        if(trigger.getValue()) ModuleManager.getModuleByName("AutoTrap").disable();
     }
 
     @Override
@@ -456,7 +457,5 @@ public class AutoTrap extends Module {
                 new Vec3d(-1, 3, 0),
                 new Vec3d(0, 3, 0)
         };
-
     }
-
 }

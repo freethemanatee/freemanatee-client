@@ -22,7 +22,7 @@ public class FastUse extends Module {
     private Setting<Boolean> exp = this.register(Settings.b("Exp Bottles", true));
     private Setting<Boolean> crystal = this.register(Settings.b("Crystals", false));
     private Setting<Boolean> bow = this.register(Settings.b("BowSpam", false));
-    private Setting<Boolean> other = this.register(Settings.b("Other", false));
+    private Setting<Boolean> all = this.register(Settings.b("All", false));
 
     @Override
     public void onUpdate() {
@@ -49,7 +49,7 @@ public class FastUse extends Module {
                 }
 
 
-            } else if (this.other.getValue().booleanValue() && !(FastUse.mc.player.getHeldItemMainhand().getItem() instanceof ItemBlock)) {
+            } else if (this.all.getValue().booleanValue() && !(FastUse.mc.player.getHeldItemMainhand().getItem() instanceof ItemBlock)) {
                 FastUse.mc.rightClickDelayTimer = 0;
             }
         }

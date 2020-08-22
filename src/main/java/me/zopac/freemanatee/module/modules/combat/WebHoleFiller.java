@@ -41,7 +41,6 @@ import static me.zopac.freemanatee.util.EntityUtil.calculateLookAt;
 public class WebHoleFiller extends Module {
 
     private static BlockPos PlayerPos;
-    private Setting<Boolean> toggleable =  register(Settings.b("Toggleable", true));
     private Setting<Double> range = register(Settings.d("Range", 4));
     private Setting<Boolean> smart =  register(Settings.b("Smart", false));
     private Setting<Integer> smartRange = register(Settings.i("Smart Range", 4));
