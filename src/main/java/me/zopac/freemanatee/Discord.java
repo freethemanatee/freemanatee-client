@@ -78,8 +78,6 @@ public class Discord {
         presence.partyId = "ae488379-351d-4a4f-ad32-2b9b01c91657";
         presence.partySize = 1;
         presence.partyMax = 69;
-        presence.spectateSecret = "MTIzNDV8MTIzNDV8MTMyNDU0";
-        presence.joinSecret = "MTI4NzM0OjFpMmhuZToxMjMxMjM= ";
 
     }
 
