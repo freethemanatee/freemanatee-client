@@ -19,29 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a9c10ff-f095-4f6e-b71e-3ddf8163377d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-decompFixed.jar.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-patched.jar.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forge-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-srgBin.jar.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client)-sources.jar.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar.md5" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/minecraft/forgeSrc-1.12.2-14.23.5.2847-PROJECT(freemanatee-client).jar.md5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/zopac/freemanatee/module/modules/combat/AutoCrystal.java" afterDir="false" />
-    </list>
+    <list default="true" id="3a9c10ff-f095-4f6e-b71e-3ddf8163377d" name="Default Changelist" comment="wadnuhoioahjdwsjiowadsjiodawsdjiwaoijoadwsdjiawos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,6 +87,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
@@ -119,7 +98,7 @@
       <recent name="C:\Users\timef\Documents\GitHub\freemanatee-client\src\main\java\me\zopac\freemanatee\module\modules\hidden" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.client-master [setupDecompWorkspace]">
+  <component name="RunManager" selected="Gradle.client-master [clean]">
     <configuration name="client-master [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -196,6 +175,21 @@
       <option name="presentableId" value="Default" />
       <updated>1597195249005</updated>
     </task>
+    <task id="LOCAL-00001" summary="yes">
+      <created>1598059264864</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598059264864</updated>
+    </task>
+    <task id="LOCAL-00002" summary="wadnuhoioahjdwsjiowadsjiodawsdjiwaoijoadwsdjiawos">
+      <created>1598059498904</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1598059498904</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +204,11 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="yes" />
+    <MESSAGE value="wadnuhoioahjdwsjiowadsjiodawsdjiwaoijoadwsdjiawos" />
+    <option name="LAST_COMMIT_MESSAGE" value="wadnuhoioahjdwsjiowadsjiodawsdjiwaoijoadwsdjiawos" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="707" y="414" width="508" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1597982476387">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -223,26 +222,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597894347541" />
-    <state width="1815" height="295" key="GridCell.Tab.0.bottom" timestamp="1598012874202">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1598059476642">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.bottom/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1815" height="295" key="GridCell.Tab.0.center" timestamp="1598012874202">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
+    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1598059476642">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.center/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1815" height="295" key="GridCell.Tab.0.left" timestamp="1598012874202">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state width="1877" height="256" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
+    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1598059476642">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.left/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
-    <state width="1815" height="295" key="GridCell.Tab.0.right" timestamp="1598012874202">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state width="1877" height="256" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1598059476642">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1815" height="295" key="GridCell.Tab.0.right/0.0.1858.1080/-1680.35.1618.1050@0.0.1858.1080" timestamp="1598012874202" />
-    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597982934358" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598059476642" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1598059189398">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598059189398" />
     <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1597196170761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

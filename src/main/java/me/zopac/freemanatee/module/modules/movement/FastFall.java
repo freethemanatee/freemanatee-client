@@ -1,4 +1,4 @@
-package me.zopac.freemanatee.module.modules.player;
+package me.zopac.freemanatee.module.modules.movement;
 
 import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.setting.Setting;
@@ -16,17 +16,20 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 
-@Module.Info(name="FastFall", description="fall go brrrrrrrrrrrrrrrrr", category=Module.Category.PLAYER)
+@Module.Info(name="FastFall", description="fall go brrrrrrrrrrrrrrrrr", category=Module.Category.MOVEMENT)
 public class FastFall
         extends Module {
 
     private Setting<Boolean> twoBlock = this.register(Settings.b("TwoBlock", false));
-    private Setting<Boolean> onlyIntoHoles = this.register(Settings.b("OnlyIntoHoles", false));
+    private Setting<Boolean> onlyIntoHoles = this.register(Settings.b("OnlyIntoHoles", true));
     boolean jumping = false;
     boolean falling = false;
 
     @Override
     public void onUpdate() {
+        if (FastFall.mc.player == null || FastFall.mc.world == null || FastFall.mc.player.isInWater() || FastFall.mc.player.isInLava()) {
+            return;
+        }
         if (FastFall.mc.world == null) {
             return;
         }

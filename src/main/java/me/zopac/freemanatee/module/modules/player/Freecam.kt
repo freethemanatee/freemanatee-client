@@ -78,7 +78,7 @@ class Freecam : Module() {
             yaw = 0f
             pitch = yaw
 
-            mc.player.capabilities.isFlying = false //getModManager().getMod("ElytraFlight").isEnabled();
+            mc.player.capabilities.isFlying = false
             mc.player.capabilities.flySpeed = 0.05f
             mc.player.noClip = false
             mc.player.motionZ = 0.0

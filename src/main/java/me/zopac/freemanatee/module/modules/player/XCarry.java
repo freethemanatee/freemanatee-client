@@ -8,7 +8,7 @@ import net.minecraft.network.play.client.CPacketCloseWindow;
 
 @Module.Info(
         name = "XCarry",
-        category = Module.Category.MISC
+        category = Module.Category.PLAYER
 )
 public class XCarry extends Module {
 

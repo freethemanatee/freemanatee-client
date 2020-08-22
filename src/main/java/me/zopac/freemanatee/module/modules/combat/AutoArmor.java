@@ -8,8 +8,8 @@ import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
-@Module.Info(name = "AutoArmour", category = Module.Category.PLAYER)
-public class AutoArmour extends Module {
+@Module.Info(name = "AutoArmor", category = Module.Category.COMBAT)
+public class AutoArmor extends Module {
 
     @Override
     public void onUpdate() {

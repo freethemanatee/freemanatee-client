@@ -45,7 +45,7 @@ public class ModuleManager {
             try {
                 Module module = (Module) aClass.getConstructor().newInstance();
                 modules.add(module);
-                // lookup.put(module.getName().toLowerCase(), module);
+                 lookup.put(module.getName().toLowerCase(), module);
             } catch (InvocationTargetException e) {
                 e.getCause().printStackTrace();
                 System.err.println("Couldn't initiate module " + aClass.getSimpleName() + "! Err: " + e.getClass().getSimpleName() + ", message: " + e.getMessage());

@@ -1,4 +1,4 @@
-package me.zopac.freemanatee.module.modules.meme;
+package me.zopac.freemanatee.module.modules.misc;
 
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.network.play.client.CPacketPlayer;
@@ -22,7 +22,7 @@ import me.zopac.freemanatee.setting.Setting;
 import net.minecraft.util.math.Vec3d;
 import me.zopac.freemanatee.module.Module;
 
-@Module.Info(name = "AutoNomadHut", category = Module.Category.MEME)
+@Module.Info(name = "AutoNomadHut", category = Module.Category.MISC)
 public class autonomadhut extends Module
 {
     private final Vec3d[] surroundTargets;

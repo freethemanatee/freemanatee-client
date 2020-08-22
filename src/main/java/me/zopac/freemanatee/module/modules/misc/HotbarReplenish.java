@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Module.Info(
         name = "HotbarReplenish",
-        category = Module.Category.COMBAT
+        category = Module.Category.MISC
 )
 
 public class HotbarReplenish extends Module {

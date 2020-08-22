@@ -1,7 +1,6 @@
 package me.zopac.freemanatee.util
 
 import net.minecraft.block.Block
-import net.minecraft.block.BlockEnderChest
 import net.minecraft.block.state.IBlockState
 import net.minecraft.client.Minecraft
 import net.minecraft.init.Blocks
@@ -13,6 +12,10 @@ import net.minecraft.util.math.MathHelper
 import net.minecraft.util.math.Vec3d
 import kotlin.math.floor
 
+/**
+ * Created by hub on 15 June 2019
+ * Last Updated 12 January 2019 by hub
+ */
 object BlockUtils {
     @JvmField
     val blackList = listOf(

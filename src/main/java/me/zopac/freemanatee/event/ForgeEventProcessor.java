@@ -8,7 +8,7 @@ import me.zopac.freemanatee.gui.UIRenderer;
 import me.zopac.freemanatee.gui.kami.KamiGUI;
 import me.zopac.freemanatee.gui.rgui.component.container.use.Frame;
 import me.zopac.freemanatee.module.ModuleManager;
-import me.zopac.freemanatee.module.modules.hidden.BossStack;
+import me.zopac.freemanatee.module.modules.render.BossStack;
 import me.zopac.freemanatee.util.KamiTessellator;
 import me.zopac.freemanatee.util.Wrapper;
 import net.minecraft.client.Minecraft;

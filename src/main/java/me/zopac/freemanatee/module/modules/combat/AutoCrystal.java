@@ -154,7 +154,7 @@ public class AutoCrystal extends Module {
         }*/
 
         if (this.chatAlert.getValue()) {
-            Command.sendChatMessage(ChatFormatting.RED.toString() + " manatee is free");
+            Command.sendChatMessage(ChatFormatting.GREEN.toString() + " manatee is free");
         }
 
     }

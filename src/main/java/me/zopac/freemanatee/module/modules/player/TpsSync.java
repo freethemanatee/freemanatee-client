@@ -2,7 +2,7 @@ package me.zopac.freemanatee.module.modules.player;
 
 import me.zopac.freemanatee.module.Module;
 
-@Module.Info(name = "TpsSync", category = Module.Category.PLAYER)
+@Module.Info(name = "TpsSy nc", category = Module.Category.PLAYER)
 public class TpsSync extends Module {
 
     private static TpsSync INSTANCE;

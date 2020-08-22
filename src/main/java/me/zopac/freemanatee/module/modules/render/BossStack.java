@@ -1,4 +1,4 @@
-package me.zopac.freemanatee.module.modules.hidden;
+package me.zopac.freemanatee.module.modules.render;
 
 import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.setting.Setting;
