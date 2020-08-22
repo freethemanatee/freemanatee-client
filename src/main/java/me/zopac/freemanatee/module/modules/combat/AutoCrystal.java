@@ -106,7 +106,7 @@ public class AutoCrystal extends Module {
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
         this.ecme = this.register(Settings.b("1.13 Mode", false));
-        this.multiplace = this.register(Settings.b("MultiPlace", false));
+        // this.multiplace = this.register(Settings.b("MultiPlace", false));     fix this before making it a setting
         this.OffhandBreak = this.register(Settings.b("OffhandBreak", false));
         //this.autoOffhand = this.register(Settings.b("Auto Offhand Crystal", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
