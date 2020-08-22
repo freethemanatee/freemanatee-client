@@ -1,7 +1,5 @@
 package me.zopac.freemanatee.module.modules.combat;
 
-
-
 import me.zopac.freemanatee.event.events.PacketEvent;
 import me.zopac.freemanatee.mixin.client.ICPacketPlayer;
 import me.zopac.freemanatee.module.Module;
