@@ -67,7 +67,7 @@ public class AutoCrystal extends Module {
     private Setting<Boolean> rainbow;
     private Setting<Double> breakYOffset;
     private Setting<BreakMode> breakMode = register(Settings.e("Hand", BreakMode.Main));
-    public enum BreakMode {Main, Offhand, Both }
+    public enum BreakMode {Main, Both, Offhand}
     private long breakSystemTime;
     private long placeSystemTime;
     private static double yaw;
