@@ -183,13 +183,6 @@ public class AutoCrystal extends Module {
                     if (!this.selfProtect.getValue()) {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
                             this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
-                            mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
-                            if (this.OffhandBreak.getValue()) {
-                                mc.player.swingArm(EnumHand.OFF_HAND);
-                            }
-                            else {
-                                mc.player.swingArm(EnumHand.MAIN_HAND);
-                            }
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
@@ -364,6 +357,7 @@ public class AutoCrystal extends Module {
             }
         }
 
+
     }
 
     @Override
@@ -518,7 +512,7 @@ public class AutoCrystal extends Module {
         }
     }
 
-    public void breakCrystal(EntityEnderCrystal crystal) {
+    /*public void breakCrystal(EntityEnderCrystal crystal) {
         if (crystal != null && this.explode.getValue()) {
             BlockPos breakTarget = new BlockPos(crystal.posX, crystal.posY + 1, crystal.posZ);
             if (!canBlockBeSeen(breakTarget)) {
@@ -586,9 +580,9 @@ public class AutoCrystal extends Module {
         } else if (crystal == null){
             resetRotation();
         }
-    }
+    }*/
 
-    public void placeCrystal(BlockPos blockPos) {
+    /*public void placeCrystal(BlockPos blockPos) {
         int crystalSlot = (mc.player.getHeldItemMainhand().getItem() == Items.END_CRYSTAL) ? mc.player.inventory.currentItem : -1;
         if (crystalSlot == -1) {
             for (int l = 0; l < 9; ++l) {
@@ -644,9 +638,9 @@ public class AutoCrystal extends Module {
                 togglePitch = true;
             }
         }
-    }
+    }*/
 
-    public BlockPos getPlaceTarget(List<Entity> entities, List<BlockPos> blocks) {
+    /*public BlockPos getPlaceTarget(List<Entity> entities, List<BlockPos> blocks) {
         Entity ent = null;
         BlockPos finalPos = null;
         double damage = 0.5;
@@ -680,7 +674,7 @@ public class AutoCrystal extends Module {
                         continue;
                     }
                     final double self = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, (Entity) mc.player);
-                   /* Removed do to redundancy
+                    Removed do to redundancy
                    if (this.antiSuicide.getValue()) {
                         if (mc.player.getHealth() - self <= 7.0) {
                             KamiMod.log.info("Crystal Will Not Kill The Player!");
@@ -690,7 +684,7 @@ public class AutoCrystal extends Module {
                             KamiMod.log.info("Self Damage Exceeds 0.5!");
                             continue;
                         }
-                    } */
+                    }
                     damage = d;
                     finalPos = blockPos;
                     ent = entity2;
@@ -703,9 +697,9 @@ public class AutoCrystal extends Module {
         }
         KamiMod.log.info("Place Target Gotten!");
         return finalPos;
-    }
+    }*/
 
-    private void findClosestTarget() {
+    /*+private void findClosestTarget() {
 
         List<EntityPlayer> playerList = mc.world.playerEntities;
 
@@ -740,7 +734,7 @@ public class AutoCrystal extends Module {
 
         }
 
-    }
+    }*/
 
     private enum delayMode {
         TICKS, MILLISECONDS
