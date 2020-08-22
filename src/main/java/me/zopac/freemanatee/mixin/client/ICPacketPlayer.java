@@ -1,7 +1,6 @@
 package me.zopac.freemanatee.mixin.client;
 
-public interface ICPacketPlayer
-{
+public interface ICPacketPlayer {
     void setOnGround(final boolean p0);
 
     void setX(final double p0);
