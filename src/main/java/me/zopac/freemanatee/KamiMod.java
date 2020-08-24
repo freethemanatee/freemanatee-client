@@ -59,7 +59,6 @@ public class KamiMod {
 
     private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanatee.json";
     public static final Logger log = LogManager.getLogger("freemanatee utility mod");
-    public static final String CAPES_JSON = "https://raw.githubusercontent.com/kami-blue/assets/assets/assets/capes.json";
 
     public static final EventBus EVENT_BUS = new EventManager();
 
