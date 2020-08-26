@@ -10,7 +10,6 @@ import me.zopac.freemanatee.event.events.RenderEvent;
 import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.module.ModuleManager;
 import me.zopac.freemanatee.module.modules.chat.AutoGG;
-import me.zopac.freemanatee.module.modules.movement.ChestplateReplace;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
 import me.zopac.freemanatee.util.EntityUtil;
@@ -38,7 +37,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
@@ -62,12 +60,14 @@ public class AutoCrystal extends Module {
     private Setting<Boolean> autoSwitch;
     private Setting<Boolean> raytrace;
     private Setting<Boolean> place;
+    //private Setting<Boolean> ecme;
     private Setting<Boolean> explode;
-    private Setting<Boolean> ecme;
     private Setting<Boolean> rainbow;
     private Setting<Double> breakYOffset;
     private Setting<BreakMode> breakMode = register(Settings.e("Hand", BreakMode.Main));
+
     public enum BreakMode {Main, Both, Offhand}
+
     private long breakSystemTime;
     private long placeSystemTime;
     private static double yaw;
@@ -78,10 +78,12 @@ public class AutoCrystal extends Module {
     private BlockPos render;
     @EventHandler
     private Listener<PacketEvent.Send> packetListener;
+
     public AutoCrystal() {
+
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
-        this.ecme = this.register(Settings.b("1.13 Mode", false));
+        //this.ecme = this.register(Settings.b("1.13 Place", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
         this.raytrace = this.register(Settings.b("Raytrace", false));
         this.autoSwitch = this.register(Settings.b("Auto Switch", true));
@@ -271,48 +273,48 @@ public class AutoCrystal extends Module {
         }
         this.render = finalPos;
         //this.renderEnt = ent;
-            if (this.place.getValue()) {
-                if (!offhand && mc.player.inventory.currentItem != crystalSlot) {
-                    if (this.autoSwitch.getValue()) {
-                        mc.player.inventory.currentItem = crystalSlot;
-                        resetRotation();
+        if (this.place.getValue()) {
+            if (!offhand && mc.player.inventory.currentItem != crystalSlot) {
+                if (this.autoSwitch.getValue()) {
+                    mc.player.inventory.currentItem = crystalSlot;
+                    resetRotation();
 
-                        this.switchCooldown = true;
-                    }
-                    return;
+                    this.switchCooldown = true;
                 }
-                this.lookAtPacket(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5, (EntityPlayer) mc.player);
-                final RayTraceResult result = mc.world.rayTraceBlocks(new Vec3d(mc.player.posX, mc.player.posY + mc.player.getEyeHeight(), mc.player.posZ), new Vec3d(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5));
-                EnumFacing f;
-                if (result == null || result.sideHit == null) {
-                    f = EnumFacing.UP;
-                } else {
-                    f = result.sideHit;
-                }
-                if (this.switchCooldown) {
-                    this.switchCooldown = false;
-                    return;
-                }
-                if (System.nanoTime() / 1000000L - this.placeSystemTime >= this.msPlaceDelay.getValue()) {
-                    mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(finalPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
-                    this.placeSystemTime = System.nanoTime() / 1000000L;
-                    KamiMod.log.info("Crystal Placed!");
-                }
+                return;
             }
-            if (isSpoofingAngles) {
-                if (togglePitch) {
-                    final EntityPlayerSP player = mc.player;
-                    player.rotationPitch += (float) 4.0E-4;
-                    togglePitch = false;
-                } else {
-                    final EntityPlayerSP player2 = mc.player;
-                    player2.rotationPitch -= (float) 4.0E-4;
-                    togglePitch = true;
-                }
+            this.lookAtPacket(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5, (EntityPlayer) mc.player);
+            final RayTraceResult result = mc.world.rayTraceBlocks(new Vec3d(mc.player.posX, mc.player.posY + mc.player.getEyeHeight(), mc.player.posZ), new Vec3d(finalPos.x + 0.5, finalPos.y - 0.5, finalPos.z + 0.5));
+            EnumFacing f;
+            if (result == null || result.sideHit == null) {
+                f = EnumFacing.UP;
+            } else {
+                f = result.sideHit;
             }
-
-
+            if (this.switchCooldown) {
+                this.switchCooldown = false;
+                return;
+            }
+            if (System.nanoTime() / 1000000L - this.placeSystemTime >= this.msPlaceDelay.getValue()) {
+                mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(finalPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
+                this.placeSystemTime = System.nanoTime() / 1000000L;
+                KamiMod.log.info("Crystal Placed!");
+            }
         }
+        if (isSpoofingAngles) {
+            if (togglePitch) {
+                final EntityPlayerSP player = mc.player;
+                player.rotationPitch += (float) 4.0E-4;
+                togglePitch = false;
+            } else {
+                final EntityPlayerSP player2 = mc.player;
+                player2.rotationPitch -= (float) 4.0E-4;
+                togglePitch = true;
+            }
+        }
+
+
+    }
 
     @Override
     public void onWorldRender(final RenderEvent event) {
@@ -344,21 +346,19 @@ public class AutoCrystal extends Module {
 
     private void lookAtPacket(final double px, final double py, final double pz, final EntityPlayer me) {
         final double[] v = EntityUtil.calculateLookAt(px, py, pz, me);
-        setYawAndPitch((float)v[0], (float)v[1]);
+        setYawAndPitch((float) v[0], (float) v[1]);
     }
 
     private boolean canPlaceCrystal(final BlockPos blockPos) {
         final BlockPos boost = blockPos.add(0, 1, 0);
         final BlockPos boost2 = blockPos.add(0, 2, 0);
-        if (this.ecme.getValue()) {
-            if (mc.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(boost2)).isEmpty())
-                return false;
-        }
-        return (mc.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK
-                || mc.world.getBlockState(blockPos).getBlock() == Blocks.OBSIDIAN)
-                && mc.world.getBlockState(boost).getBlock() == Blocks.AIR
-                && mc.world.getBlockState(boost2).getBlock() == Blocks.AIR
-                && mc.world.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(boost)).isEmpty();
+        return place.getValue()
+                && (AutoCrystal.mc.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK
+                || AutoCrystal.mc.world.getBlockState(blockPos).getBlock() == Blocks.OBSIDIAN)
+                && AutoCrystal.mc.world.getBlockState(boost).getBlock() == Blocks.AIR
+                && AutoCrystal.mc.world.getBlockState(boost2).getBlock() == Blocks.AIR
+                && AutoCrystal.mc.world.getEntitiesWithinAABB((Class) Entity.class, new AxisAlignedBB(boost)).isEmpty()
+                && AutoCrystal.mc.world.getEntitiesWithinAABB((Class) Entity.class, new AxisAlignedBB(boost2)).isEmpty();
     }
 
 
@@ -369,7 +369,7 @@ public class AutoCrystal extends Module {
     private List<BlockPos> findCrystalBlocks() {
         NonNullList positions = NonNullList.create();
         positions.addAll(this.getSphere(getPlayerPos(), this.placeRange.getValue().floatValue(), this.placeRange.getValue().intValue(), false, true, 0).stream().filter(this::canPlaceCrystal).collect(Collectors.toList()));
-        return (List<BlockPos>)positions;
+        return (List<BlockPos>) positions;
     }
 
     public List<BlockPos> getSphere(final BlockPos loc, final float r, final int h, final boolean hollow, final boolean sphere, final int plus_y) {
@@ -377,9 +377,9 @@ public class AutoCrystal extends Module {
         final int cx = loc.getX();
         final int cy = loc.getY();
         final int cz = loc.getZ();
-        for (int x = cx - (int)r; x <= cx + r; ++x) {
-            for (int z = cz - (int)r; z <= cz + r; ++z) {
-                for (int y = sphere ? (cy - (int)r) : cy; y < (sphere ? (cy + r) : ((float)(cy + h))); ++y) {
+        for (int x = cx - (int) r; x <= cx + r; ++x) {
+            for (int z = cz - (int) r; z <= cz + r; ++z) {
+                for (int y = sphere ? (cy - (int) r) : cy; y < (sphere ? (cy + r) : ((float) (cy + h))); ++y) {
                     final double dist = (cx - x) * (cx - x) + (cz - z) * (cz - z) + (sphere ? ((cy - y) * (cy - y)) : 0);
                     if (dist < r * r && (!hollow || dist >= (r - 1.0f) * (r - 1.0f))) {
                         final BlockPos l = new BlockPos(x, y + plus_y, z);
@@ -438,7 +438,7 @@ public class AutoCrystal extends Module {
     }
 
     public static boolean canBlockBeSeen(final BlockPos blockPos) {
-        return mc.world.rayTraceBlocks(new Vec3d(mc.player.posX, mc.player.posY + mc.player.getEyeHeight(), mc.player.posZ), new Vec3d((double)blockPos.getX(), (double)blockPos.getY(), (double)blockPos.getZ()), false, true, false) == null;
+        return mc.world.rayTraceBlocks(new Vec3d(mc.player.posX, mc.player.posY + mc.player.getEyeHeight(), mc.player.posZ), new Vec3d((double) blockPos.getX(), (double) blockPos.getY(), (double) blockPos.getZ()), false, true, false) == null;
     }
 
     private static void setYawAndPitch(final float yaw1, final float pitch1) {

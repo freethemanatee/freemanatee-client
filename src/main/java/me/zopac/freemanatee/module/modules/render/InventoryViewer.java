@@ -15,8 +15,8 @@ public class InventoryViewer extends Module {
 
     private static final ResourceLocation box = new ResourceLocation("textures/gui/container/shulker_box.png");
 
-    private Setting<Integer> optionX = register(Settings.i("X", 0));
-    private Setting<Integer> optionY = register(Settings.i("Y", 0));
+    private Setting<Integer> optionX = register(Settings.integerBuilder("X").withMinimum(0).withValue(400).withMaximum(2000).build());
+    private Setting<Integer> optionY = register(Settings.integerBuilder("Y").withMinimum(0).withValue(400).withMaximum(2000).build());
 
     private static void preboxrender() {
         GL11.glPushMatrix();

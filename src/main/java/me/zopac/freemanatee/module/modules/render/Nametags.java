@@ -28,6 +28,7 @@ import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.storage.IPlayerFileData;
 import org.lwjgl.opengl.GL11;
 
 @Module.Info(name="Nametags", description="Draws descriptive nametags above entities", category=Module.Category.RENDER)
@@ -35,8 +36,9 @@ public class Nametags
         extends Module {
 
     private Setting<Double> range = this.register(Settings.d("Range", 200.0));
-    private Setting<Float> scale = this.register(Settings.floatBuilder("Scale").withMinimum(Float.valueOf(0.5f)).withMaximum(Float.valueOf(10.0f)).withValue(Float.valueOf(2.5f)).build());
+    //private Setting<Float> scale = this.register(Settings.floatBuilder("Scale").withMinimum(Float.valueOf(0.5f)).withMaximum(Float.valueOf(10.0f)).withValue(Float.valueOf(2.5f)).build());
     private Setting<Boolean> health = this.register(Settings.b("Health", true));
+    private Setting<Boolean> ping = this.register(Settings.b("Ping", true));
     private Setting<Boolean> armor = this.register(Settings.b("Armor", true));
     private Setting<Boolean> EnchantText = this.register(Settings.b("Enchants", false));
     @Override
@@ -68,8 +70,8 @@ public class Nametags
         GlStateManager.rotate((float)(-viewerYaw), (float)0.0f, (float)1.0f, (float)0.0f);
         GlStateManager.rotate((float)((float)(isThirdPersonFrontal ? -1 : 1) * viewerPitch), (float)1.0f, (float)0.0f, (float)0.0f);
         float f = Nametags.mc.player.getDistance(entityIn);
-        float m = f / 8.0f * (float)Math.pow(1.258925437927246, this.scale.getValue().floatValue());
-        GlStateManager.scale((float)m, (float)m, (float)m);
+        //float m = f / 8.0f * (float)Math.pow(1.258925437927246, this.scale.getValue().floatValue());
+        //GlStateManager.scale((float)m, (float)m, (float)m);
         FontRenderer fontRendererIn = Nametags.mc.fontRenderer;
         GlStateManager.scale((float)-0.025f, (float)-0.025f, (float)0.025f);
         String str = entityIn.getName() + (this.health.getValue() != false ? " " + this.getHealthColoured(entityIn, Math.round(((EntityLivingBase)entityIn).getHealth() + (entityIn instanceof EntityPlayer ? ((EntityPlayer)entityIn).getAbsorptionAmount() : 0.0f))) : "");
@@ -104,7 +106,7 @@ public class Nametags
             this.renderArmor((EntityPlayer)entityIn, 0, -(fontRendererIn.FONT_HEIGHT + 1) - 20);
         }
         GlStateManager.glNormal3f((float)0.0f, (float)0.0f, (float)0.0f);
-        GL11.glTranslatef((float)0.0f, (float)20.0f, (float)0.0f);
+        //GL11.glTranslatef((float)0.0f, (float)20.0f, (float)0.0f);
         GlStateManager.scale((float)-40.0f, (float)-40.0f, (float)40.0f);
         GlStateManager.enableDepth();
         GlStateManager.popMatrix();

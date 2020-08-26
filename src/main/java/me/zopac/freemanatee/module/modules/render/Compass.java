@@ -12,8 +12,8 @@ public class Compass
         extends Module {
 
     private Setting<Integer> scale = this.register(Settings.integerBuilder("Scale").withMinimum(0).withValue(3).withMaximum(3).build());
-    private Setting<Integer> optionX = this.register(Settings.i("X", 198));
-    private Setting<Integer> optionY = this.register(Settings.i("Y", 469));
+    private Setting<Integer> optionX = register(Settings.integerBuilder("X").withMinimum(0).withValue(400).withMaximum(2000).build());
+    private Setting<Integer> optionY = register(Settings.integerBuilder("Y").withMinimum(0).withValue(400).withMaximum(2000).build());
     private static final double HALF_PI = 1.5707963267948966;
 
     @Override
