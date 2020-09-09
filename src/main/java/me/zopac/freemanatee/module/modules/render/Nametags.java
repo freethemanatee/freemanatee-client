@@ -32,13 +32,11 @@ import net.minecraft.world.storage.IPlayerFileData;
 import org.lwjgl.opengl.GL11;
 
 @Module.Info(name="Nametags", description="Draws descriptive nametags above entities", category=Module.Category.RENDER)
-public class Nametags
-        extends Module {
+public class Nametags extends Module {
 
     private Setting<Double> range = this.register(Settings.d("Range", 200.0));
     //private Setting<Float> scale = this.register(Settings.floatBuilder("Scale").withMinimum(Float.valueOf(0.5f)).withMaximum(Float.valueOf(10.0f)).withValue(Float.valueOf(2.5f)).build());
     private Setting<Boolean> health = this.register(Settings.b("Health", true));
-    private Setting<Boolean> ping = this.register(Settings.b("Ping", true));
     private Setting<Boolean> armor = this.register(Settings.b("Armor", true));
     private Setting<Boolean> EnchantText = this.register(Settings.b("Enchants", false));
     @Override
@@ -59,7 +57,7 @@ public class Nametags
     private void drawNametag(Entity entityIn) {
         GlStateManager.pushMatrix();
         Vec3d interp = EntityUtil.getInterpolatedRenderPos(entityIn, mc.getRenderPartialTicks());
-        float yAdd = entityIn.height + 0.5f - (entityIn.isSneaking() ? 0.25f : 0.0f);
+        float yAdd = entityIn.height + 0.25f - (entityIn.isSneaking() ? 0.20f : 0.0f);
         double x = interp.x;
         double y = interp.y + (double)yAdd;
         double z = interp.z;

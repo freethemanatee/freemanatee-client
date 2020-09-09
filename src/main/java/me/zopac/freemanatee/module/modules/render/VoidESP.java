@@ -21,7 +21,6 @@ public class VoidESP extends Module {
 
     private Setting<Integer> range = register(Settings.integerBuilder("Range").withMinimum(1).withValue(8).withMaximum(32).build());
     private Setting<Integer> activateAtY = register(Settings.integerBuilder("ActivateAtY").withMinimum(1).withValue(32).withMaximum(512).build());
-    private Setting<HoleMode> holeMode = register(Settings.e("HoleMode", HoleMode.SIDES));
     private Setting<RenderMode> renderMode = register(Settings.e("RenderMode", RenderMode.DOWN));
     private Setting<Integer> red = register(Settings.integerBuilder("Red").withMinimum(0).withValue(255).withMaximum(255).build());
     private Setting<Integer> green = register(Settings.integerBuilder("Green").withMinimum(0).withValue(0).withMaximum(255).build());
@@ -69,13 +68,6 @@ public class VoidESP extends Module {
                 aboveFree = true;
             }
 
-            if (holeMode.getValue().equals(HoleMode.ABOVE)) {
-                if (aboveFree) {
-                    voidHoles.add(pos);
-                }
-                continue;
-            }
-
             boolean sidesFree = false;
 
             if (!isAnyBedrock(pos, Offsets.north)) {
@@ -92,12 +84,6 @@ public class VoidESP extends Module {
 
             if (!isAnyBedrock(pos, Offsets.west)) {
                 sidesFree = true;
-            }
-
-            if (holeMode.getValue().equals(HoleMode.SIDES)) {
-                if (aboveFree || sidesFree) {
-                    voidHoles.add(pos);
-                }
             }
 
         }
@@ -142,17 +128,8 @@ public class VoidESP extends Module {
         KamiTessellator.drawBox(blockPos, color.getRGB(), mask);
     }
 
-    @Override
-    public String getHudInfo() {
-        return holeMode.getValue().toString();
-    }
-
     private enum RenderMode {
         DOWN, BLOCK
-    }
-
-    private enum HoleMode {
-        SIDES, ABOVE
     }
 
     private static class Offsets {

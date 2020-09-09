@@ -18,8 +18,8 @@ import org.lwjgl.opengl.GL11;
 public class HoleInfo
         extends Module {
 
-    private Setting<Double> xpos = this.register(Settings.d("X", 198.0));
-    private Setting<Double> ypos = this.register(Settings.d("Y", 469.0));
+    private Setting<Integer> xpos = register(Settings.integerBuilder("X").withMinimum(0).withValue(400).withMaximum(1500).build());
+    private Setting<Integer> ypos = register(Settings.integerBuilder("Y").withMinimum(0).withValue(400).withMaximum(1500).build());
     Color c;
     boolean font;
     Color color;

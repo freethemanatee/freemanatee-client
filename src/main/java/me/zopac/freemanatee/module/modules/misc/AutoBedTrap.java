@@ -30,10 +30,11 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 
 @Module.Info(name="AutoBedTrap", category=Module.Category.MISC)
-public class AutoBedTrap
-        extends Module {
+public class AutoBedTrap extends Module {
+
     private Setting<Integer> range = this.register(Settings.i("Range", 4));
     private Setting<Boolean> rotate = this.register(Settings.b("Rotate", true));
+
     List<BlockPos> beds;
     int blocksPlaced;
 

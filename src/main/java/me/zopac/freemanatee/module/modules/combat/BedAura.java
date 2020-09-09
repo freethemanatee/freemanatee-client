@@ -3,7 +3,7 @@ package me.zopac.freemanatee.module.modules.combat;
 import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
-import me.zopac.freemanatee.util.BlockUtils;
+import me.zopac.freemanatee.util.BlocksUtils;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
@@ -23,13 +23,18 @@ import java.util.Comparator;
 )
 
 public class BedAura extends Module {
-
-    private Setting<Boolean> rotate = register(Settings.b("Rotate", true));
-    private Setting<Boolean> refill = register(Settings.b("Refill", true));
-    private Setting<Boolean> dimensionCheck = register(Settings.b("DimensionCheck", true));
-    private Setting<Integer> range = this.register(Settings.integerBuilder("Range").withMinimum(0).withValue(5).withMaximum(10).build());
-
+    public BedAura() {
+    this.rotate = register(Settings.b("Rotate", true));
+    this.refill = register(Settings.b("Refill", true));
+    this.dimensionCheck = register(Settings.b("DimensionCheck", true));
+    this.range = this.register(Settings.integerBuilder("Range").withMinimum(0).withValue(5).withMaximum(10).build());
+}
     boolean moving = false;
+
+    private Setting<Boolean> dimensionCheck;
+    private Setting<Boolean> refill;
+    private Setting<Boolean> rotate;
+    private Setting<Integer> range;
 
     public void onUpdate() {
         if(refill.getValue()) {
@@ -70,7 +75,7 @@ public class BedAura extends Module {
 
                     if(dimensionCheck.getValue() && mc.player.dimension == 0) return;
 
-                    if(rotate.getValue()) BlockUtils.faceVectorPacketInstant(new Vec3d(bed.getPos().add(0.5, 0.5, 0.5)));
+                    if(rotate.getValue()) BlocksUtils.faceVectorPacketInstant(new Vec3d(bed.getPos().add(0.5, 0.5, 0.5)));
                     mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(bed.getPos(), EnumFacing.UP, EnumHand.MAIN_HAND, 0, 0, 0));
 
                 });

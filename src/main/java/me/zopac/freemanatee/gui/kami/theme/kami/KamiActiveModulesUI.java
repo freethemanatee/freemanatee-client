@@ -63,9 +63,9 @@ public class KamiActiveModulesUI extends AbstractComponentUI<ActiveModules> {
             String text = module.getName() + (s==null?"" : " " + Command.SECTIONSIGN() + "7" + s);
             int textwidth = cFontRenderer.getStringWidth(text);
             int textheight = renderer.getFontHeight()+1;
-            int red = (84);
-            int green = (181);
-            int blue = (255);
+            int red = (157);
+            int green = (54);
+            int blue = (191);
 
             cFontRenderer.drawStringWithShadow(text, xFunc.apply(textwidth), y[0], new Color(red, green,  blue).getRGB());
 

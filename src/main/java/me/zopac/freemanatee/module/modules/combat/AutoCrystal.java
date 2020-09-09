@@ -60,8 +60,8 @@ public class AutoCrystal extends Module {
     private Setting<Boolean> autoSwitch;
     private Setting<Boolean> raytrace;
     private Setting<Boolean> place;
-    //private Setting<Boolean> ecme;
     private Setting<Boolean> explode;
+    private Setting<Boolean> multiplace;
     private Setting<Boolean> rainbow;
     private Setting<Double> breakYOffset;
     private Setting<BreakMode> breakMode = register(Settings.e("Hand", BreakMode.Main));
@@ -83,7 +83,6 @@ public class AutoCrystal extends Module {
 
         this.place = this.register(Settings.b("Place", true));
         this.explode = this.register(Settings.b("Explode", true));
-        //this.ecme = this.register(Settings.b("1.13 Place", false));
         this.chatAlert = this.register(Settings.b("Chat Alert", false));
         this.raytrace = this.register(Settings.b("Raytrace", false));
         this.autoSwitch = this.register(Settings.b("Auto Switch", true));

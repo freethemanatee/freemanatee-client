@@ -23,8 +23,8 @@ import java.awt.*;
 
 import static org.lwjgl.opengl.GL11.*;
 
-public class KamiFrameUI<T extends Frame>
-        extends AbstractComponentUI<Frame> {
+public class KamiFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
+
     ColourHolder frameColour = KamiGUI.primaryColour.setA(100);
     ColourHolder outlineColour = this.frameColour.darker();
     Component yLineComponent = null;
@@ -38,19 +38,17 @@ public class KamiFrameUI<T extends Frame>
     public float redForBG;
     public float greenForBG;
     public float blueForBG;
-    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 18), true, false);
+    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Comfortaa", 0, 18), true, false);
 
     @Override
     public void renderComponent(Frame component, FontRenderer fontRenderer) {
-        // Ok.
-        // Dont use opengl, use the RenderHelper for widgets.
 
         if (component.getOpacity() == 0)
             return;
 
         TurokGL.turok_Disable(GL_TEXTURE_2D);
 
-        TurokGL.turok_RGBA(0, 0, 0, 130);
+        TurokGL.turok_RGBA(16, 91, 161, 130);
         RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
 
         TurokGL.turok_RGBA(38, 38, 38,  90);

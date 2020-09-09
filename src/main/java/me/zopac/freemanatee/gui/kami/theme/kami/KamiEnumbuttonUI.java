@@ -1,9 +1,3 @@
-/*
- * Decompiled with CFR 0.145.
- * 
- * Could not load the following classes:
- *  org.lwjgl.opengl.GL11
- */
 package me.zopac.freemanatee.gui.kami.theme.kami;
 
 import java.awt.Color;
@@ -19,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class KamiEnumbuttonUI
 extends AbstractComponentUI<EnumButton> {
     RootSmallFontRenderer smallFontRenderer = new RootSmallFontRenderer();
-    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 14), true, false);
+    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Comfortaa", 0, 14), true, false);
     protected Color idleColour = new Color(146, 221, 253);
     protected Color downColour = new Color(255, 255, 255);
     EnumButton modeComponent;

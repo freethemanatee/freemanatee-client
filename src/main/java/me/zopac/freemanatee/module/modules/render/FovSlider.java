@@ -4,13 +4,12 @@ import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
 
-@Module.Info(name = "Custom FOV", category = Module.Category.RENDER)
+@Module.Info(name = "CustomFOV", category=Module.Category.RENDER)
 public class FovSlider extends Module {
 
-    private Setting<Integer> fov = register(Settings.integerBuilder("Fov").withMinimum(0).withValue(135).withMaximum(180).build());
+    private Setting<Integer> custom_fov = register(Settings.integerBuilder("FOV").withMinimum(0).withValue(110).withMaximum(180));
 
-    public float old_fov;
-    public float new_fov;
+    public static float old_fov = mc.gameSettings.fovSetting;
 
     @Override
     public void onDisable() {
@@ -18,9 +17,12 @@ public class FovSlider extends Module {
     }
 
     @Override
-    public void onUpdate(){
-        new_fov = (float) fov.getValue();
+    public void onUpdate() {
+        mc.gameSettings.fovSetting = custom_fov.getValue();
+    }
 
-        mc.gameSettings.fovSetting = new_fov;
+    @Override
+    public String getHudInfo() {
+        return String.valueOf(custom_fov.getValue());
     }
 }

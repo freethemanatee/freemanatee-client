@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 public class RootLabelUI<T extends Label>
 extends AbstractComponentUI<Label> {
-    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 18), true, false);
+    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Comfortaa", 0, 18), true, false);
 
     @Override
     public void renderComponent(Label component, FontRenderer a) {

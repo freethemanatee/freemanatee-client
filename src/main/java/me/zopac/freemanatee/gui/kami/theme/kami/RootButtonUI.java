@@ -1,9 +1,3 @@
-/*
- * Decompiled with CFR 0.145.
- * 
- * Could not load the following classes:
- *  org.lwjgl.opengl.GL11
- */
 package me.zopac.freemanatee.gui.kami.theme.kami;
 
 import java.awt.Color;
@@ -20,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 
 public class RootButtonUI<T extends Button>
 extends AbstractComponentUI<Button> {
-    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 24), true, false);
+    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Comfortaa", 0, 24), true, false);
 
     protected Color idleColour = new Color(163, 163, 163);
     protected Color downColour = new Color(255, 255, 255);

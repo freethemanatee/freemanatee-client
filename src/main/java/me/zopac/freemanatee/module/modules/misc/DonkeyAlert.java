@@ -24,6 +24,7 @@ public class DonkeyAlert extends Module {
                 sendChatMessage("I found a donkey at: " + Math.round(entity.lastTickPosX) + " " + Math.round(entity.lastTickPosY) + " " + Math.round(entity.lastTickPosZ));
             }
         }
+
         for (Entity entity : mc.world.getLoadedEntityList()) {
             if (entity instanceof EntityLlama) {
                 sendChatMessage("I found a llama at: " + Math.round(entity.lastTickPosX) + " " + Math.round(entity.lastTickPosY) + " " + Math.round(entity.lastTickPosZ));

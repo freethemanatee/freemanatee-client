@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 public class KamiUnboundSliderUI
 extends AbstractComponentUI<UnboundSlider> {
-    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Arial", 0, 18), true, false);
+    CFontRenderer cFontRenderer = new CFontRenderer(new Font("Comfortaa", 0, 18), true, false);
 
     @Override
     public void renderComponent(UnboundSlider component, FontRenderer fontRenderer) {

@@ -21,11 +21,11 @@ public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentU
     protected Color downColourToggle;
 
     public RootCheckButtonUI() {
-        this.cFontRenderer = new CFontRenderer(new Font("Arial", 0, 18), true, false);
+        this.cFontRenderer = new CFontRenderer(new Font("Comfortaa", 0, 18), true, false);
         this.backgroundColour = new Color(0, 0, 255);;
-        this.backgroundColourHover = new Color(19, 255, 225);
+        this.backgroundColourHover = new Color(168, 58, 201);
         this.idleColourNormal = new Color(37, 200, 2);
-        this.downColourNormal = new Color(19, 255, 225);
+        this.downColourNormal = new Color(100, 100, 100);
         this.idleColourToggle = new Color(0, 0, 255);
         this.downColourToggle = this.idleColourToggle.brighter();
     }
