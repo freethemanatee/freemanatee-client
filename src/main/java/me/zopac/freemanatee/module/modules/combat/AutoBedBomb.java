@@ -1,5 +1,7 @@
 package me.zopac.freemanatee.module.modules.combat;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
 import me.zopac.freemanatee.util.Friends;
@@ -31,6 +33,7 @@ public class AutoBedBomb extends Module {
 
     private Setting<Boolean> autoSwitch;
     private Setting<Boolean> antiSuicide;
+    private Setting<Boolean> announceusage;
     private Setting<Boolean> refill;
     private Setting<Boolean> rotate;
 
@@ -53,15 +56,28 @@ public class AutoBedBomb extends Module {
     BedAuraUtils util = new BedAuraUtils();
 
     public AutoBedBomb() {
-        this.range = register(Settings.integerBuilder("Range").withMinimum(0).withMaximum(10).withValue(5));
+        this.range = register(Settings.integerBuilder("Range").withMinimum(0).withMaximum(10).withValue(6));
         this.switchDelay = register(Settings.integerBuilder("Switch Delay").withMinimum(0).withMaximum(10).withValue(3));
         this.antiSuicideHlth = this.register((Setting<Integer>) Settings.integerBuilder("Anti Suicide Health").withMinimum(0).withMaximum(36).withValue(16).withVisibility(b -> antiSuicide.getValue()).build());
+        this.announceusage = this.register(Settings.b("Announce Usage", true));
         this.antiSuicide = this.register(Settings.b("AntiSuicide", true));
         this.autoSwitch = this.register(Settings.b("AutoSwitch", true));
         this.refill = this.register(Settings.b("Auto Refill", true));
         this.rotate = this.register(Settings.b("Rotate", true));
     }
     boolean moving = false;
+    @Override
+    public void onEnable() {
+        if (announceusage.getValue()) {
+            Command.sendChatMessage("AutoBedBomb" + ChatFormatting.GREEN.toString() + "Enabled");
+        }
+    }
+    @Override
+    public void onDisable() {
+        if (announceusage.getValue()) {
+            Command.sendChatMessage("AutoBedBomb" + ChatFormatting.RED.toString() + "Disabled");
+        }
+    }
     @Override
     public void onUpdate() {
         mc.world.loadedTileEntityList.stream()
