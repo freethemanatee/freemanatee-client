@@ -15,10 +15,8 @@ import net.minecraft.item.ItemStack;
 
 @Module.Info(name = "AutoTotem", category = Module.Category.COMBAT)
 public class AutoTotem extends Module {
-
     private Setting<Boolean> soft = this.register(Settings.b("Soft", true));
     private Setting<Integer> healthSwitch = this.register(Settings.integerBuilder("Health Switch").withRange(0, 20).withValue(16).withVisibility(o -> soft.getValue()).build());
-
     @Override
     public void onUpdate() {
         if (mc.player == null) return;
@@ -46,11 +44,9 @@ public class AutoTotem extends Module {
             });
         }
     }
-
     private void invPickup(int slot) {
         mc.playerController.windowClick(0, slot, 0, ClickType.PICKUP, (EntityPlayer)mc.player);
     }
-
     private OptionalInt findItem(Item ofType) {
         for (int i = 44; i >= 9; --i) {
             if (mc.player.inventoryContainer.getSlot(i).getStack().getItem() != ofType) continue;
@@ -58,7 +54,6 @@ public class AutoTotem extends Module {
         }
         return OptionalInt.empty();
     }
-
     private ItemStack getOffhand() {
         return mc.player.getItemStackFromSlot(EntityEquipmentSlot.OFFHAND);
     }

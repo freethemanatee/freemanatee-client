@@ -18,10 +18,8 @@ public class OffhandCrystal extends Module {
 
     private Setting<Integer> health = this.register(Settings.integerBuilder("Health Switch").withRange(1, 36).withValue(16));
     int crystals;
-
     public void onUpdate() {
         crystals = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.END_CRYSTAL).mapToInt(ItemStack::getCount).sum();
-
         if (mc.currentScreen instanceof GuiContainer || mc.world == null || mc.player == null)
             return;
         if (!shouldTotem()) {
@@ -42,26 +40,21 @@ public class OffhandCrystal extends Module {
             }
         }
     }
-
     private boolean nearPlayers() {
         return mc.world.playerEntities.stream().anyMatch(e -> e != mc.player && e.getEntityId() != -1488 && !Friends.isFriend(e.getName()) && mc.player.getDistance(e) <= 200);
     }
-
     private boolean shouldTotem() {
         if (mc.player != null) {
             return (mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == Items.ELYTRA || !nearPlayers() || mc.player.getHealth() + mc.player.getAbsorptionAmount() <= health.getValue());
         }
         return (mc.player.getHealth() + mc.player.getAbsorptionAmount()) <= health.getValue() || mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == Items.ELYTRA || !nearPlayers();
     }
-
     private boolean isEmpty(BlockPos pos) {
         return mc.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(pos)).stream().filter(e -> e instanceof EntityEnderCrystal).count() == 0;
     }
-
     private boolean isGappleAABBEmpty() {
         return isEmpty(mc.player.getPosition().add(1, 0, 0)) && isEmpty(mc.player.getPosition().add(-1, 0, 0)) && isEmpty(mc.player.getPosition().add(0, 0, 1)) && isEmpty(mc.player.getPosition().add(0, 0, -1)) && isEmpty(mc.player.getPosition());
     }
-
     int getGapSlot() {
         int gapSlot = -1;
         for (int i = 45; i > 0; i--) {
@@ -72,7 +65,6 @@ public class OffhandCrystal extends Module {
         }
         return gapSlot;
     }
-
     int getTotemSlot() {
         int totemSlot = -1;
         for (int i = 45; i > 0; i--) {
@@ -83,7 +75,6 @@ public class OffhandCrystal extends Module {
         }
         return totemSlot;
     }
-
     @Override
     public String getHudInfo() {
         return "\u00A77[\u00A7f" + crystals + "\u00A77]";

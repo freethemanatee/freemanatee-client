@@ -12,7 +12,6 @@ import me.zopac.freemanatee.module.Module;
 )
 
 public class PacketXP extends Module {
-
     public void onUpdate(final PacketEvent.Send event) {
         if (event.getPacket() instanceof CPacketPlayer && PacketXP.mc.player.getHeldItemMainhand().getItem() instanceof ItemExpBottle) {
             final CPacketPlayer packet = (CPacketPlayer) event.getPacket();

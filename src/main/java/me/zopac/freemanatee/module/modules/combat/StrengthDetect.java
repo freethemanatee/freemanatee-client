@@ -17,18 +17,15 @@ import me.zopac.freemanatee.module.Module;
         category = Module.Category.COMBAT
 )
 public class StrengthDetect extends Module {
-
     private Setting<Boolean> watermark;
     private Setting<Boolean> color;
     private Set<EntityPlayer> str;
     public static final Minecraft mc;
-
     public StrengthDetect() {
         this.watermark = this.register(Settings.b("Watermark", true));
         this.color = this.register(Settings.b("Color", false));
         this.str = Collections.newSetFromMap(new WeakHashMap<EntityPlayer, Boolean>());
     }
-
     @Override
     public void onUpdate() {
         for (final EntityPlayer player : StrengthDetect.mc.world.playerEntities) {
@@ -75,7 +72,6 @@ public class StrengthDetect extends Module {
             this.str.remove(player);
         }
     }
-
     static {
         mc = Minecraft.getMinecraft();
     }

@@ -14,10 +14,8 @@ import java.util.function.Predicate;
         category = Module.Category.COMBAT
 )
 public class Criticals extends Module {
-
     @EventHandler
     private Listener<AttackEntityEvent> attackEntityEventListener;
-
     public Criticals() {
         this.attackEntityEventListener = new Listener<AttackEntityEvent>(event -> {
             if (!Criticals.mc.player.isInWater() && !Criticals.mc.player.isInLava()) {

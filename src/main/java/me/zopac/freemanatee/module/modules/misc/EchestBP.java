@@ -9,9 +9,7 @@ import net.minecraft.inventory.InventoryBasic;
 
 @Module.Info(name = "EchestBP", category = Module.Category.MISC)
 public class EchestBP extends Module {
-
     private GuiScreen echestScreen = null;
-
     public void onUpdate() {
         if (mc.currentScreen instanceof GuiContainer) {
             Container container = ((GuiContainer)mc.currentScreen).inventorySlots;
@@ -24,7 +22,6 @@ public class EchestBP extends Module {
             }
         }
     }
-
     public void onDisable() {
         if (this.echestScreen != null)
             mc.displayGuiScreen(this.echestScreen);

@@ -38,7 +38,6 @@ import static me.zopac.freemanatee.util.EntityUtil.calculateLookAt;
         category = Module.Category.COMBAT
 )
 public class HoleFiller extends Module {
-
     private static BlockPos PlayerPos;
     private Setting<Double> range = register(Settings.d("Range", 4));
     private Setting<Boolean> smart =  register(Settings.b("Smart", false));
@@ -54,18 +53,14 @@ public class HoleFiller extends Module {
     private boolean caOn;
     private int newSlot;
     double d;
-
     @Override
     public void onEnable() {
-
         if (ModuleManager.getModuleByName("AutoCrystal").isEnabled())
             caOn = true;
-
         if (announceUsage.getValue()) {
             Command.sendChatMessage("[HoleFiller] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " ");
         }
     }
-
     @Override
     public void onUpdate() {
         if (mc.world == null) {
@@ -114,7 +109,6 @@ public class HoleFiller extends Module {
                 ModuleManager.getModuleByName("AutoCrystal").enable();
         }
     }
-
     @Override
     public void onWorldRender(RenderEvent event) {
         if (render != null) {
@@ -126,7 +120,6 @@ public class HoleFiller extends Module {
             KamiTessellator.release();
         }
     }
-
     private double getDistanceToBlockPos(BlockPos pos1, BlockPos pos2) {
         double x = pos1.getX() - pos2.getX();
         double y = pos1.getY() - pos2.getY();
@@ -134,12 +127,10 @@ public class HoleFiller extends Module {
 
         return Math.sqrt((x * x) + (y * y) + (z * z));
     }
-
     private void lookAtPacket(double px, double py, double pz, EntityPlayer me) {
         double[] v = calculateLookAt(px, py, pz, me);
         setYawAndPitch((float) v[0], (float) v[1]);
     }
-
     private boolean IsHole(BlockPos blockPos) {
         BlockPos boost = blockPos.add(0, 1, 0);
         BlockPos boost2 = blockPos.add(0, 0, 0);
@@ -164,11 +155,9 @@ public class HoleFiller extends Module {
             return false;
         }
     }
-
     public static BlockPos getPlayerPos() {
         return new BlockPos(Math.floor(mc.player.posX), Math.floor(mc.player.posY), Math.floor(mc.player.posZ));
     }
-
     public BlockPos getClosestTargetPos() {
         if (closestTarget != null) {
             return new BlockPos(Math.floor(closestTarget.posX), Math.floor(closestTarget.posY), Math.floor(closestTarget.posZ));
@@ -176,44 +165,31 @@ public class HoleFiller extends Module {
             return null;
         }
     }
-
     private void findClosestTarget() {
-
         List<EntityPlayer> playerList = mc.world.playerEntities;
-
         closestTarget = null;
-
         for (EntityPlayer target : playerList) {
-
             if (target == mc.player) {
                 continue;
             }
-
             if (Friends.isFriend(target.getName())) {
                 continue;
             }
-
             if (!EntityUtil.isLiving(target)) {
                 continue;
             }
-
             if ((target).getHealth() <= 0) {
                 continue;
             }
-
             if (closestTarget == null) {
                 closestTarget = target;
                 continue;
             }
-
             if (mc.player.getDistance(target) < mc.player.getDistance(closestTarget)) {
                 closestTarget = target;
             }
-
         }
-
     }
-
     private boolean isInRange(BlockPos blockPos) {
         NonNullList<BlockPos> positions = NonNullList.create();
         positions.addAll(
@@ -224,7 +200,6 @@ public class HoleFiller extends Module {
         else
             return false;
     }
-
     private List<BlockPos> findCrystalBlocks() {
         NonNullList<BlockPos> positions = NonNullList.create();
         if (smart.getValue() && closestTarget != null)
@@ -237,7 +212,6 @@ public class HoleFiller extends Module {
                             .stream().filter(this::IsHole).collect(Collectors.toList()));
         return positions;
     }
-
     public List<BlockPos> getSphere(BlockPos loc, float r, int h, boolean hollow, boolean sphere, int plus_y) {
         List<BlockPos> circleblocks = new ArrayList<>();
         int cx = loc.getX();
@@ -256,17 +230,14 @@ public class HoleFiller extends Module {
         }
         return circleblocks;
     }
-
     private static boolean isSpoofingAngles;
     private static double yaw;
     private static double pitch;
-
     private static void setYawAndPitch(float yaw1, float pitch1) {
         yaw = yaw1;
         pitch = pitch1;
         isSpoofingAngles = true;
     }
-
     private static void resetRotation() {
         if (isSpoofingAngles) {
             yaw = mc.player.rotationYaw;
@@ -274,7 +245,6 @@ public class HoleFiller extends Module {
             isSpoofingAngles = false;
         }
     }
-
     @EventHandler
     private Listener<PacketEvent.Send> packetListener = new Listener<>(event -> {
         Packet packet = event.getPacket();
@@ -285,7 +255,6 @@ public class HoleFiller extends Module {
             }
         }
     });
-
     @Override
     public void onDisable() {
         closestTarget = null;

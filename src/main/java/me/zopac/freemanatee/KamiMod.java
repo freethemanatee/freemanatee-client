@@ -56,7 +56,7 @@ public class KamiMod {
 
     public static final String MODVER = "2.2";
 
-    public static final String NAME_UNICODE = " \u0493\u0280\u1d07\u1d07\u1d0d\u1d00\u0274\u1d00\u1d1b\u1d07\u1d07";
+    public static final String NAME_UNICODE = " \u1d0d\u1d00\u0274\u1d00\u1d1b\u1d07\u1d07";
 
     public static final char colour = '\u00A7';
     public static final char separator = '\u23d0';

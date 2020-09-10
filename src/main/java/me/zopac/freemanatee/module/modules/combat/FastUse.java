@@ -17,13 +17,11 @@ import net.minecraft.util.math.BlockPos;
         category = Module.Category.COMBAT
 )
 public class FastUse extends Module {
-
     private Setting<Boolean> blocks = this.register(Settings.b("Blocks", false));
     private Setting<Boolean> exp = this.register(Settings.b("Exp Bottles", true));
     private Setting<Boolean> crystal = this.register(Settings.b("Crystals", false));
     private Setting<Boolean> bow = this.register(Settings.b("BowSpam", false));
     private Setting<Boolean> all = this.register(Settings.b("All", false));
-
     @Override
     public void onUpdate() {
         if (FastUse.mc.player.getHeldItemMainhand().getItem() instanceof ItemExpBottle) {
@@ -38,7 +36,6 @@ public class FastUse extends Module {
             if (this.blocks.getValue().booleanValue()) {
                 FastUse.mc.rightClickDelayTimer = 0;
             }
-
         } else if (FastUse.mc.player.getHeldItemMainhand().getItem() instanceof ItemBow) {
             if (this.bow.getValue().booleanValue()) {
                 Minecraft mc = Minecraft.getMinecraft();
@@ -47,8 +44,6 @@ public class FastUse extends Module {
                     mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItem(mc.player.getActiveHand()));
                     mc.player.stopActiveHand();
                 }
-
-
             } else if (this.all.getValue().booleanValue() && !(FastUse.mc.player.getHeldItemMainhand().getItem() instanceof ItemBlock)) {
                 FastUse.mc.rightClickDelayTimer = 0;
             }

@@ -17,13 +17,9 @@ import net.minecraft.util.math.BlockPos;
 public class OffHandGap extends Module {
 
     private Setting<Integer> health = this.register(Settings.integerBuilder("Health Switch").withRange(1, 36).withValue(16));
-
     int gapples;
-
     public void onUpdate() {
-
         gapples = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.GOLDEN_APPLE).mapToInt(ItemStack::getCount).sum();
-
         if (mc.currentScreen instanceof GuiContainer || mc.world == null || mc.player == null)
             return;
         if (!shouldTotem()) {
@@ -44,26 +40,21 @@ public class OffHandGap extends Module {
             }
         }
     }
-
     private boolean nearPlayers() {
         return mc.world.playerEntities.stream().anyMatch(e -> e != mc.player && e.getEntityId() != -1488 && !Friends.isFriend(e.getName()) && mc.player.getDistance(e) <= 200);
     }
-
     private boolean shouldTotem() {
         if (mc.player != null) {
             return (mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == Items.ELYTRA || !nearPlayers() || mc.player.getHealth() + mc.player.getAbsorptionAmount() <= health.getValue());
         }
         return (mc.player.getHealth() + mc.player.getAbsorptionAmount()) <= health.getValue() || mc.player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == Items.DIAMOND_CHESTPLATE || !nearPlayers();
     }
-
     private boolean isEmpty(BlockPos pos){
         return mc.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(pos)).stream().filter(e -> e instanceof EntityEnderCrystal).count() == 0;
     }
-
-    private boolean isGapplesAABBEmpty(){
+    private boolean isGapplesAABBEmpty() {
         return isEmpty(mc.player.getPosition().add(1, 0, 0)) && isEmpty(mc.player.getPosition().add(-1, 0, 0)) && isEmpty(mc.player.getPosition().add(0, 0, 1)) && isEmpty(mc.player.getPosition().add(0, 0, -1)) && isEmpty(mc.player.getPosition());
     }
-
     int getGapSlot() {
         int gapSlot = -1;
         for (int i = 45; i > 0; i--) {
@@ -74,7 +65,6 @@ public class OffHandGap extends Module {
         }
         return gapSlot;
     }
-
     int getTotemSlot() {
         int totemSlot = -1;
         for (int i = 45; i > 0; i--) {
@@ -85,7 +75,6 @@ public class OffHandGap extends Module {
         }
         return totemSlot;
     }
-
     @Override
     public String getHudInfo() {
         return "\u00A77[\u00A7f" + gapples + "\u00A77]";

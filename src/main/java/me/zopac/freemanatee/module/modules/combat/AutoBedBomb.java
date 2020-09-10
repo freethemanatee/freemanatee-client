@@ -2,12 +2,14 @@ package me.zopac.freemanatee.module.modules.combat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import me.zopac.freemanatee.command.Command;
+import me.zopac.freemanatee.event.events.RenderEvent;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
 import me.zopac.freemanatee.util.Friends;
 import me.zopac.freemanatee.util.BlocksUtils;
 import me.zopac.freemanatee.module.Module;
 import me.zopac.freemanatee.util.BedAuraUtils;
+import me.zopac.freemanatee.util.KamiTessellator;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBed;
@@ -23,6 +25,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
+import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,6 +33,7 @@ import java.util.stream.Collectors;
 @Module.Info(name = "AutoBedBomb", category = Module.Category.COMBAT)
 public class AutoBedBomb extends Module {
 
+    private BlockPos render;
 
     private Setting<Boolean> autoSwitch;
     private Setting<Boolean> antiSuicide;
@@ -40,6 +44,8 @@ public class AutoBedBomb extends Module {
     private Setting<Integer> range;
     private Setting<Integer> switchDelay;
     private Setting<Integer> antiSuicideHlth;
+
+    boolean moving = false;
 
     BlockPos targetBlock;
     BlockPos targetPlayer;
@@ -65,21 +71,22 @@ public class AutoBedBomb extends Module {
         this.refill = this.register(Settings.b("Auto Refill", true));
         this.rotate = this.register(Settings.b("Rotate", true));
     }
-    boolean moving = false;
+
     @Override
     public void onEnable() {
         if (announceusage.getValue()) {
-            Command.sendChatMessage("AutoBedBomb" + ChatFormatting.GREEN.toString() + "Enabled");
+            Command.sendChatMessage("AutoBedBomb" + ChatFormatting.GREEN.toString() + " Enabled");
         }
     }
     @Override
     public void onDisable() {
         if (announceusage.getValue()) {
-            Command.sendChatMessage("AutoBedBomb" + ChatFormatting.RED.toString() + "Disabled");
+            Command.sendChatMessage("AutoBedBomb" + ChatFormatting.RED.toString() + " Disabled");
         }
     }
     @Override
     public void onUpdate() {
+        // range shit so it can break
         mc.world.loadedTileEntityList.stream()
                 .filter(e -> e instanceof TileEntityBed)
                 .filter(e -> mc.player.getDistance(e.getPos().getX(), e.getPos().getY(), e.getPos().getZ()) <= range.getValue())
@@ -91,6 +98,7 @@ public class AutoBedBomb extends Module {
                         mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(bed.getPos(), EnumFacing.UP, EnumHand.MAIN_HAND, 0, 0, 0));
                         return;
                 });
+        // refills on beds
         if(refill.getValue()) {
             int slot = -1;
             for (int i = 0; i < 9; i++) {
@@ -130,6 +138,7 @@ public class AutoBedBomb extends Module {
                 }
             }
         }
+        // anti suicide and place
         if(mc.player.getHealth() < this.antiSuicideHlth.getValue() && this.antiSuicide.getValue()) { this.disable(); }
         for (EntityPlayer player : getTargets()) {
             targetPlayer = new BlockPos((int) player.posX, (int) player.posY, (int) player.posZ);
@@ -189,6 +198,7 @@ public class AutoBedBomb extends Module {
         }
         mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(pos, EnumFacing.DOWN, EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
     }
+    // auto switch to old item
     private boolean switchHandToItemIfNeed(Item toItem) {
         if (mc.player.getHeldItemMainhand().getItem() == toItem || mc.player.getHeldItemOffhand().getItem() == toItem)
             return false;

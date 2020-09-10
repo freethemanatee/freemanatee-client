@@ -16,10 +16,13 @@ import org.lwjgl.input.Keyboard;
         category = Module.Category.MISC
 )
 public class InvWalk extends Module {
-
-    private static final KeyBinding[] MOVEMENT_KEYS = new KeyBinding[]{InvWalk.mc.gameSettings.keyBindForward, InvWalk.mc.gameSettings.keyBindRight, InvWalk.mc.gameSettings.keyBindBack, InvWalk.mc.gameSettings.keyBindLeft, InvWalk.mc.gameSettings.keyBindJump, InvWalk.mc.gameSettings.keyBindSprint};
-
-
+    private static final KeyBinding[] MOVEMENT_KEYS = new KeyBinding[]{
+            InvWalk.mc.gameSettings.keyBindForward,
+            InvWalk.mc.gameSettings.keyBindRight,
+            InvWalk.mc.gameSettings.keyBindBack,
+            InvWalk.mc.gameSettings.keyBindLeft,
+            InvWalk.mc.gameSettings.keyBindJump,
+            InvWalk.mc.gameSettings.keyBindSprint};
     @Override
     public void onUpdate() {
         if (InvWalk.mc.currentScreen == null) return;
@@ -29,15 +32,12 @@ public class InvWalk extends Module {
         InvWalk.mc.player.rotationPitch = MathHelper.clamp((float)InvWalk.mc.player.rotationPitch, (float)-90.0f, (float)90.0f);
         this.runCheck();
     }
-
     @EventHandler
     public Listener<GuiScreenEvent.Displayed> listener = new Listener<>(event -> {
-
         if (InvWalk.mc.currentScreen == null) return;
         if (InvWalk.mc.currentScreen instanceof GuiChat) return;
         this.runCheck();
     });
-
     private void runCheck() {
         KeyBinding[] arrkeyBinding = MOVEMENT_KEYS;
         int n = arrkeyBinding.length;

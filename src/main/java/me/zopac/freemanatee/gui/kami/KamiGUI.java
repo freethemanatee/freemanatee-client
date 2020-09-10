@@ -523,15 +523,6 @@ public class KamiGUI extends GUI {
         frame.setHeight(20);
         frames.add(frame);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Radar");
-        frame.setCloseable(false);
-        frame.setMinimizeable(true);
-        frame.setPinneable(true);
-        frame.addChild(new Radar());
-        frame.setWidth(100);
-        frame.setHeight(100);
-        frames.add(frame);
-
         for (Frame frame1 : frames) {
             frame1.setX(x);
             frame1.setY(y);

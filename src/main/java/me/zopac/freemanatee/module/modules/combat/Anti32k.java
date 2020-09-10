@@ -19,15 +19,11 @@ import java.util.WeakHashMap;
 
 @Module.Info(name = "Anti32k", category = Module.Category.COMBAT)
 public class Anti32k extends Module {
-
     private final Setting<Boolean> LogOut;
-
     public Anti32k(){
         this.LogOut = this.register(Settings.b("Log", true));
     }
-
     private Set<EntityPlayer> sword = Collections.newSetFromMap(new WeakHashMap<>());
-
     private boolean is32k(EntityPlayer player, ItemStack stack) {
         if (stack.getItem() instanceof net.minecraft.item.ItemSword) {
             NBTTagList enchants = stack.getEnchantmentTagList();
@@ -39,7 +35,6 @@ public class Anti32k extends Module {
         }
         return false ;
     }
-
     public void onUpdate() {
         for (EntityPlayer player : mc.world.playerEntities) {
             int once = 0;
@@ -69,6 +64,5 @@ public class Anti32k extends Module {
             this.sword.remove(player);
         }
     }
-
     public static final Minecraft mc = Minecraft.getMinecraft();
 }

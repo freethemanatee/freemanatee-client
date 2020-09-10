@@ -39,8 +39,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-@Module.Info(name = "AutoCrystal", description = "bruh", category = Module.Category.COMBAT)
+@Module.Info(name = "AutoCrystal", category = Module.Category.COMBAT)
 public class AutoCrystal extends Module {
 
     private Setting<Integer> msPlaceDelay;
@@ -49,7 +48,7 @@ public class AutoCrystal extends Module {
     private Setting<Double> breakRange;
     private Setting<Integer> enemyRange;
     private Setting<Integer> minDamage;
-    private Setting<Integer> ignoreMinDamageThreshold;
+    private Setting<Integer> faceplace;
     private Setting<Integer> selfProtectThreshold;
     private Setting<Double> breakThroughWallsRange;
     private Setting<Integer> red;
@@ -61,9 +60,9 @@ public class AutoCrystal extends Module {
     private Setting<Boolean> raytrace;
     private Setting<Boolean> place;
     private Setting<Boolean> explode;
-    private Setting<Boolean> multiplace;
     private Setting<Boolean> rainbow;
     private Setting<Double> breakYOffset;
+
     private Setting<BreakMode> breakMode = register(Settings.e("Hand", BreakMode.Main));
 
     public enum BreakMode {Main, Both, Offhand}
@@ -99,7 +98,7 @@ public class AutoCrystal extends Module {
         this.breakThroughWallsRange = this.register((Setting<Double>) Settings.doubleBuilder("Through Walls Break Range").withMinimum(0.0).withMaximum(8.0).withValue(4.5).build());
         this.enemyRange = this.register((Setting<Integer>) Settings.integerBuilder("Enemy Range").withMinimum(0).withMaximum(36).withValue(10).build());
         this.minDamage = this.register((Setting<Integer>) Settings.integerBuilder("Min Damage").withMinimum(0).withMaximum(36).withValue(4).build());
-        this.ignoreMinDamageThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Ignore Min Damage").withMinimum(0).withMaximum(36).withValue(8).build());
+        this.faceplace = this.register((Setting<Integer>) Settings.integerBuilder("Faceplace").withMinimum(0).withMaximum(36).withValue(8).build());
         this.selfProtectThreshold = this.register((Setting<Integer>) Settings.integerBuilder("Max Self Damage").withMinimum(0).withMaximum(16).withValue(8).build());
         this.breakYOffset = this.register((Setting<Double>) Settings.doubleBuilder("Break Y Offset").withMinimum(0.0).withMaximum(0.5).withValue(0.0).build());
         this.breakSystemTime = -1L;
@@ -234,7 +233,7 @@ public class AutoCrystal extends Module {
                         continue;
                     }
                     final double d = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, entity2);
-                    if (d < this.minDamage.getValue() && ((EntityLivingBase) entity2).getHealth() + ((EntityLivingBase) entity2).getAbsorptionAmount() > this.ignoreMinDamageThreshold.getValue()) {
+                    if (d < this.minDamage.getValue() && ((EntityLivingBase) entity2).getHealth() + ((EntityLivingBase) entity2).getAbsorptionAmount() > this.faceplace.getValue()) {
                         continue;
                     }
                     if (d <= damage) {

@@ -13,8 +13,6 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
         category = Module.Category.COMBAT
 )
 public class MultiTask extends Module {
-
-
     @SubscribeEvent
     public void onMouseInput(final InputEvent.MouseInputEvent event) {
         if (Mouse.getEventButtonState() && mc.player != null && mc.objectMouseOver.typeOfHit.equals((Object)RayTraceResult.Type.ENTITY) && mc.player.isHandActive() && (mc.gameSettings.keyBindAttack.isPressed() || Mouse.getEventButton() == mc.gameSettings.keyBindAttack.getKeyCode())) {

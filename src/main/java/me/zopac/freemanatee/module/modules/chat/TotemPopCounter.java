@@ -20,6 +20,7 @@ public class TotemPopCounter extends Module {
 
     private HashMap<String, Integer> popList = new HashMap();
     private Setting<colour> mode = register(Settings.e("Color", colour.GREEN));
+    private Setting<allah> pop = register(Settings.e("Announce Mode", allah.Client));
 
     @EventHandler
     public Listener<TotemPopEvent> totemPopEvent = new Listener<>(event -> {
@@ -30,12 +31,18 @@ public class TotemPopCounter extends Module {
 
         if(popList.get(event.getEntity().getName()) == null) {
             popList.put(event.getEntity().getName(), 1);
+            this.pop.getValue().equals("Client");
             Command.sendChatMessage(colourchoice() + event.getEntity().getName() + " popped " + 1 + " totem");
+            this.pop.getValue().equals("Public");
+            Command.sendRawChatMessage(colourchoice() + event.getEntity().getName() + " popped " + 1 + " totem");
         } else if(!(popList.get(event.getEntity().getName()) == null)) {
             int popCounter = popList.get(event.getEntity().getName());
             int newPopCounter = popCounter += 1;
             popList.put(event.getEntity().getName(), newPopCounter);
+            this.pop.getValue().equals("Client");
             Command.sendChatMessage(colourchoice() + event.getEntity().getName() + " popped " + newPopCounter + " totems");
+            this.pop.getValue().equals("Public");
+            Command.sendRawChatMessage(colourchoice() + event.getEntity().getName() + " popped " + newPopCounter + " totems");
         }
 
     });
@@ -45,7 +52,10 @@ public class TotemPopCounter extends Module {
         for(EntityPlayer player : mc.world.playerEntities) {
             if(player.getHealth() <= 0) {
                 if(popList.containsKey(player.getName())) {
+                    this.pop.getValue().equals("Client");
                     Command.sendChatMessage(colourchoice() + player.getName() + " died after popping " + popList.get(player.getName()) + " totems");
+                    this.pop.getValue().equals("Public");
+                    Command.sendRawChatMessage(colourchoice() + player.getName() + " died after popping " + popList.get(player.getName()) + " totems");
                     popList.remove(player.getName(), popList.get(player.getName()));
                 }
             }
@@ -69,7 +79,9 @@ public class TotemPopCounter extends Module {
 
     });
 
-
+private enum allah {
+    Client, Public
+}
 
     private String colourchoice(){
         switch (mode.getValue()){

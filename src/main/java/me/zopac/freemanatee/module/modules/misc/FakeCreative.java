@@ -8,7 +8,6 @@ import net.minecraft.world.GameType;
         category = Module.Category.MISC
 )
 public class FakeCreative extends Module {
-
     @Override
     public void onEnable() {
         if (mc.player == null) {
@@ -17,7 +16,6 @@ public class FakeCreative extends Module {
         }
         mc.playerController.setGameType(GameType.CREATIVE);
     }
-
     @Override
     public void onDisable() {
         if (mc.player == null) {

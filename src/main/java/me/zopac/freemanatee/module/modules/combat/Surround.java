@@ -12,6 +12,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.network.play.client.*;
 import net.minecraft.block.BlockObsidian;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.BlockLiquid;
@@ -24,23 +25,34 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Block;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.client.CPacketEntityAction;
+import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
+
 import static me.zopac.freemanatee.util.BlockInteractionHelper.faceVectorPacketInstant;
 import static me.zopac.freemanatee.util.BlockInteractionHelper.canBeClicked;
 
 @Module.Info(name = "Surround", category = Module.Category.COMBAT)
 public class Surround extends Module {
 
-    private Setting<Mode> mode             = register(Settings.e("Mode", Mode.SURROUND));
-    private Setting<Boolean> triggerable   = register(Settings.b("Triggerable", true));
-    private Setting<Integer> timeoutTicks  = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(13).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
+    private Setting<Mode> mode = register(Settings.e("Mode", Mode.SURROUND));
+    private Setting<Boolean> triggerable = register(Settings.b("Triggerable", true));
+    private Setting<Integer> timeoutTicks = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(13).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
     private Setting<Integer> blocksPerTick = register(Settings.integerBuilder("BlocksPerTick").withMinimum(1).withValue(4).withMaximum(9).build());
-    private Setting<Integer> tickDelay     = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
-    private Setting<Boolean> rotate        = register(Settings.b("Rotate", true));
-    private Setting<Boolean> jumpdisable = this.register(Settings.b("Jump Disable", false));
+    private Setting<Integer> tickDelay = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
+    private Setting<Boolean> rotate = register(Settings.b("Rotate", true));
+    private Setting<Boolean> sneak = register(Settings.b("Sneak Only", true));
     private Setting<Boolean> announceusage = register(Settings.b("Announce Usage", false));
 
     private int offsetStep = 0;
     private int delayStep = 0;
+
+    private static boolean wasinair;
 
     private int playerHotbarSlot = -1;
     private int lastHotbarSlot = -1;
@@ -68,23 +80,22 @@ public class Surround extends Module {
         return null;
     }
 
-    @Override
-    protected void onEnable() {
-        if (announceusage.getValue()) {
-            Command.sendChatMessage("Surround " + ChatFormatting.GREEN + "ON");
+    public void onEnable() {
+        { if (announceusage.getValue()) {
+                Command.sendChatMessage("Surround " + ChatFormatting.GREEN + "ON");
+            }
+            if (mc.player == null) {
+                this.disable();
+                return;
+            }
+
+            firstRun = true;
+
+            playerHotbarSlot = mc.player.inventory.currentItem;
+            lastHotbarSlot = -1;
+
         }
-        if (mc.player == null) {
-            this.disable();
-            return;
-        }
-
-        firstRun = true;
-
-        playerHotbarSlot = mc.player.inventory.currentItem;
-        lastHotbarSlot = -1;
-
     }
-
     @Override
     protected void onDisable() {
         if (announceusage.getValue()) {
@@ -112,14 +123,11 @@ public class Surround extends Module {
 
     @Override
     public void onUpdate() {
+        if (this.sneak.getValue() && !Surround.mc.gameSettings.keyBindSneak.isKeyDown()) {
+            return;
+        }
             if (this.isEnabled() && mc.player != null) {
                 if (mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
-                    return;
-                }
-
-                if (triggerable.getValue() && totalTicksRunning >= timeoutTicks.getValue()) {
-                    totalTicksRunning = 0;
-                    this.disable();
                     return;
                 }
 
@@ -152,12 +160,6 @@ public class Surround extends Module {
             offsetPattern = Offsets.SURROUND;
             maxSteps = Offsets.SURROUND.length;
         }
-
-        if(jumpdisable.getValue() && !mc.player.onGround) {
-            this.disable();
-            return;
-        }
-
         int blocksPlaced = 0;
 
         while (blocksPlaced < blocksPerTick.getValue()) {
@@ -202,7 +204,23 @@ public class Surround extends Module {
 
             this.disable();
         }
+        if (triggerable.getValue() && totalTicksRunning >= timeoutTicks.getValue()) {
+            totalTicksRunning = 0;
+            this.disable();
+            return;
+        }
+        if (isSneaking) {
+            mc.player.connection.sendPacket(new CPacketEntityAction(mc.player, CPacketEntityAction.Action.STOP_SNEAKING));
+            isSneaking = false;
+        }
 
+    }
+
+    public Vec3d GetCenter(final double posX, final double posY, final double posZ) {
+        final double x = Math.floor(posX) + 0.5;
+        final double y = Math.floor(posY);
+        final double z = Math.floor(posZ) + 0.5;
+        return new Vec3d(x, y, z);
     }
 
     private boolean placeBlock(BlockPos pos) {

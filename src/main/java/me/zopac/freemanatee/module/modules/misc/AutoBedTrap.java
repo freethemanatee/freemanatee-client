@@ -31,18 +31,14 @@ import net.minecraft.util.math.Vec3i;
 
 @Module.Info(name="AutoBedTrap", category=Module.Category.MISC)
 public class AutoBedTrap extends Module {
-
     private Setting<Integer> range = this.register(Settings.i("Range", 4));
     private Setting<Boolean> rotate = this.register(Settings.b("Rotate", true));
-
     List<BlockPos> beds;
     int blocksPlaced;
-
     @Override
     protected void onEnable() {
         this.beds = new ArrayList<BlockPos>();
     }
-
     @Override
     public void onUpdate() {
         int reach;
@@ -95,14 +91,12 @@ public class AutoBedTrap extends Module {
             }
         }
     }
-
     private boolean shouldPlace(BlockPos pos) {
         List entities = AutoBedTrap.mc.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(pos)).stream().filter(e -> !(e instanceof EntityItem)).filter(e -> !(e instanceof EntityXPOrb)).collect(Collectors.toList());
         boolean a = entities.isEmpty();
         boolean b = AutoBedTrap.mc.world.getBlockState(pos).getMaterial().isReplaceable();
         return a && b;
     }
-
     public static boolean placeBlockScaffold(BlockPos pos, boolean rotate) {
         for (EnumFacing side : EnumFacing.values()) {
             BlockPos neighbor = pos.offset(side);
@@ -121,32 +115,25 @@ public class AutoBedTrap extends Module {
         }
         return false;
     }
-
     private static PlayerControllerMP getPlayerController() {
         return AutoBedTrap.mc.playerController;
     }
-
     public static void processRightClickBlock(BlockPos pos, EnumFacing side, Vec3d hitVec) {
         AutoBedTrap.getPlayerController().processRightClickBlock(AutoBedTrap.mc.player, AutoBedTrap.mc.world, pos, side, hitVec, EnumHand.MAIN_HAND);
     }
-
     public static IBlockState getState(BlockPos pos) {
         return AutoBedTrap.mc.world.getBlockState(pos);
     }
-
     public static Block getBlock(BlockPos pos) {
         return AutoBedTrap.getState(pos).getBlock();
     }
-
     public static boolean canBeClicked(BlockPos pos) {
         return AutoBedTrap.getBlock(pos).canCollideCheck(AutoBedTrap.getState(pos), false);
     }
-
     public static void faceVectorPacketInstant(Vec3d vec) {
         float[] rotations = AutoBedTrap.getNeededRotations2(vec);
         AutoBedTrap.mc.player.connection.sendPacket((Packet)new CPacketPlayer.Rotation(rotations[0], rotations[1], AutoBedTrap.mc.player.onGround));
     }
-
     private static float[] getNeededRotations2(Vec3d vec) {
         Vec3d eyesPos = AutoBedTrap.getEyesPos();
         double diffX = vec.x - eyesPos.x;
@@ -157,27 +144,21 @@ public class AutoBedTrap extends Module {
         float pitch = (float)(-Math.toDegrees(Math.atan2(diffY, diffXZ)));
         return new float[]{AutoBedTrap.mc.player.rotationYaw + MathHelper.wrapDegrees((float)(yaw - AutoBedTrap.mc.player.rotationYaw)), AutoBedTrap.mc.player.rotationPitch + MathHelper.wrapDegrees((float)(pitch - AutoBedTrap.mc.player.rotationPitch))};
     }
-
     public static Vec3d getEyesPos() {
         return new Vec3d(AutoBedTrap.mc.player.posX, AutoBedTrap.mc.player.posY + (double)AutoBedTrap.mc.player.getEyeHeight(), AutoBedTrap.mc.player.posZ);
     }
-
     public static Vec3d getInterpolatedPos(Entity entity, float ticks) {
         return new Vec3d(entity.lastTickPosX, entity.lastTickPosY, entity.lastTickPosZ).add(AutoBedTrap.getInterpolatedAmount(entity, ticks));
     }
-
     public static Vec3d getInterpolatedAmount(Entity entity, double ticks) {
         return AutoBedTrap.getInterpolatedAmount(entity, ticks, ticks, ticks);
     }
-
     public static Vec3d getInterpolatedAmount(Entity entity, double x, double y, double z) {
         return new Vec3d((entity.posX - entity.lastTickPosX) * x, (entity.posY - entity.lastTickPosY) * y, (entity.posZ - entity.lastTickPosZ) * z);
     }
-
     private boolean blockChecks(Block block) {
         return block == Blocks.BED;
     }
-
     private EnumFacing getFacingDirection(BlockPos pos) {
         EnumFacing direction = null;
         if (!AutoBedTrap.mc.world.getBlockState((BlockPos)pos.add((int)0, (int)1, (int)0)).getBlock().fullBlock && !(AutoBedTrap.mc.world.getBlockState(pos.add(0, 1, 0)).getBlock() instanceof BlockBed)) {

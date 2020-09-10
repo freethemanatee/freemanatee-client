@@ -36,7 +36,6 @@ import net.minecraft.util.math.Vec3d;
 )
 
 public class SelfTrap extends Module {
-
     private final Vec3d[] offsetsDefault = new Vec3d[]{new Vec3d(0.0D, 0.0D, -1.0D), new Vec3d(1.0D, 0.0D, 0.0D), new Vec3d(0.0D, 0.0D, 1.0D), new Vec3d(-1.0D, 0.0D, 0.0D), new Vec3d(0.0D, 1.0D, -1.0D), new Vec3d(1.0D, 1.0D, 0.0D), new Vec3d(0.0D, 1.0D, 1.0D), new Vec3d(-1.0D, 1.0D, 0.0D), new Vec3d(0.0D, 2.0D, -1.0D), new Vec3d(1.0D, 2.0D, 0.0D), new Vec3d(0.0D, 2.0D, 1.0D), new Vec3d(-1.0D, 2.0D, 0.0D), new Vec3d(0.0D, 3.0D, -1.0D), new Vec3d(0.0D, 3.0D, 0.0D)};
     private final Vec3d[] offsetsExtra = new Vec3d[]{new Vec3d(0.0D, 0.0D, -1.0D), new Vec3d(1.0D, 0.0D, 0.0D), new Vec3d(0.0D, 0.0D, 1.0D), new Vec3d(-1.0D, 0.0D, 0.0D), new Vec3d(0.0D, 1.0D, -1.0D), new Vec3d(1.0D, 1.0D, 0.0D), new Vec3d(0.0D, 1.0D, 1.0D), new Vec3d(-1.0D, 1.0D, 0.0D), new Vec3d(0.0D, 2.0D, -1.0D), new Vec3d(1.0D, 2.0D, 0.0D), new Vec3d(0.0D, 2.0D, 1.0D), new Vec3d(-1.0D, 2.0D, 0.0D), new Vec3d(0.0D, 3.0D, -1.0D), new Vec3d(0.0D, 3.0D, 0.0D), new Vec3d(0.0D, 4.0D, 0.0D)};
     private Setting range = this.register(Settings.d("Range", 5.5D));
@@ -53,7 +52,6 @@ public class SelfTrap extends Module {
     private double yHeight;
     private double xPos;
     private double zPos;
-
     protected void onEnable() {
         if (mc.player == null) {
             this.disable();
@@ -67,41 +65,32 @@ public class SelfTrap extends Module {
             if ((Boolean)this.announceUsage.getValue()) {
                 Command.sendChatMessage("[SelfTrap] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " ");
             }
-
         }
     }
-
     protected void onDisable() {
         if (mc.player != null) {
             if (this.lastHotbarSlot != this.playerHotbarSlot && this.playerHotbarSlot != -1) {
                 Wrapper.getPlayer().inventory.currentItem = this.playerHotbarSlot;
             }
-
             if (this.isSneaking) {
                 mc.player.connection.sendPacket(new CPacketEntityAction(mc.player, Action.STOP_SNEAKING));
                 this.isSneaking = false;
             }
-
             this.playerHotbarSlot = -1;
             this.lastHotbarSlot = -1;
             if ((Boolean)this.announceUsage.getValue()) {
                 Command.sendChatMessage("[SelfTrap] " + ChatFormatting.RED.toString() + "Disabled" + ChatFormatting.RESET.toString() + " ");
             }
-
         }
     }
-
     public void onUpdate() {
-
         if (mc.player != null) {
             }
-
             this.findClosestTarget();
             if (this.closestTarget == null) {
                 if (this.firstRun) {
                     this.firstRun = false;
                 }
-
             } else {
                 if (this.firstRun) {
                     this.firstRun = false;
@@ -110,30 +99,25 @@ public class SelfTrap extends Module {
                     this.lastTickTargetName = this.closestTarget.getName();
                     this.offsetStep = 0;
                 }
-
                 List placeTargets = new ArrayList();
                 if ((Boolean)this.extrablock.getValue()) {
                     Collections.addAll(placeTargets, this.offsetsExtra);
                 } else {
                     Collections.addAll(placeTargets, this.offsetsDefault);
                 }
-
                 int blocksPlaced;
                 for(blocksPlaced = 0; blocksPlaced < (Integer)this.blockPerTick.getValue(); ++this.offsetStep) {
                     if (this.offsetStep >= placeTargets.size()) {
                         this.offsetStep = 0;
                         break;
                     }
-
                     BlockPos offsetPos = new BlockPos((Vec3d)placeTargets.get(this.offsetStep));
                     BlockPos targetPos = (new BlockPos(this.closestTarget.getPositionVector())).down().add(offsetPos.x, offsetPos.y, offsetPos.z);
                     boolean shouldTryToPlace = true;
                     if (!Wrapper.getWorld().getBlockState(targetPos).getMaterial().isReplaceable()) {
                         shouldTryToPlace = false;
                     }
-
                     Iterator var6 = mc.world.getEntitiesWithinAABBExcludingEntity((Entity)null, new AxisAlignedBB(targetPos)).iterator();
-
                     while(var6.hasNext()) {
                         Entity entity = (Entity)var6.next();
                         if (!(entity instanceof EntityItem) && !(entity instanceof EntityXPOrb)) {
@@ -141,28 +125,22 @@ public class SelfTrap extends Module {
                             break;
                         }
                     }
-
                     if (shouldTryToPlace && this.placeBlockTravis(targetPos)) {
                         ++blocksPlaced;
                     }
                 }
-
                 if (blocksPlaced > 0) {
                     if (this.lastHotbarSlot != this.playerHotbarSlot && this.playerHotbarSlot != -1) {
                         Wrapper.getPlayer().inventory.currentItem = this.playerHotbarSlot;
                         this.lastHotbarSlot = this.playerHotbarSlot;
                     }
-
                     if (this.isSneaking) {
                         mc.player.connection.sendPacket(new CPacketEntityAction(mc.player, Action.STOP_SNEAKING));
                         this.isSneaking = false;
                     }
                 }
-
             }
         }
-
-
     private boolean placeBlockTravis(BlockPos pos) {
         if (!mc.world.getBlockState(pos).getMaterial().isReplaceable()) {
             return false;
@@ -172,7 +150,6 @@ public class SelfTrap extends Module {
             Vec3d eyesPos = new Vec3d(Wrapper.getPlayer().posX, Wrapper.getPlayer().posY + (double)Wrapper.getPlayer().getEyeHeight(), Wrapper.getPlayer().posZ);
             EnumFacing[] var3 = EnumFacing.values();
             int var4 = var3.length;
-
             for(int var5 = 0; var5 < var4; ++var5) {
                 EnumFacing side = var3[var5];
                 BlockPos neighbor = pos.offset(side);
@@ -185,18 +162,15 @@ public class SelfTrap extends Module {
                             this.disable();
                             return false;
                         }
-
                         if (this.lastHotbarSlot != obiSlot) {
                             Wrapper.getPlayer().inventory.currentItem = obiSlot;
                             this.lastHotbarSlot = obiSlot;
                         }
-
                         Block neighborPos = mc.world.getBlockState(neighbor).getBlock();
                         if (BlockInteractionHelper.blackList.contains(neighborPos)) {
                             mc.player.connection.sendPacket(new CPacketEntityAction(mc.player, Action.START_SNEAKING));
                             this.isSneaking = true;
                         }
-
                         BlockInteractionHelper.faceVectorPacketInstant(hitVec);
                         mc.playerController.processRightClickBlock(mc.player, mc.world, neighbor, side2, hitVec, EnumHand.MAIN_HAND);
                         mc.player.swingArm(EnumHand.MAIN_HAND);
@@ -204,14 +178,11 @@ public class SelfTrap extends Module {
                     }
                 }
             }
-
             return false;
         }
     }
-
     private int findObiInHotbar() {
         int slot = -1;
-
         for(int i = 0; i < 9; ++i) {
             ItemStack stack = Wrapper.getPlayer().inventory.getStackInSlot(i);
             if (stack != ItemStack.EMPTY && stack.getItem() instanceof ItemBlock && ((ItemBlock)stack.getItem()).getBlock() instanceof BlockObsidian) {
@@ -219,10 +190,8 @@ public class SelfTrap extends Module {
                 break;
             }
         }
-
         return slot;
     }
-
     private void findClosestTarget() {
         List playerList = Wrapper.getWorld().playerEntities;
         this.closestTarget = null;
@@ -238,6 +207,5 @@ public class SelfTrap extends Module {
                 }
             }
         }
-
     }
 }

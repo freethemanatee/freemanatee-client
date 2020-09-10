@@ -9,12 +9,10 @@ import me.zopac.freemanatee.module.Module;
 )
 
 public class DiscordRPC extends Module{
-
     @Override
     protected void onEnable() {
         Discord.start();
     }
-
     @Override
     protected void onDisable() {
         Discord.end();

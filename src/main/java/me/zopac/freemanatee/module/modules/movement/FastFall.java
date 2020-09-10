@@ -16,7 +16,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 
-@Module.Info(name="FastFall", description="fall go brrrrrrrrrrrrrrrrr", category=Module.Category.MOVEMENT)
+@Module.Info(name="FastFall", category=Module.Category.MOVEMENT)
 public class FastFall
         extends Module {
 

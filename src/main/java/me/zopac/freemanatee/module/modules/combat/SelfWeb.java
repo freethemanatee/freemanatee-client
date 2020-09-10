@@ -21,10 +21,9 @@ import net.minecraft.util.math.Vec3d;
         category = Module.Category.COMBAT
 )
 public class SelfWeb extends Module {
-
     BlockPos feet;
-
     private Setting<Boolean> triggerable = register(Settings.b("Triggerable", true));
+    private Setting<Boolean> announceUsage = this.register(Settings.b("Announce Usage", true));
     private Setting<Integer> timeoutTicks = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(40).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
     private Setting<Integer> tickDelay = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
     private Setting delay = this.register(Settings.integerBuilder("Delay").withRange(0, 10).withValue((int)3).build());
@@ -34,20 +33,15 @@ public class SelfWeb extends Module {
     private boolean firstRun;
     public static float yaw;
     public static float pitch;
-    private Setting announceUsage = this.register(Settings.b("Announce Usage", true));
-
     public boolean isInBlockRange(Entity target) {
         return target.getDistance(mc.player) <= 4.0F;
     }
-
     public static boolean canBeClicked(BlockPos pos) {
         return mc.world.getBlockState(pos).getBlock().canCollideCheck(mc.world.getBlockState(pos), false);
     }
-
     private boolean isStackObby(ItemStack stack) {
         return stack != null && stack.getItem() == Item.getItemById(30);
     }
-
     private boolean doesHotbarHaveWeb() {
         for(int i = 36; i < 45; ++i) {
             ItemStack stack = mc.player.inventoryContainer.getSlot(i).getStack();
@@ -55,24 +49,19 @@ public class SelfWeb extends Module {
                 return true;
             }
         }
-
         return false;
     }
-
     public static Block getBlock(BlockPos pos) {
         return getState(pos).getBlock();
     }
-
     public static IBlockState getState(BlockPos pos) {
         return mc.world.getBlockState(pos);
     }
-
     public static boolean placeBlockLegit(BlockPos pos) {
         Vec3d eyesPos = new Vec3d(mc.player.posX, mc.player.posY + (double)mc.player.getEyeHeight(), mc.player.posZ);
         Vec3d posVec = (new Vec3d(pos)).add(0.5D, 0.5D, 0.5D);
         EnumFacing[] var3 = EnumFacing.values();
         int var4 = var3.length;
-
         for(int var5 = 0; var5 < var4; ++var5) {
             EnumFacing side = var3[var5];
             BlockPos neighbor = pos.offset(side);
@@ -81,32 +70,26 @@ public class SelfWeb extends Module {
                 if (eyesPos.squareDistanceTo(hitVec) <= 36.0D) {
                     mc.playerController.processRightClickBlock(mc.player, mc.world, neighbor, side.getOpposite(), hitVec, EnumHand.MAIN_HAND);
                     mc.player.swingArm(EnumHand.MAIN_HAND);
-
                     try {
                         TimeUnit.MILLISECONDS.sleep(10L);
                     } catch (InterruptedException var10) {
                         var10.printStackTrace();
                     }
-
                     return true;
                 }
             }
         }
-
         return false;
     }
-
     public void onUpdate() {
         if (!mc.player.isHandActive()) {
-            this.trap(mc.player);
+            this.webself(mc.player);
         }
-
         if (triggerable.getValue() && totalTicksRunning >= timeoutTicks.getValue()) {
             totalTicksRunning = 0;
             this.disable();
             return;
         }
-
         if (!firstRun) {
             if (delayStep < tickDelay.getValue()) {
                 delayStep++;
@@ -114,15 +97,12 @@ public class SelfWeb extends Module {
             } else {
                 delayStep = 0;
             }
-
             totalTicksRunning++;
         }
     }
-
     public static double roundToHalf(double d) {
         return (double)Math.round(d * 2.0D) / 2.0D;
     }
-
     public void onEnable() {
         if (mc.player == null) {
             this.disable();
@@ -130,25 +110,20 @@ public class SelfWeb extends Module {
             if ((Boolean)this.announceUsage.getValue()) {
                 Command.sendChatMessage("\u00A7aSelfweb has been enabled");
             }
-
             this.d = 0;
         }
         firstRun = true;
     }
-
-    private void trap(EntityPlayer player) {
+    private void webself(EntityPlayer player) {
         if ((double)player.moveForward == 0.0D && (double)player.moveStrafing == 0.0D && (double)player.moveForward == 0.0D) {
             ++this.d;
         }
-
         if ((double)player.moveForward != 0.0D || (double)player.moveStrafing != 0.0D || (double)player.moveForward != 0.0D) {
             this.d = 0;
         }
-
         if (!this.doesHotbarHaveWeb()) {
             this.d = 0;
         }
-
         if (this.d == (Integer)this.delay.getValue() && this.doesHotbarHaveWeb()) {
             this.feet = new BlockPos(player.posX, player.posY, player.posZ);
 
@@ -161,18 +136,14 @@ public class SelfWeb extends Module {
                         if (mc.world.getBlockState(this.feet).getMaterial().isReplaceable()) {
                             placeBlockLegit(this.feet);
                         }
-
                         mc.player.inventory.currentItem = oldSlot;
                         this.d = 0;
                         break;
                     }
-
                     this.d = 0;
                 }
-
                 this.d = 0;
             }
-
         }
     }
 
