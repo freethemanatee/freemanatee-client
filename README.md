@@ -2,13 +2,17 @@
 
 Credits
 -------------------------------
+
 * Opfern by Kami
 * Kami Blue by Bella/HyperSkrub
 * Hephaestus By blockparole
+* A2H for being cool
 
 Changelog
 -------------------------------
-* Added MultiPlace option (non-functional)
-* Created .gitignore
-* Removed AntiSuicide do to redundancy
-* Updated README and CREDITS
+* Changed the version because i forgot
+* Autobedbomb
+* Changed some ca stuff
+* AutoTrapAir
+* Fixing bugs
+* Got rid of kotlin

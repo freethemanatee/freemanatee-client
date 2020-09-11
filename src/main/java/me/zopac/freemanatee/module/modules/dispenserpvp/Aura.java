@@ -24,14 +24,23 @@ import java.util.Iterator;
 @Module.Info(name = "32k Aura", category = Module.Category.dispenserpvp)
 public class Aura extends Module {
 
-    private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
-    private Setting<Double> hitRange = register(Settings.d("Hit Range", 5.5d));
-    private Setting<WaitMode> waitMode = register(Settings.e("Mode", WaitMode.STATIC));
-    private Setting<Boolean> ignoreWalls = register(Settings.b("Ignore Walls", true));
-    private Setting<Integer> waitTick = register(Settings.integerBuilder("Tick Delay").withMinimum(-10000).withValue(-2000).withVisibility(o -> waitMode.getValue().equals(WaitMode.STATIC)).build());
-    private Setting<Boolean> switchTo32k = register(Settings.b("32k Switch", true));
-    private Setting<Boolean> onlyUse32k = register(Settings.b("32k Only", true));
+    private Setting<Boolean> attackPlayers;
+    private Setting<Boolean> ignoreWalls;
+    private Setting<Boolean> switchTo32k;
+    private Setting<Boolean> onlyUse32k;
+    private Setting<Integer> waitTick;
+    private Setting<Integer> waitMode;
+    private Setting<Double> hitRange;
 
+
+    public Aura() {
+        this.attackPlayers = register(Settings.b("Players", true));
+        this.hitRange = register(Settings.d("Hit Range", 5.5d));
+        this.ignoreWalls = register(Settings.b("Ignore Walls", true));
+        this.waitTick = this.register((Setting<Integer>) Settings.integerBuilder("Hit Delay").withMinimum(-2000).withMaximum(2000).withValue(-2000).build());
+        this.switchTo32k = register(Settings.b("32k Switch", true));
+        this.onlyUse32k = register(Settings.b("32k Only", true));
+    }
     private int waitCounter;
 
     @Override
@@ -82,15 +91,12 @@ public class Aura extends Module {
                 continue;
             }
             if (!ignoreWalls.getValue() && (!mc.player.canEntityBeSeen(target) && !canEntityFeetBeSeen(target))) {
-                continue; // If walls is on & you can't see the feet or head of the target, skip. 2 raytraces needed
+                continue;
             }
             if (attackPlayers.getValue() && target instanceof EntityPlayer && !Friends.isFriend(target.getName())) {
                 attack(target);
                 return;
             } else {
-                    // We want to skip this if switchTo32k.getValue() is true,
-                    // because it only accounts for tools and weapons.
-                    // Maybe someone could refactor this later? :3
                     if (!switchTo32k.getValue() && ModuleManager.isModuleEnabled("AutoTool")) {
                         AutoTool.equipBestWeapon();
                     }

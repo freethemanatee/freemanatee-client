@@ -1,37 +1,37 @@
 package me.zopac.freemanatee.module.modules.combat;
 
-import me.zopac.freemanatee.setting.*;
-import me.zopac.freemanatee.util.*;
-import me.zopac.freemanatee.module.*;
-
+import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
+import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
+import net.minecraft.util.math.BlockPos;
+import me.zopac.freemanatee.setting.*;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.EnumFacing;
+import me.zopac.freemanatee.module.*;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.client.CPacketEntityAction;
-import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
-import net.minecraft.util.EnumFacing;
+import me.zopac.freemanatee.util.*;
+import java.util.stream.Collectors;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Module.Info(name = "AirAutoTrap", category = Module.Category.COMBAT)
 public class AirAutoTrap extends Module {
-    private Setting<Boolean> autoSwitch;
+    private Setting<Boolean> autoobiswitch;
+    private Setting<Boolean> autobedswitch;
     BlockPos target;
     public AirAutoTrap() {
-        this.autoSwitch = this.register(Settings.b("Auto Bed Switch", true));
+        this.autoobiswitch = this.register(Settings.b("Switch to obsidian", true));
+        this.autobedswitch = this.register(Settings.b("Bed On Disable", false));
     }
     @Override
     protected void onEnable() {
         for (EntityPlayer player : getTargets()) {
             target = new BlockPos(player.posX, player.posY, player.posZ);
-            if (autoSwitch.getValue()) {
+            if (autoobiswitch.getValue()) {
                 switchHandToItemIfNeed(ItemBlock.getItemById(49));
             }
             if (mc.player.getHeldItemMainhand().getItem() == ItemBlock.getItemById(49)) {
@@ -41,11 +41,15 @@ public class AirAutoTrap extends Module {
                 if (mc.world.getBlockState(target.up().up().up()) != Blocks.AIR) {
                     placeBlock(target.up().up().up(), EnumFacing.DOWN);
                 }
-
             }
-
         }
         this.toggle();
+    }
+    @Override
+    protected void onDisable() {
+        if (autobedswitch.getValue()) {
+            switchHandToItemIfNeed(ItemBlock.getItemById(355));
+        }
     }
     private void placeBlock(BlockPos pos, EnumFacing side) {
         BlockPos neighbour = pos.offset(side);

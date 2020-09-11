@@ -26,8 +26,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Module.Info(name="Hole Esp", category=Module.Category.RENDER)
-public class HoleESP
-        extends Module {
+public class HoleESP extends Module {
 
     private Setting<Double> range = this.register(Settings.d("Range", 7.0));
     private Setting<Boolean> highlight = this.register(Settings.b("Block Highlight", false));

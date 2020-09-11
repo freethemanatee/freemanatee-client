@@ -1,256 +1,251 @@
 package me.zopac.freemanatee.module.modules.dispenserpvp;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-import me.zopac.freemanatee.command.Command;
-import me.zopac.freemanatee.module.Module;
-import me.zopac.freemanatee.module.ModuleManager;
-import me.zopac.freemanatee.setting.Setting;
-import me.zopac.freemanatee.setting.Settings;
-import me.zopac.freemanatee.util.BlockInteractionHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockAir;
-import net.minecraft.block.BlockLiquid;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.init.Blocks;
-import net.minecraft.inventory.ClickType;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.client.CPacketEntityAction;
-import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
-
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-
-import static me.zopac.freemanatee.util.BlockInteractionHelper.faceVectorPacketInstant;
+import net.minecraft.client.gui.inventory.*;
+import net.minecraft.network.play.client.*;
+import me.zopac.freemanatee.setting.*;
+import me.zopac.freemanatee.command.*;
+import me.zopac.freemanatee.module.*;
+import net.minecraft.entity.player.*;
+import me.zopac.freemanatee.util.*;
+import net.minecraft.util.math.*;
+import net.minecraft.inventory.*;
+import net.minecraft.network.*;
+import net.minecraft.entity.*;
+import net.minecraft.block.*;
+import net.minecraft.item.*;
+import net.minecraft.init.*;
+import net.minecraft.util.*;
+import java.text.*;
+import java.math.*;
 
 @Module.Info(name = "Auto32k", category = Module.Category.dispenserpvp)
 public class Auto32k extends Module {
-
-    private static final DecimalFormat df = new DecimalFormat("#.#");
-
-
-    private Setting<Boolean> rotate = register(Settings.b("Rotate", true));
-    private Setting<Boolean> grabItem = register(Settings.b("Grab Item", true));
-    private Setting<Boolean> autoEnableHitAura = register(Settings.b("Auto enable Hit Aura", true));
-    private Setting<Boolean> HN = register(Settings.b("Disable Hopper Nuker", true));
-    private Setting<Boolean> debugMessages = register(Settings.b("Debug Messages", true));
-
+    private static final DecimalFormat df;
+    private Setting<Boolean> autoEnableHitAura;
+    private Setting<Boolean> debugMessages;
+    private Setting<Boolean> eventMessages;
+    private Setting<Boolean> fillHopper;
+    private Setting<Boolean> grabItem;
+    private Setting<Boolean> rotate;
+    private BlockPos placeTarget;
+    private boolean isSneaking;
+    private int dispenserSlot;
+    private int targetDistance;
+    private int redstoneSlot;
+    private int shulkerSlot;
+    private int hopperSlot;
+    private int obiSlot;
     private int stage;
 
-    private BlockPos placeTarget;
-
-    private int obiSlot;
-    private int dispenserSlot;
-    private int shulkerSlot;
-    private int redstoneSlot;
-    private int hopperSlot;
-
-    private boolean isSneaking;
+    public Auto32k() {
+        this.autoEnableHitAura = this.register(Settings.b("Auto enable Hit Aura", false));
+        this.debugMessages = this.register(Settings.b("Debug Messages", false));
+        this.eventMessages = this.register(Settings.b("Event Messages", false));
+        this.fillHopper = this.register(Settings.b("Fill Hopper", true));
+        this.grabItem = this.register(Settings.b("Grab Item", true));
+        this.rotate = this.register(Settings.b("Rotate", false));
+    }
 
     @Override
     protected void onEnable() {
-
-        if (mc.world == null)
-            return;
-
-        if (this.HN.getValue()) {
-            ModuleManager.getModuleByName("HopperNuker").disable();
-        }
-
-        if (mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
+        if (Auto32k.mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
             this.disable();
             return;
         }
-
-
-        df.setRoundingMode(RoundingMode.CEILING);
-
-        stage = 0;
-
-        placeTarget = null;
-
-        obiSlot = -1;
-        dispenserSlot = -1;
-        shulkerSlot = -1;
-        redstoneSlot = -1;
-        hopperSlot = -1;
-
-        isSneaking = false;
-
-        for (int i = 0; i < 9; i++) {
-
-            if (obiSlot != -1 && dispenserSlot != -1 && shulkerSlot != -1 && redstoneSlot != -1 && hopperSlot != -1) {
-                break;
+        Auto32k.df.setRoundingMode(RoundingMode.CEILING);
+        this.stage = 0;
+        this.placeTarget = null;
+        this.obiSlot = -1;
+        this.dispenserSlot = -1;
+        this.shulkerSlot = -1;
+        this.redstoneSlot = -1;
+        this.hopperSlot = -1;
+        this.isSneaking = false;
+        for (int i = 0; i < 9 && (this.obiSlot == -1 || this.dispenserSlot == -1 || this.shulkerSlot == -1 || this.redstoneSlot == -1 || this.hopperSlot == -1); ++i) {
+            final ItemStack stack = Auto32k.mc.player.inventory.getStackInSlot(i);
+            if (stack != ItemStack.EMPTY) {
+                if (stack.getItem() instanceof ItemBlock) {
+                    final Block block = ((ItemBlock)stack.getItem()).getBlock();
+                    if (block == Blocks.HOPPER) {
+                        this.hopperSlot = i;
+                    }
+                    else if (BlockInteractionHelper.shulkerList.contains(block)) {
+                        this.shulkerSlot = i;
+                    }
+                    else if (block == Blocks.OBSIDIAN) {
+                        this.obiSlot = i;
+                    }
+                    else if (block == Blocks.DISPENSER) {
+                        this.dispenserSlot = i;
+                    }
+                    else if (block == Blocks.REDSTONE_BLOCK) {
+                        this.redstoneSlot = i;
+                    }
+                }
             }
-
-            ItemStack stack = mc.player.inventory.getStackInSlot(i);
-
-            if (stack == ItemStack.EMPTY || !(stack.getItem() instanceof ItemBlock)) {
-                continue;
-            }
-
-            Block block = ((ItemBlock) stack.getItem()).getBlock();
-
-            if (block == Blocks.HOPPER) {
-                hopperSlot = i;
-            } else if (BlockInteractionHelper.shulkerList.contains(block)) {
-                shulkerSlot = i;
-            } else if (block == Blocks.OBSIDIAN) {
-                obiSlot = i;
-            } else if (block == Blocks.DISPENSER) {
-                dispenserSlot = i;
-            } else if (block == Blocks.REDSTONE_BLOCK) {
-                redstoneSlot = i;
-            }
-
         }
-
-        if (obiSlot == -1 || dispenserSlot == -1 || shulkerSlot == -1 || redstoneSlot == -1 || hopperSlot == -1) {
-            if (debugMessages.getValue()) {
-                Command.sendChatMessage("[Auto32k] " + ChatFormatting.RED.toString() + "Items missing, disabling" + ChatFormatting.RESET.toString() + " ");
+        if (this.obiSlot == -1 || this.dispenserSlot == -1 || this.shulkerSlot == -1 || this.redstoneSlot == -1 || this.hopperSlot == -1) {
+            if (this.debugMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Items missing, disabling.");
             }
             this.disable();
             return;
         }
-
-        // IntelliJ dumb, iirc this can cause npe when looking in water, at crystal etc.
-        if (mc.objectMouseOver == null || mc.objectMouseOver.getBlockPos() == null || mc.objectMouseOver.getBlockPos().up() == null) {
-            if (debugMessages.getValue()) {
-                Command.sendChatMessage("[Auto32k] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " ");
+        if (Auto32k.mc.objectMouseOver == null || Auto32k.mc.objectMouseOver.getBlockPos() == null || Auto32k.mc.objectMouseOver.getBlockPos().up() == null) {
+            if (this.debugMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Not a valid place target, disabling.");
             }
             this.disable();
             return;
         }
-
-        placeTarget = mc.objectMouseOver.getBlockPos().up();
-
-        if (debugMessages.getValue()) {
-            Command.sendChatMessage("[Auto32k] " + ChatFormatting.GREEN.toString() + "Enabled" + ChatFormatting.RESET.toString() + " Distance: " + df.format(mc.player.getPositionVector().distanceTo(new Vec3d(placeTarget))));
+        this.placeTarget = Auto32k.mc.objectMouseOver.getBlockPos().up();
+        this.targetDistance = (int)Auto32k.mc.player.getPositionVector().distanceTo(new Vec3d((Vec3i)this.placeTarget));
+        if (this.targetDistance >= 5 || this.targetDistance <= 1) {
+            if (this.debugMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Not a valid place target, disabling.");
+            }
+            this.disable();
+            return;
         }
-
+        if (this.debugMessages.getValue()) {
+            Command.sendChatMessage("[Auto32k] Place Target: " + this.placeTarget.x + " " + this.placeTarget.y + " " + this.placeTarget.z + " Distance: " + Auto32k.df.format(Auto32k.mc.player.getPositionVector().distanceTo(new Vec3d((Vec3i)this.placeTarget))));
+        }
     }
 
     @Override
     public void onUpdate() {
-
-        if (mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
+        if (Auto32k.mc.player == null || ModuleManager.isModuleEnabled("Freecam ")) {
             return;
         }
-
-        // stage 0: place obi and dispenser
-        if (stage == 0) {
-
-            mc.player.inventory.currentItem = obiSlot;
-            placeBlock(new BlockPos(placeTarget), EnumFacing.DOWN);
-
-            mc.player.inventory.currentItem = dispenserSlot;
-            placeBlock(new BlockPos(placeTarget.add(0, 1, 0)), EnumFacing.DOWN);
-
-            mc.player.connection.sendPacket(new CPacketEntityAction(mc.player, CPacketEntityAction.Action.STOP_SNEAKING));
-            isSneaking = false;
-
-            mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(placeTarget.add(0, 1, 0), EnumFacing.DOWN, EnumHand.MAIN_HAND, 0, 0, 0));
-
-            stage = 1;
+        if (this.stage == 0) {
+            Auto32k.mc.player.inventory.currentItem = this.obiSlot;
+            this.placeBlock(new BlockPos((Vec3i)this.placeTarget), EnumFacing.DOWN);
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Placed obsidian.");
+            }
+            Auto32k.mc.player.inventory.currentItem = this.dispenserSlot;
+            this.placeBlock(new BlockPos((Vec3i)this.placeTarget.add(0, 1, 0)), EnumFacing.DOWN);
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Placed dispenser.");
+            }
+            Auto32k.mc.player.connection.sendPacket((Packet)new CPacketEntityAction((Entity)Auto32k.mc.player, CPacketEntityAction.Action.STOP_SNEAKING));
+            this.isSneaking = false;
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Attempting to open dispenser.");
+            }
+            Auto32k.mc.player.connection.sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock(this.placeTarget.add(0, 1, 0), EnumFacing.DOWN, EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
+            this.stage = 1;
             return;
-
         }
-
-        // stage 1: put shulker, place redstone
-        if (stage == 1) {
-
-            if (!(mc.currentScreen instanceof GuiContainer)) {
+        if (this.stage == 1) {
+            if (!(Auto32k.mc.currentScreen instanceof GuiContainer)) {
                 return;
             }
-
-            mc.playerController.windowClick(mc.player.openContainer.windowId, 1, shulkerSlot, ClickType.SWAP, mc.player);
-            mc.player.closeScreen();
-
-            mc.player.inventory.currentItem = redstoneSlot;
-            placeBlock(new BlockPos(placeTarget.add(0, 2, 0)), EnumFacing.DOWN);
-
-            stage = 2;
-            return;
-
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Successfully opened dispenser.");
+            }
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Attempting to move shulker.");
+            }
+            Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 1, this.shulkerSlot, ClickType.SWAP, (EntityPlayer)Auto32k.mc.player);
+            Auto32k.mc.player.closeScreen();
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Successfully moved shulker.");
+            }
+            Auto32k.mc.player.inventory.currentItem = this.redstoneSlot;
+            this.placeBlock(new BlockPos((Vec3i)this.placeTarget.add(0, 2, 0)), EnumFacing.DOWN);
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Placed redstone block.");
+            }
+            this.stage = 2;
         }
-
-        // stage 2: place hopper
-        if (stage == 2) {
-
-            // TODO: fix instahopper, why boken? ;(
-            Block block = mc.world.getBlockState(placeTarget.offset(mc.player.getHorizontalFacing().getOpposite()).up()).getBlock();
-            if ((block instanceof BlockAir) || (block instanceof BlockLiquid)) {
+        else {
+            if (this.stage != 2) {
+                if (this.stage == 3) {
+                    if (!(Auto32k.mc.currentScreen instanceof GuiContainer)) {
+                        return;
+                    }
+                    if (((GuiContainer)Auto32k.mc.currentScreen).inventorySlots.getSlot(0).getStack().isEmpty) {
+                        return;
+                    }
+                    if (this.fillHopper.getValue()) {
+                        if (this.eventMessages.getValue()) {
+                            Command.sendChatMessage("[Auto32k] Beginning to fill hopper.");
+                        }
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 4, this.obiSlot, ClickType.SWAP, (EntityPlayer)Auto32k.mc.player);
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 4, 0, ClickType.PICKUP, (EntityPlayer)Auto32k.mc.player);
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 4, 1, ClickType.PICKUP, (EntityPlayer)Auto32k.mc.player);
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 3, 1, ClickType.PICKUP, (EntityPlayer)Auto32k.mc.player);
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 2, 1, ClickType.PICKUP, (EntityPlayer)Auto32k.mc.player);
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 1, 1, ClickType.PICKUP, (EntityPlayer)Auto32k.mc.player);
+                    }
+                    if (this.eventMessages.getValue()) {
+                        Command.sendChatMessage("[Auto32k] Attempting to move sword. ");
+                    }
+                    Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 0, Auto32k.mc.player.inventory.currentItem, ClickType.SWAP, (EntityPlayer)Auto32k.mc.player);
+                    if (this.fillHopper.getValue()) {
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 0, 0, ClickType.PICKUP, (EntityPlayer)Auto32k.mc.player);
+                        Auto32k.mc.playerController.windowClick(Auto32k.mc.player.openContainer.windowId, 0, this.obiSlot, ClickType.SWAP, (EntityPlayer)Auto32k.mc.player);
+                        if (this.eventMessages.getValue()) {
+                            Command.sendChatMessage("[Auto32k] Hopper filled.");
+                        }
+                    }
+                    if (this.eventMessages.getValue()) {
+                        Command.sendChatMessage("[Auto32k] Successfully moved sword. ");
+                    }
+                    if (this.autoEnableHitAura.getValue()) {
+                        ModuleManager.getModuleByName("Aura").enable();
+                    }
+                    if (this.eventMessages.getValue()) {
+                        Command.sendChatMessage("[Auto32k] 32k placed, disabling.");
+                    }
+                    this.disable();
+                }
                 return;
             }
-
-            mc.player.inventory.currentItem = hopperSlot;
-            placeBlock(new BlockPos(placeTarget.offset(mc.player.getHorizontalFacing().getOpposite())), mc.player.getHorizontalFacing());
-
-            mc.player.connection.sendPacket(new CPacketEntityAction(mc.player, CPacketEntityAction.Action.STOP_SNEAKING));
-            isSneaking = false;
-
-            mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(placeTarget.offset(mc.player.getHorizontalFacing().getOpposite()), EnumFacing.DOWN, EnumHand.MAIN_HAND, 0, 0, 0));
-
-            mc.player.inventory.currentItem = shulkerSlot;
-
-            if (!grabItem.getValue()) {
+            final Block block = Auto32k.mc.world.getBlockState(this.placeTarget.offset(Auto32k.mc.player.getHorizontalFacing().getOpposite()).up()).getBlock();
+            if (block instanceof BlockAir || block instanceof BlockLiquid) {
+                return;
+            }
+            Auto32k.mc.player.inventory.currentItem = this.hopperSlot;
+            this.placeBlock(new BlockPos((Vec3i)this.placeTarget.offset(Auto32k.mc.player.getHorizontalFacing().getOpposite())), Auto32k.mc.player.getHorizontalFacing());
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Placed hopper.");
+            }
+            Auto32k.mc.player.connection.sendPacket((Packet)new CPacketEntityAction((Entity)Auto32k.mc.player, CPacketEntityAction.Action.STOP_SNEAKING));
+            this.isSneaking = false;
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Attempting to open hopper.");
+            }
+            Auto32k.mc.player.connection.sendPacket((Packet)new CPacketPlayerTryUseItemOnBlock(this.placeTarget.offset(Auto32k.mc.player.getHorizontalFacing().getOpposite()), EnumFacing.DOWN, EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
+            if (this.eventMessages.getValue()) {
+                Command.sendChatMessage("[Auto32k] Successfully opened hopper.");
+            }
+            Auto32k.mc.player.inventory.currentItem = this.shulkerSlot;
+            if (!this.grabItem.getValue()) {
                 this.disable();
                 return;
             }
-
-            stage = 3;
-            return;
-
-        }
-
-        // stage 3: hopper gui
-        if (stage == 3) {
-
-            if (!(mc.currentScreen instanceof GuiContainer)) {
-                return;
-            }
-
-            if (((GuiContainer) mc.currentScreen).inventorySlots.getSlot(0).getStack().isEmpty) {
-                return;
-            }
-
-            mc.playerController.windowClick(mc.player.openContainer.windowId, 0, mc.player.inventory.currentItem, ClickType.SWAP, mc.player);
-
-            if (autoEnableHitAura.getValue()) {
-                ModuleManager.getModuleByName("32k Aura").enable();
-            }
-
-            this.disable();
-
-        }
-
-    }
-
-    private void placeBlock(BlockPos pos, EnumFacing side) {
-
-        BlockPos neighbour = pos.offset(side);
-        EnumFacing opposite = side.getOpposite();
-
-        if (!isSneaking) {
-            mc.player.connection.sendPacket(new CPacketEntityAction(mc.player, CPacketEntityAction.Action.START_SNEAKING));
-            isSneaking = true;
-        }
-
-        Vec3d hitVec = new Vec3d(neighbour).add(0.5, 0.5, 0.5).add(new Vec3d(opposite.getDirectionVec()).scale(0.5));
-
-        if (rotate.getValue()) {
-            faceVectorPacketInstant(hitVec);
-        }
-
-        mc.playerController.processRightClickBlock(mc.player, mc.world, neighbour, opposite, hitVec, EnumHand.MAIN_HAND);
-        mc.player.swingArm(EnumHand.MAIN_HAND);
-        
-
+            this.stage = 3;
         }
     }
 
+    private void placeBlock(final BlockPos pos, final EnumFacing side) {
+        final BlockPos neighbour = pos.offset(side);
+        final EnumFacing opposite = side.getOpposite();
+        if (!this.isSneaking) {
+            Auto32k.mc.player.connection.sendPacket((Packet)new CPacketEntityAction((Entity)Auto32k.mc.player, CPacketEntityAction.Action.START_SNEAKING));
+            this.isSneaking = true;
+        }
+        final Vec3d hitVec = new Vec3d((Vec3i)neighbour).add(0.5, 0.5, 0.5).add(new Vec3d(opposite.getDirectionVec()).scale(0.5));
+        if (this.rotate.getValue()) {
+            BlockInteractionHelper.faceVectorPacketInstant(hitVec);
+        }
+        Auto32k.mc.playerController.processRightClickBlock(Auto32k.mc.player, Auto32k.mc.world, neighbour, opposite, hitVec, EnumHand.MAIN_HAND);
+        Auto32k.mc.player.swingArm(EnumHand.MAIN_HAND);
+    }
 
+    static {
+        df = new DecimalFormat("#.#");
+    }
+}

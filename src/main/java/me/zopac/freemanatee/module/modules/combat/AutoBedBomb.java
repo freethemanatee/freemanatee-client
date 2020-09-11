@@ -2,14 +2,12 @@ package me.zopac.freemanatee.module.modules.combat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import me.zopac.freemanatee.command.Command;
-import me.zopac.freemanatee.event.events.RenderEvent;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
 import me.zopac.freemanatee.util.Friends;
 import me.zopac.freemanatee.util.BlocksUtils;
 import me.zopac.freemanatee.module.Module;
-import me.zopac.freemanatee.util.BedAuraUtils;
-import me.zopac.freemanatee.util.KamiTessellator;
+import me.zopac.freemanatee.util.BedAuraUtil;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBed;
@@ -25,7 +23,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
-import java.awt.*;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,7 +56,7 @@ public class AutoBedBomb extends Module {
 
     BlockPos targetPlace;
 
-    BedAuraUtils util = new BedAuraUtils();
+    BedAuraUtil util = new BedAuraUtil();
 
     public AutoBedBomb() {
         this.range = register(Settings.integerBuilder("Range").withMinimum(0).withMaximum(10).withValue(6));
@@ -93,10 +90,10 @@ public class AutoBedBomb extends Module {
                 .sorted(Comparator.comparing(e -> mc.player.getDistance(e.getPos().getX(), e.getPos().getY(), e.getPos().getZ())))
                 .forEach(bed -> {
                     if (mc.player.dimension == 0) return;
-                        if (rotate.getValue())
-                            BlocksUtils.faceVectorPacketInstant(new Vec3d(bed.getPos().add(0.5, 0.5, 0.5)));
-                        mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(bed.getPos(), EnumFacing.UP, EnumHand.MAIN_HAND, 0, 0, 0));
-                        return;
+                    if (rotate.getValue())
+                        BlocksUtils.faceVectorPacketInstant(new Vec3d(bed.getPos().add(0.5, 0.5, 0.5)));
+                    mc.player.connection.sendPacket(new CPacketPlayerTryUseItemOnBlock(bed.getPos(), EnumFacing.UP, EnumHand.MAIN_HAND, 0, 0, 0));
+                    return;
                 });
         // refills on beds
         if(refill.getValue()) {
@@ -148,10 +145,10 @@ public class AutoBedBomb extends Module {
                 north = targetPlayer.north();
                 south = targetPlayer.south();
                 if(player.isElytraFlying()) {
-                    targetBlock = util.getBedAuraDistance(west, east, north, south);
+                    targetBlock = util.beddistance(west, east, north, south);
                     targetBlock = new BlockPos(targetBlock.getX(), targetBlock.getY() -1, targetBlock.getZ());
                 } else {
-                    targetBlock = util.getBedAuraDistance(west, east, north, south);
+                    targetBlock = util.beddistance(west, east, north, south);
                 }
                 if (targetBlock != null) {
                     if (targetBlock == west) {
