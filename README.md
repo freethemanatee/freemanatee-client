@@ -1,4 +1,6 @@
-# Freemanatee Client
+# freemanatee client
+
+Kami skid mostly made by zopac, the manatee owns you and all.
 
 I will not be releasing any compiled code, build it yourself its not that hard.
 
