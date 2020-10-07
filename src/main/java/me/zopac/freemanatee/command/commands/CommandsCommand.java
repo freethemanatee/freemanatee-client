@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.command.commands;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.command.syntax.SyntaxChunk;
 
@@ -17,7 +17,7 @@ public class CommandsCommand extends Command {
 
     @Override
     public void call(String[] args) {
-        KamiMod.getInstance().getCommandManager().getCommands().stream().sorted(Comparator.comparing(command -> command.getLabel())).forEach(command ->
+        manatee.getInstance().getCommandManager().getCommands().stream().sorted(Comparator.comparing(command -> command.getLabel())).forEach(command ->
             Command.sendChatMessage("&7" + Command.getCommandPrefix() + command.getLabel() + "&r ~ &8" + command.getDescription())
         );
     }

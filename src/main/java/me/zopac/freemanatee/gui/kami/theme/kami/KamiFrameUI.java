@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.gui.kami.theme.kami;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.gui.font.CFontRenderer;
 import me.zopac.freemanatee.gui.kami.*;
 import me.zopac.freemanatee.gui.rgui.component.AlignedComponent;
@@ -193,7 +193,7 @@ public class KamiFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
                 component.setDocking(Docking.NONE);
 
-                KamiGUI rootGUI = KamiMod.getInstance().getGuiManager();
+                KamiGUI rootGUI = manatee.getInstance().getGuiManager();
                 for (Component c : rootGUI.getChildren()){
                     if (c.equals(component)) continue;
 

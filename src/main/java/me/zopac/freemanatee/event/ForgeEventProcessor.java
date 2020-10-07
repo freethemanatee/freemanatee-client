@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.event;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.command.commands.PeekCommand;
 import me.zopac.freemanatee.event.events.DisplaySizeChangedEvent;
@@ -55,14 +55,14 @@ public class ForgeEventProcessor {
     @SubscribeEvent
     public void onUpdate(LivingEvent.LivingUpdateEvent event) {
         if (event.isCanceled()) return;
-//        KamiMod.EVENT_BUS.post(new UpdateEvent());
+//        manatee.EVENT_BUS.post(new UpdateEvent());
 
         if (Minecraft.getMinecraft().displayWidth != displayWidth || Minecraft.getMinecraft().displayHeight != displayHeight) {
-            KamiMod.EVENT_BUS.post(new DisplaySizeChangedEvent());
+            manatee.EVENT_BUS.post(new DisplaySizeChangedEvent());
             displayWidth = Minecraft.getMinecraft().displayWidth;
             displayHeight = Minecraft.getMinecraft().displayHeight;
 
-            KamiMod.getInstance().getGuiManager().getChildren().stream()
+            manatee.getInstance().getGuiManager().getChildren().stream()
                     .filter(component -> component instanceof Frame)
                     .forEach(component -> KamiGUI.dock((Frame) component));
         }
@@ -82,7 +82,7 @@ public class ForgeEventProcessor {
     public void onTick(TickEvent.ClientTickEvent event) {
         if (Wrapper.getPlayer() == null) return;
         ModuleManager.onUpdate();
-        KamiMod.getInstance().getGuiManager().callTick(KamiMod.getInstance().getGuiManager());
+        manatee.getInstance().getGuiManager().callTick(manatee.getInstance().getGuiManager());
             c = Color.getHSBColor(hue, 1f, 1f);
             rgb = Color.HSBtoRGB(hue, 1f, 1f);
             hue += speed / 2000f;
@@ -145,7 +145,7 @@ public class ForgeEventProcessor {
                 Wrapper.getMinecraft().ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
 
                 if (event.getMessage().length() > 1)
-                    KamiMod.getInstance().commandManager.callCommand(event.getMessage().substring(Command.getCommandPrefix().length() - 1));
+                    manatee.getInstance().commandManager.callCommand(event.getMessage().substring(Command.getCommandPrefix().length() - 1));
                 else
                     Command.sendChatMessage("Please enter a command.");
             } catch (Exception e) {
@@ -158,65 +158,65 @@ public class ForgeEventProcessor {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onPlayerDrawn(RenderPlayerEvent.Pre event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onPlayerDrawn(RenderPlayerEvent.Post event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent()
     public void onChunkLoaded(ChunkEvent.Load event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent()
     public void onChunkLoaded(ChunkEvent.Unload event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent
     public void onInputUpdate(InputUpdateEvent event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent
     public void onLivingEntityUseItemEventTick(LivingEntityUseItemEvent.Start entityUseItemEvent) {
-        KamiMod.EVENT_BUS.post(entityUseItemEvent);
+        manatee.EVENT_BUS.post(entityUseItemEvent);
     }
 
     @SubscribeEvent
     public void onLivingDamageEvent(LivingDamageEvent event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent
     public void onEntityJoinWorldEvent(EntityJoinWorldEvent entityJoinWorldEvent) {
-        KamiMod.EVENT_BUS.post(entityJoinWorldEvent);
+        manatee.EVENT_BUS.post(entityJoinWorldEvent);
     }
     @SubscribeEvent
     public void onClientChatReceivedEvent(ClientChatReceivedEvent clientChatReceivedEvent) {
-        KamiMod.EVENT_BUS.post(clientChatReceivedEvent);
+        manatee.EVENT_BUS.post(clientChatReceivedEvent);
     }
     @SubscribeEvent
     public void onPlayerPush(PlayerSPPushOutOfBlocksEvent event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent
     public void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
     @SubscribeEvent
     public void onAttackEntity(AttackEntityEvent entityEvent) {
-        KamiMod.EVENT_BUS.post(entityEvent);
+        manatee.EVENT_BUS.post(entityEvent);
     }
 
     @SubscribeEvent
     public void onRenderBlockOverlay(RenderBlockOverlayEvent event) {
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
     }
 
 }

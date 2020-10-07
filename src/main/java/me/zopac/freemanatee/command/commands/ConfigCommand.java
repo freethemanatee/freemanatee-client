@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.command.commands;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.command.syntax.ChunkBuilder;
 import me.zopac.freemanatee.command.syntax.parsers.DependantParser;
@@ -38,7 +38,7 @@ public class ConfigCommand extends Command {
                 break;
             case "save":
                 try {
-                    KamiMod.saveConfigurationUnsafe();
+                    manatee.saveConfigurationUnsafe();
                     Command.sendChatMessage("Saved configuration!");
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -47,11 +47,11 @@ public class ConfigCommand extends Command {
                 break;
             case "path":
                 if (args[1] == null) {
-                    Path file = Paths.get(KamiMod.getConfigName());
+                    Path file = Paths.get(manatee.getConfigName());
                     Command.sendChatMessage("Path to configuration: &b" + file.toAbsolutePath().toString());
                 } else {
                     String newPath = args[1];
-                    if (!KamiMod.isFilenameValid(newPath)) {
+                    if (!manatee.isFilenameValid(newPath)) {
                         Command.sendChatMessage("&b" + newPath + "&r is not a valid path");
                         break;
                     }
@@ -73,9 +73,9 @@ public class ConfigCommand extends Command {
     }
 
     private void reload() {
-        KamiMod.getInstance().guiManager = new KamiGUI();
-        KamiMod.getInstance().guiManager.initializeGUI();
-        KamiMod.loadConfiguration();
+        manatee.getInstance().guiManager = new KamiGUI();
+        manatee.getInstance().guiManager.initializeGUI();
+        manatee.loadConfiguration();
         Command.sendChatMessage("Configuration reloaded!");
     }
 

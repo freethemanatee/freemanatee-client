@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.mixin.client;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.EntityEvent;
 import me.zopac.freemanatee.module.modules.movement.SafeWalk;
 import net.minecraft.entity.Entity;
@@ -14,7 +14,7 @@ public class MixinEntity {
     @Redirect(method = "applyEntityCollision", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;addVelocity(DDD)V"))
     public void addVelocity(Entity entity, double x, double y, double z) {
         EntityEvent.EntityCollision entityCollisionEvent = new EntityEvent.EntityCollision(entity, x, y, z);
-        KamiMod.EVENT_BUS.post(entityCollisionEvent);
+        manatee.EVENT_BUS.post(entityCollisionEvent);
         if (entityCollisionEvent.isCancelled()) return;
 
         entity.motionX += x;

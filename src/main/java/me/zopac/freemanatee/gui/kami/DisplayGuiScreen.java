@@ -3,7 +3,7 @@ package me.zopac.freemanatee.gui.kami;
 
 import java.io.IOException;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.gui.rgui.component.Component;
 import me.zopac.freemanatee.gui.rgui.component.container.use.Frame;
 import me.zopac.freemanatee.util.Wrapper;
@@ -24,7 +24,7 @@ extends GuiScreen {
 
     public DisplayGuiScreen(GuiScreen lastScreen) {
         this.lastScreen = lastScreen;
-        KamiGUI gui = KamiMod.getInstance().getGuiManager();
+        KamiGUI gui = manatee.getInstance().getGuiManager();
         for (Component c : gui.getChildren()) {
             Frame child;
             if (!(c instanceof Frame) || !(child = (Frame)c).isPinneable() || !child.isVisible()) continue;
@@ -34,12 +34,12 @@ extends GuiScreen {
     }
 
     public void onGuiClosed() {
-        KamiGUI gui = KamiMod.getInstance().getGuiManager();
+        KamiGUI gui = manatee.getInstance().getGuiManager();
         gui.getChildren().stream().filter(component -> component instanceof Frame && ((Frame)component).isPinneable() && component.isVisible()).forEach(component -> component.setOpacity(0.0f));
     }
 
     public void initGui() {
-        this.gui = KamiMod.getInstance().getGuiManager();
+        this.gui = manatee.getInstance().getGuiManager();
     }
 
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {

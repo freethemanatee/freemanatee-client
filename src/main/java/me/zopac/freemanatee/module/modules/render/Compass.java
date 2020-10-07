@@ -7,9 +7,7 @@ import me.zopac.freemanatee.util.ColourUtils;
 import net.minecraft.util.math.MathHelper;
 
 @Module.Info(name="Compass", category=Module.Category.RENDER)
-
-public class Compass
-        extends Module {
+public class Compass extends Module {
 
     private Setting<Integer> scale = this.register(Settings.integerBuilder("Scale").withMinimum(0).withValue(3).withMaximum(3).build());
     private Setting<Integer> optionX = register(Settings.integerBuilder("X").withMinimum(0).withValue(400).withMaximum(2000).build());

@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.mixin.client;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.AddCollisionBoxToListEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.BlockStateContainer;
@@ -26,7 +26,7 @@ public class MixinStateImplementation {
     @Redirect(method = "addCollisionBoxToList", at = @At(value="INVOKE", target = "Lnet/minecraft/block/Block;addCollisionBoxToList(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V"))
     public void addCollisionBoxToList(Block b, IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState) {
         AddCollisionBoxToListEvent event = new AddCollisionBoxToListEvent(b, state, worldIn, pos, entityBox, collidingBoxes, entityIn, isActualState);
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
         if (!event.isCancelled())
             block.addCollisionBoxToList(state, worldIn, pos, entityBox, collidingBoxes, entityIn, isActualState);
     }

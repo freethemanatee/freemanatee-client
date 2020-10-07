@@ -21,8 +21,8 @@ import net.minecraft.item.Item;
 import java.util.Comparator;
 import java.util.List;
 
-@Module.Info(name = "BedAuraRewrite", category = Module.Category.COMBAT)
-public class BedAuraRewrite extends Module {
+@Module.Info(name = "BedBombRewrite", category = Module.Category.COMBAT)
+public class BedBombRewrite extends Module {
 
     private Setting<Boolean> announceusage;
     private Setting<Boolean> autobedswitch;
@@ -34,7 +34,7 @@ public class BedAuraRewrite extends Module {
 
     BlockPos target;
 
-    public BedAuraRewrite() {
+    public BedBombRewrite() {
 
         this.antiSuicideHlth = this.register((Setting<Integer>) Settings.integerBuilder("Anti Suicide Health").withMinimum(0).withMaximum(36).withValue(16).withVisibility(b -> antiSuicide.getValue()).build());
         this.range = register(Settings.integerBuilder("Range").withMinimum(0).withMaximum(10).withValue(6));
@@ -82,13 +82,13 @@ public class BedAuraRewrite extends Module {
             switchHandToItemIfNeed(ItemBlock.getItemById(355));
         }
         if (announceusage.getValue()) {
-            Command.sendChatMessage("BedAuraRewrite" + ChatFormatting.GREEN.toString() + " Enabled");
+            Command.sendChatMessage("BedBombRewrite" + ChatFormatting.GREEN.toString() + " Enabled");
         }
     }
     @Override
     public void onDisable() {
         if (announceusage.getValue()) {
-            Command.sendChatMessage("BedAuraRewrite" + ChatFormatting.RED.toString() + " Disabled");
+            Command.sendChatMessage("BedBombRewrite" + ChatFormatting.RED.toString() + " Disabled");
         }
     }
     private void placeBlock(BlockPos pos, EnumFacing side) {

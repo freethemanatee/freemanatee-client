@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.util;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import net.minecraft.client.Minecraft;
 import net.minecraft.launchwrapper.LogWrapper;
 import net.minecraft.network.play.client.CPacketChatMessage;
@@ -12,23 +12,23 @@ import java.util.regex.Pattern;
 
 public class MessageSendHelper {
     public static void sendChatMessage(String message) {
-        sendRawChatMessage("&7[&9" + KamiMod.NAME_UNICODE + "&7] &r" + message);
+        sendRawChatMessage("&7[&9" + manatee.NAME_UNICODE + "&7] &r" + message);
     }
 
     public static void sendWarningMessage(String message) {
-        sendRawChatMessage("&7[&6" + KamiMod.NAME_UNICODE + "&7] &r" + message);
+        sendRawChatMessage("&7[&6" + manatee.NAME_UNICODE + "&7] &r" + message);
     }
 
     public static void sendErrorMessage(String message) {
-        sendRawChatMessage("&7[&4" + KamiMod.NAME_UNICODE + "&7] &r" + message);
+        sendRawChatMessage("&7[&4" + manatee.NAME_UNICODE + "&7] &r" + message);
     }
 
     public static void sendDisableMessage(String message) {
-        sendRawChatMessage("&7[&4" + KamiMod.NAME_UNICODE + "&7] &r" + message);
+        sendRawChatMessage("&7[&4" + manatee.NAME_UNICODE + "&7] &r" + message);
     }
 
     public static void sendCustomMessage(String message, String colour) {
-        sendRawChatMessage("&7[" + colour + KamiMod.NAME_UNICODE + "&7] &r" + message);
+        sendRawChatMessage("&7[" + colour + manatee.NAME_UNICODE + "&7] &r" + message);
     }
 
     public static void sendStringChatMessage(String[] messages) {

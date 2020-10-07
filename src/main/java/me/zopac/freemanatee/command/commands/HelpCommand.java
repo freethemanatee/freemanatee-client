@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.command.commands;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.command.syntax.SyntaxChunk;
 import me.zopac.freemanatee.module.ModuleManager;
@@ -41,7 +41,7 @@ public class HelpCommand extends Command {
     public void call(String[] args) {
         if (args[0] == null) {
             Command.sendStringChatMessage(new String[]{
-                    "#freemanatee " + KamiMod.MODVER,
+                    "#freemanatee " + manatee.MODVER,
                     "&7Press &r" + ModuleManager.getModuleByName("ClickGUI").getBindName() + "&7 to open GUI",
                     "commands&7 to view all available commands",
                     "bind <module> <key>&7 to bind mods",

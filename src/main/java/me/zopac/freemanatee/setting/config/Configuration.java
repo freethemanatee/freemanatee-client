@@ -1,7 +1,7 @@
 package me.zopac.freemanatee.setting.config;
 
 import com.google.gson.*;
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.SettingsRegister;
 import me.zopac.freemanatee.setting.converter.Convertable;
@@ -55,7 +55,7 @@ public class Configuration {
         try {
             loadConfiguration(new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject());
         } catch (IllegalStateException e) { // The JSON file is probably malformed.
-            KamiMod.log.error("KAMI Config malformed: resetting.");
+            manatee.log.error("KAMI Config malformed: resetting.");
             loadConfiguration(new JsonObject()); // Just reset it!
         }
     }

@@ -3,7 +3,7 @@ package me.zopac.freemanatee.module;
 import com.google.common.base.Converter;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.RenderEvent;
 import me.zopac.freemanatee.setting.Setting;
 import me.zopac.freemanatee.setting.Settings;
@@ -139,14 +139,14 @@ public class Module {
         enabled.setValue(true);
         onEnable();
         if (!alwaysListening)
-            KamiMod.EVENT_BUS.subscribe(this);
+            manatee.EVENT_BUS.subscribe(this);
     }
 
     public void disable() {
         enabled.setValue(false);
         onDisable();
         if (!alwaysListening)
-            KamiMod.EVENT_BUS.unsubscribe(this);
+            manatee.EVENT_BUS.unsubscribe(this);
     }
 
     public boolean isDisabled() {
@@ -172,8 +172,8 @@ public class Module {
 
     protected final void setAlwaysListening(boolean alwaysListening) {
         this.alwaysListening = alwaysListening;
-        if (alwaysListening) KamiMod.EVENT_BUS.subscribe(this);
-        if (!alwaysListening && isDisabled()) KamiMod.EVENT_BUS.unsubscribe(this);
+        if (alwaysListening) manatee.EVENT_BUS.subscribe(this);
+        if (!alwaysListening && isDisabled()) manatee.EVENT_BUS.unsubscribe(this);
     }
 
     public boolean isShowOnArray() {

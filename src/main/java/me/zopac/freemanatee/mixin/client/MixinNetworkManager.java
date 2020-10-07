@@ -1,7 +1,7 @@
 package me.zopac.freemanatee.mixin.client;
 
 import io.netty.channel.ChannelHandlerContext;
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.PacketEvent;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -16,7 +16,7 @@ public class MixinNetworkManager {
     @Inject(method = "sendPacket(Lnet/minecraft/network/Packet;)V", at = @At("HEAD"), cancellable = true)
     private void onSendPacket(Packet<?> packet, CallbackInfo callbackInfo) {
         PacketEvent event = new PacketEvent.Send(packet);
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
 
         if (event.isCancelled()) {
             callbackInfo.cancel();
@@ -26,7 +26,7 @@ public class MixinNetworkManager {
     @Inject(method = "channelRead0", at = @At("HEAD"), cancellable = true)
     private void onChannelRead(ChannelHandlerContext context, Packet<?> packet, CallbackInfo callbackInfo) {
         PacketEvent event = new PacketEvent.Receive(packet);
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
 
         if (event.isCancelled()) {
             callbackInfo.cancel();

@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.module;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.RenderEvent;
 import me.zopac.freemanatee.module.modules.ClickGUI;
 import me.zopac.freemanatee.util.ClassFinder;
@@ -54,7 +54,7 @@ public class ModuleManager {
                 System.err.println("Couldn't initiate module " + aClass.getSimpleName() + "! Err: " + e.getClass().getSimpleName() + ", message: " + e.getMessage());
             }
         });
-        KamiMod.log.info("Modules initialised");
+        manatee.log.info("Modules initialised");
         getModules().sort(Comparator.comparing(Module::getName));
     }
 

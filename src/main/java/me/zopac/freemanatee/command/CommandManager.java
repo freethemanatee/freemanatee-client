@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.command;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.commands.BindCommand;
 import me.zopac.freemanatee.util.ClassFinder;
 
@@ -28,7 +28,7 @@ public class CommandManager {
 				}
 			}
 		}
-		KamiMod.log.info("Commands initialised");
+		manatee.log.info("Commands initialised");
 	}
 
 	public void callCommand(String command){

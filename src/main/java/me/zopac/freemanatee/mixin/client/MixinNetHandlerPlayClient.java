@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.mixin.client;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.ChunkEvent;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.play.server.SPacketChunkData;
@@ -18,7 +18,7 @@ public class MixinNetHandlerPlayClient {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/chunk/Chunk;read(Lnet/minecraft/network/PacketBuffer;IZ)V"),
             locals = LocalCapture.CAPTURE_FAILHARD)
     private void read(SPacketChunkData data, CallbackInfo info, Chunk chunk) {
-        KamiMod.EVENT_BUS.post(new ChunkEvent(chunk, data));
+        manatee.EVENT_BUS.post(new ChunkEvent(chunk, data));
     }
 
 }

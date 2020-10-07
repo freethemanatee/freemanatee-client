@@ -2,7 +2,7 @@ package me.zopac.freemanatee.module.modules.chat;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.GuiScreenEvent;
 import me.zopac.freemanatee.event.events.PacketEvent;
 import me.zopac.freemanatee.module.Module;
@@ -92,7 +92,7 @@ public class Announcer extends Module {
         if (playerdeath.getValue() && event.getScreen() instanceof GuiGameOver) {
             String message;
             if (clientName.getValue()) {
-                message = "I ded ;( thanks to " + KamiMod.MODNAME + "!";
+                message = "I ded ;( thanks to " + manatee.MODNAME + "!";
             } else {
                 message = "I ded ;(";
             }
@@ -114,7 +114,7 @@ public class Announcer extends Module {
         if (event.getPacket() instanceof SPacketUseBed) {
             String message;
             if (clientName.getValue()) {
-                message = "I used a Bed, thanks to " + KamiMod.MODNAME + "!";
+                message = "I used a Bed, thanks to " + manatee.MODNAME + "!";
             } else {
                 message = "I used a Bed!";
             }
@@ -162,7 +162,7 @@ public class Announcer extends Module {
         } else if (items.getValue() && event.getPacket() instanceof CPacketUpdateSign) {
             String message;
             if (clientName.getValue()) {
-                message = "I placed a Sign, thanks to " + KamiMod.MODNAME + "!";
+                message = "I placed a Sign, thanks to " + manatee.MODNAME + "!";
             } else {
                 message = "I placed a Sign!";
             }
@@ -268,7 +268,7 @@ public class Announcer extends Module {
         }
         String suffix;
         if (clientName.getValue()) {
-            suffix = ", thanks to " + KamiMod.MODNAME + "!";
+            suffix = ", thanks to " + manatee.MODNAME + "!";
         } else {
             suffix = "!";
         }
@@ -311,7 +311,7 @@ public class Announcer extends Module {
     private void composeEventData() {
         String suffix;
         if (clientName.getValue()) {
-            suffix = ", thanks to " + KamiMod.MODNAME + "!";
+            suffix = ", thanks to " + manatee.MODNAME + "!";
         } else {
             suffix = "!";
         }

@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.util;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.gui.kami.KamiGUI;
 import me.zopac.freemanatee.gui.rgui.component.container.use.Frame;
 import me.zopac.freemanatee.gui.rgui.util.ContainerHelper;
@@ -16,7 +16,7 @@ import java.util.List;
 public class GuiFrameUtil {
     // This is bad, but without a rearchitecture, it's probably staying... - 20kdc and S-B99
     public static Frame getFrameByName(String name) {
-        KamiGUI kamiGUI = KamiMod.getInstance().getGuiManager();
+        KamiGUI kamiGUI = manatee.getInstance().getGuiManager();
         if (kamiGUI == null)
             return null;
         List<Frame> frames = ContainerHelper.getAllChildren(Frame.class, kamiGUI);
@@ -38,7 +38,7 @@ public class GuiFrameUtil {
     }
 
     public static void fixFrames(Minecraft mc) {
-        KamiGUI kamiGUI = KamiMod.getInstance().getGuiManager();
+        KamiGUI kamiGUI = manatee.getInstance().getGuiManager();
         if (kamiGUI == null || mc.player == null) return;
         List<Frame> frames = ContainerHelper.getAllChildren(Frame.class, kamiGUI);
         for (Frame frame : frames) {

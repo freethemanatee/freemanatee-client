@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.gui.mc;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.command.syntax.SyntaxChunk;
 import net.minecraft.client.gui.GuiChat;
@@ -66,7 +66,7 @@ public class KamiGuiChat extends GuiChat {
 
         if (args.length == 0) return; // Hell naw!
 
-        for (Command c : KamiMod.getInstance().getCommandManager().getCommands()) {
+        for (Command c : manatee.getInstance().getCommandManager().getCommands()) {
             if ((c.getLabel().startsWith(args[0]) && !line.endsWith(" ")) || c.getLabel().equals(args[0])) {
                 options.put(c.getLabel(), c);
             }

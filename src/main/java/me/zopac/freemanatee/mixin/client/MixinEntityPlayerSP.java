@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.mixin.client;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.PlayerMoveEvent;
 import me.zopac.freemanatee.module.ModuleManager;
 import net.minecraft.client.Minecraft;
@@ -13,6 +13,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Created by 086 on 12/12/2017.
+ */
 @Mixin(EntityPlayerSP.class)
 public class MixinEntityPlayerSP {
 
@@ -33,7 +36,7 @@ public class MixinEntityPlayerSP {
 //        double y = args.get(2);
 //        double z = args.get(3);
 //        PlayerMoveEvent event = new PlayerMoveEvent(type, x, y, z);
-//        KamiMod.EVENT_BUS.post(event);
+//        manatee.EVENT_BUS.post(event);
 //        if (event.isCancelled()) {
 //            x = y = z = 0;
 //        } else {
@@ -49,7 +52,7 @@ public class MixinEntityPlayerSP {
     @Inject(method = "move", at = @At("HEAD"), cancellable = true)
     public void move(MoverType type, double x, double y, double z, CallbackInfo info) {
         PlayerMoveEvent event = new PlayerMoveEvent(type, x, y, z);
-        KamiMod.EVENT_BUS.post(event);
+        manatee.EVENT_BUS.post(event);
         if (event.isCancelled()) info.cancel();
     }
 

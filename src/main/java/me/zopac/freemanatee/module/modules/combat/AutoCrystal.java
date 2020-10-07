@@ -3,7 +3,7 @@ package me.zopac.freemanatee.module.modules.combat;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.event.events.PacketEvent;
 import me.zopac.freemanatee.event.events.RenderEvent;
@@ -155,7 +155,7 @@ public class AutoCrystal extends Module {
                             this.lookAtPacket(crystal.posX, crystal.posY + this.breakYOffset.getValue(), crystal.posZ, (EntityPlayer) mc.player);
                             this.breakSystemTime = System.nanoTime() / 1000000L;
                             doBreak();
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
+                            manatee.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
                     } else if (calculateDamage(crystal, mc.player) <= selfProtectThreshold.getValue()) {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
@@ -163,7 +163,7 @@ public class AutoCrystal extends Module {
                             mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
                             doBreak();
                             this.breakSystemTime = System.nanoTime() / 1000000L;
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
+                            manatee.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
                     }
                 }
@@ -175,7 +175,7 @@ public class AutoCrystal extends Module {
                             mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
                             doBreak();
                             this.breakSystemTime = System.nanoTime() / 1000000L;
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
+                            manatee.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
                     } else if (!this.selfProtect.getValue()) {
                         if (System.nanoTime() / 1000000L - this.breakSystemTime >= this.msBreakDelay.getValue()) {
@@ -183,7 +183,7 @@ public class AutoCrystal extends Module {
                             mc.playerController.attackEntity((EntityPlayer) mc.player, (Entity) crystal);
                             doBreak();
                             this.breakSystemTime = System.nanoTime() / 1000000L;
-                            KamiMod.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
+                            manatee.log.info("Crystal Broken at " + crystal.posX + ", " + crystal.posY + ", " + crystal.posZ + "!");
                         }
                     }
                 }
@@ -296,7 +296,7 @@ public class AutoCrystal extends Module {
             if (System.nanoTime() / 1000000L - this.placeSystemTime >= this.msPlaceDelay.getValue()) {
                 mc.player.connection.sendPacket((Packet) new CPacketPlayerTryUseItemOnBlock(finalPos, f, offhand ? EnumHand.OFF_HAND : EnumHand.MAIN_HAND, 0.0f, 0.0f, 0.0f));
                 this.placeSystemTime = System.nanoTime() / 1000000L;
-                KamiMod.log.info("Crystal Placed!");
+                manatee.log.info("Crystal Placed!");
             }
         }
         if (isSpoofingAngles) {

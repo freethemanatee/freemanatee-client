@@ -47,19 +47,18 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Optional;
 
-@Mod(modid = KamiMod.MODID, name = KamiMod.MODNAME, version = KamiMod.MODVER)
-public class KamiMod {
+@Mod(modid = manatee.MODID, name = manatee.MODNAME, version = manatee.MODVER)
+public class manatee {
 
     public static final String MODID = "freemanatee utility mod";
 
     public static final String MODNAME = "freemanatee utility mod";
 
-    public static final String MODVER = "2.4";
+    public static final String MODVER = "2.5";
 
     public static final String NAME_UNICODE = "\u1d0d\u1d00\u0274\u1d00\u1d1b\u1d07\u1d07";
 
     public static final char colour = '\u00A7';
-    public static final char separator = '\u23d0';
 
     private static final String KAMI_CONFIG_NAME_DEFAULT = "freemanatee.json";
     public static final Logger log = LogManager.getLogger("freemanatee utility mod");
@@ -67,7 +66,7 @@ public class KamiMod {
     public static final EventBus EVENT_BUS = new EventManager();
 
     @Mod.Instance
-    private static KamiMod INSTANCE;
+    private static manatee INSTANCE;
 
     public KamiGUI guiManager;
     public CommandManager commandManager;
@@ -113,7 +112,7 @@ public class KamiMod {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        KamiMod.log.info("\n\nInitializing freemanatee utility mod " + MODVER);
+        manatee.log.info("\n\nInitializing freemanatee utility mod " + MODVER);
 
         ModuleManager.initialize();
 
@@ -134,14 +133,14 @@ public class KamiMod {
         Friends.initFriends();
         SettingsRegister.register("commandPrefix", Command.commandPrefix);
         loadConfiguration();
-        KamiMod.log.info("Settings loaded");
+        manatee.log.info("Settings loaded");
 
         ModuleManager.updateLookup(); // generate the lookup table after settings are loaded to make custom module names work
 
         // After settings loaded, we want to let the enabled modules know they've been enabled (since the setting is done through reflection)
         ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
 
-        KamiMod.log.info("freemanatee utility mod Mod initialized!\n");
+        manatee.log.info("freemanatee utility mod Mod initialized!\n");
     }
 
     public static String getConfigName() {
@@ -177,9 +176,9 @@ public class KamiMod {
         Configuration.loadConfiguration(kamiConfig);
         ModuleManager.getModules().forEach(Module::destroy);
 
-        JsonObject gui = KamiMod.INSTANCE.guiStateSetting.getValue();
+        JsonObject gui = manatee.INSTANCE.guiStateSetting.getValue();
         for (Map.Entry<String, JsonElement> entry : gui.entrySet()) {
-            Optional<Component> optional = KamiMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
+            Optional<Component> optional = manatee.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
             if (optional.isPresent()) {
                 JsonObject object = entry.getValue().getAsJsonObject();
                 Frame frame = (Frame) optional.get();
@@ -196,7 +195,7 @@ public class KamiMod {
                 System.err.println("Found GUI config entry for " + entry.getKey() + ", but found no frame with that name");
             }
         }
-        KamiMod.getInstance().getGuiManager().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
+        manatee.getInstance().getGuiManager().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
     }
 
     public static void saveConfiguration() {
@@ -209,7 +208,7 @@ public class KamiMod {
 
     public static void saveConfigurationUnsafe() throws IOException {
         JsonObject object = new JsonObject();
-        KamiMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
+        manatee.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
             JsonObject frameObject = new JsonObject();
             frameObject.add("x", new JsonPrimitive(frame.getX()));
             frameObject.add("y", new JsonPrimitive(frame.getY()));
@@ -218,7 +217,7 @@ public class KamiMod {
             frameObject.add("pinned", new JsonPrimitive(frame.isPinned()));
             object.add(frame.getTitle(), frameObject);
         });
-        KamiMod.INSTANCE.guiStateSetting.setValue(object);
+        manatee.INSTANCE.guiStateSetting.setValue(object);
 
         Path outputFile = Paths.get(getConfigName());
         if (!Files.exists(outputFile))
@@ -239,7 +238,7 @@ public class KamiMod {
 
     public static boolean verified = false;
 
-    public static KamiMod getInstance() {
+    public static manatee getInstance() {
         return INSTANCE;
     }
 

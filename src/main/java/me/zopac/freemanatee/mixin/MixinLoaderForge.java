@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.mixin;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.mixin.MixinEnvironment;
@@ -13,11 +13,11 @@ public class MixinLoaderForge implements IFMLLoadingPlugin {
     private static boolean isObfuscatedEnvironment = true;
 
     public MixinLoaderForge() {
-        KamiMod.log.info("KAMI mixins initialized");
+        manatee.log.info("KAMI mixins initialized");
         MixinBootstrap.init();
         Mixins.addConfiguration("mixins.kami.json");
         MixinEnvironment.getDefaultEnvironment().setObfuscationContext("searge");
-        KamiMod.log.info(MixinEnvironment.getDefaultEnvironment().getObfuscationContext());
+        manatee.log.info(MixinEnvironment.getDefaultEnvironment().getObfuscationContext());
     }
 
     @Override

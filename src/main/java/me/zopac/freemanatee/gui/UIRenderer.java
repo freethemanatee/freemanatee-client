@@ -1,6 +1,6 @@
 package me.zopac.freemanatee.gui;
 
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.gui.kami.DisplayGuiScreen;
 import me.zopac.freemanatee.gui.kami.KamiGUI;
 import me.zopac.freemanatee.gui.rgui.component.Component;
@@ -14,7 +14,7 @@ public class UIRenderer {
 	
 	public static void renderAndUpdateFrames(){
 	    if (Wrapper.getMinecraft().currentScreen instanceof DisplayGuiScreen || Wrapper.getMinecraft().gameSettings.showDebugInfo) return;
-		KamiGUI gui = KamiMod.getInstance().getGuiManager();
+		KamiGUI gui = manatee.getInstance().getGuiManager();
 
         GL11.glDisable(GL11.GL_TEXTURE_2D);
 		for (Component c : gui.getChildren()){

@@ -2,7 +2,7 @@ package me.zopac.freemanatee.util;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.event.events.PacketEvent;
 import net.minecraft.network.play.server.SPacketTimeUpdate;
 import net.minecraft.util.math.MathHelper;
@@ -26,7 +26,7 @@ public class LagCompensator implements EventListener {
     });
 
     public LagCompensator() {
-        KamiMod.EVENT_BUS.subscribe(this);
+        manatee.EVENT_BUS.subscribe(this);
         reset();
     }
 

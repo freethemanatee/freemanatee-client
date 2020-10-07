@@ -18,7 +18,6 @@ import javax.annotation.Nonnull;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
-import me.zopac.freemanatee.KamiMod;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.gui.font.CFontRenderer;
 import me.zopac.freemanatee.gui.rgui.GUI;
@@ -32,7 +31,6 @@ import me.zopac.freemanatee.gui.rgui.render.theme.Theme;
 import me.zopac.freemanatee.gui.rgui.util.ContainerHelper;
 import me.zopac.freemanatee.gui.rgui.util.Docking;
 import me.zopac.freemanatee.gui.kami.component.ActiveModules;
-import me.zopac.freemanatee.gui.kami.component.Radar;
 import me.zopac.freemanatee.gui.kami.component.SettingsPanel;
 import me.zopac.freemanatee.gui.kami.theme.kami.KamiTheme;
 import me.zopac.freemanatee.module.Module;
@@ -58,8 +56,6 @@ import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.entity.projectile.EntityWitherSkull;
 import net.minecraft.util.text.TextFormatting;
-
-import static me.zopac.freemanatee.util.InfoCalculator.cardinalToAxis;
 
 public class KamiGUI extends GUI {
 

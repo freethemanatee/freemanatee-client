@@ -2,7 +2,7 @@ package me.zopac.freemanatee.module.modules.chat;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
-import me.zopac.freemanatee.KamiMod;
+import me.zopac.freemanatee.manatee;
 import me.zopac.freemanatee.command.Command;
 import me.zopac.freemanatee.event.events.PacketEvent;
 import me.zopac.freemanatee.event.events.TotemPopEvent;
@@ -73,7 +73,7 @@ public class TotemPopCounter extends Module {
             SPacketEntityStatus packet = (SPacketEntityStatus) event.getPacket();
             if (packet.getOpCode() == 35) {
                 Entity entity = packet.getEntity(mc.world);
-                KamiMod.EVENT_BUS.post(new TotemPopEvent(entity));
+                manatee.EVENT_BUS.post(new TotemPopEvent(entity));
             }
         }
 
