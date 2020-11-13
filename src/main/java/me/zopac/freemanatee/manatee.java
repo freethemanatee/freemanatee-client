@@ -82,34 +82,7 @@ public class manatee {
             return jsonObject;
         }
     }).buildAndRegister("");
-
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        final String var0 = String.valueOf(System.getenv("os")) + System.getProperty("os.name") + System.getProperty("os.arch") + System.getProperty("os.version") + System.getProperty("user.language") + System.getenv("SystemRoot") + System.getenv("HOMEDRIVE") + System.getenv("PROCESSOR_LEVEL") + System.getenv("PROCESSOR_REVISION") + System.getenv("PROCESSOR_IDENTIFIER") + System.getenv("PROCESSOR_ARCHITECTURE") + System.getenv("PROCESSOR_ARCHITEW6432") + System.getenv("NUMBER_OF_PROCESSORS");
-        final String sha512hex = DigestUtils.sha512Hex(var0);
-        final String key = DigestUtils.sha512Hex(sha512hex);
-        try {
-            String fuck = "https://raw.githubusercontent.com/notzopac/manatee-stuff/master/hwids.txt";
-            URL pastebin = new URL(fuck.toString());
-            BufferedReader in = new BufferedReader(new InputStreamReader(pastebin.openStream()));
-            String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                if (inputLine.equalsIgnoreCase(key))
-                    verified = true;
-            }
-            if (!verified) {
-                JOptionPane.showMessageDialog(null, "Your key has been copied to your clipboard, please message zopac/freemanatee#7735 the string of numbers.");
-                StringSelection stringSelection = new StringSelection(key);
-                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                clipboard.setContents(stringSelection, null);
-                System.out.println("manatee is no");
-            }
-        } catch (Exception exception) {}
-        if (!verified) {
-            Runtime.getRuntime().halt(0);
-        }
-    }
-
+    
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         manatee.log.info("\n\nInitializing freemanatee utility mod " + MODVER);
